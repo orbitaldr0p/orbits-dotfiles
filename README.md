@@ -1,3 +1,8 @@
 # orbits-dotfiles
-The dotfiles of an absolute idiot.
+The dotfiles of a moron.
 Not sure how you got here but don't use them, they're shit.
+Don't expect any documentation any time soon, this is for me only.
+
+# Themes
+## Nord
+![Image](/Stuff/Nord-Preview.png)
