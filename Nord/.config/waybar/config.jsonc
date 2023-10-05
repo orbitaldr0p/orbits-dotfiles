@@ -1,11 +1,11 @@
 {
   "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["custom/arch", "cpu", "temperature", "memory", "hyprland/workspaces"],
+    "modules-left": ["custom/power", "cpu", "temperature", "memory", "hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray"],
 
-    "custom/arch": {
+    "custom/power": {
       "format": "󰐥",
       "tooltip": false,
       "on-click": "wlogout"
