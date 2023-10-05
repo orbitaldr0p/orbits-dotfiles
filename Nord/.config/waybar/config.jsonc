@@ -56,23 +56,23 @@
 
     "backlight": {
       "device": "intel_backlight",
-      "format": "{icon} {percent}%",
-      "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+      "format": "{icon}  {percent}%",
+      "format-icons": ["", "", " ", "", "", "", "", "", ""]
     },
     "pulseaudio": {
-      "format": "{icon} {volume}%",
+      "format": "{icon}   {volume}%",
       "format-muted": "",
       "tooltip": false,
       "format-icons": {
-        "headphone": " ",
-        "default": ["  ", "  ", "󰕾  ", "󰕾  ", "󰕾  ", "  ", "  ", "  "]
+        "headphone": "",
+        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
       "scroll-step": 1,
       "on-click": "pavucontrol"
 
     },
     "bluetooth": {
-      "format": "  {status}",
+      "format": " {status}",
       "format-disabled": "", // an empty format will hide the module
       "format-connected": " {num_connections}",
       "tooltip-format": "{device_enumerate}",
@@ -82,11 +82,16 @@
     "network": {
       //"interface": "wlo1",
       "format": "{ifname}",
-      "format-wifi": "    {essid}",
-      "format-ethernet": "{ipaddr}/{cidr} 󰈀  ",
-      "format-disconnected": "󰖪    No Network",
+      "format-wifi": "{icon}  {essid}",
+      "format-ethernet": "{ipaddr}/{cidr}  {icon}",
+      "format-disconnected": "{icon}  No Network",
       "tooltip": false,
-      "on-click": "nm-connection-editor"
+      "on-click": "nm-connection-editor",
+      "format-icons": {
+        "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "ethernet": "󰈀",
+        "disconnected": "󰤮"
+      },
     },
     "battery": {
       "interval": 1,
