@@ -30,8 +30,8 @@
     "cpu": {
       "interval": "1",      
       "format": "  {avg_frequency}GHz | {usage}%",
-      //"max-length": 14,
-      //"min-length": 14,
+      "max-length": 14,
+      "min-length": 14,
       "on-click": "kitty -e htop --sort-key PERCENT_CPU"
     },
 
@@ -57,8 +57,12 @@
     "backlight": {
       "device": "intel_backlight",
       "format": "{icon}  {percent}%",
-      "format-icons": ["", "", " ", "", "", "", "", "", ""]
+      "format-icons": ["", "", " ", "", "", "", "", "", ""],
+      "max-length": 6.5,
+      "min-length": 6.5,
+      "scroll-step": 5
     },
+
     "pulseaudio": {
       "format": "{icon}   {volume}%",
       "format-muted": "",
@@ -67,7 +71,9 @@
         "headphone": "",
         "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
       },
-      "scroll-step": 1,
+      "scroll-step": 5,
+      "max-length": 6.5,
+      "min-length": 6.5,
       "on-click": "pavucontrol"
 
     },
@@ -98,6 +104,8 @@
       "format": "{icon} {capacity}%",
       "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
       "format-charging": "󰂄 {capacity}%",
+      "max-length": 6,
+      "min-length": 6,
       "tooltip": false
     },
     "tray": {
