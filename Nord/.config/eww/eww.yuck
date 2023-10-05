@@ -1,1 +1,22 @@
-(include "./PowerMenu/PowerMenu.yuck")
+(defpoll time :interval "1s" `date +'{"hour":"%H","min":"%M"}'`)
+    
+(defpoll net :interval "1s" `nmcli -t -f SIGNAL,ACTIVE device wifi \ | awk -F':' '{if($2=="yes")print$1}'`)
+
+
+
+(
+    defwindow example
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "0.5%"
+                        :width "95%"
+                        :height "3.5%"
+                        :anchor "top center")
+    :stacking "fg"
+    :reserve (struts :distance "40px" :side "top")
+    :windowtype "dock"
+    :exclusive true
+    :wm-ignore true
+"example content"
+)
+
