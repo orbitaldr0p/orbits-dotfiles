@@ -12,11 +12,22 @@
     },
     
     "hyprland/workspaces": {
-      //"format": "{name}",
       "format": "{icon}",
       "tooltip": false,
-      "all-outputs": true,
+      "all-outputs": false,
+      "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": []
+      },
       "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
         "active": "",
         "default": ""
       }
@@ -32,7 +43,7 @@
       "format": "  {avg_frequency}GHz | {usage}%",
       "max-length": 14,
       "min-length": 14,
-      "on-click": "kitty -e htop --sort-key PERCENT_CPU"
+      "on-click": "kitty -e btop"
     },
 
     "temperature": {
@@ -97,7 +108,7 @@
         "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
         "ethernet": "󰈀",
         "disconnected": "󰤮"
-      },
+      }
     },
     "battery": {
       "interval": 1,
