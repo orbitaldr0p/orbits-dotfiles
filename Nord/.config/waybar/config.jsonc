@@ -60,7 +60,7 @@
 
     "memory": {
       "interval": 1,
-      "format": "󰘚 {}%",
+      "format": "󰘚 {percentage}%",
       "format-alt":"  {used:0.1f}G",
       "max-length": 10
     },
