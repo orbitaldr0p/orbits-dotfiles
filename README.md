@@ -5,4 +5,11 @@ Don't expect any documentation any time soon, this is for me only.
 
 # Themes
 ## Nord
+- WM: Hyprland
+- Terminal: Kitty
+- Shell: Fish
+- Bar: Waybar
+- Logout: Wlogout
+- Notification Daemon: Mako
+- Launcher: Fuzzel
 ![Image](/Stuff/Nord-Preview.png)
