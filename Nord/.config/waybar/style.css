@@ -42,6 +42,7 @@ window#waybar {
   padding-left: 10px;
   padding-right: 10px;
   margin-right: 15px;
+  
 }
 
 #backlight, #bluetooth, #cpu {
