@@ -1,0 +1,1 @@
+import { Hyprland, Widget, Utils, Notifications, Mpris, Audio, Battery, SystemTray} from '../../misc/imports.js';
