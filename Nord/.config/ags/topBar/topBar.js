@@ -1,5 +1,5 @@
 // importing 
-import { Hyprland, Widget, Utils, Notifications, Mpris, Audio, Battery, SystemTray} from '../misc/imports.js';
+import { Widget } from '../misc/imports.js';
 import workspace from './Parts/workspace.js';
 import clock from './Parts/clock.js';
 import notifications from './Parts/notifications.js';
@@ -7,9 +7,6 @@ import media from './Parts/media.js';
 import volume from './Parts/volume.js';
 import power from './Parts/power.js';
 import sysTray from './Parts/sysTray.js';
-
-
-
 
 // layout of the bar
 const Left = () => Widget.Box({
