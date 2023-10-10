@@ -3,7 +3,7 @@
     "output": ["eDP-1"],
     "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray"],
+    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray", "custom/swaync"],
 
     "custom/power": {
       "format": "󰐥",
@@ -23,13 +23,13 @@
         "5": []
       },
       "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "",
-        "active": "",
-        "default": ""
+        "1": "󰆢",
+        "2": "󰆢",
+        "3": "󰆢",
+        "4": "󰆢",
+        "5": "󰆢",
+        "active": "",
+        "default": "󰆢"
       }
     },
 
@@ -121,6 +121,14 @@
       "min-length": 6,
       "tooltip": false
     },
+
+    "custom/swaync": {
+			"format": "󰂚",
+			"on-click": "sleep 0.1; swaync-client -t -sw",
+			"tooltip": false,
+      "maxlength": 2
+		},
+
     "tray": {
       //"icon-size": 20,
       "spacing": 10

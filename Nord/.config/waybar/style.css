@@ -7,12 +7,12 @@
 }
 
 window#waybar {
-  background: rgba(46, 52, 64, 0.5);
-  /*background: transparent;*/
+  /*background: rgba(46, 52, 64, 0.5);*/
+  background: transparent;
 }
 
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-power, #workspaces {
-  border-radius: 4px;
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-power, #workspaces, #custom-swaync {
+  border-radius: 3px;
   background-color: #434c5e;
   color: #cdd6f4;
   margin-top: 5px;
@@ -33,7 +33,7 @@ window#waybar {
 }
 
 #workspaces {
-  padding-top: 4;
+  padding-top: 2.5;
 }
 
 #workspaces button {
@@ -68,4 +68,8 @@ window#waybar {
 #clock {
   margin-right: 0;
   margin-left: 0;
+}
+
+#custom-swaync {
+  padding-right: 12.5px;
 }
