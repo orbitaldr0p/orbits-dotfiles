@@ -1,7 +1,7 @@
 {
   "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces"],
+    "modules-left": ["custom/power", "custom/pywal", "cpu", "memory", "hyprland/workspaces"],
     "modules-center": ["clock"],
     "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray", "custom/swaync"],
 
@@ -125,6 +125,13 @@
     "custom/swaync": {
 			"format": "󰂚",
 			"on-click": "sleep 0.1; swaync-client -t -sw",
+			"tooltip": false,
+      "maxlength": 2
+		},
+
+    "custom/pywal": {
+			"format": "󱠓",
+			"on-click": ".config/scripts/PywalSwitcher.sh & disown",
 			"tooltip": false,
       "maxlength": 2
 		},

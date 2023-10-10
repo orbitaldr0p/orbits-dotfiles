@@ -11,7 +11,7 @@ window#waybar {
   background: transparent;
 }
 
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-power, #workspaces, #custom-swaync {
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-power, #workspaces, #custom-swaync, #custom-pywal {
   border-radius: 3px;
   background-color: #434c5e;
   color: #cdd6f4;
@@ -31,6 +31,14 @@ window#waybar {
 	margin-left: 15px;
   padding-right: 11px;
 }
+
+#custom-pywal {
+  background-color: #434c5e;
+  color: #cdd6f4;
+  font-size: 20px;
+  padding-right: 11px;
+}
+
 
 #workspaces {
   padding-top: 2.5;
