@@ -3,23 +3,26 @@
   font-family: 'Baloo 2';
   font-size: 15px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 30px;
+  min-height: 25px;
 }
 
 window#waybar {
-  background: transparent;
+  background: rgba(46, 52, 64, 0.5);
+  /*background: transparent;*/
 }
 
-#custom-power, #workspaces {
-  border-radius: 10px;
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-power, #workspaces {
+  border-radius: 4px;
   background-color: #434c5e;
-  color: #e5e9f0;
-  margin-top: 15px;
-	margin-right: 15px;
-  padding-top: 1px;
+  color: #cdd6f4;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  margin-right: 15px;
+  
 }
+
 
 #custom-power {
   background-color: #bf616a;
@@ -29,20 +32,13 @@ window#waybar {
   padding-right: 11px;
 }
 
+#workspaces {
+  padding-top: 4;
+}
+
 #workspaces button {
   background: #434c5e;
   color: #cdd6f4;
-}
-
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory {
-  border-radius: 10px;
-  background-color: #434c5e;
-  color: #cdd6f4;
-  margin-top: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-right: 15px;
-  
 }
 
 #backlight, #bluetooth, #cpu {
@@ -71,4 +67,5 @@ window#waybar {
 
 #clock {
   margin-right: 0;
+  margin-left: 0;
 }
