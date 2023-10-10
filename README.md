@@ -10,6 +10,6 @@ Don't expect any documentation any time soon, this is for me only.
 - Shell: Fish
 - Bar: Waybar
 - Logout: Wlogout
-- Notification Daemon: Mako
+- Notification Daemon: SwayNC
 - Launcher: Fuzzel
 ![Image](/Stuff/Nord-Preview.png)
