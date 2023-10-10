@@ -3,12 +3,11 @@ import { Widget } from '../misc/imports.js';
 import workspace from './Parts/workspace.js';
 import clock from './Parts/clock.js';
 import notifications from './Parts/notifications.js';
-import media from './Parts/media.js';
 import volume from './Parts/volume.js';
 import power from './Parts/power.js';
 import sysTray from './Parts/sysTray.js';
 
-// layout of the bar
+// layout of the bar3
 const Left = () => Widget.Box({
     children: [
         workspace(),
@@ -17,7 +16,7 @@ const Left = () => Widget.Box({
 
 const Center = () => Widget.Box({
     children: [
-        media(),
+        clock(),
         notifications(),
     ],
 });
@@ -27,7 +26,6 @@ const Right = () => Widget.Box({
     children: [
         volume(),
         power(),
-        clock(),
         sysTray(),
     ],
 });
