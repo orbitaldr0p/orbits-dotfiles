@@ -105,7 +105,7 @@
       "format-ethernet": "{ipaddr}/{cidr}  {icon}",
       "format-disconnected": "{icon}  Disconnected",
       "tooltip": false,
-      "on-click": "nm-connection-editor",
+      "on-click": "",
       "format-icons": {
         "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
         "ethernet": "󰈀",

@@ -11,7 +11,7 @@
 configuration {
     dpi:                        1;
 	modi:                       "drun,run,filebrowser,window";
-    show-icons:                 true;
+    show-icons:                 false;
     display-drun:               "APPS";
     display-run:                "RUN";
     display-filebrowser:        "FILES";
