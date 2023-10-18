@@ -11,5 +11,5 @@ Don't expect any documentation any time soon, this is for me only.
 - Bar: Waybar
 - Logout: Wlogout
 - Notification Daemon: SwayNC
-- Launcher: Fuzzel
+- Launcher: Rofi
 ![Image](/Stuff/Nord-Preview.png)
