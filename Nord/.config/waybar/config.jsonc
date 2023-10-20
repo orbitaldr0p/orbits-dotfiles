@@ -104,12 +104,14 @@
       "format-wifi": "{icon}  {essid}",
       "format-ethernet": "{ipaddr}/{cidr}  {icon}",
       "format-disconnected": "{icon}  Disconnected",
+      "format-disabled": "{icon}  Disabled",
       "tooltip": false,
-      "on-click": "",
+      "on-click": ".config/rofi/network/wifi",
       "format-icons": {
         "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
         "ethernet": "󰈀",
-        "disconnected": "󰤮"
+        "disconnected": "󰤮",
+        "disabled": "󰤮"
       }
     },
     "battery": {
