@@ -1,5 +1,6 @@
 configuration {
-  sort:			true;
+  dpi: 1;
+  sort: true;
   sorting-method:	"normal";
   disable-history:	false;
   scroll-method:	0;
@@ -7,55 +8,70 @@ configuration {
 }
 
 @theme "/dev/null"
+@import "../theme/style.rasi"
 
 * {
-  bg:		#0C0F09;
-  fg:		#05E289;
-  bgAlt: #1B1E25;
-  button:		#05E289;
+  bg:		@background;
+  fg:		@foreground;
+  bgAlt: @background-alt;
+  button:		@selected;
   background-color:	@bg;
   text-color:		@fg;
 }
 
-@import "../theme/style.rasi"
 
-mainbox { children: [ inputbar, listview ]; }
+
+mainbox { 
+  spacing: 0px;
+  children: [ inputbar, listview ]; 
+  }
 
 window {
   transparency:		"real";
-  width:		600px;
-  border:		15px 15px 15px 15px;
+  width:		1000px;
+  
   border-radius:	15px;
   height:		500px;
   border-color: @bg;
 }
 
+imagebox {
+    padding:                     20px;
+    
+    orientation:                 vertical;
+    children:                    [ "inputbar"];
+}
+
 inputbar {
-  children:		[ prompt ];
-  expand:		false;
-  padding:		10px 10px 10px 10px;
+  children: [ prompt ];
+  expand: false;
+  background-color: transparent;
+  background-image: url("~/.config/rofi/network/bg-villagers.jpg");
+  padding: 10px 10px 10px 10px;
 }
 
 prompt { 
   enabled: true; 
   background-color:	@bg;
+  spacing: 10px;
   padding:		10px;
   border-radius:	15px;
 }
 
 listview {
-  columns:		2;
+  columns:		1;
   cycle:		true;
   dynamic:		true;
   layout:		vertical;
   scrollbar:		false;
+  padding: 30px 10px 30px 10px;
 }
 
 element {
-  orientation:		vertical;
-  margin:		3px 5px 3px 5px;
-  border-radius:	10px;
-  background-color:	@bgAlt;
+  orientation: vertical;
+  margin: 3px 5px 3px 5px;
+  border-radius: 10px;
+  background-color: transparent;
 }
 
 element-text {
@@ -66,7 +82,7 @@ element-text {
 }
 
 element selected {
-  background-color:	@fg;
-  text-color:		@bgAlt;
+  background-color:	@button;
+  text-color:		@foreground;
   border-radius:	10px;
 }

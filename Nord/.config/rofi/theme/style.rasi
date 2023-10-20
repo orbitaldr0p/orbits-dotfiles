@@ -1,14 +1,15 @@
 
 * {
-bg: #1E222A;
-bgAlt: #252931;
-fg: #61AFEF;
-button: #252931;
-background-color: @bg;
-text-color: @fg;
+    font:                        "JetBrains Mono Nerd Font 8";
+    background:                  #2e3440;
+    background-alt:              #3b4252;
+    foreground:                  #eceff4;
+    selected:                    #4c566a;
+    active:                      #d08770;
+    urgent:                      #bf616a;
 }
 
 configuration {
-  font: "FiraCode Nerd Font 13";
+  font: "FiraCode Nerd Font 8";
 }
 

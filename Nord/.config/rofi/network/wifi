@@ -34,8 +34,11 @@ fi
 # Connection Status
 state=$(cat /sys/class/net/wl*/operstate)
 
+
+
 if [ "$state" = "up" ]; then
-	status=$(nmcli | grep "^wlp" | sed 's/\ connected\ to/Connected to/' | cut -d ':' -f2)
+	status="Connected"
+	# status=$(nmcli | grep "^wlp" | sed 's/\ connected\ to/Connected to/' | cut -d ':' -f2)
 else
 	status="Disconnected"
 fi
@@ -59,10 +62,9 @@ fi
 # └─┘└─┘┘└┘┘└┘└─┘└─┘ ┴ 
 
 connections() {
-list=$(nmcli --fields "SECURITY,SSID" device wifi list | tail -n +2 | sed "s/  */ /g" | sed -E "s/WPA*.?//g" | sed "s/^--//g" | sed "s/ //g")
-networks=$(printf "$list" | rofi -config $rofiprompt -dmenu -i -hover-select -p "Select Wifi Network
-$status")
-wifi=$( echo "$networks" | sed "s/ //g" | sed "s/ //g" | xargs)
+list=$(nmcli --fields "SECURITY,SSID" device wifi list | tail -n +2 | sed "s/  */ /g" | sed -E "s/WPA*.?//g" | sed "s/^--//g" | sed "s/ //g")
+networks=$(printf "$list" | rofi -config $rofiprompt -dmenu -i -hover-select -p "Select Wifi Network$status")
+wifi=$( echo "$networks" | sed "s/ //g" | sed "s/ //g" | xargs)
 [ -z "$networks" ] && exit
 nopass="No Password"
 pass=$(printf "$nopass\nCancel" | rofi -config $rofipass -dmenu -i -hover-select -password -p "Wifi Password")

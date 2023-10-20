@@ -1,22 +1,13 @@
-
 configuration {
-  sort:			true;
-  sorting-method:	"normal";
-  disable-history:	false;
-  scroll-method:	0;
-  window-thumbnail:	true;
+  dpi: 1;
+  sort: true;
+  sorting-method: "normal";
+  disable-history: false;
+  scroll-method: 0;
+  window-thumbnail: true;
 }
 
-@theme "/dev/null"
 
-* {
-  bg:		#0C0F09;
-  fg:		#05E289;
-  bgAlt: #1B1E25;
-  button:		#05E289;
-  background-color:	@bg;
-  text-color:		@fg;
-}
 @import "../theme/style.rasi"
 
 mainbox { children: [ inputbar, listview ]; }
@@ -26,7 +17,7 @@ window {
   width:		600px;
   border:		15px 15px 15px 15px;
   border-radius:	12px;
-  border-color: @bg;
+  border-color: @background;
   height:		500px;
 }
 
@@ -43,7 +34,7 @@ prompt {
 }
 
 entry {
-  background-color:	@bgAlt;
+  background-color:	@background-alt;
   placeholder:		"Search";
   expand:		true;
   padding:		10px;
@@ -62,7 +53,7 @@ element {
   orientation:		vertical;
   margin:		4px 4px 4px 4px;
   border-radius:	10px;
-  background-color: @bgAlt;
+  background-color: @background-alt;
 }
 
 element-text {
@@ -73,7 +64,7 @@ element-text {
 }
 
 element selected {
-  background-color:	@fg;
-  text-color: @bgAlt;
+  background-color:	@foreground;
+  text-color: @background-alt;
   border-radius:	10px;
 }
