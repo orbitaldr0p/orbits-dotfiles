@@ -6,7 +6,7 @@ Don't expect any documentation any time soon, this is for me only.
 # Themes
 ## Nord
 - WM: Hyprland
-- Terminal: Kitty
+- Terminal: Foot
 - Shell: Fish
 - Bar: Waybar
 - Logout: Wlogout
