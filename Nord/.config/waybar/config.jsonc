@@ -43,7 +43,7 @@
       "format": "  {avg_frequency}GHz | {usage}%",
       "max-length": 14,
       "min-length": 14,
-      "on-click": "foot -e btop"
+      "on-click": "foot -T btop -e btop"
     },
 
     "temperature": {
