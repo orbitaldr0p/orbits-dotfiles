@@ -9,17 +9,16 @@ configuration {
 }
 
 @theme "/dev/null"
+@import "../theme/style.rasi"
 
 * {
-  bg: #0C0F09;
-  fg: #05E289;
-  bgAlt: #1B1E25;
-  button: #05E289;
-  background-color: @bg;
-  text-color: @fg;
-} 
-
-@import "../theme/style.rasi"
+  bg:		@background;
+  fg:		@foreground;
+  bgAlt: @background-alt;
+  button:		@selected;
+  background-color:	@bg;
+  text-color:		@fg;
+}
 
 mainbox { children: [ inputbar, listview ]; }
 

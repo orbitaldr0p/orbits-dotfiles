@@ -17,9 +17,8 @@ configuration {
   button:		@selected;
   background-color:	@bg;
   text-color:		@fg;
+  cursor: "default";
 }
-
-
 
 mainbox { 
   spacing: 0px;
@@ -29,25 +28,19 @@ mainbox {
 window {
   transparency:		"real";
   width:		1000px;
-  
   border-radius:	15px;
   height:		500px;
   border-color: @bg;
 }
 
-imagebox {
-    padding:                     20px;
-    
-    orientation:                 vertical;
-    children:                    [ "inputbar"];
-}
+
 
 inputbar {
-  children: [ prompt ];
   expand: false;
   background-color: transparent;
   background-image: url("~/.config/rofi/network/bg-villagers.jpg");
   padding: 10px 10px 10px 10px;
+  children: [ prompt ];
 }
 
 prompt { 
@@ -65,6 +58,7 @@ listview {
   layout:		vertical;
   scrollbar:		false;
   padding: 30px 10px 30px 10px;
+  cursor: pointer;
 }
 
 element {
