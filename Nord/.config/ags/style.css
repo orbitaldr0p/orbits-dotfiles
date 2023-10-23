@@ -38,7 +38,8 @@ label {
     font-size: 1.1em;
 }
 
-progress, highlight {
+progress,
+highlight {
     background-color: #88c0d0;
     min-height: 8px;
 }

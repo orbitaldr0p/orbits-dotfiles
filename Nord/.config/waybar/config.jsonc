@@ -1,143 +1,141 @@
 {
   "layer": "top",
-    "output": ["eDP-1"],
-    "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces", "tray"],
-    "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync"],
+  "output": ["eDP-1"],
+  "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces", "tray" ],
+  "modules-center": ["clock"],
+  "modules-right": [ "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
 
-    "custom/power": {
-      "format": "󰐥",
-      "tooltip": false,
-      "on-click": "wlogout --protocol layer-shell"
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wlogout --protocol layer-shell"
+  },
+
+  "cpu": {
+    "interval": "1",
+    "format": "  {avg_frequency}GHz | {usage}%",
+    "max-length": 14,
+    "min-length": 14,
+    "on-click": "foot -T btop -e btop"
+  },
+
+  "temperature": {
+    //"thermal-zone": 1,
+    "interval": "1",
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 70,
+    "format-critical": "  {temperatureC}°C",
+    "format": "{icon}  {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "max-length": 7,
+    "min-length": 7
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "󰘚 {percentage}%",
+    "format-alt": "  {used:0.1f}G",
+    "max-length": 6,
+    "min-length": 6
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": false,
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     },
-    
-    "cpu": {
-      "interval": "1",      
-      "format": "  {avg_frequency}GHz | {usage}%",
-      "max-length": 14,
-      "min-length": 14,
-      "on-click": "foot -T btop -e btop"
+    "format-icons": {
+      "1": "󰆢",
+      "2": "󰆢",
+      "3": "󰆢",
+      "4": "󰆢",
+      "5": "󰆢",
+      "active": "",
+      "default": "󰆢"
+    }
+  },
+
+  "tray": {
+    //"icon-size": 20,
+    "spacing": 10
+  },
+
+  "clock": {
+    "format": "{:  %R    %d/%m}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", "", " ", "", "", "", "", "", ""],
+    "scroll-step": 5,
+    "max-length": 7,
+    "min-length": 7
+  },
+
+  "pulseaudio": {
+    "format": "{icon}   {volume}%",
+    "format-muted": "",
+    "tooltip": false,
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
     },
+    "scroll-step": 5,
+    "max-length": 7,
+    "min-length": 7,
+    "on-click": "pavucontrol"
+  },
 
-    "temperature": {
-      //"thermal-zone": 1,
-      "interval": "1",
-      "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-      "critical-threshold": 70,
-      "format-critical": "  {temperatureC}°C",
-      "format": "{icon}  {temperatureC}°C",
-      "format-icons": ["", "", ""],
-      "max-length": 7,
-      "min-length": 7
-    },
+  "bluetooth": {
+    "format": " On",
+    "format-disabled": " Off", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
+    "min-length": 4,
+    "max-length": 4,
+    "on-click": "blueberry"
+  },
 
-    "memory": {
-      "interval": 1,
-      "format": "󰘚 {percentage}%",
-      "format-alt":"  {used:0.1f}G",
-      "max-length": 6,
-      "min-length": 6
-    },
+  "network": {
+    //"interface": "wlo1",
+    "format": "{ifname}",
+    "format-wifi": "{icon}  {essid}",
+    "format-ethernet": "{ipaddr}/{cidr}  {icon}",
+    "format-disconnected": "{icon}  Disconnected",
+    "format-disabled": "{icon}  Disabled",
+    "tooltip": false,
+    "on-click": ".config/rofi/network/wifi",
+    "format-icons": {
+      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+      "ethernet": "󰈀",
+      "disconnected": "󰤮",
+      "disabled": "󰤮"
+    }
+  },
 
-    "hyprland/workspaces": {
-      "format": "{icon}",
-      "tooltip": false,
-      "all-outputs": false,
-      "persistent_workspaces": {
-        "1": [],
-        "2": [],
-        "3": [],
-        "4": [],
-        "5": []
-      },
-      "format-icons": {
-        "1": "󰆢",
-        "2": "󰆢",
-        "3": "󰆢",
-        "4": "󰆢",
-        "5": "󰆢",
-        "active": "",
-        "default": "󰆢"
-      }
-    },
+  "battery": {
+    "interval": 1,
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "󰂄 {capacity}%",
+    "max-length": 6,
+    "min-length": 6,
+    "tooltip": false
+  },
 
-    "tray": {
-      //"icon-size": 20,
-      "spacing": 10
-    },
-
-    "clock": {
-      "format": "{:  %R    %d/%m}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-
-    "backlight": {
-      "device": "intel_backlight",
-      "format": "{icon}  {percent}%",
-      "format-icons": ["", "", " ", "", "", "", "", "", ""],
-      "scroll-step": 5,
-      "max-length": 7,
-      "min-length": 7
-    },
-
-    "pulseaudio": {
-      "format": "{icon}   {volume}%",
-      "format-muted": "",
-      "tooltip": false,
-      "format-icons": {
-        "headphone": "",
-        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
-      },
-      "scroll-step": 5,
-      "max-length": 7,
-      "min-length": 7,
-      "on-click": "pavucontrol"
-    },
-
-    "bluetooth": {
-      "format": " On",
-      "format-disabled": " Off", // an empty format will hide the module
-      "format-connected": " {num_connections}",
-      "tooltip-format": "{device_enumerate}",
-      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-      "min-length": 4,
-      "max-length": 4,
-      "on-click": "blueberry"
-    },
-
-    "network": {
-      //"interface": "wlo1",
-      "format": "{ifname}",
-      "format-wifi": "{icon}  {essid}",
-      "format-ethernet": "{ipaddr}/{cidr}  {icon}",
-      "format-disconnected": "{icon}  Disconnected",
-      "format-disabled": "{icon}  Disabled",
-      "tooltip": false,
-      "on-click": ".config/rofi/network/wifi",
-      "format-icons": {
-        "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
-        "ethernet": "󰈀",
-        "disconnected": "󰤮",
-        "disabled": "󰤮"
-      }
-    },
-
-    "battery": {
-      "interval": 1,
-      "format": "{icon} {capacity}%",
-      "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-      "format-charging": "󰂄 {capacity}%",
-      "max-length": 6,
-      "min-length": 6,
-      "tooltip": false
-    },
-
-    "custom/swaync": {
-			"format": "󰂚",
-			"on-click": "sleep 0.1; swaync-client -t -sw",
-			"tooltip": false,
-      "maxlength": 2
-		}
-
-    
+  "custom/swaync": {
+    "format": "󰂚",
+    "on-click": "sleep 0.1; swaync-client -t -sw",
+    "tooltip": false,
+    "maxlength": 2
+  }
 }
