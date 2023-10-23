@@ -1,9 +1,9 @@
 {
   "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces"],
+    "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces", "tray"],
     "modules-center": ["clock"],
-    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "tray", "custom/swaync"],
+    "modules-right": ["backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync"],
 
     "custom/power": {
       "format": "󰐥",
@@ -59,6 +59,11 @@
         "active": "",
         "default": "󰆢"
       }
+    },
+
+    "tray": {
+      //"icon-size": 20,
+      "spacing": 10
     },
 
     "clock": {
@@ -125,11 +130,6 @@
       "max-length": 6,
       "min-length": 6,
       "tooltip": false
-    },
-
-    "tray": {
-      //"icon-size": 20,
-      "spacing": 10
     },
 
     "custom/swaync": {
