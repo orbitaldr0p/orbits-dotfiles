@@ -1,34 +1,17 @@
 {
   "layer": "top",
   "output": ["eDP-1"],
-  "modules-left": ["custom/power", "cpu", "memory", "hyprland/workspaces", "tray" ],
-  "modules-center": ["clock"],
-  "modules-right": [ "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
-
-  "custom/power": {
-    "format": "󰐥",
-    "tooltip": false,
-    "on-click": "wlogout --protocol layer-shell"
-  },
-
+  "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
+  "modules-center": ["custom/playerctl"],
+  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
+  
   "cpu": {
     "interval": "1",
     "format": "  {avg_frequency}GHz | {usage}%",
     "max-length": 14,
     "min-length": 14,
-    "on-click": "foot -T btop -e btop"
-  },
-
-  "temperature": {
-    //"thermal-zone": 1,
-    "interval": "1",
-    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-    "critical-threshold": 70,
-    "format-critical": "  {temperatureC}°C",
-    "format": "{icon}  {temperatureC}°C",
-    "format-icons": ["", "", ""],
-    "max-length": 7,
-    "min-length": 7
+    "on-click": "foot -T btop -e btop",
+    "on-click-right": "foot -T nvtop -e nvtop"
   },
 
   "memory": {
@@ -51,13 +34,13 @@
       "5": []
     },
     "format-icons": {
-      "1": "󰆢",
-      "2": "󰆢",
-      "3": "󰆢",
-      "4": "󰆢",
-      "5": "󰆢",
-      "active": "",
-      "default": "󰆢"
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "active": "",
+      "default": ""
     }
   },
 
@@ -66,9 +49,20 @@
     "spacing": 10
   },
 
+  "custom/playerctl": {
+    "format": "{icon}  <span>{}</span>",
+    "return-type": "json",
+    "max-length": 50,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    "format-icons": {
+      "Playing": "",
+      "Paused": ""
+    }
+  },
+  
   "clock": {
-    "format": "{:  %R    %d/%m}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "format": "{:  %R    %d/%m}"
   },
 
   "backlight": {
@@ -135,7 +129,6 @@
   "custom/swaync": {
     "format": "󰂚",
     "on-click": "sleep 0.1; swaync-client -t -sw",
-    "tooltip": false,
-    "maxlength": 2
+    "tooltip": false
   }
 }
