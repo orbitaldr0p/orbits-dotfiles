@@ -8,8 +8,8 @@
   "cpu": {
     "interval": "1",
     "format": "  {avg_frequency}GHz | {usage}%",
-    "max-length": 14,
-    "min-length": 14,
+    "max-length": 16,
+    "min-length": 16,
     "on-click": "foot -T btop -e btop",
     "on-click-right": "foot -T nvtop -e nvtop"
   },
@@ -17,7 +17,6 @@
   "memory": {
     "interval": 1,
     "format": "󰘚 {percentage}%",
-    "format-alt": "  {used:0.1f}G",
     "max-length": 6,
     "min-length": 6
   },
@@ -50,7 +49,7 @@
   },
 
   "custom/playerctl": {
-    "format": "{icon}  <span>{}</span>",
+    "format": "{icon} <span>{}</span>",
     "return-type": "json",
     "max-length": 50,
     "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
@@ -62,25 +61,25 @@
   },
   
   "clock": {
-    "format": "{:  %R    %d/%m}"
+    "format": "{: %R  %d/%m}"
   },
 
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}  {percent}%",
-    "format-icons": ["", "", " ", "", "", "", "", "", ""],
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
     "scroll-step": 5,
     "max-length": 7,
     "min-length": 7
   },
 
   "pulseaudio": {
-    "format": "{icon}   {volume}%",
+    "format": "{icon} {volume}%",
     "format-muted": "",
     "tooltip": false,
     "format-icons": {
       "headphone": "",
-      "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+      "default": ["", "", "󰕾", ""]
     },
     "scroll-step": 5,
     "max-length": 7,
@@ -102,10 +101,10 @@
   "network": {
     //"interface": "wlo1",
     "format": "{ifname}",
-    "format-wifi": "{icon}  {essid}",
-    "format-ethernet": "{ipaddr}/{cidr}  {icon}",
-    "format-disconnected": "{icon}  Disconnected",
-    "format-disabled": "{icon}  Disabled",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} {icon}",
+    "format-disconnected": "{icon} Disconnected",
+    "format-disabled": "{icon} Disabled",
     "tooltip": false,
     "on-click": ".config/rofi/network/wifi",
     "format-icons": {

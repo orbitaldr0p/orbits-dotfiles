@@ -1,15 +1,17 @@
 * {
   border: none;
-  font-family: 'Baloo 2';
+  font-family: 'JetBrainsMono Nerd Font';
+  font-weight: bold;
   font-size: 15px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 25px;
+  min-height: 26px;
 }
 
 window#waybar {
   background: transparent;
 }
 
+/* ==============================Main============================== */
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync {
   border-radius: 15px;
   background-color: rgba(67, 76, 94, 0.8);
@@ -18,52 +20,60 @@ window#waybar {
   margin-bottom: 0px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
-#workspaces {
-  padding-top: 2.5;
-}
-
-#workspaces button {
-  background: transparent;
-  color: #cdd6f4;
-}
-
-#backlight, #bluetooth, #cpu {
+/* ==============================Location============================== */
+/* Left Edge Modules */
+#cpu, #clock {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   padding-right: 5px;
-  margin-right: 0;
-}
-
-#cpu{
+  margin-right: 0px;
   margin-left: 10px;
 }
 
-#temperature, #network, #battery {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-right: 5px;
-  margin-right: 0;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 0px;
-}
-
-
-#pulseaudio, #memory, #custom-swaync{
+/* Right Edge Modules */
+#tray, #custom-swaync{
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding-left: 5px;
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+/* Individual Modules */
+#workspaces, #network, #battery, #memory, #backlight, #pulseaudio, #bluetooth{
+  border-radius: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* ==============================Colours============================== */
+#custom-swaync, #battery, #cpu {
+  color: #bf616a;
+}
+
+#memory, #network, #bluetooth {
+  color: #d08770;
+}
+
+#workspaces button, #pulseaudio, #backlight{
+  color:#ebcb8b;
+}
+
+#clock {
+  color: #a3be8c;
 }
 
 #custom-playerctl {
-  margin-right: 0px;
-  margin-left: 0px;
+  color: #b48ead;
 }
 
+/* ==============================Individual Module Tweaks============================== */
 #custom-swaync{
   padding-right: 15px;
 }
-
