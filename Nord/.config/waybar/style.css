@@ -3,8 +3,6 @@
   font-family: 'JetBrainsMono Nerd Font';
   font-weight: bold;
   font-size: 15px;
-  font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 26px;
 }
 
 window#waybar {
@@ -13,15 +11,17 @@ window#waybar {
 
 /* ==============================Main============================== */
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync {
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: rgba(67, 76, 94, 0.8);
   color: #cdd6f4;
   margin-top: 7px;
   margin-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* ==============================Location============================== */

@@ -52,7 +52,7 @@
     "format": "{icon} <span>{}</span>",
     "return-type": "json",
     "max-length": 50,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click": "playerctl play-pause",
     "format-icons": {
       "Playing": "",
@@ -93,8 +93,8 @@
     "format-connected": " {num_connections}",
     "tooltip-format": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-    "min-length": 4,
-    "max-length": 4,
+    "min-length": 5,
+    "max-length": 5,
     "on-click": "blueberry"
   },
 
