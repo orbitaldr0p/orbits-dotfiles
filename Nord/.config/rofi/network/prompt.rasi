@@ -1,82 +1,82 @@
+/*****----- Configuration -----*****/
 configuration {
-  dpi: 1;
-  sort: true;
-  sorting-method:	"normal";
-  disable-history:	false;
-  scroll-method:	0;
-  window-thumbnail:	true;
+  dpi:                        1;
+  sort:                       true;
+  sorting-method:	            "normal";
+  disable-history:	          false;
+  scroll-method:	            0;
+  window-thumbnail:	          true;
 }
 
-@theme "/dev/null"
-@import "../theme/style.rasi"
+@theme "../themes/nord.rasi"
 
 * {
-  bg:		@background;
-  fg:		@foreground;
-  bgAlt: @background-alt;
-  button:		@selected;
-  background-color:	@bg;
-  text-color:		@fg;
-  cursor: "default";
+  bg:		                      @background;
+  fg:		                      @foreground;
+  bgAlt:                      @background-alt;
+  button:		                  @selected;
+  background-color:	          @bg;
+  text-color:		              @fg;
+  cursor:                     "default";
 }
 
 mainbox { 
-  spacing: 0px;
-  children: [ inputbar, listview ]; 
+  spacing:                    0px;
+  children:                   [ inputbar, listview ]; 
   }
 
 window {
-  transparency:		"real";
-  width:		1000px;
-  border-radius:	15px;
-  height:		500px;
-  border-color: @bg;
+  transparency:		            "real";
+  width:		                  1000px;
+  border-radius:	            15px;
+  height:		                  500px;
+  border-color:               @bg;
 }
 
 
 
 inputbar {
-  expand: false;
-  background-color: transparent;
-  background-image: url("~/.config/rofi/network/bg-villagers.jpg");
-  padding: 10px 10px 10px 10px;
-  children: [ prompt ];
+  expand: 										false;
+  background-color: 					transparent;
+  background-image: 					url("~/.config/rofi/network/bg-villagers.jpg");
+  padding: 										10px 10px 10px 10px;
+  children: 									[ prompt ];
 }
 
 prompt { 
-  enabled: true; 
-  background-color:	@bg;
-  spacing: 10px;
-  padding:		10px;
-  border-radius:	15px;
+  enabled: 										true; 
+  background-color:						@bg;
+  spacing: 										10px;
+  padding:										10px;
+  border-radius:							15px;
 }
 
 listview {
-  columns:		1;
-  cycle:		true;
-  dynamic:		true;
-  layout:		vertical;
-  scrollbar:		false;
-  padding: 30px 10px 30px 10px;
-  cursor: pointer;
+  columns:										1;
+  cycle:											true;
+  dynamic:										true;
+  layout:											vertical;
+  scrollbar:									false;
+  padding: 										30px 10px 30px 10px;
+  cursor: 										pointer;
 }
 
 element {
-  orientation: vertical;
-  margin: 3px 5px 3px 5px;
-  border-radius: 10px;
-  background-color: transparent;
+  orientation: 								vertical;
+  margin: 										3px 5px 3px 5px;
+  border-radius: 							10px;
+  background-color: 					transparent;
 }
 
 element-text {
-  expand:		true;
-  margin:		10px 15px 10px 15px;
-  background-color:	inherit;
-  text-color:		inherit;
+  expand:											true;
+  margin:											10px 15px 10px 15px;
+  background-color:						inherit;
+  text-color:									inherit;
 }
 
 element selected {
-  background-color:	@button;
-  text-color:		@foreground;
-  border-radius:	10px;
+  background-color:						@button;
+  text-color:									@foreground;
+  border-radius:							10px;
 }
