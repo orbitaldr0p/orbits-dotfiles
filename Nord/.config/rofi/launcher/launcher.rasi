@@ -92,14 +92,14 @@ mode-switcher{
 button {
   padding:                    0px 23px 0px 15px;
   border-radius:              15px;
-  background-color:           @button;
-  text-color:                 @button-text;
+  background-color:           @background-solid;
+  text-color:                 @foreground;
   font:                       "JetBrains Mono Nerd Font 16";
 }
 
 button selected {
-  background-color:           @button-text;
-  text-color:                 @button;
+  background-color:           @foreground;
+  text-color:                 @background-solid;
 }
 
 /*****----- Listview -----*****/

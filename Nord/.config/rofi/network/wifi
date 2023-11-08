@@ -67,16 +67,16 @@ networks=$(printf "$list" | rofi -config $rofiprompt -dmenu -i -hover-select -p 
 wifi=$( echo "$networks" | sed "s/ //g" | sed "s/ //g" | xargs)
 [ -z "$networks" ] && exit
 nopass="No Password"
-pass=$(printf "$nopass\nCancel" | rofi -config $rofipass -dmenu -i -hover-select -password -p "Wifi Password")
+pass=$(printf "$nopass\nCancel" | rofi -config $rofipass -dmenu -i -hover-select -password -p "Password:")
 
 if [ "$pass" = "" ]; then
   exit
 elif [ "$pass" = "$nopass" ]; then
-  nmcli dev wifi con "$wifi" && printf "exit" | rofi -config $rofiprompt -dmenu -only-match -i -p "Successfully Connected to $wifi" && exit
+  nmcli dev wifi con "$wifi" && printf "exit" | rofi -config $rofiprompt -dmenu -only-match -i -p "Connected" && exit
 elif [ "$pass" = "Cancel" ]; then
   exit
 else
-  nmcli dev wifi con "$wifi" password "$pass" &&  printf "exit" | rofi -config $rofiprompt -dmenu -i -only-match -p "Successfully Connected to $wifi" && exit
+  nmcli dev wifi con "$wifi" password "$pass" &&  printf "exit" | rofi -config $rofiprompt -dmenu -i -only-match -p "Connected" && exit
 fi
 
 printf "exit" | rofi -config $rofiprompt -dmenu -i -p -only-match "Failed to Connect $wifi" && exit

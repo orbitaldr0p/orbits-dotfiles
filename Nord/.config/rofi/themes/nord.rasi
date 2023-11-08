@@ -1,13 +1,12 @@
 
 * {
-    background:                 #2e3440a6;
-    background-alt:             #3b4252a6;
+    background:                 #2e344056;
+    background-solid:           #2e3440ff;
+    background-alt:             #3b425256;
+    background-alt-solid:       #3b4252ff;
     foreground:                 #eceff4ff;
     selected:                   #4c566aff;
     active:                     #d08770ff;
     urgent:                     #bf616aff;
-
-    button:                     #2e3440ff;
-    button-text:                #eceff4ff;
 }
 

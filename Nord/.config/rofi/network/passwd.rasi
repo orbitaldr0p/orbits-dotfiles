@@ -1,82 +1,85 @@
 configuration {
-  dpi: 1;
-  font: "AlegreyaSans Bold 10";
-  sort: true;
-  sorting-method:	"normal";
-  disable-history:	false;
-  scroll-method:	0;
-  window-thumbnail:	true;
+  sort:                       true;
+  sorting-method:	            "normal";
+  disable-history:	          false;
+  scroll-method:	            0;
+  window-thumbnail:	          true;
 }
 
-@theme "/dev/null"
-@import "../theme/style.rasi"
+@theme "../themes/nord.rasi"
 
 * {
-  bg:		@background;
-  fg:		@foreground;
-  bgAlt: @background-alt;
-  button:		@selected;
-  background-color:	@bg;
-  text-color:		@fg;
+  background-color:	          @background;
+  text-color:		              @foreground;
 }
 
-mainbox { children: [ inputbar, listview ]; }
+mainbox { 
+  children:                   [ inputbar, listview ]; 
+  }
 
 window {
-  transparency: "real";
-  width: 400px;
-  border: 15px 15px 15px 15px;
-  border-radius: 15px;
-  height: 200px;
-  border-color: @bg;
+  transparency:               "real";
+  width:                      300;
+  height:                     200px;
+  border:                     2px;
+  border-color:               @active;
+  border-radius:              20px;
+
+  background-image: 					url("~/.config/rofi/network/backgrounds/bg-sunset.jpg");
+  font:                       "JetBrains Mono Nerd Font 12";
 }
 
 inputbar {
-  children: [ prompt, entry ];
-  expand: false;
-  padding: 10px 10px 10px 10px;
+  expand:                     false;
+  background-color:	          transparent;
+  padding:                    10px 10px 10px 10px;
+  children:                   [ prompt, entry ];
 }
 
 prompt { 
-  enabled: true; 
-  background-color:	@bg;
-  padding: 10px;
-  border-radius: 15px;
+  enabled:                    true; 
+  background-color:	          transparent;
+  padding:                    10px;
+  border-radius:              15px;
+  text-color:                 @foreground;
 }
 
 entry {
-  background-color:	@bgAlt;
-  placeholder: "Password";
-  expand: true;
-  padding: 10px;
-  border-radius: 15px;
+  background-color:	          transparent;
+  placeholder:                "Password";
+  expand:                     true;
+  padding:                    10px;
+  border-radius:              15px;
+  text-color:                 @foreground;
 }
 
 listview {
-  columns: 2;
-  cycle: true;
-  dynamic: true;
-  layout: vertical;
-  scrollbar: false;
+  background-color:	          transparent;
+  columns:                    2;
+  cycle:                      true;
+  dynamic:                    true;
+  layout:                     vertical;
+  scrollbar:                  false;
 }
 
 element {
-  orientation: vertical;
-  margin: 5px 10px 5px 10px;
-  border-radius:  10px;
-  background-color:	@bgAlt;
+  background-color:	          transparent;
+  orientation:                vertical;
+  margin:                     5px 10px 5px 10px;
+  border-radius:              10px;
+  background-color:	          transparent;
 }
 
 element-text {
-  expand: true;
-  margin: 10px 15px 10px 15px;
-  background-color:	inherit;
-  text-color: inherit;
+  expand:                     true;
+  margin:                     10px 15px 10px 15px;
+  background-color:         	inherit;
+  text-color:                 @foreground;
 }
 
 element selected {
-  background-color: @background;
-  text-color: @background-alt;
-  border-radius: 10px;
-} 
+  background-color:						@selected;
+  text-color:									@foreground;
+  border-radius:							10px;
+}
 

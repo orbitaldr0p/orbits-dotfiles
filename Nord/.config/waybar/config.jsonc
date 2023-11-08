@@ -99,7 +99,6 @@
   },
 
   "network": {
-    //"interface": "wlo1",
     "format": "{ifname}",
     "format-wifi": "{icon} {essid}",
     "format-ethernet": "{ipaddr}/{cidr} {icon}",
