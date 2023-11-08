@@ -106,7 +106,7 @@
     "format-disconnected": "{icon} Disconnected",
     "format-disabled": "{icon} Disabled",
     "tooltip": false,
-    "on-click": ".config/rofi/network/wifi",
+    "on-click": "sleep 0.1; .config/rofi/network/wifi",
     "format-icons": {
       "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
       "ethernet": "󰈀",
