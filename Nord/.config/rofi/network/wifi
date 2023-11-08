@@ -63,7 +63,7 @@ fi
 
 connections() {
 list=$(nmcli --fields "SECURITY,SSID" device wifi list | tail -n +2 | sed "s/  */ /g" | sed -E "s/WPA*.?//g" | sed "s/^--//g" | sed "s/ //g")
-networks=$(printf "$list" | rofi -config $rofiprompt -dmenu -i -hover-select -p "Select Wifi Network$status")
+networks=$(printf "$list" | rofi -config $rofiprompt -dmenu -i -hover-select -p "Select Wifi Network")
 wifi=$( echo "$networks" | sed "s/ //g" | sed "s/ //g" | xargs)
 [ -z "$networks" ] && exit
 nopass="No Password"

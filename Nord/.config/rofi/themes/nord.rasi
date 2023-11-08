@@ -1,15 +1,13 @@
 
 * {
-    font:                        "JetBrains Mono Nerd Font 8";
-    background:                  #2e3440;
-    background-alt:              #3b4252;
-    foreground:                  #eceff4;
-    selected:                    #4c566a;
-    active:                      #d08770;
-    urgent:                      #bf616a;
-}
+    background:                 #2e3440a6;
+    background-alt:             #3b4252a6;
+    foreground:                 #eceff4ff;
+    selected:                   #4c566aff;
+    active:                     #d08770ff;
+    urgent:                     #bf616aff;
 
-configuration {
-  font: "FiraCode Nerd Font 8";
+    button:                     #2e3440ff;
+    button-text:                #eceff4ff;
 }
 
