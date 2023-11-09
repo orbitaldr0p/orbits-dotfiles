@@ -32,7 +32,7 @@ window {
   border-radius:              20px;
 
   background-color:           transparent;
-  background-image:           url("~/.config/rofi/launcher/bg-dawn.jpg");
+  background-image:           url("~/.config/rofi/launcher/backgrounds/bg-dawn.jpg");
   font:                       "JetBrains Mono Nerd Font 12";
 }
 
