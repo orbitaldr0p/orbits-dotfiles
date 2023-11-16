@@ -14,7 +14,10 @@ configuration {
 
 /*****----- Global Properties -----*****/
 @theme	"../themes/nord.rasi"
-
+* {
+  active:                     @orange;
+  urgent:                     @red;
+}
 /*****----- Main Window -----*****/
 window {
   enabled:                    true;
