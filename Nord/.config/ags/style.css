@@ -1,0 +1,45 @@
+label {
+    font-weight: bold;
+}
+
+.workspaces button,
+.media {
+    background-color: transparent;
+    color: #eee;
+}
+
+.workspaces button:hover,
+.media:hover {
+    background-color: #d08770;
+    color: #efefef;
+}
+
+.workspaces button:active,
+.media:active {
+    background-color: #bf616a;
+    color: #fff;
+}
+
+.workspaces button.focused {
+    border-bottom: 3px solid #bf616a;
+}
+
+.notification image {
+    color: #ebcb8b;
+    margin-left: 1em;
+}
+
+.battery progressbar {
+    margin: 0 6px;
+}
+
+.clock {
+    margin: 0 6px;
+    font-size: 1.1em;
+}
+
+progress,
+highlight {
+    background-color: #88c0d0;
+    min-height: 8px;
+}

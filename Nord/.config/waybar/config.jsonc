@@ -1,0 +1,132 @@
+{
+  "layer": "top",
+  "output": ["eDP-1"],
+  "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
+  "modules-center": ["custom/playerctl"],
+  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
+  
+  "cpu": {
+    "interval": "1",
+    "format": " {avg_frequency}GHz | {usage}%",
+    "max-length": 16,
+    "min-length": 16,
+    "on-click": "foot -T btop -e btop",
+    "on-click-right": "foot -T nvtop -e nvtop"
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "󰘚 {percentage}%",
+    "max-length": 6,
+    "min-length": 6
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "tooltip": false,
+    "all-outputs": false,
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "tray": {
+    //"icon-size": 20,
+    "spacing": 10
+  },
+
+  "custom/playerctl": {
+    "format": "{icon} <span>{}</span>",
+    "return-type": "json",
+    "max-length": 50,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click": "playerctl play-pause",
+    "format-icons": {
+      "Playing": "",
+      "Paused": ""
+    }
+  },
+  
+  "clock": {
+    "format": "{: %R  %d/%m}"
+  },
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "scroll-step": 5,
+    "max-length": 7,
+    "min-length": 7
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "tooltip": false,
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", "󰕾", ""]
+    },
+    "scroll-step": 5,
+    "max-length": 7,
+    "min-length": 7,
+    "on-click": "pavucontrol"
+  },
+
+  "bluetooth": {
+    "format": " On",
+    "format-disabled": " Off", // an empty format will hide the module
+    "format-connected": " {num_connections}",
+    "tooltip-format": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
+    "min-length": 5,
+    "max-length": 5,
+    "on-click": "blueberry"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} {icon}",
+    "format-disconnected": "{icon} Disconnected",
+    "format-disabled": "{icon} Disabled",
+    "tooltip": false,
+    "on-click": "sleep 0.1; .config/rofi/network/irnm",
+    "format-icons": {
+      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+      "ethernet": "󰈀",
+      "disconnected": "󰤮",
+      "disabled": "󰤮"
+    }
+  },
+
+  "battery": {
+    "interval": 1,
+    "format": "{icon} {capacity}%",
+    "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "󰂄 {capacity}%",
+    "max-length": 6,
+    "min-length": 6,
+    "tooltip": false
+  },
+
+  "custom/swaync": {
+    "format": "󰂚",
+    "on-click": "sleep 0.1; swaync-client -t -sw",
+    "tooltip": false
+  }
+}
