@@ -1,9 +1,12 @@
 #!/bin/bash
-# Fixes broken screenshare? d
-systemctl --user kill xdg-desktop-portal
-systemctl --user kill xdg-desktop-portal-hyprland
-systemctl --user kill xdg-desktop-portal-gtk
 sleep 1
-systemctl --user start xdg-desktop-portal
-systemctl --user start xdg-desktop-portal-hyprland
-systemctl --user start xdg-desktop-portal-gtk
+killall xdg-desktop-portal-hyprland
+killall xdg-desktop-portal-gnome
+killall xdg-desktop-portal-kde
+killall xdg-desktop-portal-lxqt
+killall xdg-desktop-portal-wlr
+killall xdg-desktop-portal
+sleep 1
+/usr/lib/xdg-desktop-portal-hyprland &
+sleep 2
+/usr/lib/xdg-desktop-portal &
