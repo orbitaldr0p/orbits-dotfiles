@@ -7,7 +7,7 @@
   
   "cpu": {
     "interval": "1",
-    "format": "  {avg_frequency}GHz | {usage}%",
+    "format": " {avg_frequency}GHz | {usage}%",
     "max-length": 16,
     "min-length": 16,
     "on-click": "foot -T btop -e btop",
