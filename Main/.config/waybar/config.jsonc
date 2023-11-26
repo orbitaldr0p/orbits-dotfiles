@@ -74,7 +74,7 @@
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "scroll-step": 5,
+    "scroll-step": 10,
     "max-length": 7,
     "min-length": 7
   },
@@ -87,7 +87,10 @@
       "headphone": "",
       "default": ["", "", "󰕾", ""]
     },
-    "scroll-step": 5,
+    "on-click-middle": "~/.config/scripts/system/volume-control.sh m",
+    "on-scroll-up": "~/.config/scripts/system/volume-control.sh i",
+    "on-scroll-down": "~/.config/scripts/system/volume-control.sh d",
+    //"scroll-step": 5,
     "max-length": 7,
     "min-length": 7,
     "on-click": "pavucontrol"
