@@ -2,7 +2,7 @@
   "layer": "top",
   "output": ["eDP-1"],
   "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
-  "modules-center": ["custom/playerctl"],
+  "modules-center": ["hyprland/window"],
   "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
   
   "cpu": {
@@ -47,6 +47,12 @@
     //"icon-size": 20,
     "spacing": 10
   },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "separate-outputs": true,
+    "max-length": 50
+},
 
   "custom/playerctl": {
     "format": "{icon} <span>{}</span>",

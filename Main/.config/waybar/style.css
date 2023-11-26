@@ -10,9 +10,9 @@ window#waybar {
 }
 
 /* ==============================Main============================== */
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync {
-  border-radius: 20px;
-  background-color: rgba(67, 76, 94, 0.8);
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window {
+  border-radius: 5px;
+  background-color: #3b4252;
   color: #cdd6f4;
   margin-top: 7px;
   margin-bottom: 0px;
@@ -22,6 +22,7 @@ window#waybar {
   padding-bottom: 3px;
   padding-left: 10px;
   padding-right: 10px;
+  /* border: 2px solid #d08770 */
 }
 
 /* ==============================Location============================== */
@@ -31,7 +32,8 @@ window#waybar {
   border-bottom-right-radius: 0;
   padding-right: 5px;
   margin-right: 0px;
-  margin-left: 10px;
+  margin-left: 8px;
+  border-right: none;
 }
 
 /* Right Edge Modules */
@@ -40,16 +42,19 @@ window#waybar {
   border-bottom-left-radius: 0;
   padding-left: 5px;
   margin-left: 0px;
-  margin-right: 10px;
+  margin-right: 8px;
+  border-left: none;
 }
 
-/* Individual Modules */
+/* Middle Modules */
 #workspaces, #network, #battery, #memory, #backlight, #pulseaudio, #bluetooth{
   border-radius: 0;
   padding-left: 5px;
   padding-right: 5px;
   margin-left: 0px;
   margin-right: 0px;
+  border-left: none;
+  border-right: none;
 }
 
 /* ==============================Colours============================== */
@@ -69,7 +74,7 @@ window#waybar {
   color: #a3be8c;
 }
 
-#custom-playerctl {
+#custom-playerctl, #window {
   color: #b48ead;
 }
 
