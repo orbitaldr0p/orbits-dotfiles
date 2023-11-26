@@ -52,7 +52,7 @@
     "format": "  {}",
     "separate-outputs": true,
     "max-length": 50
-},
+  },
 
   "custom/playerctl": {
     "format": "{icon} <span>{}</span>",
@@ -88,7 +88,7 @@
         "on-scroll-up": "shift_up",
         "on-scroll-down": "shift_down"
     }
-},
+  },
 
   "backlight": {
     "device": "intel_backlight",
@@ -133,7 +133,7 @@
     "format-ethernet": "{ipaddr}/{cidr} {icon}",
     "format-disconnected": "{icon} Disconnected",
     "format-disabled": "{icon} Disabled",
-    "tooltip": false,
+    "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
     //"on-click": "sleep 0.1; .config/rofi/network/irnm",
     "format-icons": {
       "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
