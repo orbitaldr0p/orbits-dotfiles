@@ -3,7 +3,7 @@
   "output": ["eDP-1"],
   "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/swaync" ],
+  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery"],
   
   "cpu": {
     "interval": "1",
