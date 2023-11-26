@@ -5,6 +5,8 @@
   font-size: 15px;
 }
 
+@import "Themes/theme.css";
+
 window#waybar {
   background: transparent;
 }
@@ -12,8 +14,8 @@ window#waybar {
 /* ==============================Main============================== */
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window {
   border-radius: 5px;
-  background-color: #3b4252;
-  color: #cdd6f4;
+  background-color: @background;
+  color: @foreground;
   margin-top: 7px;
   margin-bottom: 0px;
   margin-left: 5px;
@@ -22,7 +24,6 @@ window#waybar {
   padding-bottom: 3px;
   padding-left: 10px;
   padding-right: 10px;
-  /* border: 2px solid #d08770 */
 }
 
 /* ==============================Location============================== */
@@ -59,23 +60,23 @@ window#waybar {
 
 /* ==============================Colours============================== */
 #custom-swaync, #battery, #cpu {
-  color: #bf616a;
+  color: @red;
 }
 
 #memory, #network, #bluetooth {
-  color: #d08770;
+  color: @orange;
 }
 
 #workspaces button, #pulseaudio, #backlight{
-  color:#ebcb8b;
+  color:@yellow;
 }
 
 #clock {
-  color: #a3be8c;
+  color: @green;
 }
 
 #custom-playerctl, #window {
-  color: #b48ead;
+  color: @magenta;
 }
 
 /* ==============================Individual Module Tweaks============================== */
