@@ -53,18 +53,6 @@
     "separate-outputs": true,
     "max-length": 50
   },
-
-  "custom/playerctl": {
-    "format": "{icon} <span>{}</span>",
-    "return-type": "json",
-    "max-length": 50,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-    "on-click": "playerctl play-pause",
-    "format-icons": {
-      "Playing": "",
-      "Paused": ""
-    }
-  },
   
   "clock": {
     "format": "{:%I:%M %p}",
@@ -150,12 +138,6 @@
     "format-charging": "󰂄 {capacity}%",
     "max-length": 6,
     "min-length": 6,
-    "tooltip": false
-  },
-
-  "custom/swaync": {
-    "format": "󰂚",
-    "on-click": "sleep 0.1; swaync-client -t -sw",
     "tooltip": false
   }
 }
