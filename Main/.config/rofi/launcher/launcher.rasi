@@ -13,7 +13,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@theme	"../themes/nord.rasi"
+@theme	"../themes/catppuccin-frappe.rasi"
 * {
   active:                     @orange;
   urgent:                     @red;
