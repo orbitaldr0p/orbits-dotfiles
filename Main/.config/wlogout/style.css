@@ -3,7 +3,7 @@
 */
 
 /** ********** Import Colors ********** **/
-@import "./colors.css";
+@import "./themes/catppuccin.css";
 
 /** ********** Fonts ********** **/
 * {
