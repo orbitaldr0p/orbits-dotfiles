@@ -4,7 +4,7 @@ font=Ubuntu Mono Nerd Font
 clock
 timestr=%R
 
-image=/home/_orbitaldrop/Pictures/Wallpapers/Tree-Town.jpg
+image=/home/_orbitaldrop/Pictures/Wallpapers/Synced/Foxy Main.jpg
 
 fade-in=0.2
 
@@ -19,32 +19,32 @@ indicator-caps-lock
 
 separator-color=00000000
 
-inside-color=4c566a33
-inside-clear-color=4c566a33
-inside-caps-lock-color=4c566a33
-inside-ver-color=4c566a33
-inside-wrong-color=4c566a33
+inside-color=30344633
+inside-clear-color=30344633
+inside-caps-lock-color=30344633
+inside-ver-color=30344633
+inside-wrong-color=30344633
 
-ring-color=4c566aD9
-ring-clear-color=4c566aD9
-ring-caps-lock-color=4c566aD9
-ring-ver-color=4c566aD9
-ring-wrong-color=4c566aD9
+ring-color=303446D9
+ring-clear-color=303446D9
+ring-caps-lock-color=303446D9
+ring-ver-color=303446D9
+ring-wrong-color=303446D9
 
 line-color=00000000
-line-clear-color=ebcb8bFF
-line-caps-lock-color=88c0d0FF
-line-ver-color=d9d8d8FF
-line-wrong-color=ee2e24FF
+line-clear-color=e5c890FF
+line-caps-lock-color=81c8beFF
+line-ver-color=414559FF
+line-wrong-color=e78284FF
 
-text-color=eceff4ff
-text-clear-color=eceff4ff
-text-ver-color=eceff4ff
-text-wrong-color=eceff4ff
-text-caps-lock-color=eceff4ff
+text-color=c6d0f5ff
+text-clear-color=c6d0f5ff
+text-ver-color=c6d0f5ff
+text-wrong-color=c6d0f5ff
+text-caps-lock-color=c6d0f5ff
 
-bs-hl-color=ebcb8bff
-key-hl-color=d08770ff
-caps-lock-key-hl-color=88c0d0FF
-caps-lock-bs-hl-color=81a1c1FF
+bs-hl-color=e5c890ff
+key-hl-color=ef9f76ff
+caps-lock-key-hl-color=85c1dcFF
+caps-lock-bs-hl-color=8caaeeFF
 
