@@ -4,7 +4,7 @@ Not sure how you got here but don't use them, they're shit.
 Don't expect any documentation any time soon, this is for me only.
 
 =======
-# Catppaccuin
+# Catppuccin
 - WM: Hyprland
 - Terminal: Foot
 - Shell: Fish
