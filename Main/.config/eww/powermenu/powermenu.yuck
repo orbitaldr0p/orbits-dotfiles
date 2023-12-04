@@ -32,8 +32,8 @@
               :valign "end" :halign "start"
           (label :text "")
           (label :text "${time.hour}  ${time.min}"))
-        (_buttons :shutdown "poweroff" :reboot "reboot"
-                  :logout "loginctl kill-session self"
+        (_buttons :shutdown "systemctl poweroff" :reboot "systemctl reboot"
+                  :logout "loginctl kill-user $(whoami)"
                   :shutdown_icon "" :reboot_icon "󰜉"
                   :logout_icon "󰍃"))))
   
