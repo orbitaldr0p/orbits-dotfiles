@@ -12,5 +12,5 @@ Don't expect any documentation any time soon, this is for me only.
 - Logout: Wlogout
 - Notification Daemon: Dunst
 - Launcher: Rofi
-![Image](/Stuff/Nord-Preview.png)
+![Image](/Stuff/Catppuccin-Preview.png)
 
