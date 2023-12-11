@@ -1,5 +1,4 @@
 function first_action() {
-    killall waybar
     eww open powermenu
     echo "task 1"
 }
@@ -7,7 +6,6 @@ function first_action() {
 # Function to perform the second action
 function second_action() {
     eww close powermenu
-    waybar & disown
     echo "task 2"
 }
 
