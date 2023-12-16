@@ -6,14 +6,6 @@
     :geometry (geometry :width "100%" :height "100%")
     (powermenu_layout))
   
-  (defpoll time :interval "5s"
-    :initial `date +'{"hour":"%H","min":"%M"}'`
-    `date +'{"hour":"%H","min":"%M"}'`)
-  (defpoll net :interval "100s"
-    :initial `N/A`
-    `nmcli -t -f SIGNAL,ACTIVE device wifi \
-      | awk -F':' '{if($2=="yes")print$1}'`)
-  
   (defwidget powermenu_layout []
     (box :class "layout-box" :space-evenly false :orientation "vertical"
          :style "background-image: url('./powermenu/wallpaper')"
