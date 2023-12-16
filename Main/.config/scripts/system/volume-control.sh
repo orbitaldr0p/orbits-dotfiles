@@ -22,8 +22,8 @@ muted() {
   fi
 }
 
-invalid_input() {
-  dunstify "Invalid input."
+invalid_input(){
+  echo lmao
 }
 
 case "$1" in

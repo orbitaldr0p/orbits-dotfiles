@@ -1,5 +1,4 @@
 #!/bin/bash
-# Only turn on the screenpad if the laptop is plugged on
 
 increase() {
   brightnessctl s +10%
@@ -21,6 +20,10 @@ decrease() {
 #    echo "$brightness" | tee '/sys/class/leds/asus::screenpad/brightness'
 #  fi
 #}
+
+invalid_input(){
+  echo lmao
+}
 
 case "$1" in
   i)

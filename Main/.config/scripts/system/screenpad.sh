@@ -1,10 +1,10 @@
 #!/bin/bash
 # Only turn on the screenpad if the laptop is plugged on
 
-startup(){
-    state=$( acpi | grep "Battery 0" )
-    if [ $state != *"Discharging"* ]; then
-        screenpad 9
+startup() {
+    state=$(acpi | grep "Battery 0")
+    if [[ ! $state =~ "Discharging" ]]; then
+        screenpad 9  # Make sure to adjust the argument as needed
         dunstify "Screenpad On" -t 800 -r 91180
     fi
 }
@@ -18,6 +18,10 @@ normal(){
         screenpad 9
         dunstify "Screenpad on" -t 800 -r 91180
     fi
+}
+
+invalid_input(){
+  echo lmao
 }
 
 case "$1" in
