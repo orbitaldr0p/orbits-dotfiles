@@ -4,7 +4,7 @@
   "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
   "modules-center": ["hyprland/window"],
   "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery"],
-  "exclusive": false,
+  //"exclusive": false,
   
   "cpu": {
     "interval": "1",
