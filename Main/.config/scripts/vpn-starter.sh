@@ -9,9 +9,9 @@ target_timezone="Asia/Shanghai"
 
 # Check if the current timezone is Shanghai
 if [ "$current_timezone" == "$target_timezone" ]; then
-    echo "The timezone is set to Shanghai."
-    bash "$HOME/.config/scripts/appimage-starter.sh" clash
+    echo "Launching Clash"
+    cfw
 else
-    echo "The timezone is not set to Shanghai."
+    echo "Launching Mullvad"
     mullvad-vpn
 fi
