@@ -1,0 +1,143 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Something Found in the Internet
+ *
+ * User: cherrynoize
+ * Copyright: *!
+ */
+
+@theme	"../themes/nord.rasi"
+
+
+/*****----- Global Properties -----*****/
+* {
+  /******------ appearance ------******/
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  y-offset: 8px;
+  x-offset: -8px;
+
+  /********------- font -------********/
+  font:           "JetBrains Mono Nerd Font 10";
+
+  /********------ colors ------********/
+  primary:        @background;
+  blue:           @blue;
+  purple:         @magenta;
+  bg:             @background-solid;
+  bg-alt:         @background-alt-solid;
+  fg:             @foreground;
+  selected:       @foreground-alt;
+  accent:         @orange;
+  urgent:         @red;
+
+  /********------ images ------********/
+  img:            url("~/.current-wallpaper", both);
+  img-width:      url("~/.current-wallpaper", width);
+  img-height:     url("~/.current-wallpaper", height);
+
+  /******------ properties ------******/
+  background-color: @bg;
+  text-color: @fg;
+}
+
+configuration {
+  font: "{font0} 10";
+
+  run {
+    display-name: "";
+  }
+
+  drun {
+    display-name: "󰲋";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  windowcd {
+    display-name: "";
+  }
+
+  filebrowser {
+    display-name: "";
+  }
+
+  keys {
+    display-name: "";
+  }
+
+  ssh {
+    display-name: "󰢩";
+  }
+
+  combi {
+    display-name: "󰘗";
+  }
+
+  /*
+  dmenu {
+    display-name: "󰮫";
+  }
+  */
+}
+
+window {
+  transparency: "real";
+  border: 2px;
+  border-color: @accent;
+  border-radius: 5px;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: transparent;
+  margin: 2px 5px;
+  border-radius: 12px;
+}
+
+entry {
+  background-color: inherit;
+  padding: 12px 3px;
+  text-color: @bg-alt;
+}
+
+prompt, textbox-prompt-colon {
+  background-color: inherit;
+  padding: 12px;
+  text-color: @accent;
+}
+
+listview {
+  lines: 8;
+}
+
+element {
+  children: [element-icon, element-text];
+  text-color: @fg;
+}
+
+element-icon {
+  padding: 10px 10px;
+}
+
+element-text {
+  padding: 10px 0;
+  text-color: inherit;
+}
+
+element-icon selected,
+element-text selected {
+  text-color: @accent;
+  background-color: @primary;
+}

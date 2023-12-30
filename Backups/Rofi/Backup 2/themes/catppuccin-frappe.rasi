@@ -1,0 +1,18 @@
+
+* {
+    background:                 #30344656;
+    background-solid:           #303446ff;
+    background-alt:             #41455956;
+    background-alt-solid:       #414559ff;
+    foreground:                 #c6d0f5ff;
+    foreground-alt:             #b5bfe2ff;
+    selected:                   #626880ff;
+    orange:                     #ef9f76ff;
+    red:                        #e78284ff;
+    yellow:                     #e5c890ff;
+    green:                      #a6d189ff;
+    magenta:                    #babbf1ff;
+    cyan:                       #99d1dbff;
+    blue:                       #babbf1ff;
+}
+

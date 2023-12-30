@@ -1,0 +1,24 @@
+@theme	"./wpgtk.rasi"
+
+configuration {
+  show-icons: false;
+  sidebar-mode: false;
+  hover-select: true;
+  me-select-entry: "";
+  me-accept-entry: [MousePrimary];
+
+  dmenu {
+    display-name: "󰀂";
+  }
+}
+
+inputbar {
+  children: [prompt, textbox-prompt-colon, entry];
+  background-color: @background-alt;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  margin: 0;
+  str: ":";
+}
