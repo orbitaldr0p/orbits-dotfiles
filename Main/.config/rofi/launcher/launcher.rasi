@@ -1,15 +1,11 @@
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,window,run";
+	modi:                       "drun";
   show-icons:                 false;
   display-drun:               "";
-  display-run:                "";
-  display-filebrowser:        "";
-  display-window:             "";
 	drun-display-format:        "{name}";
 	window-format:              "{w}{c}{t}";
   terminal:                   "foot -H";
-  
 }
 
 /*****----- Global Properties -----*****/
@@ -18,6 +14,7 @@ configuration {
   active:                     @orange;
   urgent:                     @red;
 }
+
 /*****----- Main Window -----*****/
 window {
   enabled:                    true;
@@ -44,14 +41,6 @@ mainbox {
   padding:                    350px 500px 350px 500px;
 }
 
-listbox {
-  spacing:                    20px;
-  padding:                    20px;
-  background-color:           @background;
-  orientation:                vertical;
-  children:                   [  ];
-}
-
 /*****----- Inputbar -----*****/
 inputbar {
   enabled:                    true;
@@ -60,15 +49,20 @@ inputbar {
   border-radius:              10px;
   background-color:           transparent;
   text-color:                 @foreground;
-  children:                   [ "entry" ];
+  orientation:                horizontal;
+  children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+  enabled:                    true;
+  background-color:           transparent;
+  text-color:                 @foreground;
 }
 
 entry {
   enabled:                    true;
   background-color:           inherit;
   text-color:                 inherit;
-  placeholder:                "run:";
-  placeholder-color:          inherit;
 }
 
 /*****----- Listview -----*****/
@@ -108,28 +102,37 @@ element {
   background-color:           transparent;
   text-color:                 @foreground;
 }
+
+/*---normal---*/
 element normal.normal {
   background-color:           inherit;
   text-color:                 inherit;
 }
-element normal.urgent {
-  background-color:           @urgent;
-  text-color:                 @foreground;
-}
-element normal.active {
-  background-color:           @active;
-  text-color:                 @foreground;
-}
+
 element selected.normal {
   background-color:           @foreground;
   text-color:                 @background-solid;
 }
-element selected.urgent {
-  background-color:           @urgent;
-  text-color:                 @background-solid;
+
+/*---active---*/
+element normal.active {
+  background-color:           @active;
+  text-color:                 @foreground;
 }
+
 element selected.active {
   background-color:           @active;
+  text-color:                 @background-solid;
+}
+
+/*---urgent---*/
+element normal.urgent {
+  background-color:           @urgent;
+  text-color:                 @foreground;
+}
+
+element selected.urgent {
+  background-color:           @urgent;
   text-color:                 @background-solid;
 }
 
