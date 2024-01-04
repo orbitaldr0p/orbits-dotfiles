@@ -39,7 +39,7 @@ style = "bold white"
 style_user = "bold blue"
 style_root = "bold red"
 show_always = true
-format = "  [$user]($style)[ ](white)"
+format = "[$user]($style)[ ](white)"
 
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
