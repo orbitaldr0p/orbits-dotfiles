@@ -7,21 +7,21 @@
 
 {
     "label" : "logout",
-    "action" : "loginctl kill-user $(whoami)",
+    "action" : "screenpad off & loginctl kill-user $(whoami)",
     "text" : "Logout",
     "keybind" : "e"
 }
 
 {
     "label" : "shutdown",
-    "action" : "systemctl poweroff",
+    "action" : "screenpad off & systemctl poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 
 {
     "label" : "reboot",
-    "action" : "systemctl reboot",
+    "action" : "screenpad off & systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
