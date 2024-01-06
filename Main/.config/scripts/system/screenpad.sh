@@ -4,7 +4,8 @@
 startup() {
     state=$(acpi | grep "Battery 0")
     if [[ ! $state =~ "Discharging" ]]; then
-        screenpad 9  # Make sure to adjust the argument as needed
+        sleep 1
+        screenpad 9 
         dunstify "Screenpad On" -t 800 -r 91180
     fi
 }
