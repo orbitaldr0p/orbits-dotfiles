@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "swaylock",
+    "action" : "screenpad off & swaylock",
     "text" : "Lock",
     "keybind" : "l"
 }
