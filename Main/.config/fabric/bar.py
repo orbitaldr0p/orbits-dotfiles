@@ -57,6 +57,7 @@ class StatusBar(Window):
         )
 
         self.cpu_label = Label(label="0")
+        self.cpu_freq_label = Label(label="0")
         self.memory_label = Label(label="0")
         self.battery_label = Label(label="0")
         self.system_info_var = Fabricate(
@@ -64,6 +65,7 @@ class StatusBar(Window):
             poll_from=lambda _: {
                 "ram": str(int(psutil.virtual_memory().percent)),
                 "cpu": str(int(psutil.cpu_percent())),
+                "cpu-freq": str(round(float(str(psutil.cpu_freq()).split("current=")[1].split(",")[0]) / 1000, 2)),
                 "battery": str(
                     int(
                         psutil.sensors_battery().percent
@@ -80,6 +82,7 @@ class StatusBar(Window):
                 self.cpu_label.set_label(value["cpu"]),
                 self.memory_label.set_label(value["ram"]),
                 self.battery_label.set_label(value["battery"]),
+                self.cpu_freq_label.set_label(value["cpu-freq"]),
             ),
         )
 
@@ -118,7 +121,9 @@ class StatusBar(Window):
                         children=[
                             Label(label=""),
                             self.cpu_label,
-                            Label(label="%"),
+                            Label(label="% |"),
+                            self.cpu_freq_label,
+                            Label(label="GHz")
                         ],
                     ),
                 ],
