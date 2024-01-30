@@ -6,7 +6,9 @@ from loguru import logger
 from fabric.widgets.box import Box
 from fabric.system_tray import SystemTray
 from fabric.widgets.wayland import Window
+from fabric.widgets.label import Label
 from fabric.widgets.overlay import Overlay
+from fabric.utils.fabricator.fabricator import Fabricate
 from fabric.widgets.date_time import DateTime
 from fabric.widgets.centerbox import CenterBox
 from fabric.utils.string_formatter import FormattedString
@@ -18,8 +20,6 @@ from fabric.utils.helpers import (
     monitor_file,
     invoke_repeater,
 )
-
-
 
 class StatusBar(Window):
     def __init__(
@@ -55,27 +55,80 @@ class StatusBar(Window):
             ),
             name="hyprland-window",
         )
+
+        self.cpu_label = Label(label="0")
+        self.memory_label = Label(label="0")
+        self.battery_label = Label(label="0")
+        self.system_info_var = Fabricate(
+            value={"ram": 0, "cpu": 0},
+            poll_from=lambda _: {
+                "ram": str(int(psutil.virtual_memory().percent)),
+                "cpu": str(int(psutil.cpu_percent())),
+                "battery": str(
+                    int(
+                        psutil.sensors_battery().percent
+                        if psutil.sensors_battery() is not None
+                        else 42
+                    )
+                ),
+            },
+            interval=1000,
+        )
+        self.system_info_var.connect(
+            "changed",
+            lambda _, value: (
+                self.cpu_label.set_label(value["cpu"]),
+                self.memory_label.set_label(value["ram"]),
+                self.battery_label.set_label(value["battery"]),
+            ),
+        )
+
+        #Left Widgets
         self.date_time = DateTime(name="date-time")
         self.system_tray = SystemTray(name="system-tray")
         self.center_box.add_left(self.workspaces)
+        self.center_box.add_left(
+            Box(
+                orientation="h",
+                style="min-width: calc(44px - 8px); margin: 8px;",
+                children=[
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            Label(label=""),
+                            self.battery_label,
+                            Label(label="%"),
+                        ],
+                    ),
+                    Box(name="module-separator"),
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            Label(label=""),
+                            self.memory_label,
+                            Label(label="%"),
+                        ],
+                    ),
+                    Box(name="module-separator"),
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            Label(label=""),
+                            self.cpu_label,
+                            Label(label="%"),
+                        ],
+                    ),
+                ],
+            )
+        )
+
+        #Center Widgets
         self.center_box.add_center(self.active_window)
-        self.circular_progress_bar_1 = CircularProgressBar(
-            name="circular-progress-bar-1",
-            background_color=False,  # false = disabled
-            radius_color=False,
-            pie=True,
-        )
-        self.circular_progress_bar_2 = CircularProgressBar(
-            name="circular-progress-bar-2",
-            background_color=False,
-            radius_color=False,
-            pie=True,
-        )
-        self.circular_progress_bars_overlay = Overlay(
-            children=self.circular_progress_bar_1,
-            overlays=self.circular_progress_bar_2,
-        )
         
+        #Right Widgets
         self.center_box.add_right(self.system_tray)
         self.center_box.add_right(self.date_time)
         self.add(self.center_box)

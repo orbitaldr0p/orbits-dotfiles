@@ -22,6 +22,8 @@
     border-radius: 5px;
 }
 
+/* Workspaces */
+
 #workspaces {
     margin: 3px;
     padding: 6px;
@@ -60,9 +62,10 @@
     background-color: alpha(var(--Foreground), 0.4);
 }
 
-#Mode,
+
+/* ============================================================================= */
+
 #date-time,
-#hyprland-language,
 #hyprland-window {
     background-color: var(--module-bg);
     padding: 0px 8px;
@@ -71,8 +74,6 @@
 
 menu > menuitem > label,
 #date-time > label,
-#Mode > label,
-#hyprland-language > label,
 #hyprland-window > label {
     font-weight: 900;
 }
@@ -124,17 +125,9 @@ menu > menuitem:hover {
     background-color: var(--border-color);
 }
 
-#circular-progress-bar-1 {
-    border: solid 0px var(--border-color);
+#module-separator {
+    margin: 0px 12px;
+    padding: 5px 1px 5px 1px;
+    background-color: alpha(var(--Foreground), 0.4);
 }
 
-#circular-progress-bar-2 {
-    border: solid 0px alpha(var(--color9), 0.8);
-}
-
-#circular-progress-bar-con {
-    border-radius: 100px;
-    background-color: var(--module-bg);
-    padding: 3px;
-    margin: 3px;
-}
