@@ -1,78 +1,63 @@
 /* uncomment if you do have pywal configured */
 /* @import url("/home/USER/.cache/wal/colors-widgets.css"); */
-@import url(".config/fabric/fallback_colors.css");
+@import url(".config/fabric/catppuccin.css");
 
 :vars {
-    --window-bg: alpha(var(--background), 0.6);
-    --module-bg: alpha(var(--background), 0.4);
-    --border-color: var(--color11);
-    --ws-active: var(--color9);
-    --ws-inactive: var(--color3);
-    --ws-empty: var(--color8);
-    --ws-hover: var(--color1);
-    --ws-urgent: var(--color11);
+    --window-bg: alpha(var(--Background), 0.6);
+    --module-bg: transparent;
 }
 
 * {
     /* unsets everything so we can style everything from scratch. */
     all: unset;
-    font-family: "Iosevka Nerd Font";
+    font-family: "JetBrainsMono NFP";
     font-weight: 500;
     font-size: 14px;
-    color: var(--foreground);
+    color: var(--Foreground);
     /* we can use webcss variables, fabric compiles that to gtk css. */
 }
 
 #main-window {
-    border: solid 2px;
-    border-color: var(--border-color);
     background-color: var(--window-bg);
-    border-radius: 100px;
-}
-
-button {
-    border-radius: 100px;
-    background-size: 400% 400%;
+    border-radius: 5px;
 }
 
 #workspaces {
     margin: 3px;
     padding: 6px;
     background-color: var(--module-bg);
-    border-radius: 100px;
+    border-radius: 5px;
 }
 
 #workspaces > button {
-    padding: 0px 9px;
-    /* transition: min-width 0.15s cubic-bezier(0.2, 0.0, 0, 1.0); */
+    border: solid 1px;
+    border-color: var(--Foreground);
+    border-radius: 2px;
+    min-width: 25px;
     transition: min-width 0.15s cubic-bezier(0.075, 0.82, 0.165, 1);
-    background-color: var(--ws-inactive);
+    background-color: transparent;
 }
 
 #workspaces > button > label {
-    color: #30303e;
+    color: var(--Foreground);
 }
 
 #workspaces > button.active {
     min-width: 48px;
-    background-color: var(--ws-active);
+    background-color: var(--Foreground);
 }
 
 #workspaces > button.active > label {
     font-weight: 900;
-    color: #bec0f8;
-}
-
-#workspaces > button.empty {
-    background-color: var(--ws-empty);
+    color: var(--Background);
 }
 
 #workspaces > button.urgent {
-    background-color: var(--ws-urgent);
+    background-color: var(--Red);
 }
 
 #workspaces > button:hover {
-    background-color: var(--ws-hover);
+    background-color: alpha(var(--Foreground), 0.4);
 }
 
 #Mode,

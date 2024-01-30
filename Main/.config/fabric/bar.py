@@ -28,20 +28,20 @@ class StatusBar(Window):
         super().__init__(
             layer="top",
             anchor="left top right",
-            margin="10px 10px -2px 10px",
+            margin="7px 7px 0px 7px",
             exclusive=True,
             visible=True,
         )
         self.center_box = CenterBox(name="main-window")
         self.workspaces = Workspaces(
             buttons_list=[
-                WorkspaceButton(label=FormattedString("")),
-                WorkspaceButton(label=FormattedString("")),
-                WorkspaceButton(label=FormattedString("")),
-                WorkspaceButton(label=FormattedString("")),
-                WorkspaceButton(label=FormattedString("")),
+                WorkspaceButton(label=FormattedString("1")),
+                WorkspaceButton(label=FormattedString("2")),
+                WorkspaceButton(label=FormattedString("3")),
+                WorkspaceButton(label=FormattedString("4")),
+                WorkspaceButton(label=FormattedString("5")),
             ],
-            spacing=2,
+            spacing=6,
             name="workspaces",
         )
         self.active_window = ActiveWindow(
