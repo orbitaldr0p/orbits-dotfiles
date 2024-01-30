@@ -121,7 +121,7 @@ class StatusBar(Window):
                         children=[
                             Label(label=""),
                             self.cpu_label,
-                            Label(label="% |"),
+                            Label(label="%"),
                             self.cpu_freq_label,
                             Label(label="GHz")
                         ],
