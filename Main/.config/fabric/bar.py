@@ -1,29 +1,29 @@
-"""desktop status bar example"""
-import fabric
-import os
 import math
+import os
 import subprocess
-import psutil
-from loguru import logger
-from fabric.widgets.box import Box
+
+import fabric
+from fabric.audio.service import Audio
+from fabric.hyprland.widgets import ActiveWindow, Language, WorkspaceButton, Workspaces
 from fabric.system_tray import SystemTray
-from fabric.widgets.wayland import Window
+from fabric.utils.fabricator.fabricator import Fabricate
+from fabric.utils.helpers import (
+    bulk_replace,
+    invoke_repeater,
+    monitor_file,
+    set_stylesheet_from_file,
+)
+from fabric.utils.string_formatter import FormattedString
+from fabric.widgets.box import Box
+from fabric.widgets.centerbox import CenterBox
+from fabric.widgets.circular_progress_bar import CircularProgressBar
+from fabric.widgets.date_time import DateTime
+from fabric.widgets.eventbox import EventBox
 from fabric.widgets.label import Label
 from fabric.widgets.overlay import Overlay
-from fabric.utils.fabricator.fabricator import Fabricate
-from fabric.widgets.date_time import DateTime
-from fabric.widgets.centerbox import CenterBox
-from fabric.utils.string_formatter import FormattedString
-from fabric.widgets.circular_progress_bar import CircularProgressBar
-from fabric.hyprland.widgets import WorkspaceButton, Workspaces, ActiveWindow, Language
-from fabric.widgets.eventbox import EventBox
-from fabric.audio.service import Audio
-from fabric.utils.helpers import (
-    set_stylesheet_from_file,
-    bulk_replace,
-    monitor_file,
-    invoke_repeater,
-)
+from fabric.widgets.wayland import Window
+from loguru import logger
+import psutil
 
 class VolumeWidget(Box):
     def __init__(self, **kwargs):
