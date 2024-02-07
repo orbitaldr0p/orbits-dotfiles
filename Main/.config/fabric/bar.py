@@ -66,13 +66,7 @@ class StatusBar(Window):
                 "ram": str(int(psutil.virtual_memory().percent)),
                 "cpu": str(int(psutil.cpu_percent())),
                 "cpu-freq": str(round(float(str(psutil.cpu_freq()).split("current=")[1].split(",")[0]) / 1000, 2)),
-                "battery": str(
-                    int(
-                        psutil.sensors_battery().percent
-                        if psutil.sensors_battery() is not None
-                        else 42
-                    )
-                ),
+                "battery": str(int(psutil.sensors_battery().percent) if psutil.sensors_battery() is not None else 42),
             },
             interval=1000,
         )
