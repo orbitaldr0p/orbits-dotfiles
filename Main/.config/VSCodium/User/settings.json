@@ -1,0 +1,17 @@
+{
+    "window.titleBarStyle": "custom",
+    "explorer.confirmDelete": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "editor.fontFamily": "JetBrainsMono NFP",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmPasteNative": false,
+    "transparent-win.transparency": 0.5,
+    "animations.Install-Method": "Apc Customize UI++",
+    "apc.imports": [
+        "file:///home/_orbitaldrop/.vscode-oss/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
+    ],
+    "workbench.colorTheme": "Catppuccin Frappé",
+    "haskell.manageHLS": "GHCup"
+}
