@@ -51,6 +51,7 @@ class VolumeWidget(Box):
         )
 
         self.event_box.connect("scroll-event", self.on_scroll)
+        self.event_box.connect("button-press-event", self.on_click)
         self.audio.connect("speaker-changed", self.update)
         self.add(self.event_box)
 
@@ -62,6 +63,10 @@ class VolumeWidget(Box):
             self.audio.speaker.volume -= 10
             os.system(f'dunstify "Volume: {math.ceil(self.audio.speaker.volume)}" -t 800 -r 91190')
 
+    def on_click(self, widget, event):
+        if event.button == 1:
+            os.system('pavucontrol')
+            
     def update(self, *args):
         if self.audio.speaker is None:
             return
