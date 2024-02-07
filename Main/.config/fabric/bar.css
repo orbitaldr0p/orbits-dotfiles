@@ -136,3 +136,6 @@ menu > menuitem:hover > label {
     background-color: alpha(var(--Foreground), 0.4);
 }
 
+#volume-circular-progress-bar {
+    border: solid 10px var(--border-color);
+}

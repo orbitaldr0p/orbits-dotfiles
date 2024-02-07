@@ -1,6 +1,8 @@
 """desktop status bar example"""
 import fabric
 import os
+import math
+import subprocess
 import psutil
 from loguru import logger
 from fabric.widgets.box import Box
@@ -14,12 +16,57 @@ from fabric.widgets.centerbox import CenterBox
 from fabric.utils.string_formatter import FormattedString
 from fabric.widgets.circular_progress_bar import CircularProgressBar
 from fabric.hyprland.widgets import WorkspaceButton, Workspaces, ActiveWindow, Language
+from fabric.widgets.eventbox import EventBox
+from fabric.audio.service import Audio
 from fabric.utils.helpers import (
     set_stylesheet_from_file,
     bulk_replace,
     monitor_file,
     invoke_repeater,
 )
+
+class VolumeWidget(Box):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.audio = Audio()
+        self.audioLabel = ""
+
+        self.circular_progress_bar = CircularProgressBar(
+            name="volume-circular-progress-bar",
+            background_color=False,  # false = disabled
+            radius_color=False,
+            pie=False,
+            line_width=4
+        )
+
+        self.event_box = EventBox(
+            events="scroll",
+            children=Overlay(
+                children=self.circular_progress_bar,
+                overlays=Label(
+                    label=self.audioLabel,
+                    style="margin: 0px 0px 0px 0px; font-size: 12px",  # because glyph icon is not centered
+                ),
+            ),
+        )
+
+        self.event_box.connect("scroll-event", self.on_scroll)
+        self.audio.connect("speaker-changed", self.update)
+        self.add(self.event_box)
+
+    def on_scroll(self, widget, event):
+        if event.direction == 0:
+            self.audio.speaker.volume += 10
+            os.system(f'dunstify "Volume: {math.ceil(self.audio.speaker.volume)}" -t 800 -r 91190')
+        elif event.direction == 1:
+            self.audio.speaker.volume -= 10
+            os.system(f'dunstify "Volume: {math.ceil(self.audio.speaker.volume)}" -t 800 -r 91190')
+
+    def update(self, *args):
+        if self.audio.speaker is None:
+            return
+        self.circular_progress_bar.percentage = self.audio.speaker.volume
+        return
 
 class StatusBar(Window):
     def __init__(
@@ -80,6 +127,8 @@ class StatusBar(Window):
             ),
         )
 
+        self.volume = VolumeWidget()
+
         #Left Widgets
         self.date_time = DateTime(name="date-time")
         self.system_tray = SystemTray(name="system-tray")
@@ -128,8 +177,38 @@ class StatusBar(Window):
         self.center_box.add_center(self.active_window)
         
         #Right Widgets
-        self.center_box.add_right(self.system_tray)
-        self.center_box.add_right(self.date_time)
+        self.center_box.add_right(
+            Box(
+                orientation="h",
+                style="min-width: calc(44px - 8px); margin: 8px;",
+                children=[
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            self.system_tray
+                        ],
+                    ),
+                    Box(name="module-separator"),
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            self.volume
+                        ],
+                    ),
+                    Box(name="module-separator"),
+                    Box(
+                        spacing=4,
+                        orientation="h",
+                        children=[
+                            self.date_time
+                        ],
+                    ),
+                ],
+            )
+        )
+        
         self.add(self.center_box)
         self.show_all()
 
