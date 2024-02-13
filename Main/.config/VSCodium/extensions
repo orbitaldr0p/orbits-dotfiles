@@ -1,9 +1,9 @@
+alexdauenhauer.catppuccin-noctis
 bungcip.better-toml
 Catppuccin.catppuccin-vsc
 Catppuccin.catppuccin-vsc-icons
 dlasagno.rasi
 donjayamanne.python-environment-manager
-eww-yuck.yuck
 HarryHopkinson.vs-code-runner
 haskell.haskell
 hoovercj.haskell-linter
@@ -11,3 +11,9 @@ justusadam.language-haskell
 kamikillerto.vscode-colorize
 ms-pyright.pyright
 ms-python.python
+redhat.java
+vscjava.vscode-java-debug
+vscjava.vscode-java-dependency
+vscjava.vscode-java-pack
+vscjava.vscode-java-test
+vscjava.vscode-maven
