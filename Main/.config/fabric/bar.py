@@ -45,7 +45,7 @@ class VolumeWidget(Box):
                 children=self.circular_progress_bar,
                 overlays=Label(
                     label=self.audioLabel,
-                    style="margin: 0px 0px 0px 0px; font-size: 12px",  # because glyph icon is not centered
+                    style="margin: 0px 0px 0px 0px; font-size: 12px"
                 ),
             ),
         )
