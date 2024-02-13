@@ -12,6 +12,6 @@
     "apc.imports": [
         "file:///home/_orbitaldrop/.vscode-oss/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
     ],
-    "workbench.colorTheme": "Catppuccin Frappé",
+    "workbench.colorTheme": "Catppuccin Noctis Frappé",
     "haskell.manageHLS": "GHCup"
 }
