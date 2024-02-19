@@ -13,5 +13,7 @@
         "file:///home/_orbitaldrop/.vscode-oss/extensions/brandonkirbyson.vscode-animations-2.0.1/dist/updateHandler.js"
     ],
     "workbench.colorTheme": "Catppuccin Noctis Frappé",
-    "haskell.manageHLS": "GHCup"
+    "haskell.manageHLS": "GHCup",
+    "redhat.telemetry.enabled": false,
+    "workbench.iconTheme": "catppuccin-frappe"
 }
