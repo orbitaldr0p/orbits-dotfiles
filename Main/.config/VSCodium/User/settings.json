@@ -4,6 +4,7 @@
     "git.confirmSync": false,
     "git.autofetch": true,
     "editor.fontFamily": "JetBrainsMono NFP",
+    "editor.fontLigatures": true,
     "terminal.integrated.defaultProfile.linux": "fish",
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmPasteNative": false,
