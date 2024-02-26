@@ -18,5 +18,6 @@
     "redhat.telemetry.enabled": false,
     "workbench.iconTheme": "catppuccin-frappe",
     "sync.gist": "452f894dd3768ca8569f8ec95f04bae6",
-    "cSpell.language": "en-GB"
+    "cSpell.language": "en-GB",
+    "git.useIntegratedAskPass": false
 }
