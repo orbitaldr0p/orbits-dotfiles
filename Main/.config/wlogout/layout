@@ -7,7 +7,7 @@
 
 {
     "label" : "logout",
-    "action" : "screenpad off & loginctl kill-user $(whoami)",
+    "action" : "screenpad off & hyprctl dispatch exit",
     "text" : "Logout",
     "keybind" : "e"
 }
