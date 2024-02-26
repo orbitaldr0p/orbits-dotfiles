@@ -3,3 +3,4 @@ if status is-interactive
 end
 starship init fish | source
 pyenv init - | source
+set PATH "$HOME/.local/bin:$PATH"
