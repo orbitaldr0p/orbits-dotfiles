@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
 fi
 
 search_word=$1
-app_dir="Applications"
+app_dir=".appimages"
 
 # Check if the directory exists
 if [ ! -d "$app_dir" ]; then
