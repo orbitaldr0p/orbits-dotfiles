@@ -15,7 +15,7 @@ if [ ! -d "$app_dir" ]; then
 fi
 
 # Search for AppImages containing the specified word
-app_images=$(find "$app_dir" -name "*.AppImage" -type f | grep "$search_word")
+app_images=$(find "$app_dir" -iname "*.appimage" -type f | grep "$search_word")
 
 if [ -z "$app_images" ]; then
   echo "No AppImages found containing the word '$search_word' in the name."
