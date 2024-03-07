@@ -21,7 +21,7 @@
 
 {
     "label" : "reboot",
-    "action" : "screenpad off & systemctl reboot",
+    "action" : "screenpad off && sleep 1 && systemctl reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }
