@@ -30,5 +30,9 @@
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "prettier.tabWidth": 4
+    "prettier.tabWidth": 4,
+    "vscord.app.name": "VSCodium",
+    "discord.smallImage": "{app_name} ",
+    "vscord.status.idle.check": false,
+    "vscord.status.idle.enabled": false
 }
