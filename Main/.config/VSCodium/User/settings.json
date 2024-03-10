@@ -34,5 +34,8 @@
     "vscord.app.name": "VSCodium",
     "discord.smallImage": "{app_name} ",
     "vscord.status.idle.check": false,
-    "vscord.status.idle.enabled": false
+    "vscord.status.idle.enabled": false,
+    "workbench.editorAssociations": {
+        "*.pdf": "default"
+    }
 }

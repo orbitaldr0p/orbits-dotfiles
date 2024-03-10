@@ -7,21 +7,21 @@
 
 {
     "label" : "logout",
-    "action" : "screenpad off & hyprctl dispatch exit",
+    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh e",
     "text" : "Logout",
     "keybind" : "e"
 }
 
 {
     "label" : "shutdown",
-    "action" : "screenpad off & systemctl poweroff",
+    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh s",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 
 {
     "label" : "reboot",
-    "action" : "screenpad off && sleep 1 && systemctl reboot",
+    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh r",
     "text" : "Reboot",
     "keybind" : "r"
 }
