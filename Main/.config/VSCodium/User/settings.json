@@ -37,5 +37,6 @@
     "vscord.status.idle.enabled": false,
     "workbench.editorAssociations": {
         "*.pdf": "default"
-    }
+    },
+    "git.ignoreRebaseWarning": true
 }
