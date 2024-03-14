@@ -38,5 +38,7 @@
     "workbench.editorAssociations": {
         "*.pdf": "default"
     },
-    "git.ignoreRebaseWarning": true
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportIncompatibleMethodOverride": false
+    }
 }

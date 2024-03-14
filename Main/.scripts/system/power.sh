@@ -11,7 +11,7 @@ case "$1" in
     e)
         screenpad off
         for ((i=3; i>=1; i--)); do
-            dunstify "Logging out in $i seconds..." -t 1000 -r 91190
+            dunstify "Logging out in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         hyprctl dispatch exit
@@ -19,7 +19,7 @@ case "$1" in
     s)
         screenpad off
         for ((i=3; i>=1; i--)); do
-            dunstify "Shutting Down in $i seconds..." -t 1000 -r 91190
+            dunstify "Shutting Down in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         shutdown now
@@ -27,7 +27,7 @@ case "$1" in
     r)
         screenpad off
         for ((i=3; i>=1; i--)); do
-            dunstify "Restarting in $i seconds..." -t 1000 -r 91190
+            dunstify "Restarting in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         systemctl reboot
