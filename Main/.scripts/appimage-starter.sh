@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 8
 
 if [ $# -eq 0 ]; then
   echo "Usage: $0 <search_word>"
