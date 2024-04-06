@@ -9,15 +9,14 @@ fi
 # Check the provided argument
 case "$1" in
     e)
-        screenpad off
         for ((i=3; i>=1; i--)); do
             dunstify "Logging out in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
+        swww kill
         hyprctl dispatch exit
         ;;
     s)
-        screenpad off
         for ((i=3; i>=1; i--)); do
             dunstify "Shutting Down in $i seconds..." -t 2000 -r 91190
             sleep 1
@@ -25,7 +24,6 @@ case "$1" in
         shutdown now
         ;;
     r)
-        screenpad off
         for ((i=3; i>=1; i--)); do
             dunstify "Restarting in $i seconds..." -t 2000 -r 91190
             sleep 1
