@@ -1,0 +1,85 @@
+* {
+  border: none;
+  font-family: 'JetBrainsMono NFP';
+  font-weight: bold;
+  font-size: 15px;
+}
+
+@import "Themes/catppuccin-frappe.css";
+
+window#waybar {
+  background: transparent;
+}
+
+/* ==============================Main============================== */
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window {
+  border-radius: 5px;
+  background-color: @background;
+  color: @foreground;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* ==============================Location============================== */
+/* Left Edge Modules */
+#cpu, #clock {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-right: 5px;
+  margin-right: 0px;
+  margin-left: 8px;
+  border-right: none;
+}
+
+/* Right Edge Modules */
+#tray, #battery{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 5px;
+  margin-left: 0px;
+  margin-right: 8px;
+  border-left: none;
+}
+
+/* Middle Modules */
+#workspaces, #network, #memory, #backlight, #pulseaudio, #bluetooth{
+  border-radius: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  border-left: none;
+  border-right: none;
+}
+
+/* ==============================Colours============================== */
+#custom-swaync, #battery, #cpu {
+  color: @red;
+}
+
+#memory, #network, #bluetooth {
+  color: @orange;
+}
+
+#workspaces button, #pulseaudio, #backlight{
+  color:@yellow;
+}
+
+#clock {
+  color: @green;
+}
+
+#custom-playerctl, #window {
+  color: @magenta;
+}
+
+/* ==============================Individual Module Tweaks============================== */
+#custom-swaync{
+  padding-right: 15px;
+}
