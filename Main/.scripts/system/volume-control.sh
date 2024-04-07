@@ -27,10 +27,10 @@ mic_mute() {
   muteState=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
   if echo "$muteState" | grep -q '\[MUTED\]'; then
     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
-    dunstify "Unmuting Mic" -t 800 -r 91190
+    dunstify "Mic Unmuted" -t 800 -r 91190
   else
     wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
-    dunstify "Muting Mic" -t 800 -r 91190
+    dunstify "Mic Muted" -t 800 -r 91190
   fi
 }
 
