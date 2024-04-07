@@ -1,24 +1,25 @@
 #!/usr/bin/env sh
 
 volume_increased() {
-  pamixer -i 10
-  vol=$(pamixer --get-volume-human | cat)
-  dunstify "Volume: $vol" -t 800 -r 91190
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+ -l 1.0
+  vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
+  dunstify "Volume: $vol%" -t 800 -r 91190
 }
 
 volume_decreased() {
-  pamixer -d 10
-  vol=$(pamixer --get-volume-human | cat)
-  dunstify "Volume: $vol" -t 800 -r 91190
+  wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- -l 1.0
+  vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
+  dunstify "Volume: $vol%" -t 800 -r 91190
 }
 
 muted() {
-  pamixer -t
-  muteState=$(pamixer --get-mute | cat)
-  if [ "$muteState" == "true" ] ; then
-    dunstify "Muted" -t 800 -r 91190
-  else
+  muteState=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+  if echo "$muteState" | grep -q '\[MUTED\]'; then
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
     dunstify "Unmuted" -t 800 -r 91190
+  else
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+    dunstify "Muted" -t 800 -r 91190
   fi
 }
 
