@@ -9,14 +9,16 @@
 
 window#waybar {
   background: transparent;
+  border: 1px solid @foreground;
+  border-radius: 5px;
 }
 
 /* ==============================Main============================== */
 #clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window {
   border-radius: 5px;
-  background-color: @background;
+  background-color: transparent;
   color: @foreground;
-  margin-top: 7px;
+  margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 5px;
   margin-right: 5px;
@@ -58,28 +60,3 @@ window#waybar {
   border-right: none;
 }
 
-/* ==============================Colours============================== */
-#custom-swaync, #battery, #cpu {
-  color: @red;
-}
-
-#memory, #network, #bluetooth {
-  color: @orange;
-}
-
-#workspaces button, #pulseaudio, #backlight{
-  color:@yellow;
-}
-
-#clock {
-  color: @green;
-}
-
-#custom-playerctl, #window {
-  color: @magenta;
-}
-
-/* ==============================Individual Module Tweaks============================== */
-#custom-swaync{
-  padding-right: 15px;
-}
