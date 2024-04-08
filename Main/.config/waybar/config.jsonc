@@ -4,7 +4,7 @@
   "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
   "modules-center": ["hyprland/window"],
   "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery"],
-  "margin": "7, 8, 0, 8",
+  "margin": "6, 6, 0, 6",
   //"exclusive": false,
   
   "cpu": {
@@ -91,11 +91,11 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": "󰸈",
     "tooltip": false,
     "format-icons": {
       "headphone": "",
-      "default": ["", "", "󰕾", ""]
+      "default": ["󰕿", "󰖀", "󰕾"]
     },
     "on-click-middle": "~/.scripts/system/volume-control.sh m",
     "on-scroll-up": "~/.scripts/system/volume-control.sh i",
