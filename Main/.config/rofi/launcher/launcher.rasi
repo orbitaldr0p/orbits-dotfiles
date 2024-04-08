@@ -38,7 +38,7 @@ mainbox {
   background-color:           transparent;
   orientation:                vertical;
   children:                   [ "inputbar", "listview" ];
-  padding:                    350px 500px 350px 500px;
+  padding:                    280px 400px 280px 400px;
 }
 
 /*****----- Inputbar -----*****/
