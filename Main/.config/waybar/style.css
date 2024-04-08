@@ -8,7 +8,7 @@
 @import "Themes/catppuccin-frappe.css";
 
 window#waybar {
-  background: transparent;
+  background: @background-transparent;
   border: 1px solid @foreground;
   border-radius: 5px;
 }
