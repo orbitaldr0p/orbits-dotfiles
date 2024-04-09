@@ -91,7 +91,7 @@
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "󰸈",
+    "format-muted": "󰸈 Off",
     "tooltip": false,
     "format-icons": {
       "headphone": "",
