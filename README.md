@@ -14,6 +14,4 @@ Don't expect any documentation any time soon, this is for me only.
 - Launcher: Rofi
 ![Image](/Stuff/Catppuccin-Preview-1.png)
 ![Image](/Stuff/Catppuccin-Preview-2.png)
-![Image](/Stuff/Catppuccin-Preview-3.png)
-
 
