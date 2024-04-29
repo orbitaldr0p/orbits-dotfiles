@@ -140,6 +140,7 @@
     "max-length": 6,
     "min-length": 6,
     "tooltip": false,
-    "on-click": "foot -T battop -e battop"
+    "on-click": "~/.scripts/system/power-profile.sh",
+    "on-click-right": "foot -T battop -e battop"
   }
 }
