@@ -139,6 +139,7 @@
     "format-charging": "󰂄 {capacity}%",
     "max-length": 6,
     "min-length": 6,
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "foot -T battop -e battop"
   }
 }
