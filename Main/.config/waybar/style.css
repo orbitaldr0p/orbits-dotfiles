@@ -14,7 +14,7 @@ window#waybar {
 }
 
 /* ==============================Main============================== */
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window {
+#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window ,#custom-clipboard{
   border-radius: 5px;
   background-color: transparent;
   color: @foreground;
@@ -40,7 +40,7 @@ window#waybar {
 }
 
 /* Right Edge Modules */
-#tray, #battery{
+#tray, #custom-clipboard{
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   padding-left: 5px;
@@ -50,7 +50,7 @@ window#waybar {
 }
 
 /* Middle Modules */
-#workspaces, #network, #memory, #backlight, #pulseaudio, #bluetooth{
+#workspaces, #network, #memory, #backlight, #pulseaudio, #bluetooth, #battery{
   border-radius: 0;
   padding-left: 5px;
   padding-right: 5px;

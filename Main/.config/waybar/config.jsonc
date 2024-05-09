@@ -3,7 +3,7 @@
   "output": ["eDP-1"],
   "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery"],
+  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/clipboard"],
   "margin": "6, 6, 0, 6",
   //"exclusive": false,
   
@@ -140,7 +140,12 @@
     "max-length": 6,
     "min-length": 6,
     "tooltip": false,
-    "on-click": "~/.scripts/system/power-profile.sh",
-    "on-click-right": "foot -T battop -e battop"
+    "on-click": "foot -T battop -e battop",
+    "on-click-right": "~/.scripts/system/power-profile.sh"
+  },
+
+  "custom/clipboard": {
+    "format": "",
+    "on-click": "foot -T clipse -e clipse"
   }
 }
