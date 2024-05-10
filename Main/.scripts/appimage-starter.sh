@@ -27,7 +27,7 @@ fi
 echo "Executing AppImages containing the word '$search_word':"
 for app_image in $app_images; do
   chmod +x "$app_image"
-  ./"$app_image" &
+  ./"$app_image" --ozone-platform=wayland &
 done
 
 echo "Execution complete."
