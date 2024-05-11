@@ -84,3 +84,26 @@ window#waybar {
     border-left: none;
     border-right: none;
 }
+/* ==============================Workspaces============================== */
+#workspaces {
+    background: transparent;
+    margin: 5px 0px 5px 0px;
+    border-radius: 16px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+#workspaces button {
+    color: @foreground;
+    border-radius: 16px;
+    padding: 0px 4px;
+}
+
+#workspaces button.active {
+    color: @foreground;
+    border-radius: 16px;
+}
+
+#workspaces button:hover {
+    color: @foreground;
+}

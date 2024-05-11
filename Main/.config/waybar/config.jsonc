@@ -16,9 +16,9 @@
 
     "cpu": {
         "interval": "1",
-        "format": " {avg_frequency}GHz | {usage}%",
-        "max-length": 16,
-        "min-length": 16,
+        "format": " {usage}%",
+        "max-length": 6,
+        "min-length": 6,
         "on-click": "foot -T btop -e btop",
         "on-click-right": "foot -T nvtop -e nvtop"
     },
@@ -102,7 +102,6 @@
         "on-click-middle": "~/.scripts/system/volume-control.sh m",
         "on-scroll-up": "~/.scripts/system/volume-control.sh i",
         "on-scroll-down": "~/.scripts/system/volume-control.sh d",
-        //"scroll-step": 5,
         "max-length": 7,
         "min-length": 7,
         "on-click": "pavucontrol"
@@ -120,12 +119,13 @@
     },
 
     "network": {
+        "interval": 1,
         "format": "{ifname}",
         "format-wifi": "{icon} {essid}",
         "format-ethernet": "{ipaddr}/{cidr} {icon}",
         "format-disconnected": "{icon} Disconnected",
         "format-disabled": "{icon} Disabled",
-        "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-icons": {
             "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
             "ethernet": "󰈀",
@@ -152,7 +152,7 @@
         "max-length": 6,
         "min-length": 6,
         "on-click": "nautilus",
-        "tooltip-format": "{used} used out of {total}\nOpen Nautilus (󰘳 + E)"
+        "tooltip-format": "{used} used out of {total}"
     },
 
     "custom/clipboard": {
