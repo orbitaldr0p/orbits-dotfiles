@@ -1,62 +1,86 @@
 * {
-  border: none;
-  font-family: 'JetBrainsMono NFP';
-  font-weight: bold;
-  font-size: 15px;
+    border: none;
+    font-family: "JetBrainsMono NFP";
+    font-weight: bold;
+    font-size: 15px;
 }
 
 @import "Themes/catppuccin-frappe.css";
 
 window#waybar {
-  background: @background-transparent;
-  border: 1px solid @foreground;
-  border-radius: 5px;
+    background: @background-transparent;
+    border: 1px solid @foreground;
+    border-radius: 5px;
 }
 
 /* ==============================Main============================== */
-#clock, #backlight, #pulseaudio, #bluetooth, #network, #battery, #tray, #cpu, #temperature, #memory, #custom-playerctl, #workspaces, #custom-swaync, #window ,#custom-clipboard{
-  border-radius: 5px;
-  background-color: transparent;
-  color: @foreground;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-left: 5px;
-  margin-right: 5px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+#clock,
+#backlight,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery,
+#tray,
+#cpu,
+#temperature,
+#memory,
+#custom-playerctl,
+#workspaces,
+#custom-swaync,
+#window,
+#custom-clipboard,
+#disk,
+#hyprland-workspaces {
+    border-radius: 5px;
+    background-color: transparent;
+    color: @foreground;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* ==============================Location============================== */
 /* Left Edge Modules */
-#cpu, #clock {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-right: 5px;
-  margin-right: 0px;
-  margin-left: 8px;
-  border-right: none;
+#cpu,
+#clock {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-right: 5px;
+    margin-right: 0px;
+    margin-left: 8px;
+    border-right: none;
 }
 
 /* Right Edge Modules */
-#tray, #custom-clipboard{
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 5px;
-  margin-left: 0px;
-  margin-right: 8px;
-  border-left: none;
+#tray,
+#custom-clipboard {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 5px;
+    margin-left: 0px;
+    margin-right: 8px;
+    border-left: none;
 }
 
 /* Middle Modules */
-#workspaces, #network, #memory, #backlight, #pulseaudio, #bluetooth, #battery{
-  border-radius: 0;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 0px;
-  margin-right: 0px;
-  border-left: none;
-  border-right: none;
+#workspaces,
+#network,
+#memory,
+#backlight,
+#pulseaudio,
+#bluetooth,
+#battery,
+#disk {
+    border-radius: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-left: none;
+    border-right: none;
 }
-

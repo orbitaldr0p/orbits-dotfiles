@@ -1,151 +1,162 @@
 {
-  "layer": "top",
-  "output": ["eDP-1"],
-  "modules-left": ["cpu", "memory", "hyprland/workspaces", "tray" ],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["clock", "backlight", "pulseaudio", "bluetooth", "network", "battery", "custom/clipboard"],
-  "margin": "6, 6, 0, 6",
-  //"exclusive": false,
-  
-  "cpu": {
-    "interval": "1",
-    "format": " {avg_frequency}GHz | {usage}%",
-    "max-length": 16,
-    "min-length": 16,
-    "on-click": "foot -T btop -e btop",
-    "on-click-right": "foot -T nvtop -e nvtop"
-  },
+    "layer": "top",
+    "output": ["eDP-1"],
+    "modules-left": ["cpu", "memory", "disk", "hyprland/workspaces", "tray"],
+    "modules-center": [""],
+    "modules-right": [
+        "clock",
+        "backlight",
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "battery",
+        "custom/clipboard"
+    ],
+    "margin": "6, 6, 0, 6",
 
-  "memory": {
-    "interval": 1,
-    "format": "󰘚 {percentage}%",
-    "max-length": 6,
-    "min-length": 6
-  },
-
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "tooltip": false,
-    "all-outputs": false,
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
+    "cpu": {
+        "interval": "1",
+        "format": " {avg_frequency}GHz | {usage}%",
+        "max-length": 16,
+        "min-length": 16,
+        "on-click": "foot -T btop -e btop",
+        "on-click-right": "foot -T nvtop -e nvtop"
     },
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "active": "",
-      "default": ""
-    }
-  },
 
-  "tray": {
-    //"icon-size": 20,
-    "spacing": 10
-  },
+    "memory": {
+        "interval": 1,
+        "format": "󰘚 {percentage}%",
+        "max-length": 6,
+        "min-length": 6
+    },
 
-  "hyprland/window": {
-    "format": "  {}",
-    "separate-outputs": true,
-    "max-length": 50
-  },
-  
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%R 󰃭 %d·%m·%y}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-        "mode": "month",
-        "mode-mon-col": 3,
-        "on-scroll": 1,
-        "on-click-right": "mode",
-        "format": {
-            "months": "<span color='#d8dee9'><b>{}</b></span>",
-            "weekdays": "<span color='#eceff4'><b>{}</b></span>",
-            "today": "<span color='#d08770'><b>{}</b></span>"
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "tooltip": false,
+        "all-outputs": false,
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format-icons": {
+            "active": "",
+            "default": ""
         }
     },
-    "actions": {
-        "on-click-right": "mode",
-        "on-click-forward": "tz_up",
-        "on-click-backward": "tz_down",
-        "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down"
-    }
-  },
 
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon} {percent}%",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
-    "scroll-step": 10,
-    "max-length": 7,
-    "min-length": 7
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰸈 Off",
-    "tooltip": false,
-    "format-icons": {
-      "headphone": "",
-      "default": ["󰕿", "󰖀", "󰕾"]
+    "tray": {
+        //"icon-size": 20,
+        "spacing": 10
     },
-    "on-click-middle": "~/.scripts/system/volume-control.sh m",
-    "on-scroll-up": "~/.scripts/system/volume-control.sh i",
-    "on-scroll-down": "~/.scripts/system/volume-control.sh d",
-    //"scroll-step": 5,
-    "max-length": 7,
-    "min-length": 7,
-    "on-click": "pavucontrol"
-  },
 
-  "bluetooth": {
-    "format": " On",
-    "format-disabled": " Off", // an empty format will hide the module
-    "format-connected": " {num_connections}",
-    "tooltip-format": "{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-    "min-length": 5,
-    "max-length": 5,
-    "on-click": "blueberry"
-  },
+    "hyprland/window": {
+        "format": "  {}",
+        "separate-outputs": true,
+        "max-length": 50
+    },
 
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": "{icon} {essid}",
-    "format-ethernet": "{ipaddr}/{cidr} {icon}",
-    "format-disconnected": "{icon} Disconnected",
-    "format-disabled": "{icon} Disabled",
-    "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "format-icons": {
-      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
-      "ethernet": "󰈀",
-      "disconnected": "󰤮",
-      "disabled": "󰤮"
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%R 󰃭 %d·%m·%y}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months": "<span color='#d8dee9'><b>{}</b></span>",
+                "weekdays": "<span color='#eceff4'><b>{}</b></span>",
+                "today": "<span color='#d08770'><b>{}</b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "scroll-step": 10,
+        "max-length": 7,
+        "min-length": 7
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰸈 Off",
+        "tooltip": false,
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click-middle": "~/.scripts/system/volume-control.sh m",
+        "on-scroll-up": "~/.scripts/system/volume-control.sh i",
+        "on-scroll-down": "~/.scripts/system/volume-control.sh d",
+        //"scroll-step": 5,
+        "max-length": 7,
+        "min-length": 7,
+        "on-click": "pavucontrol"
+    },
+
+    "bluetooth": {
+        "format": " On",
+        "format-disabled": " Off", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
+        "max-length": 6,
+        "min-length": 6,
+        "on-click": "blueberry"
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": "{ipaddr}/{cidr} {icon}",
+        "format-disconnected": "{icon} Disconnected",
+        "format-disabled": "{icon} Disabled",
+        "tooltip-format": "󱘖 {ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-icons": {
+            "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+            "ethernet": "󰈀",
+            "disconnected": "󰤮",
+            "disabled": "󰤮"
+        }
+    },
+
+    "battery": {
+        "interval": 1,
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-charging": "󰂄 {capacity}%",
+        "max-length": 6,
+        "min-length": 6,
+        "tooltip": false,
+        "on-click": "foot -T battop -e battop",
+        "on-click-right": "~/.scripts/system/power-profile.sh"
+    },
+
+    "disk": {
+        "interval": 10,
+        "format": "󰋊 {percentage_used}%",
+        "max-length": 6,
+        "min-length": 6,
+        "on-click": "nautilus",
+        "tooltip-format": "{used} used out of {total}\nOpen Nautilus (󰘳 + E)"
+    },
+
+    "custom/clipboard": {
+        "format": "",
+        "on-click": "foot -T clipse -e clipse"
     }
-  },
-
-  "battery": {
-    "interval": 1,
-    "format": "{icon} {capacity}%",
-    "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": "󰂄 {capacity}%",
-    "max-length": 6,
-    "min-length": 6,
-    "tooltip": false,
-    "on-click": "foot -T battop -e battop",
-    "on-click-right": "~/.scripts/system/power-profile.sh"
-  },
-
-  "custom/clipboard": {
-    "format": "",
-    "on-click": "foot -T clipse -e clipse"
-  }
 }
