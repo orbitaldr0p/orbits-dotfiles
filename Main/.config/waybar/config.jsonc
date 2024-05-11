@@ -16,9 +16,9 @@
 
     "cpu": {
         "interval": "1",
-        "format": " {usage}%",
-        "max-length": 6,
-        "min-length": 6,
+        "format": " {usage}% | {avg_frequency}GHz",
+        "max-length": 16,
+        "min-length": 16,
         "on-click": "foot -T btop -e btop",
         "on-click-right": "foot -T nvtop -e nvtop"
     },
