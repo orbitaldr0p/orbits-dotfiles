@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["cpu", "memory", "disk", "hyprland/workspaces", "tray"],
-    "modules-center": [""],
+    "modules-left": ["cpu", "memory", "disk", "tray"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "clock",
         "backlight",
@@ -30,8 +30,17 @@
         "min-length": 6
     },
 
+    "disk": {
+        "interval": 10,
+        "format": "󰋊 {percentage_used}%",
+        "max-length": 6,
+        "min-length": 6,
+        "on-click": "nautilus",
+        "tooltip-format": "{used} used out of {total}"
+    },
+
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "{name}",
         "tooltip": false,
         "all-outputs": false,
         "persistent_workspaces": {
@@ -109,19 +118,20 @@
 
     "bluetooth": {
         "format": " On",
-        "format-disabled": " Off", // an empty format will hide the module
+        "format-disabled": "󰂲", // an empty format will hide the module
         "format-connected": " {num_connections}",
         "tooltip-format": "{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-        "max-length": 6,
-        "min-length": 6,
+        "tooltip-format-enumerate-connected": "{device_alias}{device_address}",
+        "max-length": 5,
+        "min-length": 3,
         "on-click": "blueberry"
     },
 
     "network": {
         "interval": 1,
         "format": "{ifname}",
-        "format-wifi": "{icon} {essid}",
+        "format-alt": "{icon} {essid}",
+        "format-wifi": "{icon}",
         "format-ethernet": "{ipaddr}/{cidr} {icon}",
         "format-disconnected": "{icon} Disconnected",
         "format-disabled": "{icon} Disabled",
@@ -131,7 +141,8 @@
             "ethernet": "󰈀",
             "disconnected": "󰤮",
             "disabled": "󰤮"
-        }
+        },
+        "min-length": 3
     },
 
     "battery": {
@@ -144,15 +155,6 @@
         "tooltip": false,
         "on-click": "foot -T battop -e battop",
         "on-click-right": "~/.scripts/system/power-profile.sh"
-    },
-
-    "disk": {
-        "interval": 10,
-        "format": "󰋊 {percentage_used}%",
-        "max-length": 6,
-        "min-length": 6,
-        "on-click": "nautilus",
-        "tooltip-format": "{used} used out of {total}"
     },
 
     "custom/clipboard": {

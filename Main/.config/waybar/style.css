@@ -87,23 +87,30 @@ window#waybar {
 /* ==============================Workspaces============================== */
 #workspaces {
     background: transparent;
-    margin: 5px 0px 5px 0px;
-    border-radius: 16px;
-    font-weight: normal;
-    font-style: normal;
-}
-
-#workspaces button {
-    color: @foreground;
-    border-radius: 16px;
+    margin: 5px 5px;
     padding: 0px 5px;
+    border-radius: 16px;
+    color: @foreground;
+}
+#workspaces button {
+    padding: 0px 5px;
+    margin: 0px 3px;
+    border: 1px solid @foreground;
+    border-radius: 5px;
+    color: @foreground;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @foreground;
-    border-radius: 16px;
+    background-color: @foreground;
+    color: @background;
+    min-width: 40px;
+    transition: all 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
+    background-color: transparent;
     color: @foreground;
+    min-width: 40px;
 }
