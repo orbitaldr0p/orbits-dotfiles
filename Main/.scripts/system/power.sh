@@ -13,7 +13,6 @@ case "$1" in
             dunstify "Logging out in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
-        swww kill
         hyprctl dispatch exit
         ;;
     s)

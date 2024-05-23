@@ -32,3 +32,10 @@
     "text" : "Suspend",
     "keybind" : "u"
 }
+
+{
+    "label" : "dgpu",
+    "action" : "bash ~/.dotfiles/Main/.scripts/system/dGPUSwitcher.sh",
+    "text" : "dGPU Profile",
+    "keybind" : "u"
+}
