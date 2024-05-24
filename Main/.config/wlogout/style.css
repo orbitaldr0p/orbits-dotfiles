@@ -57,3 +57,10 @@ button:hover {
 #reboot:hover {
     background-image: image(url("./icons/restart-hover.png"));
 }
+
+#dgpu {
+    background-image: image(url("./icons/dGPU.png"));
+}
+#dgpu:hover {
+    background-image: image(url("./icons/dGPU-hover.png"));
+}
