@@ -105,7 +105,6 @@ window#waybar {
 #workspaces button.active {
     background-color: @foreground;
     color: @background;
-    min-width: 40px;
     transition: all 0.3s ease-in-out;
 }
 
