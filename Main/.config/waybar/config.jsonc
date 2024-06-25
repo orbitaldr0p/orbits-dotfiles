@@ -133,8 +133,8 @@
         "format-alt": "{icon} {essid}",
         "format-wifi": "{icon}",
         "format-ethernet": "{ipaddr}/{cidr} {icon}",
-        "format-disconnected": "{icon} Disconnected",
-        "format-disabled": "{icon} Disabled",
+        "format-disconnected": "{icon}",
+        "format-disabled": "{icon}",
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-icons": {
             "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
