@@ -113,7 +113,7 @@
         "on-scroll-down": "~/.scripts/system/volume-control.sh d",
         "max-length": 7,
         "min-length": 7,
-        "on-click": "foot -T pulsemixer -e pulsemixer"
+        "on-click": "pavucontrol"
     },
 
     "bluetooth": {
@@ -124,7 +124,7 @@
         "tooltip-format-enumerate-connected": "{device_alias}{device_address}",
         "max-length": 5,
         "min-length": 3,
-        "on-click": "foot -T bluetuith -e bluetuith"
+        "on-click": "blueberry"
     },
 
     "network": {
