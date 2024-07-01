@@ -29,6 +29,7 @@ window#waybar {
 #custom-swaync,
 #window,
 #custom-clipboard,
+#custom-colourpicker,
 #disk,
 #hyprland-workspaces {
     border-radius: 5px;
@@ -58,7 +59,7 @@ window#waybar {
 
 /* Right Edge Modules */
 #tray,
-#custom-clipboard {
+#custom-colourpicker {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     padding-left: 5px;

@@ -10,7 +10,8 @@
         "bluetooth",
         "network",
         "battery",
-        "custom/clipboard"
+        "custom/clipboard",
+        "custom/colourpicker"
     ],
     "margin": "6, 6, 0, 6",
 
@@ -159,6 +160,13 @@
 
     "custom/clipboard": {
         "format": "",
+        "tooltip": false,
         "on-click": "foot -T clipse -e clipse"
+    },
+
+    "custom/colourpicker": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.scripts/eyedropper.sh"
     }
 }
