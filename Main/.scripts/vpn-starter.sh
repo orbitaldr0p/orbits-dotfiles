@@ -10,11 +10,11 @@ target_timezone="Asia/Shanghai"
 # Check if the current timezone is Shanghai
 if [ "$current_timezone" == "$target_timezone" ]; then
     echo "Launching Clash"
-    sleep 2
+    sleep 4
     clash-verge
 else
     echo "Launching Mullvad"
     mullvad
-    sleep 2
+    sleep 4
     mullvad-vpn
 fi

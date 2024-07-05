@@ -185,6 +185,6 @@
 
     "custom/misc": {
         "format": "",
-        "tooltip": false,
+        "tooltip": false
     }
 }
