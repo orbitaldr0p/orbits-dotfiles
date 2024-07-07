@@ -1,8 +1,14 @@
 {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["group/cpu", "memory", "disk", "tray"],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-left": [
+        "group/cpu",
+        "memory",
+        "disk",
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [],
     "modules-right": [
         "clock",
         "backlight",
@@ -67,7 +73,7 @@
     },
 
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{icon}",
         "tooltip": false,
         "all-outputs": false,
         "persistent_workspaces": {
