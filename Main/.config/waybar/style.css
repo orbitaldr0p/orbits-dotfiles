@@ -81,7 +81,7 @@ window#waybar {
 #battery,
 #disk,
 #custom-colourpicker,
-#cpu.freq{
+#cpu.freq {
     border-radius: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -92,7 +92,7 @@ window#waybar {
 }
 
 /* Misc */
-#cpu.freq{
+#cpu.freq {
     padding-left: 4px;
 }
 /* ==============================Workspaces============================== */
