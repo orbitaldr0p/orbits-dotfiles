@@ -79,7 +79,7 @@ window#waybar {
 #bluetooth,
 #battery,
 #disk,
-#custom-colourpicker{
+#custom-colourpicker {
     border-radius: 0;
     padding-left: 5px;
     padding-right: 5px;

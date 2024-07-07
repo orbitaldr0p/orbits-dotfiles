@@ -21,11 +21,7 @@
             "children-class": "childs",
             "transition-left-to-right": false
         },
-        "modules": [
-            "custom/misc",
-            "custom/clipboard",
-            "custom/colourpicker"
-        ]
+        "modules": ["custom/misc", "custom/clipboard", "custom/colourpicker"]
     },
 
     "cpu": {
