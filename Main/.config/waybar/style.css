@@ -21,7 +21,8 @@ window#waybar {
 #network,
 #battery,
 #tray,
-#cpu,
+#cpu.load,
+#cpu.freq,
 #temperature,
 #memory,
 #custom-playerctl,
@@ -48,7 +49,7 @@ window#waybar {
 
 /* ==============================Location============================== */
 /* Left Edge Modules */
-#cpu,
+#cpu.load,
 #clock,
 #custom-clipboard {
     border-top-right-radius: 0;
@@ -79,7 +80,8 @@ window#waybar {
 #bluetooth,
 #battery,
 #disk,
-#custom-colourpicker {
+#custom-colourpicker,
+#cpu.freq{
     border-radius: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -89,6 +91,10 @@ window#waybar {
     border-right: none;
 }
 
+/* Misc */
+#cpu.freq{
+    padding-left: 4px;
+}
 /* ==============================Workspaces============================== */
 #workspaces {
     background: transparent;

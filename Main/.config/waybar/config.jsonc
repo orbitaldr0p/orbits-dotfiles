@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "output": ["eDP-1"],
-    "modules-left": ["cpu", "memory", "disk", "tray"],
+    "modules-left": ["group/cpu", "memory", "disk", "tray"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "clock",
@@ -14,6 +14,16 @@
     ],
     "margin": "6, 6, 0, 6",
 
+    "group/cpu": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "childs",
+            "transition-left-to-right": true
+        },
+        "modules": ["cpu#load", "cpu#freq"]
+    },
+
     "group/misc": {
         "orientation": "inherit",
         "drawer": {
@@ -24,11 +34,18 @@
         "modules": ["custom/misc", "custom/clipboard", "custom/colourpicker"]
     },
 
-    "cpu": {
+    "cpu#load": {
         "interval": "1",
-        "format": " {usage}% | {avg_frequency}GHz",
-        "max-length": 16,
-        "min-length": 16,
+        "format": " {usage}%",
+        "max-length": 6,
+        "min-length": 6,
+        "on-click": "foot -T btop -e btop",
+        "on-click-right": "foot -T nvtop -e nvtop"
+    },
+
+    "cpu#freq": {
+        "interval": "1",
+        "format": "| {avg_frequency}GHz",
         "on-click": "foot -T btop -e btop",
         "on-click-right": "foot -T nvtop -e nvtop"
     },
