@@ -72,7 +72,7 @@ window#waybar {
 }
 
 /* Middle Modules */
-#workspaces,
+#hyprland-workspaces,
 #network,
 #memory,
 #backlight,
@@ -99,13 +99,13 @@ window#waybar {
 #workspaces {
     background: transparent;
     margin: 5px 0px;
-    padding: 0px 0px;
+    padding: 0px 5px;
     border-radius: 16px;
     color: @foreground;
 }
 
 #workspaces button {
-    padding: 3px 3px;
+    padding: 4px 4px;
     color: @foreground;
     background: transparent;
 }
