@@ -1,7 +1,4 @@
-# orbits-dotfiles
-The dotfiles of a moron.
-Not sure how you got here but don't use them, they're shit.
-Don't expect any documentation any time soon, this is for me only.
+![Image](/Stuff/Title.png)
 
 =======
 # Catppuccin
@@ -12,6 +9,6 @@ Don't expect any documentation any time soon, this is for me only.
 - Logout: Wlogout
 - Notification Daemon: Dunst
 - Launcher: Rofi
-![Image](/Stuff/Catppuccin-Preview-1.png)
-![Image](/Stuff/Catppuccin-Preview-2.png)
+![Image](/Stuff/Catppuccin-Frappe-Main.png)
+![Image](/Stuff/Catppuccin-Frappe-Launcher.png)
 
