@@ -23,9 +23,9 @@ window {
   anchor:                     north west;
   fullscreen:                 false;
   width:                      100%;
-  height:                     105%;
+  height:                     106%;
   x-offset:                   0px;
-  y-offset:                   -45px;
+  y-offset:                   -48px;
 
   background-color:           @background;
   font:                       "JetBrains Mono Nerd Font 12";
