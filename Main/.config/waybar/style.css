@@ -32,8 +32,7 @@ window#waybar {
 #custom-clipboard,
 #custom-colourpicker,
 #custom-misc,
-#disk,
-#hyprland-workspaces {
+#disk{
     border-radius: 5px;
     background-color: transparent;
     color: @foreground;
@@ -93,19 +92,19 @@ window#waybar {
 
 /* Misc */
 #cpu.freq {
-    padding-left: 4px;
+    padding-left: 3px;
 }
 /* ==============================Workspaces============================== */
 #workspaces {
     background: transparent;
-    margin: 5px 0px;
-    padding: 0px 5px;
+    padding: 0px 0px;
     border-radius: 16px;
     color: @foreground;
 }
 
 #workspaces button {
-    padding: 4px 4px;
+    padding-left: 4px;
+    padding-right: 4px;
     color: @foreground;
     background: transparent;
 }

@@ -95,7 +95,7 @@
     },
 
     "hyprland/window": {
-        "format": "  {}",
+        "format": " {}",
         "separate-outputs": true,
         "max-length": 50
     },
