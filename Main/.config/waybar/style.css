@@ -1,11 +1,13 @@
+@import "Themes/catppuccin-frappe.css";
+
 * {
     border: none;
     font-family: "JetBrainsMono NFP";
     font-weight: bold;
     font-size: 15px;
+    background-color: transparent;
+    color: @foreground;
 }
-
-@import "Themes/catppuccin-frappe.css";
 
 window#waybar {
     background: @background-transparent;
@@ -14,102 +16,40 @@ window#waybar {
 }
 
 /* ==============================Main============================== */
-#clock,
-#backlight,
-#pulseaudio,
-#bluetooth,
-#network,
-#battery,
-#tray,
 #cpu.load,
 #cpu.freq,
-#temperature,
 #memory,
-#custom-playerctl,
-#workspaces,
-#custom-swaync,
-#window,
-#custom-clipboard,
-#custom-colourpicker,
-#custom-misc,
-#disk{
-    border-radius: 5px;
-    background-color: transparent;
-    color: @foreground;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-/* ==============================Location============================== */
-/* Left Edge Modules */
-#cpu.load,
-#clock,
-#custom-clipboard {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-right: 5px;
-    margin-right: 0px;
-    margin-left: 8px;
-    border-right: none;
-}
-
-/* Right Edge Modules */
+#disk,
 #tray,
-#custom-misc {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding-left: 5px;
-    margin-left: 0px;
-    margin-right: 8px;
-    border-left: none;
-}
-
-/* Middle Modules */
-#hyprland-workspaces,
-#network,
-#memory,
+#clock,
 #backlight,
 #pulseaudio,
 #bluetooth,
+#network.ssid,
+#network.symbol,
 #battery,
-#disk,
-#custom-colourpicker,
-#cpu.freq {
-    border-radius: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 0px;
-    margin-right: 0px;
-    border-left: none;
-    border-right: none;
+#custom-misc,
+#custom-clipboard,
+#custom-colourpicker {
+    padding: 0px 5px;
 }
 
-/* Misc */
-#cpu.freq {
-    padding-left: 3px;
+#cpu.load{
+    padding-left: 10px;
 }
+
+#custom-misc{
+    padding-right: 15px;
+}
+
 /* ==============================Workspaces============================== */
 #workspaces {
     background: transparent;
     padding: 0px 0px;
     border-radius: 16px;
-    color: @foreground;
 }
 
 #workspaces button {
     padding-left: 4px;
     padding-right: 4px;
-    color: @foreground;
-    background: transparent;
-}
-
-#workspaces button:hover {
-    background-color: transparent;
-    color: @foreground;
 }
