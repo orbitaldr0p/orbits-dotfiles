@@ -19,7 +19,6 @@
         "group/misc"
     ],
     "margin": "6, 6, 0, 6",
-
     "group/cpu": {
         "orientation": "inherit",
         "drawer": {
@@ -29,7 +28,6 @@
         },
         "modules": ["cpu#load", "cpu#freq"]
     },
-
     "group/network": {
         "orientation": "inherit",
         "drawer": {
@@ -37,9 +35,8 @@
             "children-class": "childs",
             "transition-left-to-right": true
         },
-        "modules": ["network#symbol", "network#ssid"]
+        "modules": ["network#icon", "network#ssid"]
     },
-
     "group/misc": {
         "orientation": "inherit",
         "drawer": {
@@ -49,7 +46,6 @@
         },
         "modules": ["custom/misc", "custom/clipboard", "custom/colourpicker"]
     },
-
     "cpu#load": {
         "interval": "1",
         "format": " {usage}%",
@@ -58,21 +54,18 @@
         "on-click": "foot -T btop -e btop",
         "on-click-right": "foot -T nvtop -e nvtop"
     },
-
     "cpu#freq": {
         "interval": "1",
         "format": "| {avg_frequency}GHz",
         "on-click": "foot -T btop -e btop",
         "on-click-right": "foot -T nvtop -e nvtop"
     },
-
     "memory": {
         "interval": 1,
         "format": "󰘚 {percentage}%",
         "max-length": 6,
         "min-length": 6
     },
-
     "disk": {
         "interval": 10,
         "format": "󰋊 {percentage_used}%",
@@ -81,7 +74,6 @@
         "on-click": "nautilus",
         "tooltip-format": "{used} used out of {total}"
     },
-
     "hyprland/workspaces": {
         "format": "{icon}",
         "tooltip": false,
@@ -98,18 +90,15 @@
             "default": ""
         }
     },
-
     "tray": {
         //"icon-size": 20,
         "spacing": 10
     },
-
     "hyprland/window": {
         "format": " {}",
         "separate-outputs": true,
         "max-length": 50
     },
-
     "clock": {
         "format": "{:%I:%M %p}",
         "format-alt": "{:%R 󰃭 %d·%m·%y}",
@@ -133,7 +122,6 @@
             "on-scroll-down": "shift_down"
         }
     },
-
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
@@ -142,11 +130,10 @@
         "max-length": 7,
         "min-length": 7
     },
-
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "󰸈 Off",
-        "tooltip": false,
+        "tooltip": "{desc}",
         "format-icons": {
             "headphone": "",
             "default": ["󰕿", "󰖀", "󰕾"]
@@ -156,7 +143,6 @@
         "on-scroll-down": "~/.scripts/system/volume-control.sh d",
         "on-click": "pavucontrol"
     },
-
     "bluetooth": {
         "format": " On",
         "format-disabled": "󰂲", // an empty format will hide the module
@@ -167,8 +153,7 @@
         "min-length": 3,
         "on-click": "blueberry"
     },
-
-    "network#symbol": {
+    "network#icon": {
         "interval": 1,
         "format": "{icon}",
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
@@ -179,7 +164,6 @@
             "disabled": "󰤮"
         }
     },
-
     "network#ssid": {
         "interval": 1,
         "format": "{essid}",
@@ -187,7 +171,6 @@
         "format-disabled": "off",
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}"
     },
-
     "battery": {
         "interval": 1,
         "format": "{icon} {capacity}%",
@@ -199,19 +182,16 @@
         "on-click": "foot -T battop -e battop",
         "on-click-right": "~/.scripts/system/power-profile.sh"
     },
-
     "custom/clipboard": {
         "format": "",
         "tooltip": false,
         "on-click": "foot -T clipse -e clipse"
     },
-
     "custom/colourpicker": {
         "format": "",
         "tooltip": false,
         "on-click": "~/.scripts/eyedropper.sh"
     },
-
     "custom/misc": {
         "format": "",
         "tooltip": false
