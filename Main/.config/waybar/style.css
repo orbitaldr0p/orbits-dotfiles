@@ -36,6 +36,7 @@ tooltip {
 #custom-misc,
 #custom-clipboard,
 #custom-colourpicker,
+#idle_inhibitor,
 #workspaces {
     padding: 0px 6px;
 }
@@ -52,6 +53,9 @@ tooltip {
     padding-right: 15px;
 }
 
+#idle_inhibitor.activated{
+    color: @green
+}
 /* ==============================Workspaces============================== */
 #workspaces button {
     padding-left: 4px;

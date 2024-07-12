@@ -53,7 +53,12 @@
             "children-class": "childs",
             "transition-left-to-right": false
         },
-        "modules": ["custom/misc", "custom/clipboard", "custom/colourpicker"]
+        "modules": [
+            "custom/misc",
+            "idle_inhibitor",
+            "custom/clipboard",
+            "custom/colourpicker"
+        ]
     },
     "cpu#load": {
         "interval": "1",
@@ -198,6 +203,13 @@
         "tooltip": false,
         "on-click": "foot -T battop -e battop",
         "on-click-right": "~/.scripts/system/power-profile.sh"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "custom/clipboard": {
         "format": "",
