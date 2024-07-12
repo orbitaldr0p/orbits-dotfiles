@@ -5,7 +5,6 @@
     font-family: "JetBrainsMono NFP";
     font-weight: bold;
     font-size: 15px;
-    background-color: transparent;
     color: @foreground;
 }
 
