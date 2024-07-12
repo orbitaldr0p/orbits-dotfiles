@@ -24,6 +24,7 @@ tooltip {
 #cpu.freq,
 #memory,
 #disk,
+#custom-trayIcon,
 #tray,
 #clock,
 #backlight,
@@ -34,8 +35,9 @@ tooltip {
 #battery,
 #custom-misc,
 #custom-clipboard,
-#custom-colourpicker {
-    padding: 0px 5px;
+#custom-colourpicker,
+#workspaces {
+    padding: 0px 6px;
 }
 
 #cpu.load {
@@ -47,12 +49,6 @@ tooltip {
 }
 
 /* ==============================Workspaces============================== */
-#workspaces {
-    background: transparent;
-    padding: 0px 0px;
-    border-radius: 16px;
-}
-
 #workspaces button {
     padding-left: 4px;
     padding-right: 4px;

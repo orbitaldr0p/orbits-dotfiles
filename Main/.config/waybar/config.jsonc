@@ -6,7 +6,7 @@
         "memory",
         "disk",
         "hyprland/workspaces",
-        "tray"
+        "group/trayDrawer"
     ],
     "modules-center": [],
     "modules-right": [
@@ -27,6 +27,15 @@
             "transition-left-to-right": true
         },
         "modules": ["cpu#load", "cpu#freq"]
+    },
+    "group/trayDrawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "childs",
+            "transition-left-to-right": true
+        },
+        "modules": ["custom/trayIcon", "tray"]
     },
     "group/network": {
         "orientation": "inherit",
@@ -90,9 +99,13 @@
             "default": ""
         }
     },
+    "custom/trayIcon": {
+        "format": "",
+        "tooltip": false
+    },
     "tray": {
         //"icon-size": 20,
-        "spacing": 10
+        "spacing": 15
     },
     "hyprland/window": {
         "format": " {}",
