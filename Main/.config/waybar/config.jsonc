@@ -33,9 +33,9 @@
         "drawer": {
             "transition-duration": 200,
             "children-class": "childs",
-            "transition-left-to-right": true
+            "transition-left-to-right": false
         },
-        "modules": ["custom/trayIcon", "tray"]
+        "modules": ["custom/trayIconRight", "custom/trayIconLeft", "tray"]
     },
     "group/network": {
         "orientation": "inherit",
@@ -99,8 +99,12 @@
             "default": ""
         }
     },
-    "custom/trayIcon": {
-        "format": "",
+    "custom/trayIconRight": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/trayIconLeft": {
+        "format": "",
         "tooltip": false
     },
     "tray": {
