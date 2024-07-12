@@ -14,7 +14,7 @@
         "backlight",
         "pulseaudio",
         "bluetooth",
-        "network",
+        "group/network",
         "battery",
         "group/misc"
     ],
@@ -28,6 +28,16 @@
             "transition-left-to-right": true
         },
         "modules": ["cpu#load", "cpu#freq"]
+    },
+
+    "group/network": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "childs",
+            "transition-left-to-right": true
+        },
+        "modules": ["network#symbol", "network#ssid"]
     },
 
     "group/misc": {
@@ -160,11 +170,27 @@
         "on-click": "blueberry"
     },
 
-    "network": {
+    "network#symbol": {
         "interval": 1,
         "format": "{ifname}",
-        "format-alt": "{icon} {essid}",
         "format-wifi": "{icon}",
+        "format-ethernet": "{ipaddr}/{cidr} {icon}",
+        "format-disconnected": "{icon}",
+        "format-disabled": "{icon}",
+        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-icons": {
+            "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+            "ethernet": "󰈀",
+            "disconnected": "󰤮",
+            "disabled": "󰤮"
+        },
+        "min-length": 3
+    },
+
+    "network#ssid": {
+        "interval": 1,
+        "format": "{ifname}",
+        "format-wifi": "{essid}",
         "format-ethernet": "{ipaddr}/{cidr} {icon}",
         "format-disconnected": "{icon}",
         "format-disabled": "{icon}",
