@@ -51,24 +51,24 @@ get_icon() {
   fi
 }
 
-invalid_input(){
+invalid_input() {
   echo lmao
 }
 
 case "$1" in
-  i)
-    volume_increased
-    ;;
-  d)
-    volume_decreased
-    ;;
-  m)
-    muted
-    ;;
-  mm)
-    mic_mute
-    ;;
-  *)
-    invalid_input
-    ;;
+i)
+  volume_increased
+  ;;
+d)
+  volume_decreased
+  ;;
+m)
+  muted
+  ;;
+mm)
+  mic_mute
+  ;;
+*)
+  invalid_input
+  ;;
 esac
