@@ -15,6 +15,10 @@ window#waybar {
     border-radius: 5px;
 }
 
+tooltip {
+    background: @background;
+    border: 1px solid @foreground;
+}
 /* ==============================Main============================== */
 #cpu.load,
 #cpu.freq,
@@ -34,11 +38,11 @@ window#waybar {
     padding: 0px 5px;
 }
 
-#cpu.load{
+#cpu.load {
     padding-left: 10px;
 }
 
-#custom-misc{
+#custom-misc {
     padding-right: 15px;
 }
 

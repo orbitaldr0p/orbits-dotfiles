@@ -154,8 +154,6 @@
         "on-click-middle": "~/.scripts/system/volume-control.sh m",
         "on-scroll-up": "~/.scripts/system/volume-control.sh i",
         "on-scroll-down": "~/.scripts/system/volume-control.sh d",
-        "max-length": 7,
-        "min-length": 7,
         "on-click": "pavucontrol"
     },
 
@@ -172,36 +170,22 @@
 
     "network#symbol": {
         "interval": 1,
-        "format": "{ifname}",
-        "format-wifi": "{icon}",
-        "format-ethernet": "{ipaddr}/{cidr} {icon}",
-        "format-disconnected": "{icon}",
-        "format-disabled": "{icon}",
+        "format": "{icon}",
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-icons": {
             "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
             "ethernet": "󰈀",
             "disconnected": "󰤮",
             "disabled": "󰤮"
-        },
-        "min-length": 3
+        }
     },
 
     "network#ssid": {
         "interval": 1,
-        "format": "{ifname}",
-        "format-wifi": "{essid}",
-        "format-ethernet": "{ipaddr}/{cidr} {icon}",
-        "format-disconnected": "{icon}",
-        "format-disabled": "{icon}",
-        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-icons": {
-            "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
-            "ethernet": "󰈀",
-            "disconnected": "󰤮",
-            "disabled": "󰤮"
-        },
-        "min-length": 3
+        "format": "{essid}",
+        "format-disconnected": "disconnected",
+        "format-disabled": "off",
+        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}"
     },
 
     "battery": {
