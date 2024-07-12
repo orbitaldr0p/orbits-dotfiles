@@ -44,6 +44,10 @@ tooltip {
     padding-left: 10px;
 }
 
+#cpu.freq {
+    padding-left: 3px
+}
+
 #custom-misc {
     padding-right: 15px;
 }
