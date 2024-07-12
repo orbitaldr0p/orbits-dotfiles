@@ -2,9 +2,9 @@
 <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
 
 <svg
-   width="120px"
-   height="120px"
-   viewBox="0 0 24 24"
+   width="48"
+   height="48"
+   viewBox="0 0 9.6 9.6"
    fill="none"
    version="1.1"
    id="svg2"
@@ -25,18 +25,26 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showguides="true"
-     inkscape:zoom="3.1375"
-     inkscape:cx="54.342629"
-     inkscape:cy="69.641434"
+     inkscape:zoom="6.275"
+     inkscape:cx="13.625498"
+     inkscape:cy="30.199203"
      inkscape:window-width="1586"
      inkscape:window-height="944"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="SVGRepo_iconCarrier" /><g
+     inkscape:current-layer="g1" /><g
      id="SVGRepo_bgCarrier"
      stroke-width="0" /><g
      id="SVGRepo_tracerCarrier"
      stroke-linecap="round"
      stroke-linejoin="round" /><g
-     id="SVGRepo_iconCarrier" /></svg>
+     id="SVGRepo_iconCarrier" /><g
+     style="fill:none"
+     id="g1"
+     transform="translate(-8.4729176,-6.3769516)"><g
+       id="SVGRepo_bgCarrier-5"
+       stroke-width="0" /><g
+       id="SVGRepo_tracerCarrier-3"
+       stroke-linecap="round"
+       stroke-linejoin="round" /></g></svg>
