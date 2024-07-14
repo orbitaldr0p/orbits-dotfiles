@@ -1,6 +1,8 @@
+.vscode/
+.venv/
+
 Main/.config/ncmpcpp/error.log
 Main/.config/hypr/cards/
-.vscode/
 Main/.config/clipse/clipboard_history.json
 Main/.config/clipse/tmp_files/
 Main/.config/clipse/clipse.log
