@@ -1,6 +1,0 @@
-(
-    include "./common/polls.yuck"
-)
-(
-    include "./powermenu/powermenu.yuck"
-)
