@@ -23,7 +23,7 @@
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 200,
-            "children-class": "childs",
+            "children-class": "cpuGroup",
             "transition-left-to-right": true
         },
         "modules": ["cpu#load", "cpu#freq"]
@@ -32,7 +32,7 @@
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 200,
-            "children-class": "childs",
+            "children-class": "trayGroup",
             "transition-left-to-right": false
         },
         "modules": ["custom/trayIconRight", "custom/trayIconLeft", "tray"]
@@ -41,7 +41,7 @@
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 200,
-            "children-class": "childs",
+            "children-class": "networkGroup",
             "transition-left-to-right": true
         },
         "modules": ["network#icon", "network#ssid"]
@@ -50,7 +50,7 @@
         "orientation": "inherit",
         "drawer": {
             "transition-duration": 200,
-            "children-class": "childs",
+            "children-class": "miscGroup",
             "transition-left-to-right": false
         },
         "modules": [
@@ -109,7 +109,7 @@
         "tooltip": false
     },
     "custom/trayIconLeft": {
-        "format": "",
+        "format": "|",
         "tooltip": false
     },
     "tray": {
