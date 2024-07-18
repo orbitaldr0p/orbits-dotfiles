@@ -8,7 +8,7 @@
         "hyprland/workspaces",
         "group/trayDrawer"
     ],
-    "modules-center": [],
+    "modules-center": ["group/player"],
     "modules-right": [
         "clock",
         "backlight",
@@ -36,6 +36,14 @@
             "transition-left-to-right": false
         },
         "modules": ["custom/trayIconRight", "custom/trayIconLeft", "tray"]
+    },
+    "group/player": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "playerGroup"
+        },
+        "modules": ["mpris#main", "mpris#extended"]
     },
     "group/network": {
         "orientation": "inherit",
@@ -120,6 +128,24 @@
         "format": " {}",
         "separate-outputs": true,
         "max-length": 50
+    },
+    "mpris#main": {
+        "format": "{status_icon} {title}",
+        "format-stopped": "",
+        "player-icons": {
+            "default": "󰐊",
+            "firefox": ""
+        },
+        "status-icons": {
+            "playing": "󰐊",
+            "paused": ""
+        }
+        //"ignored-players": ["firefox"]
+    },
+    "mpris#extended": {
+        "format": " - {artist}",
+        "format-stopped": ""
+        //"ignored-players": ["firefox"]
     },
     "clock": {
         "format": "{:%I:%M %p}",
