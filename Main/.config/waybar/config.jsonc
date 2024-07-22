@@ -65,7 +65,8 @@
             "custom/misc",
             "idle_inhibitor",
             "custom/clipboard",
-            "custom/colourpicker"
+            "custom/colourpicker",
+            "power-profiles-daemon"
         ]
     },
     "cpu#load": {
@@ -235,6 +236,17 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
+        }
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
     },
     "custom/clipboard": {
