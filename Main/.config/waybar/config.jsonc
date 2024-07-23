@@ -101,7 +101,7 @@
         "format": "{icon}",
         "tooltip": false,
         "all-outputs": false,
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": [],
@@ -240,7 +240,7 @@
     },
     "power-profiles-daemon": {
         "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip-format": "Power profile: {profile} ",
         "tooltip": true,
         "format-icons": {
             "default": "",
