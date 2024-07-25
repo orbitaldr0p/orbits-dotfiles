@@ -10,7 +10,7 @@
 
 window#waybar {
     background: @background-transparent;
-    border: 1px solid @foreground;
+    border: 0px solid @foreground;
     border-radius: 5px;
 }
 
