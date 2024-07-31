@@ -7,21 +7,21 @@
 
 {
     "label" : "logout",
-    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh e",
+    "action" : "bash ~/.dotfiles/Main/.scripts/System/power.sh e",
     "text" : "Logout",
     "keybind" : "e"
 }
 
 {
     "label" : "shutdown",
-    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh s",
+    "action" : "bash ~/.dotfiles/Main/.scripts/System/power.sh s",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 
 {
     "label" : "reboot",
-    "action" : "bash ~/.dotfiles/Main/.scripts/system/power.sh r",
+    "action" : "bash ~/.dotfiles/Main/.scripts/System/power.sh r",
     "text" : "Reboot",
     "keybind" : "r"
 }
@@ -35,7 +35,7 @@
 
 {
     "label" : "dgpu",
-    "action" : "bash ~/.dotfiles/Main/.scripts/system/dGPUSwitcher.sh",
+    "action" : "bash ~/.dotfiles/Main/.scripts/System/dGPUSwitcher.sh",
     "text" : "dGPU Profile",
     "keybind" : ""
 }
