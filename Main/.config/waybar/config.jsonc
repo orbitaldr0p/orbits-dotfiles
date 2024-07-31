@@ -140,13 +140,13 @@
         "status-icons": {
             "playing": "󰐊",
             "paused": ""
-        }
-        //"ignored-players": ["firefox"]
+        },
+        "ignored-players": ["firefox"]
     },
     "mpris#extended": {
         "format": " - {artist}",
-        "format-stopped": ""
-        //"ignored-players": ["firefox"]
+        "format-stopped": "",
+        "ignored-players": ["firefox"]
     },
     "clock": {
         "format": "{:%I:%M %p}",
