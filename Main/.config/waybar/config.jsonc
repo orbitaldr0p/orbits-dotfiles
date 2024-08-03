@@ -141,12 +141,12 @@
             "playing": "󰐊",
             "paused": ""
         },
-        "ignored-players": ["firefox"]
+        "ignored-players": ["firefox", "kdeconnect"]
     },
     "mpris#extended": {
         "format": " - {artist}",
         "format-stopped": "",
-        "ignored-players": ["firefox"]
+        "ignored-players": ["firefox", "kdeconnect"]
     },
     "clock": {
         "format": "{:%I:%M %p}",
@@ -229,7 +229,11 @@
         "min-length": 6,
         "tooltip": false,
         "on-click": "foot -T battop -e battop",
-        "on-click-right": "~/.scripts/system/power-profile.sh"
+        "on-click-right": "~/.scripts/system/power-profile.sh",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
     },
     "idle_inhibitor": {
         "format": "{icon}",

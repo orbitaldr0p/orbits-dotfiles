@@ -57,6 +57,18 @@ tooltip {
 #idle_inhibitor.activated{
     color: @green
 }
+
+#battery.warning{
+    color: @yellow;
+}
+
+#battery.critical{
+    color: @red;
+}
+
+#battery.charging{
+    color: @green;
+}
 /* ==============================Workspaces============================== */
 #workspaces button {
     padding-left: 4px;
