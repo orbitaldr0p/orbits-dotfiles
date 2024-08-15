@@ -187,9 +187,9 @@
             "headphone": "",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
-        "on-click-middle": "~/.scripts/system/volume-control.sh m",
-        "on-scroll-up": "~/.scripts/system/volume-control.sh i",
-        "on-scroll-down": "~/.scripts/system/volume-control.sh d",
+        "on-click-middle": "~/.scripts/System/volumeControl.sh m",
+        "on-scroll-up": "~/.scripts/System/volumeControl.sh i",
+        "on-scroll-down": "~/.scripts/System/volumeControl.sh d",
         "on-click": "pavucontrol"
     },
     "bluetooth": {
