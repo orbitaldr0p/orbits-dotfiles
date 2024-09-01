@@ -1,20 +1,32 @@
 {
   "items": [
     {
-      "title": "Open File Manager :  + e",
-      "tag": "Hyprland"
+      "title": "Open File Manager",
+      "tag": " + e"
     },
     {
-      "title": "Fullscreen Window :  + f",
-      "tag": "Hyprland"
+      "title": "Open Terminal",
+      "tag": " + t"
     },
     {
-      "title": "Close Window:  + c",
-      "tag": "Hyprland"
+      "title": "Open Browser",
+      "tag": " + b"
+    },
+    {
+      "title": "Float Window",
+      "tag": " + v"
+    },
+    {
+      "title": "Fullscreen Window",
+      "tag": " + f"
+    },
+    {
+      "title": "Close Window",
+      "tag": " + c"
     }
   ],
   "styles": {
-    "subtext": "#6c7086",
-    "accent": "#b4befe"
+    "subtext": "#c6d0f5",
+    "accent": "#8caaee"
   }
 }
