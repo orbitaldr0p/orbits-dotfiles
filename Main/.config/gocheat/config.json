@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "title": "Open File Manager :  + e",
+      "tag": "Hyprland"
+    },
+    {
+      "title": "Fullscreen Window :  + f",
+      "tag": "Hyprland"
+    },
+    {
+      "title": "Close Window:  + c",
+      "tag": "Hyprland"
+    }
+  ],
+  "styles": {
+    "subtext": "#6c7086",
+    "accent": "#b4befe"
+  }
+}
