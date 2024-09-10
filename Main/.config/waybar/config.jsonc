@@ -187,6 +187,7 @@
             "headphone": "",
             "default": ["󰕿", "󰖀", "󰕾"]
         },
+        "ignored-sinks": ["Easy Effects Sink"],
         "on-click-middle": "~/.scripts/System/volumeControl.sh m",
         "on-scroll-up": "~/.scripts/System/volumeControl.sh i",
         "on-scroll-down": "~/.scripts/System/volumeControl.sh d",
