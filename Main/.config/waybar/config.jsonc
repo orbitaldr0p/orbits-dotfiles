@@ -66,7 +66,8 @@
             "idle_inhibitor",
             "custom/clipboard",
             "custom/colourpicker",
-            "power-profiles-daemon"
+            "power-profiles-daemon",
+            "custom/easyeffects"
         ]
     },
     "cpu#load": {
@@ -267,5 +268,11 @@
     "custom/misc": {
         "format": "",
         "tooltip": false
+    },
+    "custom/easyeffects": {
+        "exec": "~/.scripts/easyEffects.sh c",
+        "on-click": "~/.scripts/easyEffects.sh t",
+        "on-click-right": "easyeffects",
+        "interval": 1
     }
 }
