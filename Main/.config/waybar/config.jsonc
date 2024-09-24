@@ -142,12 +142,16 @@
             "playing": "󰐊",
             "paused": ""
         },
-        "ignored-players": ["firefox", "kdeconnect"]
+        "ignored-players": ["firefox", "kdeconnect"],
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
     },
     "mpris#extended": {
         "format": " - {artist}",
         "format-stopped": "",
-        "ignored-players": ["firefox", "kdeconnect"]
+        "ignored-players": ["firefox", "kdeconnect"],
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
     },
     "clock": {
         "format": "{:%I:%M %p}",
