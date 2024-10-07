@@ -262,7 +262,7 @@
     "custom/clipboard": {
         "format": "",
         "tooltip": false,
-        "on-click": "foot -T clipse -e clipse"
+        "on-click": "cool-retro-term -T clipse -e clipse"
     },
     "custom/colourpicker": {
         "format": "",
