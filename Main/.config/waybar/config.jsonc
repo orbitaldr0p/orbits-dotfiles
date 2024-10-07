@@ -75,14 +75,14 @@
         "format": " {usage}%",
         "max-length": 6,
         "min-length": 6,
-        "on-click": "foot -T btop -e btop",
-        "on-click-right": "foot -T nvtop -e nvtop"
+        "on-click": "cool-retro-term -T btop -e btop",
+        "on-click-right": "cool-retro-term -T nvtop -e nvtop"
     },
     "cpu#freq": {
         "interval": "1",
         "format": "| {avg_frequency}GHz",
-        "on-click": "foot -T btop -e btop",
-        "on-click-right": "foot -T nvtop -e nvtop"
+        "on-click": "cool-retro-term -T btop -e btop",
+        "on-click-right": "cool-retro-term -T nvtop -e nvtop"
     },
     "memory": {
         "interval": 1,
@@ -234,8 +234,8 @@
         "max-length": 6,
         "min-length": 6,
         "tooltip": false,
-        "on-click": "foot -T battop -e battop",
-        "on-click-right": "~/.scripts/system/power-profile.sh",
+        "on-click": "cool-retro-term -T battop -e battop",
+        "on-click-right": "~/.scripts/System/powerProfile.sh",
         "states": {
             "warning": 30,
             "critical": 15
