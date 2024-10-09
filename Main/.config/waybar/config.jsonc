@@ -95,7 +95,7 @@
         "format": "󰋊 {percentage_used}%",
         "max-length": 6,
         "min-length": 6,
-        "on-click": "nautilus",
+        "on-click": "cool-retro-term -T diskonaut -e diskonaut",
         "tooltip-format": "{used} used out of {total}"
     },
     "hyprland/workspaces": {
