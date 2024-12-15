@@ -1,6 +1,8 @@
 {
     "layer": "top",
-    "output": ["eDP-1"],
+    "output": [
+        "eDP-1"
+    ],
     "modules-left": [
         "group/cpu",
         "memory",
@@ -8,7 +10,9 @@
         "hyprland/workspaces",
         "group/trayDrawer"
     ],
-    "modules-center": ["group/player"],
+    "modules-center": [
+        "group/player"
+    ],
     "modules-right": [
         "clock",
         "backlight",
@@ -26,7 +30,10 @@
             "children-class": "cpuGroup",
             "transition-left-to-right": true
         },
-        "modules": ["cpu#load", "cpu#freq"]
+        "modules": [
+            "cpu#load",
+            "cpu#freq"
+        ]
     },
     "group/trayDrawer": {
         "orientation": "inherit",
@@ -35,7 +42,11 @@
             "children-class": "trayGroup",
             "transition-left-to-right": false
         },
-        "modules": ["custom/trayIconRight", "custom/trayIconLeft", "tray"]
+        "modules": [
+            "custom/trayIconRight",
+            "custom/trayIconLeft",
+            "tray"
+        ]
     },
     "group/player": {
         "orientation": "inherit",
@@ -43,7 +54,10 @@
             "transition-duration": 200,
             "children-class": "playerGroup"
         },
-        "modules": ["mpris#main", "mpris#extended"]
+        "modules": [
+            "mpris#main",
+            "mpris#extended"
+        ]
     },
     "group/network": {
         "orientation": "inherit",
@@ -52,7 +66,10 @@
             "children-class": "networkGroup",
             "transition-left-to-right": true
         },
-        "modules": ["network#icon", "network#ssid"]
+        "modules": [
+            "network#icon",
+            "network#ssid"
+        ]
     },
     "group/misc": {
         "orientation": "inherit",
@@ -142,14 +159,20 @@
             "playing": "󰐊",
             "paused": ""
         },
-        "ignored-players": ["firefox", "kdeconnect"],
+        "ignored-players": [
+            "firefox",
+            "kdeconnect"
+        ],
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
     },
     "mpris#extended": {
         "format": " - {artist}",
         "format-stopped": "",
-        "ignored-players": ["firefox", "kdeconnect"],
+        "ignored-players": [
+            "firefox",
+            "kdeconnect"
+        ],
         "on-scroll-up": "playerctl next",
         "on-scroll-down": "playerctl previous"
     },
@@ -179,7 +202,17 @@
     "backlight": {
         "device": "intel_backlight",
         "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
         "scroll-step": 10,
         "max-length": 7,
         "min-length": 7
@@ -190,9 +223,15 @@
         "tooltip": "{desc}",
         "format-icons": {
             "headphone": "",
-            "default": ["󰕿", "󰖀", "󰕾"]
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
         },
-        "ignored-sinks": ["Easy Effects Sink"],
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ],
         "on-click-middle": "~/.scripts/System/volumeControl.sh m",
         "on-scroll-up": "~/.scripts/System/volumeControl.sh i",
         "on-scroll-down": "~/.scripts/System/volumeControl.sh d",
@@ -213,7 +252,12 @@
         "format": "{icon}",
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-icons": {
-            "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+            "wifi": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ],
             "ethernet": "󰈀",
             "disconnected": "󰤮",
             "disabled": "󰤮"
@@ -229,7 +273,18 @@
     "battery": {
         "interval": 1,
         "format": "{icon} {capacity}%",
-        "format-icons": ["󰂃", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-icons": [
+            "󰂃",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
         "format-charging": "󰂄 {capacity}%",
         "max-length": 6,
         "min-length": 6,

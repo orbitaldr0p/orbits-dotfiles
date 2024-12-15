@@ -18,6 +18,7 @@ tooltip {
     background: @background;
     border: 1px solid @foreground;
 }
+
 /* ==============================Main============================== */
 #cpu.load,
 #cpu.freq,
@@ -55,21 +56,22 @@ tooltip {
     padding-right: 15px;
 }
 
-#idle_inhibitor.activated{
+#idle_inhibitor.activated {
     color: @green
 }
 
-#battery.warning{
+#battery.warning {
     color: @yellow;
 }
 
-#battery.critical{
+#battery.critical {
     color: @red;
 }
 
-#battery.charging{
+#battery.charging {
     color: @green;
 }
+
 /* ==============================Workspaces============================== */
 #workspaces button {
     padding-left: 4px;
