@@ -11,7 +11,7 @@ target_timezone="Asia/Shanghai"
 if [ "$current_timezone" == "$target_timezone" ]; then
     echo "Launching Clash"
     sleep 4
-    clash-verge
+    cfw
 else
     echo "Launching Mullvad"
     mullvad
