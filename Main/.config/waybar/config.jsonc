@@ -83,8 +83,7 @@
             "idle_inhibitor",
             "custom/clipboard",
             "custom/colourpicker",
-            "power-profiles-daemon",
-            "custom/easyeffects"
+            "power-profiles-daemon"
         ]
     },
     "cpu#load": {
@@ -235,7 +234,7 @@
         "on-click-middle": "~/.scripts/System/volumeControl.sh m",
         "on-scroll-up": "~/.scripts/System/volumeControl.sh i",
         "on-scroll-down": "~/.scripts/System/volumeControl.sh d",
-        "on-click": "flatpak run com.saivert.pwvucontrol"
+        "on-click": "pwvucontrol"
     },
     "bluetooth": {
         "format": " On",
