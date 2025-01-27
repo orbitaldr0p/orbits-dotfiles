@@ -82,8 +82,7 @@
             "custom/misc",
             "idle_inhibitor",
             "custom/clipboard",
-            "custom/colourpicker",
-            "power-profiles-daemon"
+            "custom/colourpicker"
         ]
     },
     "cpu#load": {
@@ -108,11 +107,7 @@
     },
     "disk": {
         "interval": 10,
-        "format": "󰋊 {percentage_used}%",
-        "max-length": 6,
-        "min-length": 6,
-        "on-click": "foot -T diskonaut -e diskonaut",
-        "tooltip-format": "{used} used out of {total}"
+        "format": "󰋊 {percentag} used out of {total}"
     },
     "hyprland/workspaces": {
         "format": "{icon}",
