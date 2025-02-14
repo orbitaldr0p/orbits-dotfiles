@@ -19,11 +19,11 @@ else
     
     echo -e "e. Exit"
     read -p "Your choice: " chk
-
+    
     case $chk in
         "e")
             echo "Bye bye!"
-            ;;
+        ;;
         *)
             chk_value=$((chk-1))
             chk_theme=${all_themes[chk_value]}
@@ -42,6 +42,6 @@ else
             ln -s "${home_dir}${themes_dir}/${chk_theme}/assets" "${home_dir}${config_dir}/assets"
             
             echo "Done."
-            ;;
+        ;;
     esac
 fi
