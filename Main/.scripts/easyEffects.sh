@@ -12,10 +12,10 @@ check() {
 
 toggle() {
     if easyeffects -b 3 | grep -q "0" ; then
-        dunstify "Disabling EQ" -t 2000 -r 91490
+        notify-send "Disabling EQ" -t 2000 -r 91490
         easyeffects -b 1
     else
-        dunstify "Enabling EQ" -t 2000 -r 91490
+        notify-send "Enabling EQ" -t 2000 -r 91490
         easyeffects -b 2
     fi
 }

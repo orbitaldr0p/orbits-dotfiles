@@ -10,21 +10,21 @@ fi
 case "$1" in
     e)
         for ((i=3; i>=1; i--)); do
-            dunstify "Logging out in $i seconds..." -t 2000 -r 91190
+            notify-send "Logging out in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         hyprctl dispatch exit
     ;;
     s)
         for ((i=3; i>=1; i--)); do
-            dunstify "Shutting Down in $i seconds..." -t 2000 -r 91190
+            notify-send "Shutting Down in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         shutdown now
     ;;
     r)
         for ((i=3; i>=1; i--)); do
-            dunstify "Restarting in $i seconds..." -t 2000 -r 91190
+            notify-send "Restarting in $i seconds..." -t 2000 -r 91190
             sleep 1
         done
         systemctl reboot

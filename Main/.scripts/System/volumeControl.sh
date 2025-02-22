@@ -5,14 +5,14 @@ volume_increased() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
     icon=$(get_icon "$vol")
-    dunstify "Volume: $vol%" -t 800 -r 91190 -i "${icon}"
+    notify-send "Volume: $vol%" -t 800 -r 91190 -i "${icon}"
 }
 
 volume_decreased() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
     icon=$(get_icon "$vol")
-    dunstify "Volume: $vol%" -t 800 -r 91190 -i "${icon}"
+    notify-send "Volume: $vol%" -t 800 -r 91190 -i "${icon}"
 }
 
 muted() {
@@ -20,11 +20,11 @@ muted() {
     if echo "$muteState" | grep -q '\[MUTED\]'; then
         wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
         icon=$(get_icon "$vol")
-        dunstify "Unmuted" -t 800 -r 91190 -i "${icon}"
+        notify-send "Unmuted" -t 800 -r 91190 -i "${icon}"
     else
         wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
         icon="${icondir}/vol-muted.svg"
-        dunstify "Muted" -t 800 -r 91190 -i "${icon}"
+        notify-send "Muted" -t 800 -r 91190 -i "${icon}"
     fi
 }
 
@@ -33,11 +33,11 @@ mic_mute() {
     if echo "$muteState" | grep -q '\[MUTED\]'; then
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
         icon="${icondir}/mic-unmuted.svg"
-        dunstify "Mic Unmuted" -t 800 -r 91190 -i "${icon}"
+        notify-send "Mic Unmuted" -t 800 -r 91190 -i "${icon}"
     else
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
         icon="${icondir}/mic-muted.svg"
-        dunstify "Mic Muted" -t 800 -r 91190 -i "${icon}"
+        notify-send "Mic Muted" -t 800 -r 91190 -i "${icon}"
     fi
 }
 

@@ -8,10 +8,10 @@ first_run=true
 while true; do
     dunst &
     if [ "$first_run" = true ]; then
-        dunstify "Dunst Started"
+        notify-send "Dunst Started"
         first_run=false
     else
-        dunstify "Dunst Reloaded"
+        notify-send "Dunst Reloaded"
     fi
     inotifywait -e create,modify $CONFIG_FILES
     killall dunst
