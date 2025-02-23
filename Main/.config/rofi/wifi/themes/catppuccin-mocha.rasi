@@ -2,12 +2,12 @@
 
 * {
     bg: rgba(48, 52, 70, 0.70);
-    fg: #f4b8e4;
+    fg: #c6d0f5;
     al: #e5c890;
-    selected: #b4befe; 
+    selected: #f4b8e4; 
     border-radius: 5px;
     background-color: transparent;
-    text-color: #c6d0f5;
+    text-color: #f4b8e4;
     font: "JetBrainsMono Nerd Font 11";
     }
 
@@ -30,7 +30,7 @@ entry {
     placeholder-color: @al;
     expand: false;
     border: 0 0 0 0;
-text-color: @al;
+    text-color: @al;
 }
 
 element {
