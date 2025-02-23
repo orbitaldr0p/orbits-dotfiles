@@ -1,4 +1,4 @@
-@theme "~/.config/rofi/wifi/themes/rosepine.rasi"
+@theme "~/.config/rofi/wifi/themes/catppuccin-mocha.rasi"
 	conordnfiguration {
-	terminal: "kitty";
+	terminal: "foot";
 	}
