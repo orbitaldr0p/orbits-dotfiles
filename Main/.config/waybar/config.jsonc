@@ -254,14 +254,16 @@
             "ethernet": "󰈀",
             "disconnected": "󰤮",
             "disabled": "󰤮"
-        }
+        },
+        "on-click": "network_manager"
     },
     "network#ssid": {
         "interval": 1,
         "format": "{essid}",
         "format-disconnected": "disconnected",
         "format-disabled": "off",
-        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}"
+        "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "on-click": "network_manager"
     },
     "battery": {
         "interval": 1,
