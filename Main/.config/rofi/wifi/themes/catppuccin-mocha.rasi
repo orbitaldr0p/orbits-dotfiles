@@ -1,7 +1,7 @@
 @theme "/dev/null"
 
 * {
-    bg: rgba(48, 52, 70, 0.70);
+    bg: rgba(35, 38, 52, 0.5);
     fg: #c6d0f5;
     al: #e5c890;
     selected: #f4b8e4; 
