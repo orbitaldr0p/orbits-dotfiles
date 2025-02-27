@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = (6, 6)
+    offset = (5, 5)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -87,7 +87,7 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 1
+    frame_width = 0
 
     # Background
     background = "#30344680"
