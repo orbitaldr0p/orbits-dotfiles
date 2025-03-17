@@ -89,14 +89,14 @@
         "format": " {usage}%",
         "max-length": 6,
         "min-length": 6,
-        "on-click": "foot -T btop -e btop",
-        "on-click-right": "foot -T nvtop -e nvtop"
+        "on-click": "foot -T tui -e btop",
+        "on-click-right": "foot -T tui -e nvtop"
     },
     "cpu#freq": {
         "interval": "1",
         "format": "| {avg_frequency}GHz",
-        "on-click": "foot -T btop -e btop",
-        "on-click-right": "foot -T nvtop -e nvtop"
+        "on-click": "foot -T tui -e btop",
+        "on-click-right": "foot -T tui -e nvtop"
     },
     "memory": {
         "interval": 1,
@@ -284,7 +284,7 @@
         "max-length": 6,
         "min-length": 6,
         "tooltip": false,
-        "on-click": "foot -T battop -e battop",
+        "on-click": "foot -T tui -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
         "states": {
             "warning": 30,
@@ -312,7 +312,7 @@
     "custom/clipboard": {
         "format": "",
         "tooltip": false,
-        "on-click": "foot -T clipse -e clipse"
+        "on-click": "foot -T tui -e clipse"
     },
     "custom/colourpicker": {
         "format": "",

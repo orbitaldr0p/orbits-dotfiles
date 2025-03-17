@@ -53,7 +53,7 @@ output "eDP-1" {
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 7
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -194,26 +194,10 @@ layout {
     }
 }
 
-//Client Side Decorations
-// prefer-no-csd
-
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
-
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    slowdown 1.5
 }
 
 // ====================================================================================================================================
@@ -265,29 +249,15 @@ spawn-at-startup "kdeconnect-indicator"
 // ====================================================================================================================================
 // =========================================================== WINDOW RULES ===========================================================
 // ====================================================================================================================================
+// TUI
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id="foot" title="tui"
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
+// Global
 window-rule {
     geometry-corner-radius 2
     clip-to-geometry true
@@ -309,7 +279,6 @@ binds {
     Win+B { spawn "librewolf"; }
     Win+E { spawn "nautilus" "--new-window"; }
     XF86Launch1 { spawn "rog-control-center"; }
-    Super+Shift+S { spawn "bash" "-c" "grimblast save area - | swappy -f -"; }
 
     // System
     XF86AudioRaiseVolume allow-when-locked=true { spawn "~/.scripts/System/volumeControl.sh" "i"; }
@@ -483,9 +452,9 @@ binds {
     // Win+Space       { switch-layout "next"; }
     // Win+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Super+Shift+S { screenshot; }
+    Ctrl+Super+Shift+S { screenshot-screen; }
+    Alt+Super+Shift+S { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
