@@ -14,6 +14,7 @@ case "$1" in
             sleep 1
         done
         hyprctl dispatch exit
+        niri msg action quit -s
     ;;
     s)
         for ((i=3; i>=1; i--)); do
