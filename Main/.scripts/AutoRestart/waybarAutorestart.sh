@@ -1,8 +1,11 @@
+#!/bin/bash
+# Kill and restart waybar whenever its config files change
 CONFIG_FILES="$HOME/.config/waybar/config.jsonc $HOME/.config/waybar/style.css"
-waybar &
+trap "killall waybar" EXIT
 
-# Watch for changes in the config files
 while true; do
-    inotifywait -e modify $CONFIG_FILES > /dev/null
-    killall -SIGUSR2 waybar
+    waybar &
+    inotifywait -e create,modify $CONFIG_FILES
+    sleep 1
+    killall waybar
 done
