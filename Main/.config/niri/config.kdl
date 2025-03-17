@@ -180,6 +180,7 @@ layout {
         // You can also change the shadow color and opacity.
         color "#0007"
     }
+    
 
     // Struts shrink the area occupied by windows, similarly to layer-shell panels.
     // You can think of them as a kind of outer gaps. They are set in logical pixels.
@@ -294,16 +295,14 @@ layer-rule {
     match namespace="waybar"
     match namespace="rofi"
     match namespace="logout_dialog"
+    match namespace="notifications"
     match at-startup=true
         shadow {
         on
-        // off
         softness 40
         spread 5
-        offset x=0 y=5
         draw-behind-window true
-        color "#00000064"
-        // inactive-color "#00000064"
+        color "#1e1e2e64"
     }
 
 }
