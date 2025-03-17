@@ -249,18 +249,63 @@ spawn-at-startup "kdeconnect-indicator"
 // ====================================================================================================================================
 // =========================================================== WINDOW RULES ===========================================================
 // ====================================================================================================================================
-// TUI
+// Shell
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id="foot" title="tui"
     open-floating true
+    min-width 1000
+    max-width 1000
+    min-height 700
+    max-height 700
+}
+
+window-rule {
+    match app-id="com.saivert.pwvucontrol"
+    open-floating true
+    min-width 1000
+    max-width 1000
+    min-height 700
+    max-height 700
+}
+
+window-rule {
+    match app-id="blueberry.py"
+    open-floating true
+    min-width 1000
+    max-width 1000
+    min-height 700
+    max-height 700
+}
+
+// Fullscreen
+window-rule {
+    match app-id="LibreWolf"
+    match app-id="codium"
+    match app-id="vesktop"
+    match app-id="tidal-hifi"
+    match app-id="Element"
+    open-maximized true
 }
 
 
-// Global
-window-rule {
-    geometry-corner-radius 2
-    clip-to-geometry true
+// Layers
+layer-rule {
+    match namespace="waybar"
+    match namespace="rofi"
+    match namespace="logout_dialog"
+    match at-startup=true
+        shadow {
+        on
+        // off
+        softness 40
+        spread 5
+        offset x=0 y=5
+        draw-behind-window true
+        color "#00000064"
+        // inactive-color "#00000064"
+    }
+
 }
 
 // ====================================================================================================================================
