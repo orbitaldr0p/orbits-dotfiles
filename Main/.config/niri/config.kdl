@@ -201,6 +201,14 @@ animations {
     slowdown 1.5
 }
 
+cursor {
+    xcursor-theme "Nordzy-catppuccin-frappe-dark"
+    xcursor-size 24
+
+    // hide-when-typing
+    // hide-after-inactive-ms 1000
+}
+
 // ====================================================================================================================================
 // ============================================================= STARTUP ==============================================================
 // ====================================================================================================================================
@@ -212,8 +220,6 @@ environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
     QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
     QT_AUTO_SCREEN_SCALE_FACTOR "1"
-    XCURSOR_THEME "Nordzy-catppuccin-frappe-dark"
-    XCURSOR_SIZE "24"
     MOZ_ENABLE_WAYLAND "1"
     WLR_NO_HARDWARE_CURSORS "1"
     SSH_ASKPASS "/usr/bin/ksshaskpass"
