@@ -17,10 +17,6 @@
       "tag": " + v"
     },
     {
-      "title": "Fullscreen Window",
-      "tag": " + f"
-    },
-    {
       "title": "Close Window",
       "tag": " + c"
     }

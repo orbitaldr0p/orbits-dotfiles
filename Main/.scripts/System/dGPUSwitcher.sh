@@ -11,6 +11,7 @@ if [ "$profile" == "Integrated" ]; then
         sleep 1
     done
     hyprctl dispatch exit
+    niri msg action quit -s
     
     elif [ "$profile" == "Hybrid" ]; then
     echo "Swapping to Integrated"
@@ -20,6 +21,7 @@ if [ "$profile" == "Integrated" ]; then
         sleep 1
     done
     hyprctl dispatch exit
+    niri msg action quit -s
 else
     echo "What the fuck lmao"
 fi
