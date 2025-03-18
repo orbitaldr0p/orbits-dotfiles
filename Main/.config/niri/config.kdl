@@ -292,10 +292,11 @@ layer-rule {
     match at-startup=true
         shadow {
         on
-        softness 40
-        spread 5
+        softness 0
+        spread 0    
         draw-behind-window true
-        color "#1e1e2e64"
+        color "#303446"
+        offset x=0 y=0
     }
 
 }
