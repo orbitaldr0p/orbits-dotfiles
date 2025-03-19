@@ -6,7 +6,7 @@
     "modules-left": [
         "group/cpu",
         "memory",
-        "hyprland/workspaces",
+        "niri/workspaces",
         "group/trayDrawer"
     ],
     "modules-center": [
@@ -80,8 +80,7 @@
         "modules": [
             "custom/misc",
             "idle_inhibitor",
-            "custom/clipboard",
-            "custom/colourpicker"
+            "custom/clipboard"
         ]
     },
     "cpu#load": {
@@ -108,7 +107,7 @@
         "interval": 10,
         "format": "󰋊 {percentag} used out of {total}"
     },
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "format": "{icon}",
         "tooltip": false,
         "all-outputs": false,
