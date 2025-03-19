@@ -167,10 +167,6 @@ workspace "4" {
     open-on-output "eDP-1"
 }
 
-workspace "5" {
-    open-on-output "eDP-1"
-}
-
 // System Stuff
 spawn-at-startup "kwalletd6"
 spawn-at-startup "/usr/lib/xdg-desktop-portal"
