@@ -48,9 +48,7 @@ output "eDP-1" {
     transform "normal"
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+
 layout {
     gaps 7
 
@@ -197,7 +195,6 @@ spawn-at-startup "kdeconnect-indicator"
 // =========================================================== WINDOW RULES ===========================================================
 // ====================================================================================================================================
 // Shell
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     match app-id="foot" title="tui"
     match app-id="com.saivert.pwvucontrol"
@@ -218,7 +215,7 @@ window-rule {
     max-height 200
 }
 
-// Fullscreen
+// Maximised
 window-rule {
     match app-id="LibreWolf"
     match app-id="codium"
@@ -244,7 +241,11 @@ layer-rule {
         color "#303446"
         offset x=0 y=0
     }
+}
 
+// Cheatsheet
+hotkey-overlay {
+    skip-at-startup
 }
 
 // ====================================================================================================================================
@@ -254,7 +255,7 @@ layer-rule {
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
-    Win+Shift+Slash { show-hotkey-overlay; }
+    // Win+Shift+Slash { show-hotkey-overlay; }
 
     // Apps
     Win+T { spawn "foot"; }
@@ -273,8 +274,8 @@ binds {
     XF86Launch4 { spawn "~/.scripts/System/powerProfile.sh"; }
     XF86KbdBrightnessUp allow-when-locked=true { spawn "asusctl" "--prev-kbd-bright"; }
     XF86KbdBrightnessDown allow-when-locked=true { spawn "asusctl" "--next-kbd-bright"; }
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl -d intel_backlight s +10%"; } 
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight" "s" "-10%"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight" "s" "+10%"; } 
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-d" "intel_backlight" "s" "10%-"; }
 
     //Window Binds
     Win+C { close-window; }
