@@ -293,17 +293,6 @@ binds {
     Win+Ctrl+Down  { move-window-down; }
     Win+Ctrl+Up    { move-window-up; }
     Win+Ctrl+Right { move-column-right; }
-    Win+Ctrl+H     { move-column-left; }
-    Win+Ctrl+J     { move-window-down; }
-    Win+Ctrl+K     { move-window-up; }
-    Win+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Win+J     { focus-window-or-workspace-down; }
-    // Win+K     { focus-window-or-workspace-up; }
-    // Win+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Win+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Win+Home { focus-column-first; }
     Win+End  { focus-column-last; }
@@ -328,14 +317,6 @@ binds {
     Win+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Win+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Win+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
-
-    // And you can also move a whole workspace to another monitor:
-    // Win+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
-
     Win+Page_Down      { focus-workspace-down; }
     Win+Page_Up        { focus-workspace-up; }
     Win+U              { focus-workspace-down; }
@@ -345,21 +326,11 @@ binds {
     Win+Ctrl+U         { move-column-to-workspace-down; }
     Win+Ctrl+I         { move-column-to-workspace-up; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Win+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
-
     Win+Shift+Page_Down { move-workspace-down; }
     Win+Shift+Page_Up   { move-workspace-up; }
     Win+Shift+U         { move-workspace-down; }
     Win+Shift+I         { move-workspace-up; }
 
-    // You can bind mouse wheel scroll ticks using the following syntax.
-    // These binds will change direction based on the natural-scroll setting.
-    //
-    // To avoid scrolling through workspaces really fast, you can use
-    // the cooldown-ms property. The bind will be rate-limited to this value.
-    // You can set a cooldown on any bind, but it's most useful for the wheel.
     Win+WheelScrollDown      cooldown-ms=150 { focus-column-left; }
     Win+WheelScrollUp        cooldown-ms=150 { focus-column-right; }
     Win+Shift+WheelScrollDown cooldown-ms=150 { move-column-left; }
