@@ -234,7 +234,7 @@ spawn-at-startup "/usr/lib/xdg-desktop-portal-gnome"
 spawn-at-startup "asusctl" "profile" "-P" "quiet"
 
 // Shell
-spawn-at-startup "~/.scripts/AutoRestart/waybarAutorestart.sh"
+spawn-at-startup "~/.scripts/AutoRestart/waybarAutorestart.sh" "n"
 spawn-at-startup "~/.scripts/AutoRestart/dunstAutorestart.sh"
 spawn-at-startup "clipse" "-listen"
 spawn-at-startup "wl-paste" "-t" "text" "-w" "xclip" "-selection" "clipboard"

@@ -1,0 +1,80 @@
+@import "Themes/catppuccin-frappe.css";
+
+* {
+    border: none;
+    font-family: "JetBrainsMono NFP";
+    font-weight: bold;
+    font-size: 15px;
+    color: @foreground;
+    padding: 1.5px 0px;
+}
+
+window#waybar {
+    background: @background-transparent;
+    border: 0px solid @foreground;
+    border-radius: 5px;
+}
+
+tooltip {
+    background: @background;
+    border: 1px solid @foreground;
+}
+
+/* ==============================Main============================== */
+#cpu.load,
+#cpu.freq,
+#memory,
+#disk,
+#custom-trayIconLeft,
+#custom-trayIconRight,
+#tray,
+#clock,
+#backlight,
+#pulseaudio,
+#bluetooth,
+#network.icon,
+#network.ssid,
+#battery,
+#custom-misc,
+#custom-clipboard,
+#custom-colourpicker,
+#idle_inhibitor,
+#workspaces,
+#power-profiles-daemon,
+#custom-easyeffects {
+    padding: 0px 6px;
+}
+
+#cpu.load {
+    padding-left: 10px;
+}
+
+#cpu.freq {
+    padding-left: 3px
+}
+
+#custom-misc {
+    padding-right: 15px;
+}
+
+#idle_inhibitor.activated {
+    color: @green
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+/* ==============================Workspaces============================== */
+#workspaces button {
+    padding-left: 4px;
+    padding-right: 4px;
+}
