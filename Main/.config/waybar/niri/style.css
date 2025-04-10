@@ -1,4 +1,4 @@
-@import "Themes/catppuccin-frappe.css";
+@import "../Themes/catppuccin-frappe.css";
 
 * {
     border: none;

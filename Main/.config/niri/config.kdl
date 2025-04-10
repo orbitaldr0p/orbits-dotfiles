@@ -222,9 +222,19 @@ window-rule {
     match app-id="vesktop"
     match app-id="tidal-hifi"
     match app-id="Element"
+    match title="GNU Image Manipulation Program"
     open-maximized true
 }
 
+// Misc
+window-rule {
+    match app-id="Librewolf" title="Extension: (Bitwarden Password Manager) - Bitwarden — LibreWolf"
+    open-floating true
+    min-width 500
+    max-width 500
+    min-height 250
+    max-height 200
+}
 
 // Layers
 layer-rule {

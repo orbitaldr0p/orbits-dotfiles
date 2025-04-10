@@ -1,24 +1,15 @@
 #!/bin/bash
-hypr() {
-    # Kill and restart waybar whenever its config files change
-    CONFIG_FILES="$HOME/.config/waybar/hypr/config.jsonc $HOME/.config/waybar/hypr/style.css"
-    trap "killall waybar" EXIT
-    while true; do
-        waybar -c $HOME/.config/waybar/hypr/config.jsonc &
-        inotifywait -e create,modify $CONFIG_FILES
-        sleep 1
-        killall waybar
-    done
-}
 
-
-niri () {
-    # Kill and restart waybar whenever its config files change
-    CONFIG_FILES="$HOME/.config/waybar/niri/config.jsonc $HOME/.config/waybar/niri/style.css"
+start_waybar_watcher() {
+    local CONFIG_DIR="$1"
+    local CONFIG="$HOME/.config/waybar/$CONFIG_DIR/config.jsonc"
+    local STYLE="$HOME/.config/waybar/$CONFIG_DIR/style.css"
+    
     trap "killall waybar" EXIT
+    
     while true; do
-        waybar -c $HOME/.config/waybar/niri/config.jsonc &
-        inotifywait -e create,modify $CONFIG_FILES
+        waybar -c "$CONFIG" -s "$STYLE" &
+        inotifywait -e create,modify "$CONFIG" "$STYLE"
         sleep 1
         killall waybar
     done
@@ -26,12 +17,15 @@ niri () {
 
 case "$1" in
     h)
-        hypr
+        start_waybar_watcher "hypr"
     ;;
     n)
-        niri
+        start_waybar_watcher "niri"
     ;;
     *)
-        invalid_input
+        echo "Usage: $0 [h|n]"
+        echo "  h - Use Hyprland config"
+        echo "  n - Use Niri config"
+        exit 1
     ;;
 esac
