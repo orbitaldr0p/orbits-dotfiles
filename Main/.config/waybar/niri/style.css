@@ -10,12 +10,12 @@
 }
 
 window#waybar {
-    background: @background-transparent;
+    background: @background;
     border-radius: 5px;
 }
 
 tooltip {
-    background: @background-transparent;
+    background: transparent;
 }
 
 tooltip label {
@@ -61,6 +61,10 @@ tooltip label {
 
 #idle_inhibitor.activated {
     color: @green
+}
+
+#mpris {
+    font-size: 14px;
 }
 
 #battery.warning {

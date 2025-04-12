@@ -63,6 +63,10 @@ tooltip label {
     color: @green
 }
 
+#mpris {
+    font-size: 14px;
+}
+
 #battery.warning {
     color: @yellow;
 }
