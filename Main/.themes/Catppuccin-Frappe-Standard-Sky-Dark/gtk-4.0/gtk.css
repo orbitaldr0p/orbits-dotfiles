@@ -994,6 +994,10 @@ button.opaque:checked.keyboard-activating, button.opaque:checked:active {
   border-radius: 9999px;
 }
 
+.nautilus-window.view .thumbnail {
+  background: none;
+}
+
 button {
   min-height: 24px;
   min-width: 16px;
