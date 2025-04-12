@@ -1,5 +1,5 @@
 #!/bin/bash
-icondir="$HOME/.resources/dunst/volume/"
+icondir="$HOME/.resources/notifications/volume/"
 
 volume_increased() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0
@@ -23,7 +23,7 @@ muted() {
         notify-send "Unmuted" -t 800 -r 91190 -i "${icon}"
     else
         wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
-        icon="${icondir}/vol-muted.svg"
+        icon="${icondir}/vol-0.png"
         notify-send "Muted" -t 800 -r 91190 -i "${icon}"
     fi
 }
@@ -32,22 +32,24 @@ mic_mute() {
     muteState=$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@)
     if echo "$muteState" | grep -q '\[MUTED\]'; then
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
-        icon="${icondir}/mic-unmuted.svg"
+        icon="${icondir}/mic-1.png"
         notify-send "Mic Unmuted" -t 800 -r 91190 -i "${icon}"
     else
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
-        icon="${icondir}/mic-muted.svg"
+        icon="${icondir}/mic-0.png"
         notify-send "Mic Muted" -t 800 -r 91190 -i "${icon}"
     fi
 }
 
 get_icon() {
-    if [ "$1" -le 33 ]; then
-        echo "${icondir}/vol-0.svg"
-        elif [ "$1" -le 66 ]; then
-        echo "${icondir}/vol-1.svg"
+    if [ "$1" -eq 0 ]; then
+        echo "${icondir}/vol-1.png"
+    elif [ "$1" -le 34 ]; then
+        echo "${icondir}/vol-2.png"
+    elif [ "$1" -le 66 ]; then
+        echo "${icondir}/vol-3.png"
     else
-        echo "${icondir}/vol-2.svg"
+        echo "${icondir}/vol-4.png"
     fi
 }
 
