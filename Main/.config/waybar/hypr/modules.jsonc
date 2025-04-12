@@ -184,14 +184,16 @@
             "",
             ""
         ],
-        "scroll-step": 10,
+        "on-scroll-up": "~/.scripts/System/brightnessControl.sh i",
+        "on-scroll-down": "~/.scripts/System/brightnessControl.sh d",
         "max-length": 7,
-        "min-length": 7
+        "min-length": 7,
+        "tooltip": false
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "󰸈 Off",
-        "tooltip": "{desc}",
+        "tooltip": false,
         "format-icons": {
             "headphone": "",
             "default": [

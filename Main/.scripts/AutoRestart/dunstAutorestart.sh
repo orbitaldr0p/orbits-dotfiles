@@ -1,18 +1,18 @@
 #!/bin/bash
 # Kill and restart dunst whenever its config files change
-CONFIG_FILES="$HOME/.config/dunst/dunstrc"
+configDir="$HOME/.config/dunst/"
 trap "killall dunst" EXIT
 
-first_run=true
+firstRun=true
 
 while true; do
     dunst &
-    if [ "$first_run" = true ]; then
-        notify-send "Dunst Started"
-        first_run=false
+    if [ "$firstRun" = true ]; then
+        notify-send "Welcome, Olivia."
+        firstRun=false
     else
         notify-send "Dunst Reloaded"
     fi
-    inotifywait -e create,modify $CONFIG_FILES
+    inotifywait -e create,modify,delete,move -r $configDir
     killall dunst
 done

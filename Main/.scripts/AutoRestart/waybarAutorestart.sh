@@ -1,17 +1,17 @@
 #!/bin/bash
 
 start_waybar_watcher() {
-    local CONFIG_DIR="$1"
-    local CONFIG_PATH="$HOME/.config/waybar/$CONFIG_DIR"
-    local THEMES_PATH="$HOME/.config/waybar/themes"
-    local CONFIG="$CONFIG_PATH/config.jsonc"
-    local STYLE="$CONFIG_PATH/style.css"
+    local configDir="$1"
+    local configPath="$HOME/.config/waybar/$configDir"
+    local themesPath="$HOME/.config/waybar/themes"
+    local config="$configPath/config.jsonc"
+    local style="$configPath/style.css"
 
     trap "killall waybar" EXIT
 
     while true; do
-        waybar -c "$CONFIG" -s "$STYLE" &
-        inotifywait -e create,modify,delete,move -r "$CONFIG_PATH" "$THEMES_PATH"
+        waybar -c "$config" -s "$style" &
+        inotifywait -e create,modify,delete,move -r "$configPath" "$themesPath"
         # sleep 1
         killall waybar
     done
