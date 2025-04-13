@@ -23,6 +23,7 @@ button:hover {
     background-color: @foreground;
     color: @background-alt1;
     text-shadow: none;
+    background-size: 30%;
     transition: background-size 0.2s ease-in-out, color 0.2s ease-in-out, background-color 0.2s ease-in-out
 }
 

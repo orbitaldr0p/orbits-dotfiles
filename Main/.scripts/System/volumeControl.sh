@@ -23,7 +23,7 @@ volMute() {
         notify-send "Unmuted" -t 800 -r 91190 -i "$icon"
     else
         wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
-        icon="$icondir/vol-0.png"
+        icon="$icondir/vol-0c.png"
         notify-send "Muted" -t 800 -r 91190 -i "$icon"
     fi
 }
@@ -36,7 +36,7 @@ micMute() {
         notify-send "Mic Unmuted" -t 800 -r 91190 -i "${icon}"
     else
         wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
-        icon="$icondir/mic-0.png"
+        icon="$icondir/mic-0c.png"
         notify-send "Mic Muted" -t 800 -r 91190 -i "${icon}"
     fi
 }
