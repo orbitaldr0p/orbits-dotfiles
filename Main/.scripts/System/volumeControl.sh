@@ -1,5 +1,5 @@
 #!/bin/bash
-icondir="$HOME/.resources/notifications/volume/"
+icondir="$HOME/.resources/icons/volume/"
 
 volIncrease() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0

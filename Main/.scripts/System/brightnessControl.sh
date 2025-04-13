@@ -1,5 +1,5 @@
 #!/bin/bash
-iconDir="$HOME/.resources/notifications/brightness/"
+iconDir="$HOME/.resources/icons/brightness/"
 displayDevice="intel_backlight"
 
 increase() {

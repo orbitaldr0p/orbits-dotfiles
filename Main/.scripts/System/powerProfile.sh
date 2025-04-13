@@ -1,5 +1,5 @@
 #!/bin/bash
-iconDir="$HOME/.resources/notifications/power/"
+iconDir="$HOME/.resources/icons/power/"
 currentProfile=$(powerprofilesctl get)
 case $currentProfile in
     power-saver)
