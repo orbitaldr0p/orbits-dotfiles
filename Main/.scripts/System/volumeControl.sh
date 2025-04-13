@@ -5,14 +5,14 @@ volIncrease() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
     icon=$(getIcon $vol)
-    notify-send "Volume: $vol%" -t 800 -r 91190 -i "$icon"
+    notify-send -h int:value:"$vol" "Volume: $vol%" -t 800 -r 91190 -i "$icon"
 }
 
 volDecrease() {
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
     icon=$(getIcon $vol)
-    notify-send "Volume: $vol%" -t 800 -r 91190 -i "$icon"
+    notify-send -h int:value:"$vol" "Volume: $vol%" -t 800 -r 91190 -i "$icon"
 }
 
 volMute() {

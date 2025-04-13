@@ -6,14 +6,14 @@ increase() {
     brightnessctl -d $displayDevice s +10%
     brightness=$(brightnessctl -d $displayDevice -m | cut -d, -f4)
     icon=$(getIcon "$(echo "$brightness" | sed 's/%//')")
-    notify-send "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
+    notify-send -h int:value:"$brightness" "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
 }
 
 decrease() {
     brightnessctl -d $displayDevice s 10%-
     brightness=$(brightnessctl -d $displayDevice -m | cut -d, -f4)
     icon=$(getIcon "$(echo "$brightness" | sed 's/%//')")
-    notify-send "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
+    notify-send -h int:value:"$brightness" "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
 }
 
 getIcon() {
