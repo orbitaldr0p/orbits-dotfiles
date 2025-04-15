@@ -27,7 +27,6 @@ tooltip label {
 #cpu.freq,
 #memory,
 #disk,
-#custom-trayIconLeft,
 #custom-trayIconRight,
 #tray,
 #clock,
@@ -36,12 +35,13 @@ tooltip label {
 #bluetooth,
 #network.icon,
 #network.ssid,
-#battery,
+#battery.main,
+#battery.timeRemaining,
 #custom-misc,
 #custom-clipboard,
 #custom-colourpicker,
+#custom-divider,
 #idle_inhibitor,
-#workspaces,
 #power-profiles-daemon,
 #custom-easyeffects {
     padding: 0px 6px;
@@ -49,10 +49,6 @@ tooltip label {
 
 #cpu.load {
     padding-left: 10px;
-}
-
-#cpu.freq {
-    padding-left: 3px
 }
 
 #custom-misc {

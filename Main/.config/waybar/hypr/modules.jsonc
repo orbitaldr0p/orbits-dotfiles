@@ -1,4 +1,5 @@
-{
+{   
+    //==================================================================================================
     "group/cpu": {
         "orientation": "inherit",
         "drawer": {
@@ -8,7 +9,8 @@
         },
         "modules": [
             "cpu#load",
-            "cpu#freq"
+            "cpu#freq",
+            "custom/divider"
         ]
     },
     "group/trayDrawer": {
@@ -20,7 +22,7 @@
         },
         "modules": [
             "custom/trayIconRight",
-            "custom/trayIconLeft",
+            "custom/divider",
             "tray"
         ]
     },
@@ -47,6 +49,18 @@
             "network#ssid"
         ]
     },
+    "group/battery": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "batteryGroup",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "battery#main",
+            "battery#timeRemaining"
+        ]
+    },
     "group/misc": {
         "orientation": "inherit",
         "drawer": {
@@ -61,26 +75,23 @@
             "custom/colourpicker"
         ]
     },
+
     //==================================================================================================
     "cpu#load": {
         "interval": "1",
         "format": " {usage}%",
-        "max-length": 6,
-        "min-length": 6,
         "on-click": "foot -T tui -e btop",
         "on-click-right": "foot -T tui -e nvtop"
     },
     "cpu#freq": {
         "interval": "1",
-        "format": "| {avg_frequency}GHz",
+        "format": "{avg_frequency}GHz",
         "on-click": "foot -T tui -e btop",
         "on-click-right": "foot -T tui -e nvtop"
     },
     "memory": {
         "interval": 1,
-        "format": "󰘚 {percentage}%",
-        "max-length": 6,
-        "min-length": 6
+        "format": "󰘚 {percentage}%"
     },
     "disk": {
         "interval": 10,
@@ -106,13 +117,9 @@
         "format": "",
         "tooltip": false
     },
-    "custom/trayIconLeft": {
-        "format": "|",
-        "tooltip": false
-    },
     "tray": {
         //"icon-size": 20,
-        "spacing": 15
+        "spacing": 20
     },
     "hyprland/window": {
         "format": " {}",
@@ -186,8 +193,6 @@
         ],
         "on-scroll-up": "~/.scripts/System/brightnessControl.sh i",
         "on-scroll-down": "~/.scripts/System/brightnessControl.sh d",
-        "max-length": 7,
-        "min-length": 7,
         "tooltip": false
     },
     "pulseaudio": {
@@ -216,8 +221,6 @@
         "format-connected": " {num_connections}",
         "tooltip-format": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}{device_address}",
-        "max-length": 5,
-        "min-length": 3,
         "on-click": "blueberry"
     },
     "network#icon": {
@@ -245,7 +248,7 @@
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "on-click": "network_manager"
     },
-    "battery": {
+    "battery#main": {
         "interval": 1,
         "format": "{icon} {capacity}%",
         "format-icons": [
@@ -261,12 +264,23 @@
             "󰁹"
         ],
         "format-charging": "󰂄 {capacity}%",
-        "max-length": 6,
-        "min-length": 6,
         "tooltip": false,
         "on-click": "foot -T tui -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
 		"states": {
+			"good": 80,
+			"warning": 30,
+			"critical": 20
+		}
+    },
+    "battery#timeRemaining": {
+        "interval": 1,
+        "format": "{time}",
+        "format-full": "Full",
+        "on-click": "foot -T tui -e battop",
+        "on-click-right": "~/.scripts/System/powerProfile.sh",
+        "tooltip": false,
+        "states": {
 			"good": 80,
 			"warning": 30,
 			"critical": 20
@@ -309,5 +323,9 @@
         "on-click": "~/.scripts/easyEffects.sh t",
         "on-click-right": "easyeffects",
         "interval": 1
+    },
+    "custom/divider": {
+        "format": "|",
+        "tooltip": false
     }
 }
