@@ -1,3 +1,11 @@
+* {
+  color: @foreground;
+  all: unset;
+  font-size: 15px;
+  font-family: "JetBrainsMono NFP";
+  transition: 200ms;
+}
+
 .floating-notifications.background .notification-row .notification-background {
   background: @background-transparent;
   border: none;
@@ -32,9 +40,13 @@
 }
 
 .close-button {
-  margin: 6px;
+  color: transparent;
+}
+
+/* .close-button {
+  margin: 5px;
   padding: 2px;
-  border-radius: 6px;
+  border-radius: 5px;
   background-color: transparent;
   border: 1px solid transparent;
   color: @foreground;
@@ -48,7 +60,7 @@
 .close-button:active {
   background-color: alpha(@foreground, 0.5);
   color: @red;
-}
+} */
 
 .notification progress {
   background-color: @foreground;
