@@ -34,7 +34,7 @@
 }
 
 .control-center .notification-row .notification-background .notification .notification-content {
-  margin: 25px 6px;
+  margin: 10px 6px;
 }
 
 .control-center .notification-row .notification-background .notification .notification-action {
@@ -91,7 +91,7 @@ progressbar {
 /* ------------ Notifications expanded-group -------------- */
 
 .notification-group {
-  margin: 2px 8px 2px 8px;
+  margin: 2px 8px;
   transition: background 0.15s ease-in-out;
 
 }
@@ -133,7 +133,6 @@ progressbar {
 
 .notification-group.collapsed:hover .notification-row:not(:only-child) .notification {
   background: alpha(@foreground, 0.2);
-  ;
   border-radius: 5px;
 }
 
@@ -165,14 +164,12 @@ progressbar {
 /* Do not disturb */
 .widget-dnd {
   margin: 6px;
-  font-weight: bold;
   color: @foreground;
 }
 
 .widget-dnd>switch {
   background: transparent;
   border-radius: 5px;
-  box-shadow: none;
   padding: 3px;
 }
 
@@ -186,7 +183,7 @@ progressbar {
 }
 
 .widget-dnd>switch:checked:hover {
-  background: alpha(@foreground, 0.2);
+  background: alpha(@foreground, 0.6);
 }
 
 .widget-dnd>switch slider {
@@ -207,31 +204,18 @@ progressbar {
   padding: 10px;
   margin: 10px;
   background-color: @mpris-album-art-overlay;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, .65);
 }
 
 .widget-mpris button {
-  color: alpha(@text, 0.6);
+  color: @foreground;
 }
 
 .widget-mpris button:hover {
-  background: alpha(@main-color, 0.5);
-  color: @background-alt;
+  background: alpha(@foreground, 0.5);
+  color: @background;
   border-radius: 3px;
 }
 
 .widget-mpris-album-art {
   border-radius: 3px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
-}
-
-.widget-mpris-title {
-  font-weight: bold;
-  font-size: 1.10rem;
-  padding-bottom: 2px;
-}
-
-.widget-mpris-subtitle {
-  font-weight: normal;
-  font-size: 0.85rem;
 }
