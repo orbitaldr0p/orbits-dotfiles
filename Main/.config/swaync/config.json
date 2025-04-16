@@ -28,6 +28,12 @@
     "dnd",
     "notifications"
   ],
+  "notification-visibility": {
+		"notify-send": {
+      "app-name": "notify-send",
+			"state": "transient"
+		}
+	},
   "widget-config": {
     "title": {
       "text": "Notifications",
