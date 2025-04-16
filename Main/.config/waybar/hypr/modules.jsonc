@@ -1,4 +1,4 @@
-{   
+{
     //==================================================================================================
     "group/cpu": {
         "orientation": "inherit",
@@ -10,6 +10,7 @@
         "modules": [
             "cpu#load",
             "cpu#freq",
+            "temperature",
             "custom/divider"
         ]
     },
@@ -75,7 +76,6 @@
             "custom/colourpicker"
         ]
     },
-
     //==================================================================================================
     "cpu#load": {
         "interval": "1",
@@ -92,6 +92,18 @@
     "memory": {
         "interval": 1,
         "format": "󰘚 {percentage}%"
+    },
+    "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-critical": " {temperatureC}°C ",
+        "tooltip": false,
+        "critical-threshold": 80
     },
     "disk": {
         "interval": 10,
@@ -119,12 +131,23 @@
     },
     "tray": {
         //"icon-size": 20,
-        "spacing": 20
+        "spacing": 15
     },
     "hyprland/window": {
-        "format": " {}",
+        "format": "{}",
+        "rewrite": {
+            "foot": "",
+            "~": "",
+            "(.*) ~": " $1",
+            "LibreWolf": "󰈹",
+            "(.*) - VSCodium": " $1",
+            "(.*) — LibreWolf": "󰈹 $1",
+            ".*TIDAL.*": "TIDAL",
+            "(.*) — Strawberry Music Player":" $1",
+            "Discord (.*)":"Vesktop $1"
+        },
         "separate-outputs": true,
-        "max-length": 50
+        "max-length": 40
     },
     "mpris#main": {
         "format": "{status_icon} {title}",
@@ -267,24 +290,24 @@
         "tooltip": false,
         "on-click": "foot -T tui -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
-		"states": {
-			"good": 80,
-			"warning": 30,
-			"critical": 20
-		}
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 20
+        }
     },
     "battery#timeRemaining": {
         "interval": 1,
-        "format": "{time}",
+        "format": "{power}, {time}",
         "format-full": "Full",
         "on-click": "foot -T tui -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
         "tooltip": false,
         "states": {
-			"good": 80,
-			"warning": 30,
-			"critical": 20
-		}
+            "good": 80,
+            "warning": 30,
+            "critical": 20
+        }
     },
     "idle_inhibitor": {
         "format": "{icon}",

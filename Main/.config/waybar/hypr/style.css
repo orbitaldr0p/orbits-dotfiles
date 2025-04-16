@@ -25,6 +25,7 @@ tooltip label {
 /* ==============================Main============================== */
 #cpu.load,
 #cpu.freq,
+#temperature,
 #memory,
 #disk,
 #custom-trayIconRight,
@@ -40,7 +41,7 @@ tooltip label {
 #custom-misc,
 #custom-clipboard,
 #custom-colourpicker,
-#custom-divider,
+/* #custom-divider, */
 #idle_inhibitor,
 #power-profiles-daemon,
 #custom-easyeffects {
@@ -61,6 +62,10 @@ tooltip label {
 
 #mpris {
     font-size: 14px;
+}
+
+#temperature.critical {
+    color: @red;
 }
 
 #battery.warning {

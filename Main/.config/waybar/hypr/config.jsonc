@@ -12,7 +12,7 @@
         "group/trayDrawer"
     ],
     "modules-center": [
-        "group/player"
+        "hyprland/window"
     ],
     "modules-right": [
         "clock",
