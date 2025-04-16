@@ -7,6 +7,7 @@
     "modules-left": [
         "group/cpu",
         "memory",
+        "disk",
         "custom/divider",
         "hyprland/workspaces",
         "group/trayDrawer"

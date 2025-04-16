@@ -107,7 +107,9 @@
     },
     "disk": {
         "interval": 10,
-        "format": "󰋊 {percentag} used out of {total}"
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "on-click": "foot -T 'ftui-Disk Usage' -e diskonaut"
     },
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -182,6 +184,7 @@
         "format": "{:%I:%M %p}",
         "format-alt": "{:%R 󰃭 %d·%m·%y}",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "tooltip": false,
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
