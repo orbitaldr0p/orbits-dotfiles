@@ -1,5 +1,6 @@
 @define-color background #303446;
 @define-color background-transparent rgba(48, 52, 70, 0.5);
+@define-color background-alt #737994;
 @define-color foreground #c6d0f5;
 
 @define-color red #e78284;

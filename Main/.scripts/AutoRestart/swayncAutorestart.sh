@@ -1,26 +1,20 @@
 #!/bin/bash
-# Watch swaync config directory and restart swaync when changes are detected
+swaync &
 
 configDir="$HOME/.config/swaync/"
-
-# Function to clean up on exit
-cleanup() {
-    pkill -x "swaync"
-    exit 0
-}
-
-trap cleanup EXIT INT TERM
-
 firstRun=true
 
 while true; do
-    "swaync" &
     if [ "$firstRun" = true ]; then
         notify-send "Welcome, Olivia."
+        # echo "welcome message sent"
         firstRun=false
     else
-        notify-send -h string:synchronous:reload "Swaync Reloaded"
+        # echo "reloading swaync..."
+        swaync-client -R
+        swaync-client -rs
+        notify-send "SwayNC Reloaded"
     fi
-    inotifywait -e create,modify,delete,move -r "$configDir" >/dev/null 2>&1
-    pkill -x "swaync"
+    
+    inotifywait -e create,modify,delete,move -r "$configDir"
 done

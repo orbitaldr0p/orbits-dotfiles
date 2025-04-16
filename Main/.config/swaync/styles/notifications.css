@@ -1,104 +1,61 @@
-* {
-  border: none;
-  font-family: "JetBrainsMono NFP";
-  font-weight: bold;
-  font-size: 15px;
-  color: @foreground;
-}
-
-.notification-row {
-  outline: none;
-  margin: 0;
-  padding: 0px;
-}
-
 .floating-notifications.background .notification-row .notification-background {
   background: @background-transparent;
   border: none;
-  border-radius: 6px;
-  margin: 7px;
+  border-radius: 5px;
+  margin-top: 6px;
+  margin-right: 6px;
   padding: 0;
-  transition: background 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification {
-  border-radius: 10px;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification.critical {
-  border: 2px solid #a7091b;
-  border-radius: 4px;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification.critical .summary {
-  color: #a7091b;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification .notification-content {
+.notification-content {
   margin: 10px;
 }
 
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * {
-  min-height: 10px;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action {
-  border-radius: 8px;
-  background-color: @bg ;
-  margin: 6px;
-  border: 1px solid transparent;
-  transition: background 0.15s ease-in-out;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
-  background-color: @hover;
-  border: 1px solid @selected;
-}
-
-.floating-notifications.background .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
-  background-color: @selected;
-  color: @background;
-}
-
 .image {
-  margin: 0px 12px 0px 0px;
   border-radius: 5px;
 }
 
 .summary {
   font-family: "JetBrainsMono NFP";
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   color: @foreground;
+  padding-left: 10px;
 }
 
 .body {
+  font-family: "JetBrainsMono NFP";
   font-size: 14px;
+  color: @foreground;
+  padding-left: 10px;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button {
+.close-button {
   margin: 6px;
   padding: 2px;
   border-radius: 6px;
   background-color: transparent;
   border: 1px solid transparent;
+  color: @foreground;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button:hover {
-  background-color: @selected;
+.close-button:hover {
+  background-color: alpha(@foreground, 0.2);
+  color: @red;
 }
 
-.floating-notifications.background .notification-row .notification-background .close-button:active {
-  background-color: @selected;
-  color: @background;
+.close-button:active {
+  background-color: alpha(@foreground, 0.5);
+  color: @red;
 }
 
-.notification.critical progress {
-  background-color: @selected;
+.notification progress {
+  background-color: @foreground;
+  min-height: 2px;
 }
 
-.notification.low progress,
-.notification.normal progress {
-  background-color: @selected;
+.notification progressbar {
+  background-color: transparent;
+  min-height: 2px;
 }
-
