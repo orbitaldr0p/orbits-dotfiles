@@ -145,7 +145,7 @@
             "LibreWolf": "󰈹",
             "(.*) - VSCodium": " $1",
             "(.*) — LibreWolf": "󰈹 $1",
-            ".*TIDAL.*": "TIDAL",
+            //".*TIDAL.*": "TIDAL",
             "(.*) — Strawberry Music Player":" $1",
             "Discord (.*)":"Vesktop $1"
         },
@@ -343,7 +343,8 @@
     },
     "custom/misc": {
         "format": "",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "swaync-client -t"
     },
     "custom/easyeffects": {
         "exec": "~/.scripts/easyEffects.sh c",
