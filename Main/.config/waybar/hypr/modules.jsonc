@@ -80,14 +80,14 @@
     "cpu#load": {
         "interval": "1",
         "format": " {usage}%",
-        "on-click": "foot -T tui -e btop",
-        "on-click-right": "foot -T tui -e nvtop"
+        "on-click": "foot -T 'ftui-System Monitor' -e btop",
+        "on-click-right": "foot -T 'ftui-GPU Status' -e nvtop"
     },
     "cpu#freq": {
         "interval": "1",
         "format": "{avg_frequency}GHz",
-        "on-click": "foot -T tui -e btop",
-        "on-click-right": "foot -T tui -e nvtop"
+        "on-click": "foot -T 'ftui-System Monitor' -e btop",
+        "on-click-right": "foot -T 'ftui-GPU Status' -e nvtop"
     },
     "memory": {
         "interval": 1,
@@ -139,6 +139,7 @@
             "foot": "",
             "~": "",
             "(.*) ~": " $1",
+            "ftui-(.*)":"$1",
             "LibreWolf": "󰈹",
             "(.*) - VSCodium": " $1",
             "(.*) — LibreWolf": "󰈹 $1",
@@ -288,7 +289,7 @@
         ],
         "format-charging": "󰂄 {capacity}%",
         "tooltip": false,
-        "on-click": "foot -T tui -e battop",
+        "on-click": "foot -T 'ftui-Battery Status' -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
         "states": {
             "good": 80,
@@ -300,7 +301,7 @@
         "interval": 1,
         "format": "{power}, {time}",
         "format-full": "Full",
-        "on-click": "foot -T tui -e battop",
+        "on-click": "foot -T 'ftui-Battery Status' -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
         "tooltip": false,
         "states": {
@@ -330,7 +331,7 @@
     "custom/clipboard": {
         "format": "",
         "tooltip": false,
-        "on-click": "foot -T tui -e clipse"
+        "on-click": "foot -T 'ftui-Clipboard History' -e clipse"
     },
     "custom/colourpicker": {
         "format": "",
