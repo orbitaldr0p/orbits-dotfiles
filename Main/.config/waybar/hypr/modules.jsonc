@@ -147,7 +147,7 @@
             "(.*) — LibreWolf": "󰈹 $1",
             //".*TIDAL.*": "TIDAL",
             "(.*) — Strawberry Music Player":" $1",
-            "Discord (.*)":"Vesktop $1"
+            "Discord(.*)":"Vesktop$1"
         },
         "separate-outputs": true,
         "max-length": 40
@@ -302,7 +302,7 @@
     },
     "battery#timeRemaining": {
         "interval": 1,
-        "format": "{power}, {time}",
+        "format": "{time}",
         "format-full": "Full",
         "on-click": "foot -T 'ftui-Battery Status' -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",

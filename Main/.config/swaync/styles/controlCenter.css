@@ -206,6 +206,10 @@ progressbar {
   background-color: @mpris-album-art-overlay;
 }
 
+.widget-mpris-title {
+  font-weight: bold;
+}
+
 .widget-mpris button {
   color: @foreground;
 }
