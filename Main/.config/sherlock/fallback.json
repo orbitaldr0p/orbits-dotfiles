@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Calculator",
+        "type": "calculation",
+        "args": {},
+        "priority": 1
+    },
+    {
+        "name": "App Launcher",
+        "alias": "app",
+        "type": "app_launcher",
+        "args": {},
+        "priority": 2,
+        "home": true
+    },
+    {
+        "name": "Web Search",
+        "display_name": "Kagi Search",
+        "tag_start": "{keyword}",
+        "alias": "ks",
+        "type": "web_launcher",
+        "args": {
+            "search_engine": "https://kagi.com/search?q={keyword}",
+            "icon": "kagi"
+        },
+        "priority": 100
+    }
+]
