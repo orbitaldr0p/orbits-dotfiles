@@ -1,21 +1,39 @@
-[
+[   
+    {
+        "name": "Music Player",
+        "type": "audio_sink",
+        "args": { },
+        "async": true,
+        "priority": 2,
+        "home": true,
+        "only_home": true,
+        "spawn_focus": false
+    },
     {
         "name": "Calculator",
         "type": "calculation",
         "args": {},
-        "priority": 1
+        "priority": 3
     },
     {
         "name": "App Launcher",
         "alias": "app",
         "type": "app_launcher",
         "args": {},
-        "priority": 2,
+        "priority": 4,
         "home": true
     },
     {
+        "name": "Kill Process",
+        "alias": "kill",
+        "type": "process",
+        "args": {"icon": "window-close"},
+        "priority": 6,
+        "home": false
+    },
+    {
         "name": "Web Search",
-        "display_name": "Kagi Search",
+        "display_name": "Search Online",
         "tag_start": "{keyword}",
         "alias": "ks",
         "type": "web_launcher",
