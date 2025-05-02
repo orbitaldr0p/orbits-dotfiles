@@ -1,6 +1,0 @@
-{
-    "name": "orbits-widgets",
-    "dependencies": {
-        "astal": "/usr/share/astal/gjs"
-    }
-}
