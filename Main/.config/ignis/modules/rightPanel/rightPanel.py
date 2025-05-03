@@ -9,18 +9,15 @@ class rightPanel(Widget.RevealerWindow):
 
     def __init__(self):
         revealer = Widget.Revealer(
-            transition_type="slide_left",
+            transition_type="crossfade",
             child=Widget.Box(
                 vertical=True,
-                css_classes=["control-center"],
+                css_classes=["rightPanel"],
                 child=[
                     Widget.Box(
                         vertical=True,
-                        css_classes=["control-center-widget"],
+                        css_classes=["rightPanelWidget"],
                         child=[
-                            Widget.Label(
-                                label="This window created using a custom class!"
-                            ),
                         ],
                     ),
                 ],
@@ -34,17 +31,11 @@ class rightPanel(Widget.RevealerWindow):
             popup=True,
             kb_mode="on_demand",
             layer="top",
-            css_classes=["unset"],
-            anchor=["top", "right", "bottom", "left"],
+            css_classes=["rightPanelClose"],
+            anchor=["top", "right", "bottom"],
             namespace="rightPanel",
             child=Widget.Box(
                 child=[
-                    Widget.Button(
-                        vexpand=True,
-                        hexpand=True,
-                        css_classes=["unset"],
-                        on_click=lambda x: app.close_window("rightPanel"),
-                    ),
                     revealer,
                 ],
             ),

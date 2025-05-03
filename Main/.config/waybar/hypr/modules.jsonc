@@ -344,7 +344,7 @@
     "custom/misc": {
         "format": "",
         "tooltip": false,
-        "on-click": "ignis open rightPanel"
+        "on-click": "ignis toggle rightPanel"
     },
     "custom/easyeffects": {
         "exec": "~/.scripts/easyEffects.sh c",
