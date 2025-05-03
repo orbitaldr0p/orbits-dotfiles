@@ -1,10 +1,12 @@
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
-
+from .widgets import (
+    NowPlaying
+)
 app = IgnisApp.get_default()
 
 
-class rightPanel(Widget.RevealerWindow):
+class RightPanel(Widget.RevealerWindow):
     __gtype_name__ = "rightPanel"
 
     def __init__(self):
@@ -18,6 +20,7 @@ class rightPanel(Widget.RevealerWindow):
                         vertical=True,
                         css_classes=["rightPanelWidget"],
                         child=[
+                            NowPlaying()
                         ],
                     ),
                 ],

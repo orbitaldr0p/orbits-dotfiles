@@ -1,5 +1,5 @@
-from.rightPanel import rightPanel
+from.RightPanel import RightPanel
 
 __all__ = [
-    "rightPanel"
+    "RightPanel"
 ]
