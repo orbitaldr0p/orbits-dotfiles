@@ -344,7 +344,7 @@
     "custom/misc": {
         "format": "",
         "tooltip": false,
-        "on-click": "swaync-client -t"
+        "on-click": "ignis open rightPanel"
     },
     "custom/easyeffects": {
         "exec": "~/.scripts/easyEffects.sh c",
