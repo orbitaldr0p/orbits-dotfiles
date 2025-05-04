@@ -20,12 +20,11 @@ class RightPanel(Widget.RevealerWindow):
                         vertical=True,
                         css_classes=["rightPanelWidget"],
                         child=[
-                            NowPlaying()
                         ],
                     ),
                 ],
             ),
-            transition_duration=300,
+            transition_duration=100,
             reveal_child=True,
         )
 
