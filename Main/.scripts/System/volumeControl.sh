@@ -58,19 +58,19 @@ invalidInput() {
 }
 
 case "$1" in
-    i)
-        volIncrease
+i)
+    volIncrease
     ;;
-    d)
-        volDecrease
+d)
+    volDecrease
     ;;
-    m)
-        volMute
+m)
+    volMute
     ;;
-    mm)
-        micMute
+mm)
+    micMute
     ;;
-    *)
-        invalidInput
+*)
+    invalidInput
     ;;
 esac

@@ -2,21 +2,21 @@
 iconDir="$HOME/.resources/icons/power/alt/"
 currentProfile=$(powerprofilesctl get)
 case $currentProfile in
-    power-saver)
-        powerprofilesctl set balanced
-        icon="$iconDir/power-1.png"
-        notify-send -h string:synchronous:powerProfile "Profile: Balanced" -t 800 -r 91160 -i "$icon"
+power-saver)
+    powerprofilesctl set balanced
+    icon="$iconDir/power-1.png"
+    notify-send -h string:synchronous:powerProfile "Profile: Balanced" -t 800 -r 91160 -i "$icon"
     ;;
-    
-    balanced)
-        powerprofilesctl set performance
-        icon="$iconDir/power-2.png"
-        notify-send -h string:synchronous:powerProfile "Profile: Performance" -t 800 -r 91160 -i "$icon"
+
+balanced)
+    powerprofilesctl set performance
+    icon="$iconDir/power-2.png"
+    notify-send -h string:synchronous:powerProfile "Profile: Performance" -t 800 -r 91160 -i "$icon"
     ;;
-    
-    performance)
-        powerprofilesctl set power-saver
-        icon="$iconDir/power-0.png"
-        notify-send -h string:synchronous:powerProfile "Profile: Silent" -t 800 -r 91160 -i "$icon"
+
+performance)
+    powerprofilesctl set power-saver
+    icon="$iconDir/power-0.png"
+    notify-send -h string:synchronous:powerProfile "Profile: Silent" -t 800 -r 91160 -i "$icon"
     ;;
 esac

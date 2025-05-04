@@ -30,18 +30,18 @@ getIcon() {
     fi
 }
 
-invalidInput(){
+invalidInput() {
     echo lmao
 }
 
 case "$1" in
-    i)
-        increase
+i)
+    increase
     ;;
-    d)
-        decrease
+d)
+    decrease
     ;;
-    *)
-        invalidInput
+*)
+    invalidInput
     ;;
 esac
