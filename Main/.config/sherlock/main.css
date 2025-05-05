@@ -27,31 +27,23 @@ overshoot:backdrop {
     font-family: "Cantarell";
 }
 
-#overlay spinner {
+#overlay spinner{
     color: hsl(var(--text));
 }
-
+row:selected,
 #overlay * {
     background: transparent;
 }
-
 .notifications {
     background: transparent;
 }
 
-window {
-    background:
-}
-
-
-window {
-    background: hsla(var(--background), 0.5);
-}
-
 scrolledwindow>viewport,
-scrolledwindow>viewport>* {
-    background: transparent;
+scrolledwindow>viewport>*,
+window {
+    background: hsl(var(--background), 0.5);
 }
+
 
 label {
     color: hsl(var(--text));
@@ -61,24 +53,21 @@ label {
 window {
     color: hsl(var(--text));
     border-radius: 5px;
-    -border: 2px solid hsl(var(--border));
+    border: none;
 }
 
 /* STATUS BAR */
 .status-bar {
-    background: hsla(var(--foreground), 0);
+    background: hsla(var(--foreground), 0.2);
     border-top: none;
     padding: 4px 10px 4px 20px;
 }
-
 .status-bar label {
     color: hsl(var(--text), 0.3);
 }
-
 .spinner-disappear {
     animation: vanish-rotate 0.3s ease forwards;
 }
-
 .spinner-appear {
     animation: ease-opacity 0.3s ease forwards;
     animation: rotate 0.3s linear infinite;
@@ -97,7 +86,6 @@ window {
 }
 
 #search-bar-holder {
-    -border-bottom: 2px solid hsl(var(--border));
     border-bottom: none;
     padding: 5px 10px 4px 10px;
 }
@@ -105,22 +93,18 @@ window {
 #search-icon-holder image {
     transition: 0.1s ease;
 }
-
-#search-icon-holder.search image:nth-child(1) {
+#search-icon-holder.search image:nth-child(1){
     transition-delay: 0.05s;
     opacity: 1;
 }
-
-#search-icon-holder.search image:nth-child(2) {
+#search-icon-holder.search image:nth-child(2){
     transform: rotate(-180deg);
     opacity: 0;
 }
-
-#search-icon-holder.back image:nth-child(1) {
+#search-icon-holder.back image:nth-child(1){
     opacity: 0;
 }
-
-#search-icon-holder.back image:nth-child(2) {
+#search-icon-holder.back image:nth-child(2){
     transition-delay: 0.05s;
     opacity: 1;
 }
@@ -177,57 +161,25 @@ image {
     margin-bottom: 5px;
     border-radius: 4px;
 }
-
 .tile:hover *,
-.tile:hover {
+.tile:hover{
     background: transparent;
 }
-
 .tile.animate {
-    transform: translateY(20px);
+    transform: translateY(20px); 
     opacity: 0;
     animation: fadeInUp 0.2s ease-out forwards;
 }
-
-.tile.animate:nth-child(1) {
-    animation-delay: 0.05s;
-}
-
-.tile.animate:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.tile.animate:nth-child(3) {
-    animation-delay: 0.15s;
-}
-
-.tile.animate:nth-child(4) {
-    animation-delay: 0.2s;
-}
-
-.tile.animate:nth-child(5) {
-    animation-delay: 0.25s;
-}
-
-.tile.animate:nth-child(6) {
-    animation-delay: 0.3s;
-}
-
-.tile.animate:nth-child(7) {
-    animation-delay: 0.35s;
-}
-
-.tile.animate:nth-child(8) {
-    animation-delay: 0.4s;
-}
-
-.tile.animate:nth-child(9) {
-    animation-delay: 0.45s;
-}
-
-.tile.animate:nth-child(10) {
-    animation-delay: 0.5s;
-}
+.tile.animate:nth-child(1) { animation-delay: 0.05s; }
+.tile.animate:nth-child(2) { animation-delay: 0.1s; }
+.tile.animate:nth-child(3) { animation-delay: 0.15s; }
+.tile.animate:nth-child(4) { animation-delay: 0.2s; }
+.tile.animate:nth-child(5) { animation-delay: 0.25s; }
+.tile.animate:nth-child(6) { animation-delay: 0.3s; }
+.tile.animate:nth-child(7) { animation-delay: 0.35s; }
+.tile.animate:nth-child(8) { animation-delay: 0.4s; }
+.tile.animate:nth-child(9) { animation-delay: 0.45s; }
+.tile.animate:nth-child(10) { animation-delay: 0.5s; }
 
 @keyframes fadeInUp {
     from {
@@ -235,7 +187,6 @@ image {
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         letter-spacing: 0px;
         opacity: 1;
@@ -253,10 +204,9 @@ image {
     padding: 0px;
 }
 
-.tile:selected {
-    transition: 0.1s ease;
-    background: hsla(var(--foreground), 0.2);
-    background-color: hsla(var(--foreground), 0.2);
+row:selected .tile{
+    background: hsla(var(--foreground), 1);
+    background-color: hsla(var(--foreground), 1);
     outline: none;
     border: none;
 }
@@ -267,7 +217,7 @@ image {
     border-radius: 3px;
     padding: 2px 8px;
     color: hsl(var(--tag-color));
-    box-shadow: 0px 0px 10px 0px rgba(2, 2, 2, 0.4);
+    box-shadow: 0px 0px 10px 0px rgba(2,2,2,0.4);
     border: 1px solid hsla(var(--text), 0.1);
     margin-left: 7px;
 }
@@ -291,8 +241,7 @@ image {
     color: hsla(var(--text), 0.4);
     margin-left: 0px;
 }
-
-#color-icon-holder {
+#color-icon-holder{
     border-radius: 50px;
 }
 
@@ -303,27 +252,25 @@ image {
     padding: 5px 10px;
     background: hsla(var(--foreground), 0.5);
     border-radius: 5px;
-    border: 1px solid hsla(var(--text), 0.1);
-    box-shadow: 0px 0px 6px 0px rgba(15, 15, 15, 1);
+    border: none;
+    box-shadow: 0px 0px 6px 0px rgba(15,15,15,1);
 }
 
 .tile:selected #shortcut-holder {
     background: hsla(var(--background), 0.5);
     background-color: hsla(var(--background), 0.5);
     color: hsla(var(--text), 0.5);
-    box-shadow: 0px 0px 6px 0px rgba(22, 22, 22, 1);
+    box-shadow: 0px 0px 6px 0px rgba(22,22,22,1);
 }
 
-#shortcut,
-#shortcut-modkey {
+#shortcut, #shortcut-modkey{
     background: hsla(var(--background), 0);
     background-color: hsla(var(--background), 0);
     font-size: 11px;
     font-weight: bold;
     color: hsla(var(--text), 0.5);
 }
-
-#shortcut-modkey {
+#shortcut-modkey{
     font-size: 13px;
 }
 
@@ -348,16 +295,13 @@ image {
 .tile.tile.event-tile {
     padding: 5px 10px;
 }
-
 .tile.event-tile #title-label {
     padding: 2px 0px 7px 5px;
     text-transform: capitalize;
 }
-
-.tile.event-tile #time-label {
+.tile.event-tile #time-label{
     font-size: 3rem;
 }
-
 #end-time-label {
     color: gray;
 }
@@ -396,12 +340,11 @@ image {
 
 
 /* MPRIS TILE*/
-#mpris-icon-holder {
+#mpris-icon-holder{
     border-radius: 5px;
 }
-
 /*Animation for replacing album covers*/
-.image-replace-overlay #album-cover {
+.image-replace-overlay #album-cover{
     opacity: 1;
     animation: ease-opacity 0.5s forwards;
 }
@@ -417,15 +360,12 @@ image {
     color: hsl(var(--text));
     background: hsl(var(--background));
 }
-
 .next_tile #content-body {
     background: hsl(var(--background));
     padding: 10px;
     color: hsl(var(--text));
 }
-
-.raw_text,
-.next_tile #content-body {
+.raw_text, .next_tile #content-body {
     font-family: 'Fira Code', monospace;
     font-feature-settings: "kern" off;
     font-kerning: None;
@@ -481,6 +421,18 @@ image {
     color: gray;
 }
 
+
+/* STATUS BAR */
+.status-bar {
+    background: hsla(var(--foreground), 0.2);
+    border-top: none;
+    padding: 4px 10px 4px 20px;
+}
+.status-bar label {
+    color: hsl(var(--text), 0.3);
+}
+
+
 @keyframes slide {
     from {
         transform: translate(0px, 0px);
@@ -497,31 +449,25 @@ image {
     background: darkgray;
     margin-bottom: 10px;
 }
-
-.tile.weather-tile #content-holder {
+.tile.weather-tile #content-holder{
     opacity: 0;
 }
-
 .tile.weather-tile.weather-animate #content-holder {
     animation: ease-opacity 0.3s forwards;
     transition: background 0.3s ease;
     opacity: 1;
 }
-
-.tile.weather-tile.weather-no-animate #content-holder {
+.tile.weather-tile.weather-no-animate #content-holder{
     opacity: 1;
 }
-
 .tile.weather-tile #location {
     margin-left: 5px;
     padding: 10px 0px;
     font-size: 10px;
 }
-
 .tile.weather-tile #temperature {
     font-size: 30px;
 }
-
 .tile.weather-tile #content-holder {
     margin-bottom: 15px;
 }
@@ -532,162 +478,100 @@ image {
 
 
 /*WEATHER CLASSES*/
-.tile.weather-tile.weather-clear {
-    background: hsl(var(--weather-clear));
-    /* Light sky blue */
-}
-
-.tile.weather-tile.weather-clear label {
+.tile.weather-tile label
+{
     color: hsl(var(--text));
+}
+.tile.weather-tile.weather-clear {
+    background: var(--weather-clear); /* Light sky blue */
 }
 
 .tile.weather-tile.weather-few-clouds {
-    background: hsl(var(--weather-few-clouds));
-    /* Very light */
-}
-
-.tile.weather-tile.weather-few-clouds label {
-    color: hsl(var(--text-alternate));
+    background: var(--weather-few-clouds); /* Very light */
 }
 
 .tile.weather-tile.weather-many-clouds {
-    background: hsl(var(--weather-many-clouds));
-    /* Medium-light */
-}
-
-.tile.weather-tile.weather-many-clouds label {
-    color: hsl(var(--text));
+    background: var(--weather-many-clouds); /* Medium-light */
 }
 
 .tile.weather-tile.weather-mist {
-    background: hsl(var(--weather-mist));
-    /* Light beige */
-}
-
-.tile.weather-tile.weather-mist label {
-    color: hsl(var(--text-alternate));
+    background: var(--weather-mist); /* Light beige */
 }
 
 .tile.weather-tile.weather-showers {
-    background: hsl(var(--weather-showers));
-    /* Medium-dark blue */
-}
-
-.tile.weather-tile.weather-showers label {
-    color: hsl(var(--text));
+    background: var(--weather-showers); /* Medium-dark blue */
 }
 
 .tile.weather-tile.weather-freezing-scattered-rain-storm {
-    background: hsl(var(--weather-freezing-scattered-rain-storm));
-}
-
-.tile.weather-tile.weather-freezing-scattered-rain-storm label {
-    color: hsl(var(--text));
+    background: var(--weather-freezing-scattered-rain-storm);
 }
 
 .tile.weather-tile.weather-freezing-scattered-rain {
-    background: hsl(var(--weather-freezing-scattered-rain));
-}
-
-.tile.weather-tile.weather-freezing-scattered-rain label {
-    color: hsl(var(--text));
+    background: var(--weather-freezing-scattered-rain);
 }
 
 .tile.weather-tile.weather-snow-scattered-day {
-    background: hsl(var(--weather-snow-scattered-day));
-}
-
-.tile.weather-tile.weather-snow-scattered-day label {
-    color: hsl(var(--text-alternate));
+    background: var(--weather-snow-scattered-day);
 }
 
 .tile.weather-tile.weather-storm {
-    background: hsl(var(--weather-storm));
-    /* Very dark */
-}
-
-.tile.weather-tile.weather-storm label {
-    color: hsl(var(--text));
+    background: var(--weather-storm); /* Very dark */
 }
 
 .tile.weather-tile.weather-snow-storm {
-    background: hsl(var(--weather-snow-storm));
-    /* Light */
-}
-
-.tile.weather-tile.weather-snow-storm label {
-    color: hsl(var(--text-alternate));
+    background: var(--weather-snow-storm); /* Light */
 }
 
 .tile.weather-tile.weather-snow-scattered-storm {
-    background: hsl(var(--weather-snow-scattered-storm));
-    /* Still light */
-}
-
-.tile.weather-tile.weather-snow-scattered-storm label {
-    color: hsla(var(--text), 0.8);
+    background: var(--weather-snow-scattered-storm); /* Still light */
 }
 
 .tile.weather-tile.weather-showers-scattered {
-    background: hsl(var(--weather-showers-scattered));
-}
-
-.tile.weather-tile.weather-showers-scattered label {
-    color: hsl(var(--text));
+    background: var(--weather-showers-scattered);
 }
 
 .tile.weather-tile.weather-none-available {
-    background: hsl(var(--weather-none-available));
-    /* Neutral gray */
-}
-
-.tile.weather-tile.weather-none-available label {
-    color: hsl(var(--text));
+    background: hsl(var(--weather-none-available)); /* Neutral gray */
 }
 
 
 
 /*ANIMATIONS*/
-@keyframes vanish-rotate {
+@keyframes vanish-rotate{
     from {
         opacity: 1;
     }
-
     to {
         opacity: 0;
         transform: rotate(360deg);
     }
-
+    
 }
-
-@keyframes rotate {
+@keyframes rotate{
     from {
         transform: rotate(0deg);
         --start-rotation: 0deg;
     }
-
     to {
         transform: rotate(360deg);
         --start-rotation: 360deg;
     }
 
 }
-
 @keyframes ease-opacity {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
-
+    
 }
-
 @keyframes slide {
     from {
         transform: translate(0px, 0px);
     }
+
     to {
         transform: translate(-20px, 0px);
     }

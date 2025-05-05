@@ -1,4 +1,4 @@
-[   
+[
     {
         "name": "Weather",
         "type": "weather",
@@ -12,11 +12,11 @@
         "async": true,
         "shortcut": false,
         "spawn_focus": false
-    },    
+    },
     {
         "name": "Music Player",
         "type": "audio_sink",
-        "args": { },
+        "args": {},
         "async": true,
         "priority": 2,
         "home": true,
@@ -41,7 +41,9 @@
         "name": "Kill Process",
         "alias": "kill",
         "type": "process",
-        "args": {"icon": "window-close"},
+        "args": {
+            "icon": "window-close"
+        },
         "priority": 6,
         "home": false
     },
