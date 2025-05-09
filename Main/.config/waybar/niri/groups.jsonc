@@ -1,0 +1,63 @@
+{
+    "group/cpu": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "cpuGroup",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "cpu#load",
+            "cpu#freq"
+        ]
+    },
+    "group/trayDrawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "trayGroup",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/trayIconRight",
+            "custom/trayIconLeft",
+            "tray"
+        ]
+    },
+    "group/player": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "playerGroup"
+        },
+        "modules": [
+            "mpris#main",
+            "mpris#extended"
+        ]
+    },
+    "group/network": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "networkGroup",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "network#icon",
+            "network#ssid"
+        ]
+    },
+    "group/misc": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "miscGroup",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/misc",
+            "idle_inhibitor",
+            "custom/clipboard"
+        ]
+    }
+}

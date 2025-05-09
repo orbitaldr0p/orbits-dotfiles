@@ -3,7 +3,10 @@
     "output": [
         "eDP-1"
     ],
-    "include": ["~/.config/waybar/hypr/modules.jsonc"],
+    "include": [
+        "~/.config/waybar/hypr/modules.jsonc",
+        "~/.config/waybar/hypr/groups.jsonc"
+    ],
     "modules-left": [
         "group/cpu",
         "memory",

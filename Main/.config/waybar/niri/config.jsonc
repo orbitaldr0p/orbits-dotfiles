@@ -3,7 +3,10 @@
     "output": [
         "eDP-1"
     ],
-    "include": ["~/.config/waybar/niri/modules.jsonc"],
+    "include": [
+        "~/.config/waybar/niri/modules.jsonc",
+        "~/.config/waybar/niri/groups.jsonc"
+    ],
     "modules-left": [
         "group/cpu",
         "memory",

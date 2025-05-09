@@ -1,82 +1,4 @@
 {
-    //==================================================================================================
-    "group/cpu": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "cpuGroup",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "cpu#load",
-            "cpu#freq",
-            "temperature",
-            "custom/divider"
-        ]
-    },
-    "group/trayDrawer": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "trayGroup",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/trayIconRight",
-            "custom/divider",
-            "tray"
-        ]
-    },
-    "group/player": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "playerGroup"
-        },
-        "modules": [
-            "mpris#main",
-            "mpris#extended"
-        ]
-    },
-    "group/network": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "networkGroup",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "network#icon",
-            "network#ssid"
-        ]
-    },
-    "group/battery": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "batteryGroup",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "battery#main",
-            "battery#timeRemaining"
-        ]
-    },
-    "group/misc": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "miscGroup",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/misc",
-            "idle_inhibitor",
-            "custom/clipboard",
-            "custom/colourpicker"
-        ]
-    },
-    //==================================================================================================
     "cpu#load": {
         "interval": "1",
         "format": " {usage}%",
@@ -141,13 +63,13 @@
             "foot": "",
             "~": "",
             "(.*) ~": " $1",
-            "ftui-(.*)":"$1",
+            "ftui-(.*)": "$1",
             "LibreWolf": "󰈹",
             "(.*) - VSCodium": " $1",
             "(.*) — LibreWolf": "󰈹 $1",
             //".*TIDAL.*": "TIDAL",
-            "(.*) — Strawberry Music Player":" $1",
-            "Discord(.*)":"Vesktop$1"
+            "(.*) — Strawberry Music Player": " $1",
+            "Discord(.*)": "Vesktop$1"
         },
         "separate-outputs": true,
         "max-length": 40
