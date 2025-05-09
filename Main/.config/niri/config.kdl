@@ -269,7 +269,8 @@ binds {
 
     // Apps
     Win+T { spawn "foot"; }
-    Win+Tab { spawn "rofi" "-show" "drun" "-theme" ".config/rofi/launcher/launcher.rasi"; }
+    // Win+Tab { spawn "rofi" "-show" "drun" "-theme" ".config/rofi/launcher/launcher.rasi"; }
+    Win+Tab { spawn "sherlock" }
     Win+M { spawn "wlogout" "--protocol" "layer-shell"; }
     Win+B { spawn "librewolf"; }
     Win+E { spawn "nautilus" "--new-window"; }
