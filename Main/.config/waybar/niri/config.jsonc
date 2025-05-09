@@ -10,11 +10,12 @@
     "modules-left": [
         "group/cpu",
         "memory",
+        "disk",
         "niri/workspaces",
         "group/trayDrawer"
     ],
     "modules-center": [
-        "group/player"
+        "niri/window"
     ],
     "modules-right": [
         "clock",
@@ -22,8 +23,8 @@
         "pulseaudio",
         "bluetooth",
         "group/network",
-        "battery",
+        "group/battery",
         "group/misc"
     ],
-    "margin": "6, 6, 0, 6"
+    "margin": "5, 5, 0, 5"
 }

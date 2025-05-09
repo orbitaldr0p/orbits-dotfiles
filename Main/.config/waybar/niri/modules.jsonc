@@ -1,88 +1,37 @@
 {
-    "group/cpu": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "cpuGroup",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "cpu#load",
-            "cpu#freq"
-        ]
-    },
-    "group/trayDrawer": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "trayGroup",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/trayIconRight",
-            "custom/trayIconLeft",
-            "tray"
-        ]
-    },
-    "group/player": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "playerGroup"
-        },
-        "modules": [
-            "mpris#main",
-            "mpris#extended"
-        ]
-    },
-    "group/network": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "networkGroup",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "network#icon",
-            "network#ssid"
-        ]
-    },
-    "group/misc": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 200,
-            "children-class": "miscGroup",
-            "transition-left-to-right": false
-        },
-        "modules": [
-            "custom/misc",
-            "idle_inhibitor",
-            "custom/clipboard"
-        ]
-    },
     "cpu#load": {
         "interval": "1",
         "format": " {usage}%",
-        "max-length": 6,
-        "min-length": 6,
-        "on-click": "foot -T tui -e btop",
-        "on-click-right": "foot -T tui -e nvtop"
+        "on-click": "foot -T 'ftui-System Monitor' -e btop",
+        "on-click-right": "foot -T 'ftui-GPU Status' -e nvtop"
     },
     "cpu#freq": {
         "interval": "1",
-        "format": "| {avg_frequency}GHz",
-        "on-click": "foot -T tui -e btop",
-        "on-click-right": "foot -T tui -e nvtop"
+        "format": "{avg_frequency}GHz",
+        "on-click": "foot -T 'ftui-System Monitor' -e btop",
+        "on-click-right": "foot -T 'ftui-GPU Status' -e nvtop"
     },
     "memory": {
         "interval": 1,
-        "format": "󰘚 {percentage}%",
-        "max-length": 6,
-        "min-length": 6
+        "format": "󰘚 {percentage}%"
+    },
+    "temperature": {
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "format-critical": " {temperatureC}°C ",
+        "tooltip": false,
+        "critical-threshold": 80
     },
     "disk": {
         "interval": 10,
-        "format": "󰋊 {percentag} used out of {total}"
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "on-click": "foot -T 'ftui-Disk Usage' -e diskonaut"
     },
     "niri/workspaces": {
         "format": "{icon}",
@@ -104,18 +53,26 @@
         "format": "",
         "tooltip": false
     },
-    "custom/trayIconLeft": {
-        "format": "|",
-        "tooltip": false
-    },
     "tray": {
         //"icon-size": 20,
         "spacing": 15
     },
-    "hyprland/window": {
-        "format": " {}",
+    "niri/window": {
+        "format": "{}",
+        "rewrite": {
+            "foot": "",
+            "~": "",
+            "(.*) ~": " $1",
+            "ftui-(.*)": "$1",
+            "LibreWolf": "󰈹",
+            "(.*) - VSCodium": " $1",
+            "(.*) — LibreWolf": "󰈹 $1",
+            //".*TIDAL.*": "TIDAL",
+            "(.*) — Strawberry Music Player": " $1",
+            "Discord(.*)": "Vesktop$1"
+        },
         "separate-outputs": true,
-        "max-length": 50
+        "max-length": 40
     },
     "mpris#main": {
         "format": "{status_icon} {title}",
@@ -149,15 +106,16 @@
         "format": "{:%I:%M %p}",
         "format-alt": "{:%R 󰃭 %d·%m·%y}",
         "tooltip-format": "<tt>{calendar}</tt>",
+        "tooltip": false,
         "calendar": {
             "mode": "month",
             "mode-mon-col": 3,
             "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
-                "months": "<span color='#d8dee9'><b>{}</b></span>",
-                "weekdays": "<span color='#eceff4'><b>{}</b></span>",
-                "today": "<span color='#d08770'><b>{}</b></span>"
+                "months": "<span color='#c6d0f5'><b>{}</b></span>",
+                "weekdays": "<span color='#c6d0f5'><b>{}</b></span>",
+                "today": "<span color='#ef9f76'><b>{}</b></span>"
             }
         },
         "actions": {
@@ -184,8 +142,6 @@
         ],
         "on-scroll-up": "~/.scripts/System/brightnessControl.sh i",
         "on-scroll-down": "~/.scripts/System/brightnessControl.sh d",
-        "max-length": 7,
-        "min-length": 7,
         "tooltip": false
     },
     "pulseaudio": {
@@ -214,8 +170,6 @@
         "format-connected": " {num_connections}",
         "tooltip-format": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}{device_address}",
-        "max-length": 5,
-        "min-length": 3,
         "on-click": "blueberry"
     },
     "network#icon": {
@@ -243,7 +197,7 @@
         "tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
         "on-click": "network_manager"
     },
-    "battery": {
+    "battery#main": {
         "interval": 1,
         "format": "{icon} {capacity}%",
         "format-icons": [
@@ -259,14 +213,26 @@
             "󰁹"
         ],
         "format-charging": "󰂄 {capacity}%",
-        "max-length": 6,
-        "min-length": 6,
         "tooltip": false,
-        "on-click": "foot -T tui -e battop",
+        "on-click": "foot -T 'ftui-Battery Status' -e battop",
         "on-click-right": "~/.scripts/System/powerProfile.sh",
         "states": {
+            "good": 80,
             "warning": 30,
-            "critical": 15
+            "critical": 20
+        }
+    },
+    "battery#timeRemaining": {
+        "interval": 1,
+        "format": "{time}",
+        "format-full": "Full",
+        "on-click": "foot -T 'ftui-Battery Status' -e battop",
+        "on-click-right": "~/.scripts/System/powerProfile.sh",
+        "tooltip": false,
+        "states": {
+            "good": 80,
+            "warning": 30,
+            "critical": 20
         }
     },
     "idle_inhibitor": {
@@ -290,7 +256,7 @@
     "custom/clipboard": {
         "format": "",
         "tooltip": false,
-        "on-click": "foot -T tui -e clipse"
+        "on-click": "foot -T 'ftui-Clipboard History' -e clipse"
     },
     "custom/colourpicker": {
         "format": "",
@@ -299,12 +265,17 @@
     },
     "custom/misc": {
         "format": "",
-        "tooltip": false
+        "tooltip": false,
+        "on-click": "ignis toggle rightPanel"
     },
     "custom/easyeffects": {
         "exec": "~/.scripts/easyEffects.sh c",
         "on-click": "~/.scripts/easyEffects.sh t",
         "on-click-right": "easyeffects",
         "interval": 1
+    },
+    "custom/divider": {
+        "format": "|",
+        "tooltip": false
     }
 }

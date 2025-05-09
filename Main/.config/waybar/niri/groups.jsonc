@@ -8,7 +8,9 @@
         },
         "modules": [
             "cpu#load",
-            "cpu#freq"
+            "cpu#freq",
+            "temperature",
+            "custom/divider"
         ]
     },
     "group/trayDrawer": {
@@ -20,7 +22,7 @@
         },
         "modules": [
             "custom/trayIconRight",
-            "custom/trayIconLeft",
+            "custom/divider",
             "tray"
         ]
     },
@@ -47,6 +49,18 @@
             "network#ssid"
         ]
     },
+    "group/battery": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 200,
+            "children-class": "batteryGroup",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "battery#main",
+            "battery#timeRemaining"
+        ]
+    },
     "group/misc": {
         "orientation": "inherit",
         "drawer": {
@@ -57,7 +71,8 @@
         "modules": [
             "custom/misc",
             "idle_inhibitor",
-            "custom/clipboard"
+            "custom/clipboard",
+            "custom/colourpicker"
         ]
     }
 }
