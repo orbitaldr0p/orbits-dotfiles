@@ -1,4 +1,4 @@
-from .NowPlaying import NowPlaying
+from .Media import Media
 __all__ = [
-    "NowPlaying"
+    "Media"
 ]

@@ -1,7 +1,7 @@
 from ignis.widgets import Widget
 from ignis.app import IgnisApp
 from .widgets import (
-    NowPlaying
+    Media
 )
 app = IgnisApp.get_default()
 
@@ -20,6 +20,7 @@ class RightPanel(Widget.RevealerWindow):
                         vertical=True,
                         css_classes=["rightPanelWidget"],
                         child=[
+                            Media()
                         ],
                     ),
                 ],
