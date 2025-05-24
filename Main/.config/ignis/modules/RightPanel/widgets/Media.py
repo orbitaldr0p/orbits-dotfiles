@@ -1,15 +1,11 @@
 import asyncio
-import ignis
 from ignis.widgets import Widget
 from ignis.services.mpris import MprisService, MprisPlayer
 from ignis.app import IgnisApp
 
-# Get default instances
 mprisService = MprisService.get_default()
 ignisApp = IgnisApp.get_default()
-
-# Blacklist prefixes
-blacklistPrefixes = ["chromium."]
+blacklistPrefixes = ["chromium.", "firefox."]
 
 
 class Media(Widget.Box):
@@ -42,14 +38,13 @@ class Media(Widget.Box):
             css_classes=["mediaArtist"],
         )
 
-        # Controls with Nerd Fonts
         playPauseButton = Widget.Button(
             child=Widget.Label(
                 label=player.bind(
                     "playback_status",
-                    lambda status: "" if status == "Playing" else "",  # pause/play
+                    lambda status: "" if status == "Playing" else "",
                 ),
-                css_classes=["nerdFontIcon"],
+                css_classes=["mediaControlIcon"],
             ),
             on_click=lambda _: asyncio.create_task(player.play_pause_async()),
             visible=player.bind("can_play"),
@@ -57,14 +52,14 @@ class Media(Widget.Box):
         )
 
         previousButton = Widget.Button(
-            child=Widget.Label(label="", css_classes=["nerdFontIcon"]),
+            child=Widget.Label(label="", css_classes=["mediaControlIcon"]),
             on_click=lambda _: asyncio.create_task(player.previous_async()),
             visible=player.bind("can_go_previous"),
             css_classes=["mediaControl"],
         )
 
         nextButton = Widget.Button(
-            child=Widget.Label(label="", css_classes=["nerdFontIcon"]),
+            child=Widget.Label(label="", css_classes=["mediaControlIcon"]),
             on_click=lambda _: asyncio.create_task(player.next_async()),
             visible=player.bind("can_go_next"),
             css_classes=["mediaControl"],
@@ -83,7 +78,8 @@ class Media(Widget.Box):
 
         controlRow = Widget.Box(
             child=[previousButton, playPauseButton, nextButton],
-            spacing=0,
+            spacing=10,
+            halign="center",
         )
 
         mediaBox = Widget.Box(

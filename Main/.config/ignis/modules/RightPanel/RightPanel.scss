@@ -5,7 +5,7 @@
     padding: 0;
     margin: 0.45rem 0.405rem 0.35rem 0; // top, right, bottom, left
     border-radius: 0.3125rem;
-    background-color: theme.$backgroundTransparent;
+    background-color: rgba(theme.$background, 0.5)
 }
 
 .mediaRectangle {
@@ -17,11 +17,62 @@
 
 .mediaTitle {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: theme.$foreground;
 }
 
 .mediaArtist {
-    font-size: 0.95rem;
-    color: theme.$foreground;
+    font-size: 1rem;
+    color: rgba(theme.$foreground, 0.8);
+}
+
+.mediaControl {
+    all: unset;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0.8rem;
+
+    &:hover .mediaControlIcon {
+        transition: 0.3s;
+        color: theme.$foreground;
+    }
+
+    &:active .mediaControlIcon {
+        transition: 0.3s;
+        color: theme.$teal;
+    }
+}
+
+.mediaControlIcon {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    color: rgba(theme.$foreground, 0.5);
+    font-size: 2rem;
+}
+
+.mediaSeek {
+    margin-top: 0.8rem;
+}
+
+.mediaSeek trough,
+.mediaSeek trough highlight {
+    color: rgba(theme.$foreground, 0.5);
+    border-radius: 0.5rem;
+    min-height: 0.05rem;
+}
+
+.mediaSeek trough highlight {
+    background-color: rgba(theme.$background, 0.5);
+}
+
+.mediaSeek slider {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    opacity: 0; // Hide it visually
+    display: none; // Remove it from layout
 }
