@@ -1,221 +1,108 @@
-import os
-import ignis
 import asyncio
+import ignis
 from ignis.widgets import Widget
 from ignis.services.mpris import MprisService, MprisPlayer
-from ignis.utils import Utils
 from ignis.app import IgnisApp
-from ignis.exceptions import StylePathNotFoundError
 
+# Get default instances
+mprisService = MprisService.get_default()
+ignisApp = IgnisApp.get_default()
 
-mpris = MprisService.get_default()
-app = IgnisApp.get_default()
-
-MEDIA_TEMPLATE = Utils.get_current_dir() + "./Media.scss"
-MEDIA_SCSS_CACHE_DIR = ignis.CACHE_DIR + "./Media"  # type: ignore
-MEDIA_ART_FALLBACK = Utils.get_current_dir() + "/../../../misc/media-art-fallback.png"
-os.makedirs(MEDIA_SCSS_CACHE_DIR, exist_ok=True)
-
-
-PLAYER_ICONS = {
-    "spotify": "spotify-symbolic",
-    "firefox": "firefox-browser-symbolic",
-    "chrome": "chrome-symbolic",
-    None: "folder-music-symbolic",
-}
-
-
-class Player(Widget.Revealer):
-    def __init__(self, player: MprisPlayer) -> None:
-        self._player = player
-        self._colors_path = f"{MEDIA_SCSS_CACHE_DIR}/{self.clean_desktop_entry()}.scss"
-        player.connect("closed", lambda x: self.destroy())
-        player.connect("notify::art-url", lambda x, y: self.load_colors())
-        self.load_colors()
-
-        super().__init__(
-            transition_type="slide_down",
-            reveal_child=False,
-            css_classes=[self.get_css("media")],
-            child=Widget.Overlay(
-                child=Widget.Box(css_classes=[self.get_css("media-image")]),
-                overlays=[
-                    Widget.Box(
-                        hexpand=True,
-                        vexpand=True,
-                        css_classes=[self.get_css("media-image-gradient")],
-                    ),
-                    Widget.Icon(
-                        icon_name=self.get_player_icon(),
-                        pixel_size=22,
-                        halign="start",
-                        valign="start",
-                        css_classes=[self.get_css("media-player-icon")],
-                    ),
-                    Widget.Box(
-                        vertical=True,
-                        hexpand=True,
-                        css_classes=[self.get_css("media-content")],
-                        child=[
-                            Widget.Box(
-                                vexpand=True,
-                                valign="center",
-                                child=[
-                                    Widget.Box(
-                                        hexpand=True,
-                                        vertical=True,
-                                        child=[
-                                            Widget.Label(
-                                                ellipsize="end",
-                                                label=player.bind("title"),
-                                                max_width_chars=30,
-                                                halign="start",
-                                                css_classes=[
-                                                    self.get_css("media-title")
-                                                ],
-                                            ),
-                                            Widget.Label(
-                                                label=player.bind("artist"),
-                                                max_width_chars=30,
-                                                ellipsize="end",
-                                                halign="start",
-                                                css_classes=[
-                                                    self.get_css("media-artist")
-                                                ],
-                                            ),
-                                        ],
-                                    ),
-                                    Widget.Button(
-                                        child=Widget.Icon(
-                                            image=player.bind(
-                                                "playback_status",
-                                                lambda value: (
-                                                    "media-playback-pause-symbolic"
-                                                    if value == "Playing"
-                                                    else "media-playback-start-symbolic"
-                                                ),
-                                            ),
-                                            pixel_size=18,
-                                        ),
-                                        on_click=lambda x: asyncio.create_task(
-                                            player.play_pause_async()
-                                        ),
-                                        visible=player.bind("can_play"),
-                                        css_classes=player.bind(
-                                            "playback_status",
-                                            lambda value: (
-                                                [
-                                                    self.get_css(
-                                                        "media-playback-button"
-                                                    ),
-                                                    "playing",
-                                                ]
-                                                if value == "Playing"
-                                                else [
-                                                    self.get_css(
-                                                        "media-playback-button"
-                                                    ),
-                                                    "paused",
-                                                ]
-                                            ),
-                                        ),
-                                    ),
-                                ],
-                            ),
-                        ],
-                    ),
-                    Widget.Box(
-                        vexpand=True,
-                        valign="end",
-                        style="padding: 1rem;",
-                        child=[
-                            Widget.Scale(
-                                value=player.bind("position"),
-                                max=player.bind("length"),
-                                hexpand=True,
-                                css_classes=[self.get_css("media-scale")],
-                                on_change=lambda x: asyncio.create_task(
-                                    self._player.set_position_async(x.value)
-                                ),
-                                visible=player.bind(
-                                    "position", lambda value: value != -1
-                                ),
-                            ),
-                            Widget.Button(
-                                child=Widget.Icon(
-                                    image="media-skip-backward-symbolic",
-                                    pixel_size=20,
-                                ),
-                                css_classes=[self.get_css("media-skip-button")],
-                                on_click=lambda x: asyncio.create_task(
-                                    player.previous_async()
-                                ),
-                                visible=player.bind("can_go_previous"),
-                                style="margin-left: 1rem;",
-                            ),
-                            Widget.Button(
-                                child=Widget.Icon(
-                                    image="media-skip-forward-symbolic",
-                                    pixel_size=20,
-                                ),
-                                css_classes=[self.get_css("media-skip-button")],
-                                on_click=lambda x: asyncio.create_task(
-                                    player.next_async()
-                                ),
-                                visible=player.bind("can_go_next"),
-                                style="margin-left: 1rem;",
-                            ),
-                        ],
-                    ),
-                ],
-            ),
-        )
-
-    def get_player_icon(self) -> str:
-        if self._player.desktop_entry == "firefox":
-            return PLAYER_ICONS["firefox"]
-        elif self._player.desktop_entry == "spotify":
-            return PLAYER_ICONS["spotify"]
-        elif self._player.track_id is not None:
-            if "chromium" in self._player.track_id or "chrome" in self._player.track_id:
-                return PLAYER_ICONS["chrome"]
-
-        return PLAYER_ICONS[None]
-
-    def destroy(self) -> None:
-        self.set_reveal_child(False)
-        Utils.Timeout(self.transition_duration, super().unparent)
-
-    def get_css(self, class_name: str) -> str:
-        return f"{class_name}-{self.clean_desktop_entry()}"
-
-    def load_colors(self) -> None:
-        # This function is now a no-op or placeholder.
-        # Optionally, apply fallback CSS here.
-        try:
-            app.remove_css(self._colors_path)
-        except StylePathNotFoundError:
-            pass
-
-        # Could set a static fallback style or do nothing.
-        # e.g., fallback could be applied here if necessary.
-        # app.apply_css("path/to/default/static/style.scss")
-
-    def clean_desktop_entry(self) -> str:
-        return self._player.desktop_entry.replace(".", "-")
+# Blacklist prefixes
+blacklistPrefixes = ["chromium."]
 
 
 class Media(Widget.Box):
     def __init__(self):
-        super().__init__(
-            vertical=True,
-            setup=lambda self: mpris.connect(
-                "player_added", lambda x, player: self.__add_player(player)
-            ),
-            css_classes=["rec-unset"],
+        super().__init__(vertical=True, css_classes=["rec-unset"], setup=self._setup)
+        self.playerWidgets = {}
+
+    def _setup(self, widget):
+        mprisService.connect("player_added", self._onPlayerAdded)
+
+    def _onPlayerAdded(self, service: MprisService, player: MprisPlayer):
+        playerName = player.desktop_entry
+        if playerName is None or any(
+            playerName.startswith(prefix) for prefix in blacklistPrefixes
+        ):
+            return
+        if playerName in self.playerWidgets:
+            return
+
+        # Metadata
+        titleLabel = Widget.Label(
+            label=player.bind("title"),
+            ellipsize="end",
+            css_classes=["mediaTitle"],
         )
 
-    def __add_player(self, obj: MprisPlayer) -> None:
-        player = Player(obj)
-        self.append(player)
-        player.set_reveal_child(True)
+        artistLabel = Widget.Label(
+            label=player.bind("artist"),
+            ellipsize="end",
+            css_classes=["mediaArtist"],
+        )
+
+        # Controls with Nerd Fonts
+        playPauseButton = Widget.Button(
+            child=Widget.Label(
+                label=player.bind(
+                    "playback_status",
+                    lambda status: "" if status == "Playing" else "",  # pause/play
+                ),
+                css_classes=["nerdFontIcon"],
+            ),
+            on_click=lambda _: asyncio.create_task(player.play_pause_async()),
+            visible=player.bind("can_play"),
+            css_classes=["mediaControl"],
+        )
+
+        previousButton = Widget.Button(
+            child=Widget.Label(label="", css_classes=["nerdFontIcon"]),
+            on_click=lambda _: asyncio.create_task(player.previous_async()),
+            visible=player.bind("can_go_previous"),
+            css_classes=["mediaControl"],
+        )
+
+        nextButton = Widget.Button(
+            child=Widget.Label(label="", css_classes=["nerdFontIcon"]),
+            on_click=lambda _: asyncio.create_task(player.next_async()),
+            visible=player.bind("can_go_next"),
+            css_classes=["mediaControl"],
+        )
+
+        positionSlider = Widget.Scale(
+            value=player.bind("position"),
+            max=player.bind("length"),
+            hexpand=True,
+            css_classes=["mediaSeek"],
+            on_change=lambda slider: asyncio.create_task(
+                player.set_position_async(slider.value)
+            ),
+            visible=player.bind("position", lambda value: value != -1),
+        )
+
+        controlRow = Widget.Box(
+            child=[previousButton, playPauseButton, nextButton],
+            spacing=0,
+        )
+
+        mediaBox = Widget.Box(
+            vertical=True,
+            css_classes=["mediaRectangle"],
+            child=[
+                titleLabel,
+                artistLabel,
+                positionSlider,
+                controlRow,
+            ],
+        )
+
+        self.append(mediaBox)
+        self.playerWidgets[playerName] = mediaBox
+
+        def onPlayerClosed(p):
+            box = self.playerWidgets.pop(playerName, None)
+            if box:
+                self.remove(box)
+
+        player.connect("closed", onPlayerClosed)

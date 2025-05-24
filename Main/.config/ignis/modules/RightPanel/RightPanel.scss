@@ -7,3 +7,21 @@
     border-radius: 0.3125rem;
     background-color: theme.$backgroundTransparent;
 }
+
+.mediaRectangle {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.mediaTitle {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: theme.$foreground;
+}
+
+.mediaArtist {
+    font-size: 0.95rem;
+    color: theme.$foreground;
+}

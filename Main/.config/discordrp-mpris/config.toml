@@ -29,5 +29,8 @@ ignore = true
 [player."Mozilla LibreWolf"]
 ignore = true
 
+[player."Mozilla librewolf"]
+ignore = true
+
 [player.tidal-hifi]
 ignore = true
