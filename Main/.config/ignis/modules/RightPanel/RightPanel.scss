@@ -8,6 +8,51 @@
     background-color: rgba(theme.$background, 0.5)
 }
 
+.user {
+    margin: 1rem 1rem 0 1rem;
+}
+
+.userNameBox {
+    margin-left: 0.5rem;
+}
+
+.userName {
+    font-size: 1.2rem;
+    font-family: "JetBrainsMono Nerd Font";
+    color: theme.$foreground;
+}
+
+.userUptime {
+    font-size: 0.9rem;
+    font-family: "JetBrainsMono Nerd Font";
+    color: rgba(theme.$foreground, 0.8);
+}
+
+.userPower {
+    all: unset;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+
+    &:hover .userPowerIcon {
+        transition: 0.3s;
+        color: theme.$foreground;
+    }
+
+    &:active .userPowerIcon {
+        transition: 0.3s;
+        color: theme.$teal;
+    }
+}
+
+.userPowerIcon {
+    font-family: "JetBrainsMono Nerd Font Mono";
+    color: rgba(theme.$foreground, 0.5);
+    font-size: 1.5rem;
+}
+
+
 .mediaRectangle {
     background-color: transparent;
     border-radius: 8px;

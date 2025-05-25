@@ -12,9 +12,9 @@ ignisApp = IgnisApp.get_default()
 def formatUptime(value: tuple[int, int, int, int]) -> str:
     days, hours, minutes, seconds = value
     if days:
-        return f"Uptime: {days:02}:{hours:02}:{minutes:02}"
+        return f" {days:02}:{hours:02}:{minutes:02}"
     else:
-        return f"Uptime: {hours:02}:{minutes:02}"
+        return f" {hours:02}:{minutes:02}"
 
 
 class User(Widget.Box):
@@ -41,7 +41,7 @@ class User(Widget.Box):
                         timeout=60 * 1000, callback=lambda x: fetchService.uptime
                     ).bind("output", lambda value: formatUptime(value)),
                     halign="start",
-                    css_classes=["userNameSecondary"],
+                    css_classes=["userUptime"],
                 ),
             ],
             vertical=True,
@@ -49,7 +49,7 @@ class User(Widget.Box):
         )
 
         powerButton = Widget.Button(
-            child=Widget.Icon(image="system-shutdown-symbolic", pixel_size=20),
+            child=Widget.Label(label="⏻", css_classes=["userPowerIcon"]),
             halign="end",
             hexpand=True,
             css_classes=["userPower", "unset"],
