@@ -1,4 +1,6 @@
-from .Media import Media
+from .media import Media
+from .user import User
 __all__ = [
-    "Media"
+    "Media",
+    "User"
 ]
