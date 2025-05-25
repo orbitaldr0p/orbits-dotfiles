@@ -19,14 +19,13 @@ def formatUptime(value: tuple[int, int, int, int]) -> str:
 
 class User(Widget.Box):
     def __init__(self):
-        imagePath = os.path.join(os.path.dirname(__file__), "avatar.png")
+        imagePath = os.path.join(os.path.dirname(__file__), "avatar.svg")
 
         userImage = Widget.Picture(
             image=imagePath,
             width=44,
             height=44,
             content_fit="cover",
-            style="border-radius: 10rem;",
         )
 
         userName = Widget.Box(
