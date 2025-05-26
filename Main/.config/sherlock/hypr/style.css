@@ -17,6 +17,7 @@ overshoot:backdrop {
 }
 
 * {
+    all: unset;
     padding: 0px;
     margin: 0px;
     -gtk-secondary-caret-color: hsl(var(--background));
@@ -24,7 +25,7 @@ overshoot:backdrop {
     outline-offset: -3px;
     outline-style: dashed;
     line-height: 1;
-    font-family: "Cantarell";
+    font-family: "JetBrainsMono Nerd Font Mono";
 }
 
 #overlay spinner {
@@ -171,9 +172,12 @@ image {
     border-radius: 5px;
 }
 
-.tile:hover *,
-.tile:hover {
+.tile:hover * {
     background: transparent;
+}
+
+.tile:hover {
+    background: hsla(var(--text), 0.1);
 }
 
 .tile.animate {
@@ -247,7 +251,7 @@ image {
 }
 
 row:selected .tile {
-    background-color: hsla(var(--foreground), 0.1);
+    background-color: hsla(var(--text), 0.1);
     outline: none;
     border: none;
 }
