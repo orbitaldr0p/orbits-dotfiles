@@ -33,6 +33,9 @@ Scope {
             Clock {
                 anchors.centerIn: parent
                 color: Colors.text
+                font.family: Fonts.normalFont
+                font.pointSize: 12
+                font.bold: true
             }
 
         }

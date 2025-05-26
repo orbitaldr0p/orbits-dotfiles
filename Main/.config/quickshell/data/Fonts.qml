@@ -3,6 +3,6 @@ import Quickshell
 pragma Singleton
 
 QtObject {
-    property string defaultFont: "Segoe UI"
-    property string headerFont: "Arial Black"
+    property string normalFont: "JetBrainsMono Nerd Font"
+    property string monoFont: "JetBrainsMono Nerd Font Mono"
 }
