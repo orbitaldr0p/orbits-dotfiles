@@ -1,6 +1,5 @@
 @use "../../themes/catppuccinFrappe.scss" as theme;
 
-* { all: unset; }
 
 .rightPanel {
     min-width: 22.5rem;
@@ -20,23 +19,15 @@
 
 .userName {
     font-size: 1.2rem;
-    font-family: "JetBrainsMono Nerd Font";
     color: theme.$foreground;
 }
 
 .userUptime {
     font-size: 0.9rem;
-    font-family: "JetBrainsMono Nerd Font";
     color: rgba(theme.$foreground, 0.8);
 }
 
 .userPower {
-    all: unset;
-    background: none;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-
     &:hover .userPowerIcon {
         transition: 0.3s;
         color: theme.$foreground;
@@ -51,7 +42,7 @@
 .userPowerIcon {
     font-family: "JetBrainsMono Nerd Font Mono";
     color: rgba(theme.$foreground, 0.5);
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 
@@ -73,13 +64,23 @@
     color: rgba(theme.$foreground, 0.8);
 }
 
+.mediaSeek {
+    margin-top: 1rem;
+}
+
+.mediaSeek trough,
+.mediaSeek trough highlight {
+    border-radius: 0.5rem;
+    min-height: 0.3rem;
+    background-color: rgba(theme.$foreground, 0.1)
+}
+
+.mediaSeek trough highlight {
+    background-color: rgba(theme.$foreground, 1);
+}
+
+
 .mediaControl {
-    all: unset;
-    background: none;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin-top: 0.8rem;
 
     &:hover .mediaControlIcon {
         transition: 0.3s;
@@ -95,35 +96,5 @@
 .mediaControlIcon {
     font-family: "JetBrainsMono Nerd Font Mono";
     color: rgba(theme.$foreground, 0.5);
-    font-size: 2rem;
-}
-
-.mediaSeek {
-    margin-top: 0.8rem;
-}
-
-.mediaSeek trough,
-.mediaSeek trough highlight {
-    color: rgba(theme.$foreground, 0.5);
-    border-radius: 0.5rem;
-    min-height: 0.05rem;
-}
-
-.mediaSeek progress {
-    border-radius: 6px;
-    background-color: #c6d0f5;
-}
-
-.mediaSeek trough highlight {
-    background-color: rgba(theme.$background, 0.5);
-}
-
-.mediaSeek slider {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    min-width: 0;
-    min-height: 0;
-    opacity: 0;
+    font-size: 3rem;
 }
