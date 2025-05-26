@@ -6,14 +6,23 @@ start_waybar_watcher() {
     local themesPath="$HOME/.config/waybar/themes"
     local config="$configPath/config.jsonc"
     local style="$configPath/style.css"
+    local firstRun=true
+    local WAYBAR_PID
 
-    trap "killall waybar" EXIT
+    trap '[[ -n "$WAYBAR_PID" ]] && kill "$WAYBAR_PID"' EXIT
 
     while true; do
+        if [ "$firstRun" = true ]; then
+            firstRun=false
+        else
+            kill "$WAYBAR_PID"
+            wait "$WAYBAR_PID" 2>/dev/null
+        fi
+
         waybar -c "$config" -s "$style" &
+        WAYBAR_PID=$!
+
         inotifywait -e create,modify,delete,move -r "$configPath" "$themesPath"
-        # sleep 1
-        killall waybar
     done
 }
 
