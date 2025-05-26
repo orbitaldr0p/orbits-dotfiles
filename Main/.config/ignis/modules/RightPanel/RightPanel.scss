@@ -1,5 +1,7 @@
 @use "../../themes/catppuccinFrappe.scss" as theme;
 
+* { all: unset; }
+
 .rightPanel {
     min-width: 22.5rem;
     padding: 0;
@@ -105,6 +107,11 @@
     color: rgba(theme.$foreground, 0.5);
     border-radius: 0.5rem;
     min-height: 0.05rem;
+}
+
+.mediaSeek progress {
+    border-radius: 6px;
+    background-color: #c6d0f5;
 }
 
 .mediaSeek trough highlight {
