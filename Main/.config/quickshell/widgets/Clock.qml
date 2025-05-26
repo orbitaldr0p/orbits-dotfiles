@@ -1,5 +1,4 @@
 import "../data"
-import "../widgets"
 import QtQuick
 import Quickshell
 import Quickshell.Io
