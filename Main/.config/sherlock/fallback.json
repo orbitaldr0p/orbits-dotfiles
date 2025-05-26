@@ -14,16 +14,6 @@
         "spawn_focus": false
     },
     {
-        "name": "Music Player",
-        "type": "audio_sink",
-        "args": {},
-        "async": true,
-        "priority": 2,
-        "home": true,
-        "only_home": true,
-        "spawn_focus": false
-    },
-    {
         "name": "Calculator",
         "type": "calculation",
         "args": {},

@@ -12,9 +12,9 @@ ignisApp = IgnisApp.get_default()
 def formatUptime(value: tuple[int, int, int, int]) -> str:
     days, hours, minutes, seconds = value
     if days:
-        return f" {days:02}:{hours:02}:{minutes:02}"
+        return f"Uptime: {days:02}:{hours:02}:{minutes:02}"
     else:
-        return f" {hours:02}:{minutes:02}"
+        return f"Uptime: {hours:02}:{minutes:02}"
 
 
 class User(Widget.Box):
@@ -61,4 +61,5 @@ class User(Widget.Box):
         )
 
     def onPowerButtonClick(self) -> None:
+        ignisApp.close_window("rightPanel")
         subprocess.Popen(["wlogout"])
