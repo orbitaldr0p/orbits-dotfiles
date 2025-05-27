@@ -4,7 +4,6 @@ import Quickshell.Hyprland
 import "root:/data/"
 
 Rectangle {
-    
     id: workspaces
 
     color: 'transparent'
@@ -24,7 +23,7 @@ Rectangle {
 
             model: HyprlandUtils.maxWorkspace
 
-            Workspace {
+            Rectangle {
                 id: ws
 
                 required property int index
@@ -33,10 +32,13 @@ Rectangle {
                 }) || null
                 property bool nonexistent: currWorkspace === null
                 property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
+                property bool hovered: false
 
+                radius: height / 2
+                Layout.preferredHeight: parent.height * 0.4
                 Layout.preferredWidth: {
                     if (!parent || typeof parent.height === 'undefined')
-                        return 0;
+                        return 0.4;
 
                     return focused ? parent.height * 0.8 : parent.height * 0.4;
                 }
@@ -49,8 +51,22 @@ Rectangle {
                         }).monitor);
                         const monitorColors = [Colors.text];
                         return monitorColors[monitorIndex % monitorColors.length];
-                    }
+                    }z
                 }
+
+/*                 MouseArea {
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    onEntered: () => {
+                        ws.hovered = true;
+                    }
+                    onExited: () => {
+                        ws.hovered = false;
+                    }
+                    onClicked: () => {
+                        return console.log(`workspace ?`);
+                    }
+                } */
 
                 Behavior on color {
                     ColorAnimation {

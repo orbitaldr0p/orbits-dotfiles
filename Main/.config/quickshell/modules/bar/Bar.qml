@@ -5,7 +5,6 @@ import Quickshell.Io
 import "root:/data/"
 import "widgets"
 import "widgets/tray"
-import "widgets/workspaces"
 
 Scope {
     Variants {
@@ -64,15 +63,13 @@ Scope {
                 RowLayout {
                     id: barMiddle
 
-                    width: implicitWidth
                     spacing: height / 4
+                    width: implicitWidth
 
                     anchors {
                         bottom: parent.bottom
                         horizontalCenter: parent.horizontalCenter
                         top: parent.top
-                        leftMargin: height / 4
-                        rightMargin: height / 4
                     }
 
                     Clock {

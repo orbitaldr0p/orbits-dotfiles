@@ -7,7 +7,7 @@ import "root:/data/"
 Rectangle {
 
     implicitHeight: parent.height
-    implicitWidth: rowL.implicitWidth + 20
+    implicitWidth: rowL.implicitWidth
     color: "transparent"
 
     RowLayout {
