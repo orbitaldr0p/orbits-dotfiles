@@ -50,7 +50,7 @@ Scope {
                         leftMargin: height / 4
                     }
 
-                    WorkspacesTest {
+                    Workspaces {
                     }
 
                     TrayWidget {
