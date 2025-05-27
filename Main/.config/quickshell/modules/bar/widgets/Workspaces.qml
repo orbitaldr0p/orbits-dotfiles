@@ -38,6 +38,7 @@ Rectangle {
                 Layout.preferredWidth: {
                     if (!parent || typeof parent.height === 'undefined')
                         return 0;
+
                     return focused ? parent.height * 0.8 : parent.height * 0.4;
                 }
                 color: {
@@ -51,6 +52,23 @@ Rectangle {
                         return monitorColors[monitorIndex % monitorColors.length];
                     }
                 }
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
+                Behavior on Layout.preferredWidth {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
             }
 
         }
