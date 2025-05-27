@@ -8,14 +8,11 @@ Rectangle {
 
     Layout.preferredWidth: workspaceRow.width
     color: "transparent"
-    height: bar.height - 7
-    radius: height / 2
-    // clip: true
-
-    property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
+    height: bar.height
 
     RowLayout {
         id: workspaceRow
+
         height: 35
         layoutDirection: Qt.LeftToRight
 
@@ -28,7 +25,7 @@ Rectangle {
         Repeater {
             id: workspacesRepeater
 
-            model: HyprlandUtils.maxWorkspace
+            model: Math.max(HyprlandUtils.maxWorkspace, 5)
 
             Rectangle {
                 id: ws
@@ -42,22 +39,15 @@ Rectangle {
                 property bool hovered: false
 
                 radius: height / 2
-                Layout.preferredHeight: parent.height * 0.4
-                Layout.preferredWidth: {
-                    if (!parent || typeof parent.height === 'undefined')
-                        return 0.4;
-
-                    return focused ? parent.height * 0.8 : parent.height * 0.4;
+                Layout.preferredHeight: {
+                    return focused ? parent.height * 0.6 : parent.height * 0.35;
                 }
+                Layout.preferredWidth: parent.height * 0.35
                 color: {
-                    if (nonexistent) {
-                        return Colors.withAlpha(Colors.text, 0.5);
+                    if (focused) {
+                        return Colors.text;
                     } else {
-                        const monitorIndex = Hyprland.monitors.values.indexOf(Hyprland.workspaces.values.find((e) => {
-                            return e.id === index + 1;
-                        }).monitor);
-                        const monitorColors = [Colors.text];
-                        return monitorColors[monitorIndex % monitorColors.length];
+                        return Colors.withAlpha(Colors.text, 0.5);
                     }
                 }
 
@@ -70,6 +60,14 @@ Rectangle {
                 }
 
                 Behavior on Layout.preferredWidth {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
+                Behavior on Layout.preferredHeight {
                     NumberAnimation {
                         duration: 200
                         easing.type: Easing.InOutQuad
