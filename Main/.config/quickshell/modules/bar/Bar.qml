@@ -4,6 +4,8 @@ import Quickshell
 import Quickshell.Io
 import "root:/data/"
 import "widgets"
+import "widgets/tray"
+import "widgets/workspaces"
 
 Scope {
     Variants {
@@ -39,15 +41,22 @@ Scope {
                 RowLayout {
                     id: barLeft
 
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.leftMargin: height / 4
-                    anchors.rightMargin: height / 4
                     width: implicitWidth
                     spacing: height / 4
 
+                    anchors {
+                        bottom: parent.bottom
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
+                        leftMargin: height / 4
+                        rightMargin: height / 4
+                    }
+
                     Workspaces {
+                    }
+
+                    TrayWidget {
                     }
 
                 }
@@ -55,13 +64,16 @@ Scope {
                 RowLayout {
                     id: barMiddle
 
-                    anchors.bottom: parent.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: parent.top
-                    anchors.leftMargin: height / 4
-                    anchors.rightMargin: height / 4
                     width: implicitWidth
                     spacing: height / 4
+
+                    anchors {
+                        bottom: parent.bottom
+                        horizontalCenter: parent.horizontalCenter
+                        top: parent.top
+                        leftMargin: height / 4
+                        rightMargin: height / 4
+                    }
 
                     Clock {
                         color: Colors.text

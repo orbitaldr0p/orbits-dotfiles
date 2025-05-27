@@ -4,6 +4,7 @@ import Quickshell.Hyprland
 import "root:/data/"
 
 Rectangle {
+    
     id: workspaces
 
     color: 'transparent'
