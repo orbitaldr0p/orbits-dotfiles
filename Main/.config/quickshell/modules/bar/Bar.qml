@@ -46,8 +46,10 @@ Scope {
                     anchors.rightMargin: height / 4
                     width: implicitWidth
                     spacing: height / 4
-                    
-                    Workspaces {}
+
+                    Workspaces {
+                    }
+
                 }
 
                 RowLayout {
