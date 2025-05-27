@@ -39,10 +39,10 @@ Rectangle {
                 property bool hovered: false
 
                 radius: height / 2
-                Layout.preferredHeight: {
-                    return focused ? parent.height * 0.6 : parent.height * 0.35;
+                Layout.preferredWidth: {
+                    return focused ? parent.height * 0.8 : parent.height * 0.4;
                 }
-                Layout.preferredWidth: parent.height * 0.35
+                Layout.preferredHeight: parent.height * 0.4
                 color: {
                     if (focused)
                         return Colors.text;
@@ -58,7 +58,7 @@ Rectangle {
 
                 }
 
-                Behavior on Layout.preferredHeight {
+                Behavior on Layout.preferredWidth {
                     NumberAnimation {
                         duration: 200
                         easing.type: Easing.InOutQuad
