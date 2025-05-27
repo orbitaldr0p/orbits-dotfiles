@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
 import Quickshell.Hyprland
 import "root:/data/"
 
@@ -9,14 +8,11 @@ Rectangle {
 
     Layout.preferredWidth: workspaceRow.width
     color: "transparent"
-    height: bar.height - 7
-    radius: height / 2
-    // clip: true
-
-    property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
+    height: bar.height
 
     RowLayout {
         id: workspaceRow
+
         height: 35
         layoutDirection: Qt.LeftToRight
 
@@ -27,68 +23,53 @@ Rectangle {
         }
 
         Repeater {
+            id: workspacesRepeater
 
-            model: ScriptModel {
-                values: [...Hyprland.workspaces.values.filter(entry => (entry.monitor?.id ?? -1) === monitor.id).sort((a, b) => a.id - b.id)]
-            }
+            model: Math.max(HyprlandUtils.maxWorkspace, 5)
 
-            MouseArea {
-                id: workspaceButton
-                required property HyprlandWorkspace modelData
+            Rectangle {
+                id: ws
 
-                implicitWidth: 24
-                implicitHeight: 22
+                required property int index
+                property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
+                    return e.id == index + 1;
+                }) || null
+                property bool nonexistent: currWorkspace === null
+                property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
+                property bool hovered: false
 
-                property bool isActive: false
-
-                hoverEnabled: true
-
-                onEntered: event => rect.hovered = true
-                onExited: event => rect.hovered = false
-
-                onClicked: event => Hyprland.dispatch(`workspace ${modelData.id}`)
-
-                Rectangle {
-                    id: rect
-
-                    anchors.centerIn: parent
-                    anchors.fill: parent
-
-                    // implicitWidth: 24
-                    radius: height / 2
-
-                    property bool hovered: false
-                    property bool current: (workspaces.monitor.activeWorkspace?.id ?? -1) == modelData.id
-
-                    color: {
-                        if (hovered) {
-                            return Colors.text;
-                        }
-
-                        if (current) {
-                            return Colors.text;
-                        }
-
-                        return Colors.withAlpha(Colors.text, 0.5);;
-                    }
-
-                    Text {
-                        anchors.centerIn: parent
-
-                        // HACK: convert hyprsplit IDs to visual IDs
-                        text: modelData.id - workspaces.monitor.id * 9
-                        font.pointSize: 13
-                        color: Colors.base
-                    }
+                radius: height / 2
+                Layout.preferredHeight: {
+                    return focused ? parent.height * 0.6 : parent.height * 0.35;
                 }
+                Layout.preferredWidth: parent.height * 0.35
+                color: {
+                    if (focused)
+                        return Colors.text;
+                    else
+                        return Colors.withAlpha(Colors.text, 0.5);
+                }
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
+                Behavior on Layout.preferredHeight {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
             }
+
         }
+
     }
 
-    Behavior on Layout.preferredWidth {
-        NumberAnimation {
-            duration: 50
-            easing.type: Easing.OutQuad
-        }
-    }
 }
