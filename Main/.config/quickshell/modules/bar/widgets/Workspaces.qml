@@ -1,93 +1,94 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 import Quickshell.Hyprland
 import "root:/data/"
 
 Rectangle {
     id: workspaces
 
-    color: 'transparent'
-    width: workspacesRow.implicitWidth
-    Layout.fillHeight: true
+    Layout.preferredWidth: workspaceRow.width
+    color: "transparent"
+    height: bar.height - 7
+    radius: height / 2
+    // clip: true
+
+    property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
 
     RowLayout {
-        id: workspacesRow
+        id: workspaceRow
+        height: 35
+        layoutDirection: Qt.LeftToRight
 
-        height: parent.height
-        implicitWidth: (parent.height * 0.5 + spacing) * 2 - spacing
-        anchors.centerIn: parent
-        spacing: height / 7
-
-        Repeater {
-            id: repeater
-
-            model: HyprlandUtils.maxWorkspace
-
-            Rectangle {
-                id: ws
-
-                required property int index
-                property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
-                    return e.id == index + 1;
-                }) || null
-                property bool nonexistent: currWorkspace === null
-                property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
-                property bool hovered: false
-
-                radius: height / 2
-                Layout.preferredHeight: parent.height * 0.4
-                Layout.preferredWidth: {
-                    if (!parent || typeof parent.height === 'undefined')
-                        return 0.4;
-
-                    return focused ? parent.height * 0.8 : parent.height * 0.4;
-                }
-                color: {
-                    if (nonexistent) {
-                        return Colors.withAlpha(Colors.text, 0.5);
-                    } else {
-                        const monitorIndex = Hyprland.monitors.values.indexOf(Hyprland.workspaces.values.find((e) => {
-                            return e.id === index + 1;
-                        }).monitor);
-                        const monitorColors = [Colors.text];
-                        return monitorColors[monitorIndex % monitorColors.length];
-                    }z
-                }
-
-/*                 MouseArea {
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    onEntered: () => {
-                        ws.hovered = true;
-                    }
-                    onExited: () => {
-                        ws.hovered = false;
-                    }
-                    onClicked: () => {
-                        return console.log(`workspace ?`);
-                    }
-                } */
-
-                Behavior on color {
-                    ColorAnimation {
-                        duration: 200
-                        easing.type: Easing.InOutQuad
-                    }
-
-                }
-
-                Behavior on Layout.preferredWidth {
-                    NumberAnimation {
-                        duration: 200
-                        easing.type: Easing.InOutQuad
-                    }
-
-                }
-
-            }
-
+        anchors {
+            right: parent.right
+            rightMargin: 10
+            centerIn: parent
         }
 
+        Repeater {
+
+            model: ScriptModel {
+                values: [...Hyprland.workspaces.values.filter(entry => (entry.monitor?.id ?? -1) === monitor.id).sort((a, b) => a.id - b.id)]
+            }
+
+            MouseArea {
+                id: workspaceButton
+                required property HyprlandWorkspace modelData
+
+                implicitWidth: 24
+                implicitHeight: 22
+
+                property bool isActive: false
+
+                hoverEnabled: true
+
+                onEntered: event => rect.hovered = true
+                onExited: event => rect.hovered = false
+
+                onClicked: event => Hyprland.dispatch(`workspace ${modelData.id}`)
+
+                Rectangle {
+                    id: rect
+
+                    anchors.centerIn: parent
+                    anchors.fill: parent
+
+                    // implicitWidth: 24
+                    radius: height / 2
+
+                    property bool hovered: false
+                    property bool current: (workspaces.monitor.activeWorkspace?.id ?? -1) == modelData.id
+
+                    color: {
+                        if (hovered) {
+                            return Colors.text;
+                        }
+
+                        if (current) {
+                            return Colors.text;
+                        }
+
+                        return Colors.withAlpha(Colors.text, 0.5);;
+                    }
+
+                    Text {
+                        anchors.centerIn: parent
+
+                        // HACK: convert hyprsplit IDs to visual IDs
+                        text: modelData.id - workspaces.monitor.id * 9
+                        font.pointSize: 13
+                        color: Colors.base
+                    }
+                }
+            }
+        }
     }
 
+    Behavior on Layout.preferredWidth {
+        NumberAnimation {
+            duration: 50
+            easing.type: Easing.OutQuad
+        }
+    }
 }
