@@ -44,6 +44,7 @@ Scope {
                     anchors.top: parent.top
                     anchors.leftMargin: height / 4
                     anchors.rightMargin: height / 4
+                    width: implicitWidth
                     spacing: height / 4
                     
                     Workspaces {}
@@ -57,10 +58,10 @@ Scope {
                     anchors.top: parent.top
                     anchors.leftMargin: height / 4
                     anchors.rightMargin: height / 4
+                    width: implicitWidth
                     spacing: height / 4
 
                     Clock {
-                        anchors.centerIn: parent
                         color: Colors.text
                         font.family: Fonts.normalFont
                         font.pointSize: 12

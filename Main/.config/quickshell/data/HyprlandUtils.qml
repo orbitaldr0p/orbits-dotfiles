@@ -8,7 +8,7 @@ Singleton {
     id: hyprland
 
     property list<HyprlandWorkspace> workspaces: sortWorkspaces(Hyprland.workspaces.values)
-    property HyprlandWorkspace focusedWorkspace: Hyprland.focusedMonitor?.activeWorkspace
+    property HyprlandWorkspace focusedWorkspace: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.activeWorkspace : null
         property int maxWorkspace: findMaxId()
 
         function sortWorkspaces(ws)
@@ -37,24 +37,6 @@ Singleton {
                 let eventName = event.name;
 
                 switch (eventName) {
-                    // Both of these are required in order to detect workspace changes
-                    // even when switching monitors.
-                    // case "workspacev2":
-                    //     {
-                    //         // hyprland.focusedWorkspace = Hyprland.focusedMonitor?.activeWorkspace;
-                    //         console.log(`workspace: ${hyprland.focusedWorkspace.id}`);
-                    //         console.log(`num workspaces ${hyprland.workspaces.length}`)
-                    //         console.log(`num workspaces (real) ${Hyprland.workspaces.values.length}`)
-                    //         break;
-                    //     }
-                    // case "focusedmonv2":
-                    //     {
-                    //         // hyprland.focusedWorkspace = Hyprland.focusedMonitor?.activeWorkspace;
-                    //         console.log(`workspace: ${hyprland.focusedWorkspace.id}`);
-                    //         console.log(`num workspaces ${hyprland.workspaces.length}`)
-                    //         console.log(`num workspaces (real) ${Hyprland.workspaces.values.length}`)
-                    //         break;
-                    //     }
                     case "createworkspacev2":
                 {
                     hyprland.workspaces = hyprland.sortWorkspaces(Hyprland.workspaces.values);

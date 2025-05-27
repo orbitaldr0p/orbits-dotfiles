@@ -33,13 +33,12 @@ Rectangle {
                     return e.id == index + 1;
                 }) || null
                 property bool nonexistent: currWorkspace === null
-                property bool focused: index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
+                property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
 
                 Layout.preferredWidth: {
-                    if (focused)
-                        return parent.height * 0.8;
-                    else
-                        return parent.height * 0.4;
+                    if (!parent || typeof parent.height === 'undefined')
+                        return 0;
+                    return focused ? parent.height * 0.8 : parent.height * 0.4;
                 }
                 color: {
                     if (nonexistent) {
