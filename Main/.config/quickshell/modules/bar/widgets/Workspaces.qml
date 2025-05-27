@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
 import Quickshell.Hyprland
 import "root:/data/"
 
@@ -27,68 +26,61 @@ Rectangle {
         }
 
         Repeater {
+            id: workspacesRepeater
 
-            model: ScriptModel {
-                values: [...Hyprland.workspaces.values.filter(entry => (entry.monitor?.id ?? -1) === monitor.id).sort((a, b) => a.id - b.id)]
-            }
+            model: HyprlandUtils.maxWorkspace
 
-            MouseArea {
-                id: workspaceButton
-                required property HyprlandWorkspace modelData
+            Rectangle {
+                id: ws
 
-                implicitWidth: 24
-                implicitHeight: 22
+                required property int index
+                property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
+                    return e.id == index + 1;
+                }) || null
+                property bool nonexistent: currWorkspace === null
+                property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
+                property bool hovered: false
 
-                property bool isActive: false
+                radius: height / 2
+                Layout.preferredHeight: parent.height * 0.4
+                Layout.preferredWidth: {
+                    if (!parent || typeof parent.height === 'undefined')
+                        return 0.4;
 
-                hoverEnabled: true
-
-                onEntered: event => rect.hovered = true
-                onExited: event => rect.hovered = false
-
-                onClicked: event => Hyprland.dispatch(`workspace ${modelData.id}`)
-
-                Rectangle {
-                    id: rect
-
-                    anchors.centerIn: parent
-                    anchors.fill: parent
-
-                    // implicitWidth: 24
-                    radius: height / 2
-
-                    property bool hovered: false
-                    property bool current: (workspaces.monitor.activeWorkspace?.id ?? -1) == modelData.id
-
-                    color: {
-                        if (hovered) {
-                            return Colors.text;
-                        }
-
-                        if (current) {
-                            return Colors.text;
-                        }
-
-                        return Colors.withAlpha(Colors.text, 0.5);;
-                    }
-
-                    Text {
-                        anchors.centerIn: parent
-
-                        // HACK: convert hyprsplit IDs to visual IDs
-                        text: modelData.id - workspaces.monitor.id * 9
-                        font.pointSize: 13
-                        color: Colors.base
+                    return focused ? parent.height * 0.8 : parent.height * 0.4;
+                }
+                color: {
+                    if (nonexistent) {
+                        return Colors.withAlpha(Colors.text, 0.5);
+                    } else {
+                        const monitorIndex = Hyprland.monitors.values.indexOf(Hyprland.workspaces.values.find((e) => {
+                            return e.id === index + 1;
+                        }).monitor);
+                        const monitorColors = [Colors.text];
+                        return monitorColors[monitorIndex % monitorColors.length];
                     }
                 }
+
+                Behavior on color {
+                    ColorAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
+                Behavior on Layout.preferredWidth {
+                    NumberAnimation {
+                        duration: 200
+                        easing.type: Easing.InOutQuad
+                    }
+
+                }
+
             }
+
         }
+
     }
 
-    Behavior on Layout.preferredWidth {
-        NumberAnimation {
-            duration: 50
-            easing.type: Easing.OutQuad
-        }
-    }
 }
