@@ -1,10 +1,15 @@
 import QtQuick
 import QtQuick.Layouts
+import Quickshell
 import Quickshell.Hyprland
 import "root:/data/"
 
 Rectangle {
+    // clip: true
+
     id: workspaces
+
+    property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
 
     Layout.preferredWidth: workspaceRow.width
     color: "transparent"
@@ -23,12 +28,10 @@ Rectangle {
         }
 
         Repeater {
-            id: workspacesRepeater
-
             model: Math.max(HyprlandUtils.maxWorkspace, 5)
 
-            Rectangle {
-                id: ws
+            MouseArea {
+                id: workspaceButton
 
                 required property int index
                 property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
@@ -38,27 +41,50 @@ Rectangle {
                 property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
                 property bool hovered: false
 
-                radius: height / 2
-                Layout.preferredWidth: {
-                    return focused ? parent.height * 0.8 : parent.height * 0.4;
+                Layout.preferredHeight: {
+                    return focused ? parent.height * 0.6 : parent.height * 0.35;
                 }
-                Layout.preferredHeight: parent.height * 0.4
-                color: {
-                    if (focused)
-                        return Colors.text;
-                    else
-                        return Colors.withAlpha(Colors.text, 0.5);
+                Layout.preferredWidth: parent.height * 0.35
+                hoverEnabled: true
+                onEntered: (event) => {
+                    return workspaceIndicator.hovered = true;
+                }
+                onExited: (event) => {
+                    return workspaceIndicator.hovered = false;
+                }
+                onClicked: (event) => {
+                    return Hyprland.dispatch(`workspace ${index+1}`);
                 }
 
-                Behavior on color {
-                    ColorAnimation {
-                        duration: 200
-                        easing.type: Easing.InOutQuad
+                Rectangle {
+                    id: workspaceIndicator
+
+                    property bool hovered: false
+
+                    anchors.centerIn: parent
+                    anchors.fill: parent
+                    radius: height / 2
+                    color: {
+                        if (focused)
+                            return Colors.text;
+
+                        if (hovered)
+                            return Colors.text;
+
+                        return Colors.withAlpha(Colors.text, 0.5);
+                    }
+
+                    Behavior on color {
+                        ColorAnimation {
+                            duration: 200
+                            easing.type: Easing.InOutQuad
+                        }
+
                     }
 
                 }
 
-                Behavior on Layout.preferredWidth {
+                Behavior on Layout.preferredHeight {
                     NumberAnimation {
                         duration: 200
                         easing.type: Easing.InOutQuad
@@ -68,6 +94,14 @@ Rectangle {
 
             }
 
+        }
+
+    }
+
+    Behavior on Layout.preferredWidth {
+        NumberAnimation {
+            duration: 50
+            easing.type: Easing.OutQuad
         }
 
     }
