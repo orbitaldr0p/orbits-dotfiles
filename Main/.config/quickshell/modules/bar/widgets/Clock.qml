@@ -1,6 +1,8 @@
-import "../data"
+import "root:/data/"
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import Quickshell.Hyperland
 
+Text {
+    text: DateTime.time
+}

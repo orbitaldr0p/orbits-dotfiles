@@ -1,5 +1,5 @@
 import Quickshell
-import "modules"
+import "modules/bar"
 
 ShellRoot {
     Bar {}
