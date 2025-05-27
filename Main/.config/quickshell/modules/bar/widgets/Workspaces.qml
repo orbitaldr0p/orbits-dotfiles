@@ -44,23 +44,14 @@ Rectangle {
                 }
                 Layout.preferredWidth: parent.height * 0.35
                 color: {
-                    if (focused) {
+                    if (focused)
                         return Colors.text;
-                    } else {
+                    else
                         return Colors.withAlpha(Colors.text, 0.5);
-                    }
                 }
 
                 Behavior on color {
                     ColorAnimation {
-                        duration: 200
-                        easing.type: Easing.InOutQuad
-                    }
-
-                }
-
-                Behavior on Layout.preferredWidth {
-                    NumberAnimation {
                         duration: 200
                         easing.type: Easing.InOutQuad
                     }
