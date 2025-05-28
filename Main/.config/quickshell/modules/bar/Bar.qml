@@ -5,7 +5,6 @@ import Quickshell.Io
 import "root:/data/"
 import "widgets"
 import "widgets/tray"
-import "widgets/workspaces"
 
 Scope {
     Variants {
