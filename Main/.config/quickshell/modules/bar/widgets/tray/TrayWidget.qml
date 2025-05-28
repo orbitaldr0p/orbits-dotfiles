@@ -15,7 +15,6 @@ Rectangle {
     implicitHeight: 40
     implicitWidth: trayWrapper.width
 
-    // Main wrapper with dynamic width
     Rectangle {
         id: trayWrapper
 
@@ -30,15 +29,43 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 10
 
-            Label {
-                text: "" // 
-                color: Colors.text
-                font.family: Fonts.normalFont
-                font.pointSize: 11
-                font.bold: true
-            }
+            Item {
+                width: trayIcon.implicitWidth
+                height: trayIcon.implicitHeight
 
-            Seperator {
+                Item {
+                    id: trayIconWrapper
+
+                    width: trayIcon.implicitWidth
+                    height: trayIcon.implicitHeight
+                    y: hovered ? 3 : 0 // Apply vertical offset here
+
+                    Label {
+                        id: trayIcon
+
+                        anchors.centerIn: parent
+                        opacity: 1
+                        text: hovered ? "󱊔" : "󱊖"
+                        color: Colors.text
+                        font.family: Fonts.normalFont
+                        font.pointSize: 16
+                        font.bold: true
+                        onTextChanged: {
+                            trayIcon.opacity = 0;
+                            trayIcon.opacity = 1;
+                        }
+
+                        Behavior on opacity {
+                            NumberAnimation {
+                                duration: 100
+                            }
+
+                        }
+
+                    }
+
+                }
+
             }
 
             Repeater {
