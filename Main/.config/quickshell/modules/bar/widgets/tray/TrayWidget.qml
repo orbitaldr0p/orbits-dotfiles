@@ -1,3 +1,4 @@
+import "../"
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
@@ -30,11 +31,14 @@ Rectangle {
             spacing: 10
 
             Label {
-                text: "\uf105" // 
+                text: "" // 
                 color: Colors.text
                 font.family: Fonts.normalFont
                 font.pointSize: 11
                 font.bold: true
+            }
+
+            Seperator {
             }
 
             Repeater {
