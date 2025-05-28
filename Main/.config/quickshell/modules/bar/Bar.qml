@@ -46,7 +46,7 @@ Scope {
                     anchors {
                         verticalCenter: parent.verticalCenter
                         left: parent.left
-                        leftMargin: height / 4
+                        leftMargin: height / 3
                     }
 
                     CPUStats {
@@ -73,12 +73,10 @@ Scope {
                     id: barMiddle
 
                     spacing: height / 4
-                    width: implicitWidth
 
                     anchors {
-                        bottom: parent.bottom
                         horizontalCenter: parent.horizontalCenter
-                        top: parent.top
+                        verticalCenter: parent.verticalCenter
                     }
 
                     Clock {

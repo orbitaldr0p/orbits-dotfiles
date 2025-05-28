@@ -4,7 +4,16 @@ import Quickshell.Io
 pragma Singleton
 
 Singleton {
-    property string time
+    // Date components
+    property string weekday
+    property string month
+    property string day
+    property string timezone
+    property string year
+    // Time components
+    property string hours
+    property string minutes
+    property string seconds
 
     Process {
         id: dateProc
@@ -14,7 +23,21 @@ Singleton {
 
         stdout: SplitParser {
             onRead: (data) => {
-                return time = data;
+                // Example output: "Tue May 28 12:34:56 BST 2025"
+                let parts = data.trim().split(/\s+/);
+                if (parts.length >= 6) {
+                    weekday = parts[0];
+                    month = parts[1];
+                    day = parts[2];
+                    timezone = parts[4];
+                    year = parts[5];
+                    let timeParts = parts[3].split(":");
+                    if (timeParts.length === 3) {
+                        hours = timeParts[0];
+                        minutes = timeParts[1];
+                        seconds = timeParts[2];
+                    }
+                }
             }
         }
 

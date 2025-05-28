@@ -6,7 +6,7 @@ import "root:/data/"
 
 Row {
     Layout.alignment: Qt.AlignVCenter
-    spacing: 10
+    spacing: 5
 
     Text {
         text: ""
@@ -18,12 +18,16 @@ Row {
     }
 
     Text {
-        text: Resources.memPercent+"%"
+        text: {
+            let ram = Resources.memPercent.toString() + "%";
+            return ram.padEnd(4, " ");
+        }
         font.family: Fonts.monoFont
         font.pointSize: 11
         font.bold: true
         color: Colors.text
         anchors.verticalCenter: parent.verticalCenter
+        horizontalAlignment: Text.AlignLeft
     }
 
 }
