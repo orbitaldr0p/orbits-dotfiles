@@ -4,9 +4,8 @@ import Quickshell.Io
 import "root:/data/"
 
 Text {
-    text: DateTime.time
+    text: "|"
     color: Colors.text
     font.family: Fonts.normalFont
     font.pointSize: 12
-    font.bold: true
 }

@@ -50,7 +50,16 @@ Scope {
                         leftMargin: height / 4
                     }
 
+                    CPUStats {
+                    }
+
+                    Seperator {
+                    }
+
                     Workspaces {
+                    }
+
+                    Seperator {
                     }
 
                     TrayWidget {
@@ -71,10 +80,6 @@ Scope {
                     }
 
                     Clock {
-                        color: Colors.text
-                        font.family: Fonts.normalFont
-                        font.pointSize: 12
-                        font.bold: true
                     }
 
                 }

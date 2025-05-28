@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Services.SystemTray
 import Quickshell.Widgets
+import "root:/data/"
 
 IconImage {
     id: root
@@ -22,8 +23,7 @@ IconImage {
             case Qt.RightButton:
                 if (root.item.hasMenu) {
                     const window = QsWindow.window;
-                    // the bellow is kinda hard coded, find a better solution
-                    const widgetRect = window.contentItem.mapFromItem(root, 80, root.height + 10, root.width, root.height);
+                    const widgetRect = window.contentItem.mapFromItem(root, 0, root.height + 9, root.width, root.height);
                     menuAnchor.anchor.rect = widgetRect;
                     menuAnchor.open();
                 }

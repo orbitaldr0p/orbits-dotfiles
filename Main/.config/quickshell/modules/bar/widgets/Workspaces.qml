@@ -42,7 +42,7 @@ Rectangle {
                 property bool hovered: false
 
                 Layout.preferredWidth: {
-                    return focused ? parent.height * 0.8 : parent.height * 0.4;
+                    return focused ? parent.height * 0.4 : parent.height * 0.4;
                 }
                 Layout.preferredHeight: parent.height * 0.4
                 hoverEnabled: true
