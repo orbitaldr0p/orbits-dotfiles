@@ -38,7 +38,7 @@ Rectangle {
 
                     width: trayIcon.implicitWidth
                     height: trayIcon.implicitHeight
-                    y: hovered ? 3 : 0 // Apply vertical offset here
+                    y: hovered ? 3 : 0
 
                     Label {
                         id: trayIcon
@@ -54,14 +54,6 @@ Rectangle {
                             trayIcon.opacity = 0;
                             trayIcon.opacity = 1;
                         }
-
-                        Behavior on opacity {
-                            NumberAnimation {
-                                duration: 100
-                            }
-
-                        }
-
                     }
 
                 }
