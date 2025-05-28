@@ -11,7 +11,7 @@ Row {
     Text {
         text: ""
         font.family: Fonts.monoFont
-        font.pointSize: 16
+        font.pointSize: 18
         font.bold: true
         color: Colors.text
         anchors.verticalCenter: parent.verticalCenter

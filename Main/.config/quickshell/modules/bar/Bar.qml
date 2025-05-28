@@ -44,13 +44,15 @@ Scope {
                     spacing: height / 4
 
                     anchors {
-                        bottom: parent.bottom
-                        top: parent.top
+                        verticalCenter: parent.verticalCenter
                         left: parent.left
                         leftMargin: height / 4
                     }
 
                     CPUStats {
+                    }
+
+                    RAMStats {
                     }
 
                     Seperator {

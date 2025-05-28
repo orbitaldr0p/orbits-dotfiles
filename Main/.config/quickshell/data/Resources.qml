@@ -5,8 +5,10 @@ pragma Singleton
 
 Singleton {
     property real cpuPercent
-    property string memUsed
     property list<real> cpuCoresPercent
+    property string memUsed
+    property string memTotal
+    property real memPercent: memTotal > 0 ? Math.round((memUsed / memTotal) * 100) : 0
 
     Process {
         id: processCpuPercent
@@ -41,11 +43,25 @@ Singleton {
         id: processMemUsed
 
         running: true
-        command: ["sh", "-c", "free -h | awk 'NR==2{print $3}'"]
+        command: ["sh", "-c", "free -m | awk 'NR==2{print $3}'"]
 
         stdout: SplitParser {
             onRead: (data) => {
                 return memUsed = data;
+            }
+        }
+
+    }
+
+    Process {
+        id: processMemTotal
+
+        running: true
+        command: ["sh", "-c", "free -m | awk 'NR==2{print $2}'"]
+
+        stdout: SplitParser {
+            onRead: (data) => {
+                return memTotal = data;
             }
         }
 
@@ -59,6 +75,7 @@ Singleton {
             processCpuPercent.running = true;
             processCpuCoresPercent.running = true;
             processMemUsed.running = true;
+            processMemTotal.running = true;
         }
     }
 
