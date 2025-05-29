@@ -38,22 +38,44 @@ Rectangle {
 
                     width: trayIcon.implicitWidth
                     height: trayIcon.implicitHeight
-                    y: hovered ? 3 : 0
 
                     Label {
                         id: trayIcon
 
                         anchors.centerIn: parent
-                        opacity: 1
-                        text: hovered ? "󱊔" : "󱊖"
+                        opacity: hovered ? 0 : 1
+                        text: "󱊖"
                         color: Colors.text
                         font.family: Fonts.normalFont
                         font.pointSize: 16
                         font.bold: true
-                        onTextChanged: {
-                            trayIcon.opacity = 0;
-                            trayIcon.opacity = 1;
+
+                        Behavior on opacity {
+                            NumberAnimation {
+                                duration: 100
+                            }
+
                         }
+
+                    }
+
+                    Item {
+                        width: trayIcon.implicitWidth
+                        height: trayIcon.implicitHeight
+                        y: 3
+
+                        Label {
+                            id: trayIconHovered
+
+                            anchors.centerIn: parent
+                            opacity: 1
+                            text: "󱊔"
+                            color: Colors.text
+                            font.family: Fonts.normalFont
+                            font.pointSize: 16
+                            font.bold: true
+                        }
+
                     }
 
                 }

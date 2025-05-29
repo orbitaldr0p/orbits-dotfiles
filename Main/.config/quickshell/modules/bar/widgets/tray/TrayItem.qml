@@ -10,7 +10,7 @@ IconImage {
     required property SystemTrayItem item
 
     source: root.item.icon
-    implicitSize: 15
+    implicitSize: 18
 
     MouseArea {
         anchors.fill: parent
@@ -23,7 +23,7 @@ IconImage {
             case Qt.RightButton:
                 if (root.item.hasMenu) {
                     const window = QsWindow.window;
-                    const widgetRect = window.contentItem.mapFromItem(root, 0, root.height + 9, root.width, root.height);
+                    const widgetRect = window.contentItem.mapFromItem(root, 0, root.height + 5, root.width, root.height);
                     menuAnchor.anchor.rect = widgetRect;
                     menuAnchor.open();
                 }

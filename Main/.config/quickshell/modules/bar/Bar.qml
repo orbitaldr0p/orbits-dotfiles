@@ -83,6 +83,25 @@ Scope {
 
                 }
 
+                RowLayout {
+                    id: barRight
+
+                    spacing: height / 4
+
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                        right: parent.right
+                        rightMargin: height / 3
+                    }
+
+                    Clock {
+                    }
+
+                    Seperator {
+                    }
+
+                }
+
             }
 
         }
