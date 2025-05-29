@@ -49,8 +49,12 @@ MouseArea {
 			color : Colors.text
 			anchors.verticalCenter : parent.verticalCenter
 		}
-
+	}
+	Behavior on Layout.preferredWidth {
+		NumberAnimation {
+			duration : 200
+			easing.type : Easing.InOutQuad
+		}
 
 	}
-
 }
