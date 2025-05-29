@@ -100,6 +100,10 @@ Scope {
                     Seperator {
                     }
 
+                    Volume {
+                        
+                    }
+
                 }
 
             }
