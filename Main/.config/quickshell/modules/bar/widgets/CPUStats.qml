@@ -18,10 +18,7 @@ Row {
     }
 
     Text {
-        text: {
-            let cpu = Resources.cpuPercent.toString() + "%";
-            return cpu.padEnd(4, " ");
-        }
+        text: Resources.cpuPercent.toString() + "%"
         font.family: Fonts.monoFont
         font.pointSize: 11
         font.bold: true

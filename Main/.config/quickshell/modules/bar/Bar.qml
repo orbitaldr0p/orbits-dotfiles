@@ -95,6 +95,8 @@ Scope {
 
 					Volume {}
 
+					Seperator {}
+
 				}
 
 			}

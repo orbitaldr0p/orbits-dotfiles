@@ -18,10 +18,7 @@ Row {
     }
 
     Text {
-        text: {
-            let ram = Resources.memPercent.toString() + "%";
-            return ram.padEnd(4, " ");
-        }
+        text: Resources.memPercent.toString() + "%"
         font.family: Fonts.monoFont
         font.pointSize: 11
         font.bold: true
