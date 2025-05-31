@@ -7,6 +7,8 @@ MouseArea {
 	Layout.preferredWidth : volumeRow.width
 	Layout.preferredHeight : volumeRow.height
 	acceptedButtons : Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
+	cursorShape : Qt.PointingHandCursor
+
 	onClicked : mouse => {
 		switch (mouse.button) {
 			case Qt.LeftButton:
