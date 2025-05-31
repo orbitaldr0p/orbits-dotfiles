@@ -67,6 +67,23 @@ Singleton {
 
     }
 
+    function systemMonitor() {
+		sysMon.running = true
+	}
+	function gpuMonitor() {
+		gpuMon.running = true
+	}
+
+    Process {
+		id: sysMon
+		command: ["sh", "-c", "foot -T 'ftui-System Monitor' -e btop"]
+	}
+
+    Process {
+		id: gpuMon
+		command: ["sh", "-c", "foot -T 'ftui-GPU Status' -e nvtop"]
+	}
+
     Timer {
         interval: 3000
         running: true
