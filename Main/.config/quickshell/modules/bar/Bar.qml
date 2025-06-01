@@ -96,6 +96,8 @@ Scope {
 
 					Seperator {}
 
+					Bluetooth {}
+
 					Wifi {}
 
 					Seperator {}
