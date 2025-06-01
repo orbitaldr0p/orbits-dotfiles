@@ -5,6 +5,9 @@ import Quickshell.Io
 import "root:/data/"
 
 MouseArea {
+    property string netIcon : {
+		(networkDisabled) ? "󰤮" : (Network.active.strength > 75) ? "󰤨" : (Network.active.strength > 50) ? "󰤥" : (Network.active.strength > 25) ? "󰤢" : "󰤟"
+	}
     Layout.preferredWidth: wifiRow.width
     Layout.preferredHeight: wifiRow.height
     acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
@@ -27,7 +30,7 @@ MouseArea {
         }
 
         Text {
-            text: Network.networkName
+            text: Network.active.ssid
             font.family: Fonts.monoFont
             font.pointSize: 11
             font.bold: true

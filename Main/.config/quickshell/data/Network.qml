@@ -1,52 +1,79 @@
-import Quickshell;
-import Quickshell.Io;
-import QtQuick;
 pragma Singleton
-pragma ComponentBehavior: Bound
+
+import Quickshell
+import Quickshell.Io
+import QtQuick
 
 Singleton {
     id: root
-    property string networkName: "";
-    property int networkStrength;
-    property bool networkDisabled
-    property string netIcon : {
-		(networkDisabled) ? "󰤮" : (networkStrength > 75) ? "󰤨" : (volume > 0.5) ? "󰤥" : (volume > 0.25) ? "󰤢" : "󰤟"
-	}
+
+    readonly property list<AccessPoint> networks: []
+    readonly property AccessPoint active: networks.find(n => n.active) ?? null
+    readonly property bool networkDisabled: active === null
+
+    readonly property string netIcon: {
+        networkDisabled ? "󰤮"
+                        : active.strength > 75 ? "󰤨"
+                        : active.strength > 50 ? "󰤥"
+                        : active.strength > 25 ? "󰤢"
+                        : "󰤟"
+    }
+
+    reloadableId: "network"
 
     Process {
-        id: updateNetworkName
-        command: ["sh", "-c", "nmcli -t -f NAME c show --active | head -1"]
-        running: true;
+        running: true
+        command: ["nmcli", "m"]
+        stdout: SplitParser {
+            onRead: getNetworks.running = true
+        }
+    }
+
+    Process {
+        id: getNetworks
+        running: true
+        command: ["sh", "-c", `nmcli -g ACTIVE,SIGNAL,FREQ,SSID d w | jq -cR '[(inputs / ":") | select(.[3] | length >= 4)]'`]
         stdout: SplitParser {
             onRead: data => {
-                root.networkName = data
+                const networks = JSON.parse(data).map(n => [n[0] === "yes", parseInt(n[1]), parseInt(n[2]), n[3]]);
+                const rNetworks = root.networks;
+
+                const destroyed = rNetworks.filter(rn => !networks.find(n => n[2] === rn.frequency && n[3] === rn.ssid));
+                for (const network of destroyed)
+                    rNetworks.splice(rNetworks.indexOf(network), 1).forEach(n => n.destroy());
+
+                for (const network of networks) {
+                    const match = rNetworks.find(n => n.frequency === network[2] && n.ssid === network[3]);
+                    if (match) {
+                        match.active = network[0];
+                        match.strength = network[1];
+                        match.frequency = network[2];
+                        match.ssid = network[3];
+                    } else {
+                        rNetworks.push(apComp.createObject(root, {
+                            active: network[0],
+                            strength: network[1],
+                            frequency: network[2],
+                            ssid: network[3]
+                        }));
+                    }
+                }
             }
         }
     }
 
-    Process {
-        id: updateNetworkStrength
-        running: true
-        command: ["sh", "-c", "nmcli -f IN-USE,SIGNAL,SSID device wifi | awk '/^\*/{if (NR!=1) {print $2}}'"];
-        stdout: SplitParser {
-            onRead: data => {
-                root.networkStrength = parseInt(data);
-            }
-        }
+    component AccessPoint: QtObject {
+        required property string ssid
+        required property int strength
+        required property int frequency
+        required property bool active
     }
 
-    Timer {
-        interval: 3000
-        running: true
-        repeat: true
-        onTriggered: () => {
-            updateNetworkStrength.running = true;
-            updateNetworkName.running = true;
-        }
+    Component {
+        id: apComp
+
+        AccessPoint {}
     }
-
-
-    //===================================
 
     function launchWifiMenu() {
         wifiMenu.running = true
