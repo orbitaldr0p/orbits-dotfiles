@@ -13,7 +13,7 @@ Singleton {
 
 	property var micMuted: source ?.audio.muted
 	property var micVolume: source ?.audio.volume
-	readonly property string volIcon : {
+	property string volIcon : {
 		(muted) ? "󰝟" : (volume > 0.66) ? "󰕾" : (volume > 0.01) ? "󰖀" : "󰕿"
 	}
 	PwObjectTracker {

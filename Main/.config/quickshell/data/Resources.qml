@@ -90,7 +90,7 @@ Singleton {
         repeat: true
         onTriggered: () => {
             processCpuPercent.running = true;
-            processCpuCoresPercent.running = true;
+            // processCpuCoresPercent.running = true;
             processMemUsed.running = true;
             processMemTotal.running = true;
         }

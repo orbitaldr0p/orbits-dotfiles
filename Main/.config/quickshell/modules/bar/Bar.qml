@@ -72,7 +72,6 @@ Scope {
 						verticalCenter : parent.verticalCenter
 					}
 
-					Clock {}
 
 				}
 
@@ -96,6 +95,16 @@ Scope {
 					Volume {}
 
 					Seperator {}
+
+					//BT & wifi
+
+					Seperator {}
+
+					Battery {}
+
+					Seperator {}
+
+					Misc {}
 
 				}
 
