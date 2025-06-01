@@ -44,7 +44,7 @@ MouseArea {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: 200
+            duration: 150
             easing.type: Easing.InOutQuad
         }
     }

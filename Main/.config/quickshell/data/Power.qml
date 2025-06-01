@@ -13,7 +13,18 @@ Singleton {
 	property bool isPluggedIn: isCharging || chargeState == UPowerDeviceState.PendingCharge
 	property var batPercent: battery.percentage
 	property string batIcon: {
-		(isCharging) ? "󰂄": (batPercent == 1) ? "󰁹": (batPercent >= 0.9) ? "󰂂": (batPercent >= 0.8) ? "󰂁": (batPercent >= 0.7) ? "󰂀": (batPercent >= 0.6) ? "󰁿": (batPercent >= 0.5) ? "󰁾": (batPercent >= 0.4) ? "󰁽": (batPercent >= 0.3) ? "󰁼": (batPercent >= 0.2) ? "󰁻": (batPercent >= 0.1) ? "󰁺": "󰂃"
+		(isCharging) ? "󰂄"
+		: (batPercent == 1) ? "󰁹"
+		: (batPercent >= 0.9) ? "󰂂"
+		: (batPercent >= 0.8) ? "󰂁"
+		: (batPercent >= 0.7) ? "󰂀"
+		: (batPercent >= 0.6) ? "󰁿"
+		: (batPercent >= 0.5) ? "󰁾"
+		: (batPercent >= 0.4) ? "󰁽"
+		: (batPercent >= 0.3) ? "󰁼"
+		: (batPercent >= 0.2) ? "󰁻"
+		: (batPercent >= 0.1) ? "󰁺"
+		: "󰂃"
 	}
 
 	function batteryMonitor() {

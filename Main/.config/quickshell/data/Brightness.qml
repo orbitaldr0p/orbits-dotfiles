@@ -12,7 +12,15 @@ Singleton {
 	property string brightnessMax
 	property string brightnessPercent : brightness/brightnessMax
 	property string brightnessIcon : {
-		(brightnessPercent == 1) ? "" : (brightnessPercent >= 0.875) ? "" : (brightnessPercent >= 0.75) ? "" : (brightnessPercent >= 0.625) ? "" : (brightnessPercent >= 0.5) ? "" : (brightnessPercent >= 0.375) ? "" : (brightnessPercent >= 0.25) ? "" : (brightnessPercent >= 0.125) ? "" : ""
+		(brightnessPercent == 1) ? "" 
+		: (brightnessPercent >= 0.875) ? "" 
+		: (brightnessPercent >= 0.750) ? "" 
+		: (brightnessPercent >= 0.625) ? "" 
+		: (brightnessPercent >= 0.500) ? "" 
+		: (brightnessPercent >= 0.375) ? "" 
+		: (brightnessPercent >= 0.250) ? "" 
+		: (brightnessPercent >= 0.125) ? "" 
+		: ""
 	}
 	Component.onCompleted : {
 		getBrightness.running = true 

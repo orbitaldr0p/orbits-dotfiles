@@ -10,13 +10,12 @@ Singleton {
     readonly property list<AccessPoint> networks: []
     readonly property AccessPoint active: networks.find(n => n.active) ?? null
     readonly property bool networkDisabled: active === null
-
     readonly property string netIcon: {
         networkDisabled ? "󰤮"
-                        : active.strength > 75 ? "󰤨"
-                        : active.strength > 50 ? "󰤥"
-                        : active.strength > 25 ? "󰤢"
-                        : "󰤟"
+        : active.strength > 75 ? "󰤨"
+        : active.strength > 50 ? "󰤥"
+        : active.strength > 25 ? "󰤢"
+        : "󰤟"
     }
 
     reloadableId: "network"
