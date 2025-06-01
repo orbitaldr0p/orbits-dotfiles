@@ -5,15 +5,17 @@ import Quickshell.Io
 import "root:/data/"
 
 MouseArea {
-    property string netIcon : {
-		(networkDisabled) ? "󰤮" : (Network.active.strength > 75) ? "󰤨" : (Network.active.strength > 50) ? "󰤥" : (Network.active.strength > 25) ? "󰤢" : "󰤟"
-	}
-    Layout.preferredWidth: wifiRow.width
+    id:root
+    property bool hovered: false
+    Layout.preferredWidth: hovered ? wifiRow.width : wifiIcon.width
     Layout.preferredHeight: wifiRow.height
-    acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
     cursorShape: Qt.PointingHandCursor
+    clip: true
 
+    hoverEnabled: true
     onClicked: Network.launchWifiMenu()
+    onEntered: root.hovered = true
+    onExited: root.hovered = false
 
     Row {
         id: wifiRow
@@ -21,6 +23,7 @@ MouseArea {
         spacing: 5
 
         Text {
+            id: wifiIcon
             text: Network.netIcon
             font.family: Fonts.monoFont
             font.pointSize: 17
