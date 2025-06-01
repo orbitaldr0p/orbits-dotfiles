@@ -60,28 +60,6 @@ Rectangle {
                 cursorShape: Qt.PointingHandCursor
             }
         }
-
-        Item {
-            width: miscIcon.implicitWidth
-            height: miscIcon.implicitHeight
-            Text {
-                id: miscIcon
-                text: ""
-                font.family: Fonts.monoFont
-                font.pointSize: miscRoot.iconSize
-                font.bold: true
-                color: Colors.text
-                anchors.verticalCenter: parent.verticalCenter
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    console.log("Icon  clicked")
-                }
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-            }
-        }
     }
 
     Behavior on Layout.preferredWidth {

@@ -3,6 +3,7 @@ import Quickshell.Io
 import Quickshell.Hyprland
 import QtQuick
 pragma Singleton
+pragma ComponentBehavior: Bound
 
 Singleton {
 	id : root

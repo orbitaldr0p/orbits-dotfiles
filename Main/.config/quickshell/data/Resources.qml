@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 pragma Singleton
+pragma ComponentBehavior: Bound
 
 Singleton {
     property real cpuPercent

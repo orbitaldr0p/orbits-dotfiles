@@ -3,7 +3,7 @@ import Quickshell
 import Quickshell.Services.UPower
 import Quickshell.Io
 pragma Singleton
-
+pragma ComponentBehavior: Bound
 
 Singleton {
 	id: root

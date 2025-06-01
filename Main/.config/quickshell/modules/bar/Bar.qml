@@ -96,7 +96,7 @@ Scope {
 
 					Seperator {}
 
-					//BT & wifi
+					Wifi {}
 
 					Seperator {}
 

@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Io
 pragma Singleton
+pragma ComponentBehavior: Bound
 
 Singleton {
 	id : root

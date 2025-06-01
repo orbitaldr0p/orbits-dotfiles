@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 pragma Singleton
+pragma ComponentBehavior: Bound
 
 Singleton {
     id: hyprland
