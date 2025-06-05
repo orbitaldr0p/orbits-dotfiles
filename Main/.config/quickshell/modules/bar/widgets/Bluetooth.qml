@@ -29,6 +29,7 @@ MouseArea {
 
         Text {
             text: {
+                if (!Bluetooth.powered) return "";
                 const connectedDevices = Bluetooth.devices.filter(d => d.connected);
                 return connectedDevices.length > 0 ? connectedDevices.length.toString() : "On";
             }
