@@ -23,7 +23,6 @@ MouseArea {
             font.pointSize: 11
             font.bold: true
             color: Colors.text
-            //color: Power.isCharging ? Colors.green : (Power.batPercent < 0.2 ? Colors.red : Colors.text)
             anchors.verticalCenter: parent.verticalCenter
         }
 
