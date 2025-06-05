@@ -1,43 +1,51 @@
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
-import Quickshell.Services.SystemTray
 import Quickshell.Widgets
+import Quickshell.Services.SystemTray
 import "root:/data/"
 
-IconImage {
-    id: root
+MouseArea {
+    id: trayItem
 
     required property SystemTrayItem item
+    Layout.preferredWidth: trayIcon.width
+    Layout.preferredHeight: trayIcon.height
 
-    source: root.item.icon
-    implicitSize: 18
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    cursorShape: Qt.PointingHandCursor
 
-    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-        onClicked: (event) => {
-            switch (event.button) {
+    onClicked: mouse => {
+        switch (mouse.button) {
             case Qt.LeftButton:
-                root.item.activate();
+                item.activate();
                 break;
             case Qt.RightButton:
-                if (root.item.hasMenu) {
+                if (item.hasMenu) {
                     const window = QsWindow.window;
-                    const widgetRect = window.contentItem.mapFromItem(root, 0, root.height + 5, root.width, root.height);
+                    const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
                     menuAnchor.anchor.rect = widgetRect;
                     menuAnchor.open();
                 }
                 break;
-            }
         }
+    }
+
+    IconImage {
+        id: trayIcon
+
+        required property SystemTrayItem item
+        item: trayItem.item
+
+        source: item.icon
+        implicitSize: 17
     }
 
     QsMenuAnchor {
         id: menuAnchor
 
-        menu: root.item.menu
-        anchor.window: root.QsWindow.window ?? null
+        menu: item.menu
+        anchor.window: QsWindow.window ?? null
         anchor.adjustment: PopupAdjustment.Flip
     }
-
 }
