@@ -85,10 +85,11 @@ Rectangle {
         }
 
 		Behavior on width {
-			NumberAnimation {
-				duration: 200
-				easing.type: Easing.InOutQuad
-			}
+            NumberAnimation {
+                duration: 400
+                easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+                easing.type: Easing.BezierSpline
+            }
 		}
 	}
 }

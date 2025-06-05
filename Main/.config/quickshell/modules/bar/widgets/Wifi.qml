@@ -44,8 +44,9 @@ MouseArea {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: 150
-            easing.type: Easing.InOutQuad
+            duration: 400
+            easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+            easing.type: Easing.BezierSpline
         }
     }
 }
