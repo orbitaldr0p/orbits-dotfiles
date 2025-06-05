@@ -3,17 +3,25 @@ iconDir="$HOME/.resources/icons/brightness/"
 displayDevice="intel_backlight"
 
 increase() {
-    brightnessctl -d $displayDevice s +10%
-    brightness=$(brightnessctl -d $displayDevice -m | cut -d, -f4)
-    icon=$(getIcon "$(echo "$brightness" | sed 's/%//')")
-    notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
+    brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
+    if [ "$brightness" -ge 100 ]; then
+        return
+    fi
+    brightnessctl -d "$displayDevice" s +10%
+    brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
+    icon=$(getIcon "$brightness")
+    notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: ${brightness}%" -t 800 -r 91170 -i "$icon"
 }
 
 decrease() {
-    brightnessctl -d $displayDevice s 10%-
-    brightness=$(brightnessctl -d $displayDevice -m | cut -d, -f4)
-    icon=$(getIcon "$(echo "$brightness" | sed 's/%//')")
-    notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: $brightness" -t 800 -r 91170 -i "$icon"
+    brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
+    if [ "$brightness" -le 0 ]; then
+        return
+    fi
+    brightnessctl -d "$displayDevice" s 10%-
+    brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
+    icon=$(getIcon "$brightness")
+    notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: ${brightness}%" -t 800 -r 91170 -i "$icon"
 }
 
 getIcon() {

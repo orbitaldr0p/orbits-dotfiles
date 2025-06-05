@@ -2,16 +2,24 @@
 icondir="$HOME/.resources/icons/volume/"
 
 volIncrease() {
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
+    if [ "$vol" -ge 100 ]; then
+        return
+    fi
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
-    icon=$(getIcon $vol)
+    icon=$(getIcon "$vol")
     notify-send -h int:value:"$vol" -h string:synchronous:volume "Volume: $vol%" -t 800 -r 91190 -i "$icon"
 }
 
 volDecrease() {
+    vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
+    if [ "$vol" -le 0 ]; then
+        return
+    fi
     wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 1.0
     vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -oE '[0-9]+\.[0-9]+' | awk '{printf "%.0f\n", $1 * 100}')
-    icon=$(getIcon $vol)
+    icon=$(getIcon "$vol")
     notify-send -h int:value:"$vol" -h string:synchronous:volume "Volume: $vol%" -t 800 -r 91190 -i "$icon"
 }
 
