@@ -12,7 +12,7 @@ Rectangle {
 
     Image {
         id: wallpaper
-        source: "file:///home/_orbitaldrop/Pictures/Wallpapers/Leading to Stellar Domain Long.png"
+        source: "root:/assets/wallpapers/Leading to Stellar Domain.jpg"
         fillMode: Image.PreserveAspectFit
         asynchronous: true
         cache: true
@@ -25,7 +25,7 @@ Rectangle {
         scale: 1 / scaleFactor
 
         property int extraWidth: wallpaper.width - Hyprland.focusedMonitor.width
-        property int wallpaper_x: - (Hyprland.focusedMonitor.activeWorkspace.id - 1) * extraWidth / 9
+        property int wallpaper_x: - (Hyprland.focusedMonitor.activeWorkspace.id - 1) * extraWidth / 15
 
         x: wallpaper_x
 
