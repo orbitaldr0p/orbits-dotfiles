@@ -5,29 +5,32 @@ import Quickshell.Hyprland
 import "root:/data/"
 
 Rectangle {
-    height: Hyprland.focusedMonitor.height
-    width: Hyprland.focusedMonitor.width
-    color: Colors.surface ?? "black"
-    property real scaleFactor: Hyprland.focusedMonitor.scale ?? 1.0
+	property int monitorWidth: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.width: 0
+	property int monitorHeight: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.height: 0
+	property real scaleFactor: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.scale: 1.0
+	property int activeWorkspaceId: (Hyprland.focusedMonitor && Hyprland.focusedMonitor.activeWorkspace) ? Hyprland.focusedMonitor.activeWorkspace.id: 1
 
-    Image {
-        id: wallpaper
-        source: "root:/assets/wallpapers/Stellar.jpg"
-        fillMode: Image.PreserveAspectFit
-        asynchronous: true
-        cache: true
+	width: monitorWidth
+	height: monitorHeight
+	color: Colors.surface ?? "black"
 
-        width: implicitWidth
-        height: implicitHeight
+	Image {
+		id: wallpaper
+		source: "root:/assets/wallpapers/Stellar.jpg"
+		fillMode: Image.PreserveAspectFit
+		asynchronous: true
+		cache: true
 
+		width: implicitWidth
+		height: implicitHeight
 
-        transformOrigin: Item.TopLeft
-        scale: 1 / scaleFactor
+		transformOrigin: Item.TopLeft
+		scale: 1 / scaleFactor
 
-        property int extraWidth: wallpaper.width - Hyprland.focusedMonitor.width
-        property int wallpaper_x: - (Hyprland.focusedMonitor.activeWorkspace.id - 1) * extraWidth / 15
+		property int extraWidth: wallpaper.width - monitorWidth
+		property int wallpaper_x: -(activeWorkspaceId - 1) * extraWidth / 15
 
-        x: wallpaper_x
+		x: wallpaper_x
 
         Behavior on x {
             NumberAnimation {
@@ -36,5 +39,5 @@ Rectangle {
                 easing.type: Easing.BezierSpline
             }
         }
-    }
+	}
 }
