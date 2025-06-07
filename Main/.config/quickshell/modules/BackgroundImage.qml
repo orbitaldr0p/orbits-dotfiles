@@ -12,7 +12,7 @@ Rectangle {
 
     Image {
         id: wallpaper
-        source: "root:/assets/wallpapers/Leading to Stellar Domain.jpg"
+        source: "root:/assets/wallpapers/Stellar.jpg"
         fillMode: Image.PreserveAspectFit
         asynchronous: true
         cache: true
