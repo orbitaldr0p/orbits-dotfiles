@@ -7,7 +7,7 @@ import "root:/data/"
 Item {
 	id : root
 	
-	implicitWidth : activeWindowText.implicitWidth
+	implicitWidth: Math.max(activeWindowText.implicitWidth, 1)
 	implicitHeight : activeWindowText.implicitHeight
 
 	clip : true
