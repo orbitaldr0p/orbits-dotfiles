@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import "root:/data/"
+import "root:"
 
 Rectangle {
     // clip: true
@@ -76,7 +77,7 @@ Rectangle {
 
                     Behavior on color {
                         ColorAnimation {
-                            duration: 200
+                            duration: Globals.anim.durations.short
                             easing.type: Easing.InOutQuad
                         }
 
@@ -86,7 +87,7 @@ Rectangle {
 
                 Behavior on Layout.preferredWidth {
                     NumberAnimation {
-                        duration: 200
+                        duration: Globals.anim.durations.short
                         easing.type: Easing.InOutQuad
                     }
 
@@ -100,8 +101,8 @@ Rectangle {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: 50
-            easing.type: Easing.OutQuad
+            duration: Globals.anim.durations.workspace
+            easing.type: Easing.InOutQuad
         }
 
     }

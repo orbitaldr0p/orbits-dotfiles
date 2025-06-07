@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import "root:/data/"
+import "root:"
 
 Rectangle {
     id: miscRoot
@@ -64,7 +65,7 @@ Rectangle {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: 200
+            duration: Globals.anim.durations.short
             easing.type: Easing.InOutQuad
         }
     }

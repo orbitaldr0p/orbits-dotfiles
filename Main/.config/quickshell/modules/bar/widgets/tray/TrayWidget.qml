@@ -1,10 +1,10 @@
-import "../"
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import "root:/data/"
+import "root:"
 
 Rectangle {
 	id: root
@@ -86,8 +86,8 @@ Rectangle {
 
 		Behavior on width {
             NumberAnimation {
-                duration: 400
-                easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+                duration: Globals.anim.durations.normal
+                easing.bezierCurve: Globals.anim.curves.slideout
                 easing.type: Easing.BezierSpline
             }
 		}

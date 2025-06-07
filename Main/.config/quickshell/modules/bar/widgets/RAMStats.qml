@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import "root:/data/"
+import "root:"
 
 Rectangle {
 	Layout.preferredWidth: ramRow.width
@@ -35,7 +36,7 @@ Rectangle {
 	}
 	Behavior on Layout.preferredWidth {
 		NumberAnimation {
-			duration: 200
+			duration: Globals.anim.durations.short
 			easing.type: Easing.InOutQuad
 		}
 	}

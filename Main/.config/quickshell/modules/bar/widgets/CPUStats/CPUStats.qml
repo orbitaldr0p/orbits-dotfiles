@@ -3,7 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import "root:/data/"
-
+import "root:"
 
 MouseArea {
 	Layout.preferredWidth: cpuRow.width
@@ -49,7 +49,7 @@ MouseArea {
 	}
 	Behavior on Layout.preferredWidth {
 		NumberAnimation {
-			duration: 200
+			duration: Globals.anim.durations.short
 			easing.type: Easing.InOutQuad
 		}
 	}

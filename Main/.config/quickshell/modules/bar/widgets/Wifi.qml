@@ -3,6 +3,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import "root:/data/"
+import "root:"
 
 MouseArea {
     id:root
@@ -44,8 +45,8 @@ MouseArea {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: 400
-            easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+            duration: Globals.anim.durations.normal
+            easing.bezierCurve: Globals.anim.curves.bg
             easing.type: Easing.BezierSpline
         }
     }

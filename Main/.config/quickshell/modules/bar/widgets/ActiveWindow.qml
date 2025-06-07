@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
 import "root:/data/"
+import "root:"
 
 Item {
 	id : root
@@ -26,8 +27,8 @@ Item {
 
 	Behavior on implicitWidth {
         NumberAnimation {
-            duration: 300
-            easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+            duration: Globals.anim.durations.normal
+            easing.bezierCurve: Globals.anim.curves.slideout
             easing.type: Easing.BezierSpline
         }
 	}

@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import "root:/data/"
+import "root:"
 
 Rectangle {
 	property int monitorWidth: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.width: 0
@@ -16,7 +17,7 @@ Rectangle {
 
 	Image {
 		id: wallpaper
-		source: "root:/assets/wallpapers/Stellar.jpg"
+		source: Globals.wallpaper
 		fillMode: Image.PreserveAspectFit
 		asynchronous: true
 		cache: true
@@ -34,8 +35,8 @@ Rectangle {
 
         Behavior on x {
             NumberAnimation {
-                duration: 570
-                easing.bezierCurve: [0.23, 1, 0.61, 1, 1, 1]
+                duration: Globals.anim.durations.bg
+                easing.bezierCurve: Globals.anim.curves.bg
                 easing.type: Easing.BezierSpline
             }
         }
