@@ -29,11 +29,9 @@ Singleton {
 
 	function increase() {
 		inc.running = true
-		getBrightness.running = true
 	}
 	function decrease() {
 		dec.running = true
-		getBrightness.running = true
 	}
 
 	Process {
@@ -59,10 +57,21 @@ Singleton {
 	Process {
 		id : inc
 		command : ["sh", "-c", "~/.scripts/System/brightnessControl.sh i"]
+		onRunningChanged: {
+			if (!running) {
+				getBrightness.running = true
+			}
+		}
 	}
 
 	Process {
 		id : dec
 		command : ["sh", "-c", "~/.scripts/System/brightnessControl.sh d"]
+		onRunningChanged: {
+			if (!running) {
+				getBrightness.running = true
+			}
+		}
 	}
+
 }
