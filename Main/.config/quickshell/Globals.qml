@@ -4,7 +4,7 @@ pragma Singleton
 
 Singleton {
     readonly property Anim anim: Anim {}
-    readonly property url wallpaper: "root:/assets/wallpapers/Stellar.jpg"
+    readonly property url wallpaper: "root:/assets/wallpapers/Aurora.jpg"
 
     component AnimCurves: QtObject {
         readonly property list<real> bg: [0.23, 1, 0.61, 1, 1, 1]
