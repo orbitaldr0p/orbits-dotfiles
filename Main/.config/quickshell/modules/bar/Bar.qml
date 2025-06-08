@@ -5,13 +5,12 @@ import Quickshell.Io
 import "root:/data/"
 import "widgets"
 import "widgets/tray"
-import "widgets/popouts" as BarPopouts
 
 Scope {
+	id : bar
 	Variants {
 		model : Quickshell.screens
 		PanelWindow {
-			id : bar
 			property var modelData
 			screen : modelData
 			implicitHeight : 30

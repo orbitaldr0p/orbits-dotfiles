@@ -6,6 +6,7 @@ import "modules/bar"
 
 ShellRoot {
     Bar {}
+
 	PanelWindow {
 		id: background
 		exclusionMode: ExclusionMode.Ignore
