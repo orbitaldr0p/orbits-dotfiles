@@ -12,8 +12,8 @@ Item {
 	implicitHeight: activeWindowRow.implicitHeight
 
 	clip: true
-	property string actWinName: activeWindow ?. activated ? activeWindow ?. title : ""
 	readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
+	property string actWinName: activeWindow ?. activated ? activeWindow ?. title : ""
 	property string text1: actWinName.substring(0, actWinName.length/2)
 	property string text2: actWinName.substring(actWinName.length/2)
 
@@ -24,7 +24,7 @@ Item {
 
 		Text {
 			text : root.text1
-			font.family : Fonts.normalFont
+			font.family : Fonts.monoFont
 			font.pointSize : 11
 			font.bold : true
 			color : Colors.text
@@ -32,7 +32,7 @@ Item {
 
 		Text {
 			text : root.text2
-			font.family : Fonts.normalFont
+			font.family : Fonts.monoFont
 			font.pointSize : 11
 			font.bold : true
 			color : Colors.text

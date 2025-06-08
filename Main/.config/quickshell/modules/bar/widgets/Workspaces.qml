@@ -77,7 +77,7 @@ Rectangle {
 
                     Behavior on color {
                         ColorAnimation {
-                            duration: Globals.anim.durations.short
+                            duration: Globals.anim.durations.small
                             easing.type: Easing.InOutQuad
                         }
 
@@ -87,7 +87,7 @@ Rectangle {
 
                 Behavior on Layout.preferredWidth {
                     NumberAnimation {
-                        duration: Globals.anim.durations.short
+                        duration: Globals.anim.durations.small
                         easing.type: Easing.InOutQuad
                     }
 

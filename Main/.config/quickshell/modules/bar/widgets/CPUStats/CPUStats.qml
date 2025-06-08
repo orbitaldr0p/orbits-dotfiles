@@ -6,12 +6,19 @@ import "root:/data/"
 import "root:"
 
 MouseArea {
-	Layout.preferredWidth: cpuRow.width
-	Layout.preferredHeight: cpuRow.height
-	acceptedButtons: Qt.LeftButton | Qt.RightButton
-	cursorShape: Qt.PointingHandCursor
+	id: root
+	property bool hovered: false
+	Layout.preferredWidth : hovered ? cpuRow.width : cpuPercentRow.width
+	Layout.preferredHeight : cpuRow.height
+	clip: true
+	
+	acceptedButtons : Qt.LeftButton | Qt.RightButton
+	cursorShape : Qt.PointingHandCursor
+	hoverEnabled: true
+    onEntered: root.hovered = true
+    onExited: root.hovered = false
 
-	onClicked: mouse => {
+	onClicked : mouse => {
 		switch (mouse.button) {
 			case Qt.LeftButton:
 				Resources.systemMonitor()
@@ -23,34 +30,59 @@ MouseArea {
 	}
 
 	Row {
-		id: cpuRow
-		Layout.alignment: Qt.AlignVCenter
-		spacing: 5
-
-		Text {
-			text: ""
-			font.family: Fonts.monoFont
-			font.pointSize: 18
-			font.bold: true
-			color: Colors.text
-			anchors.verticalCenter: parent.verticalCenter
+		id : cpuRow
+		spacing: parent.parent.height/4
+		Layout.alignment : Qt.AlignVCenter
+		Row {
+			id : cpuPercentRow
+			anchors.verticalCenter : parent.verticalCenter
+			spacing : 5
+			Text {
+				text : ""
+				font.family : Fonts.normalFont
+				font.pointSize : 11
+				font.bold : true
+				color : Colors.text
+				anchors.verticalCenter : parent.verticalCenter
+			}
+			Text {
+				text : Resources.cpuPercent.toString() + "%"
+				font.family : Fonts.normalFont
+				font.pointSize : 11
+				font.bold : true
+				color : Colors.text
+				anchors.verticalCenter : parent.verticalCenter
+			}
 		}
 
-		Text {
-			text: Resources.cpuPercent.toString() + "%"
-			font.family: Fonts.monoFont
-			font.pointSize: 11
-			font.bold: true
-			color: Colors.text
-			anchors.verticalCenter: parent.verticalCenter
-			horizontalAlignment: Text.AlignLeft
+		Row {
+			id : cpuTempRow
+			anchors.verticalCenter : parent.verticalCenter
+			spacing : 5
+			Text {
+				text : Resources.tempIcon
+				font.family : Fonts.normalFont
+				font.pointSize : 11
+				font.bold : true
+				color : Colors.text
+				anchors.verticalCenter : parent.verticalCenter
+			}
+			Text {
+				text : Resources.cpuTemp.toString() + "°C"
+				font.family : Fonts.normalFont
+				font.pointSize : 11
+				font.bold : true
+				color : Colors.text
+				anchors.verticalCenter : parent.verticalCenter
+			}
 		}
-
 	}
+
 	Behavior on Layout.preferredWidth {
-		NumberAnimation {
-			duration: Globals.anim.durations.short
-			easing.type: Easing.InOutQuad
-		}
+        NumberAnimation {
+            duration: Globals.anim.durations.normal
+            easing.bezierCurve: Globals.anim.curves.bg
+            easing.type: Easing.BezierSpline
+        }
 	}
 }

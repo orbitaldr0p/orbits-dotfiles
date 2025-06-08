@@ -34,7 +34,7 @@ MouseArea {
         }
 
         Text {
-            text: Network.active.ssid
+            text: Network.active ? Network.active.ssid : "disconnected"
             font.family: Fonts.monoFont
             font.pointSize: 11
             font.bold: true

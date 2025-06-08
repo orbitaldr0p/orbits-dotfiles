@@ -56,7 +56,7 @@ MouseArea {
 	}
 	Behavior on Layout.preferredWidth {
 		NumberAnimation {
-			duration : Globals.anim.durations.short
+			duration : Globals.anim.durations.small
 			easing.type : Easing.InOutQuad
 		}
 
