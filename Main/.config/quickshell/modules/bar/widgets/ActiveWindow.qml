@@ -8,24 +8,35 @@ import "root:"
 Item {
 	id : root
 	
-	implicitWidth: Math.min(Math.max(activeWindowText.implicitWidth, 1), 500)
-	implicitHeight: activeWindowText.implicitHeight
+	implicitWidth: Math.min(Math.max(activeWindowRow.implicitWidth, 1), 500)
+	implicitHeight: activeWindowRow.implicitHeight
 
 	clip: true
 	property string actWinName: activeWindow ?. activated ? activeWindow ?. title : ""
 	readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
+	property string text1: actWinName.substring(0, actWinName.length/2)
+	property string text2: actWinName.substring(actWinName.length/2)
 
-	Text {
-		id: activeWindowText
-		text: root.actWinName
-		color: Colors.text
-		font.family: Fonts.normalFont
-		font.pointSize: 11
-		font.bold: true
-		anchors.left: parent.left
-		anchors.verticalCenter: parent.verticalCenter
-		elide: Text.ElideRight
-		width: parent.width
+	Row {
+		id: activeWindowRow
+		anchors.centerIn: parent
+		spacing: 0
+
+		Text {
+			text : root.text1
+			font.family : Fonts.normalFont
+			font.pointSize : 11
+			font.bold : true
+			color : Colors.text
+		}
+
+		Text {
+			text : root.text2
+			font.family : Fonts.normalFont
+			font.pointSize : 11
+			font.bold : true
+			color : Colors.text
+		}
 	}
 
 	Behavior on implicitWidth {
