@@ -28,7 +28,12 @@ Item {
 	}
 
 	onTargetWinNameChanged: {
-		fadeOutAnim.start()
+		if (displayedWinName !== "") {
+			fadeOutAnim.start();
+		} else {
+			displayedWinName = targetWinName;
+			fadeInAnim.start();
+		}
 	}
 
 	// Fade-out animation
