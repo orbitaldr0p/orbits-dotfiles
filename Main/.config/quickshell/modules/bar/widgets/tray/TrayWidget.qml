@@ -10,18 +10,18 @@ Rectangle {
 	id: root
 	property bool hovered: false
 	color: "transparent"
-	implicitHeight: 40
-	implicitWidth: trayWrapper.width
+	implicitWidth: trayIcon.implicitWidth
+	implicitHeight: trayIcon.implicitWidth
 
 	Rectangle {
 		id: trayWrapper
+		width: hovered ? sysTrayRowL.implicitWidth : trayIcon.implicitWidth
 		height: parent.height
-		width: hovered ? rowL.implicitWidth + 20: 20
 		color: "transparent"
 		clip: true
 
 		RowLayout {
-			id: rowL
+			id: sysTrayRowL
 			anchors.verticalCenter: parent.verticalCenter
 			spacing: 10
 
@@ -43,13 +43,13 @@ Rectangle {
 						font.bold: true
 						Behavior on opacity {
 							NumberAnimation {
-								duration: 100
+								duration: Globals.anim.durations.small/2
 							}
 						}
 					}
 					Item {
-						width: trayIcon.implicitWidth
-						height: trayIcon.implicitHeight
+						width: trayIconHovered.implicitWidth
+						height: trayIconHovered.implicitHeight
 						y: 3
 						Label {
 							id: trayIconHovered
@@ -66,6 +66,7 @@ Rectangle {
 			}
 
 			Repeater {
+				id: sysTrayRow
 				model: SystemTray.items
 				visible: hovered
 				TrayItem {
@@ -81,7 +82,7 @@ Rectangle {
             hoverEnabled: true
             onEntered: root.hovered = true
             onExited: root.hovered = false
-            z: -1  // Move it below other components
+            z: -1
         }
 
 		Behavior on width {
