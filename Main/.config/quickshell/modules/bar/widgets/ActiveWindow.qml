@@ -16,20 +16,17 @@ Item {
 	property string targetWinName: activeWindow ?. activated ? activeWindow ?. title : ""
 	property string displayedWinName
 
-	// Trigger animation when targetWinName changes
 	Timer {
 		id: updateTimer
 		interval: 0
 		running: false
 		repeat: false
 		onTriggered: {
-			// After fade-out is done, update text and start fade-in
 			displayedWinName = targetWinName
 			fadeInAnim.start()
 		}
 	}
 
-	// Fade-out + scale-down when targetWinName changes
 	onTargetWinNameChanged: {
 		fadeOutAnim.start()
 	}
@@ -38,7 +35,8 @@ Item {
 	ParallelAnimation {
 		id: fadeOutAnim
 		PropertyAnimation { target: windowName; property: "opacity"; to: 0.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
-		PropertyAnimation { target: windowName; property: "scale"; to: 0.8; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
+		PropertyAnimation { target: horizontalScale; property: "xScale"; to: 0.8; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
+		// Removed the scale property animation here
 		onStopped: {
 			updateTimer.start()
 		}
@@ -48,7 +46,7 @@ Item {
 	ParallelAnimation {
 		id: fadeInAnim
 		PropertyAnimation { target: windowName; property: "opacity"; from: 0.0; to: 1.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
-		PropertyAnimation { target: windowName; property: "scale"; from: 1.2; to: 1.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
+		PropertyAnimation { target: horizontalScale; property: "xScale"; from: 0.8; to: 1.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
 	}
 
     Rectangle {
@@ -58,22 +56,29 @@ Item {
         anchors.centerIn: parent
         color: "transparent"
 
-        Text {
-            id: windowName
-            text: root.displayedWinName
-            font.family: Fonts.monoFont
-            font.pointSize: 11
-            font.bold: true
-            color: Colors.text
+		Text {
+			id: windowName
+			text: root.displayedWinName
+			font.family: Fonts.monoFont
+			font.pointSize: 11
+			font.bold: true
+			color: Colors.text
 
-            width: textContainer.width
-            elide: Text.ElideRight
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
+			width: textContainer.width
+			elide: Text.ElideRight
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
 
-            transformOrigin: Item.Center
-            opacity: 1.0
-            scale: 1.0
-        }
+			transformOrigin: Item.Center
+			opacity: 1.0
+
+			transform: Scale {
+				id: horizontalScale
+				origin.x: windowName.width / 2
+				origin.y: windowName.height / 2
+				xScale: 1.0
+				yScale: 1.0
+			}
+		}
     }
 }
