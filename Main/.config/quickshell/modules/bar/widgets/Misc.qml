@@ -11,8 +11,8 @@ Rectangle {
 	property bool hovered: false
     property var iconSize: 17
     color: "transparent"
-    //width: hovered ? miscWrapper.width: miscIconWrapper.width
-    width: miscWrapper.width
+    width: hovered ? miscWrapper.width: miscIconWrapper.width
+    //width: miscWrapper.width
     height: miscWrapper.height
     clip: true
 
@@ -20,6 +20,20 @@ Rectangle {
         id: miscWrapper
         anchors.verticalCenter: parent.verticalCenter
         spacing: 10
+        Item {
+            id: miscIconWrapper
+            width: miscIcon.implicitWidth
+            height: miscIcon.implicitHeight
+            Text {
+                id: miscIcon
+                text: ""
+                font.family: Fonts.monoFont
+                font.pointSize: root.iconSize
+                font.bold: true
+                color: Colors.text
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
 
         Item {
             width: clipHistIcon.implicitWidth
@@ -62,21 +76,6 @@ Rectangle {
                 }
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-            }
-        }
-
-        Item {
-            id: miscIconWrapper
-            width: miscIcon.implicitWidth
-            height: miscIcon.implicitHeight
-            Text {
-                id: miscIcon
-                text: ""
-                font.family: Fonts.monoFont
-                font.pointSize: root.iconSize
-                font.bold: true
-                color: Colors.text
-                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }
