@@ -11,29 +11,16 @@ Rectangle {
 	property bool hovered: false
     property var iconSize: 17
     color: "transparent"
-    width: hovered ? miscWrapper.width: miscIconWrapper.width
-    //width: miscWrapper.width
+    Layout.preferredWidth: hovered ? miscWrapper.width : miscIconWrapper.width
     height: miscWrapper.height
+    anchors.right: parent.right
     clip: true
 
-    RowLayout {
+    Row {
         id: miscWrapper
         anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
         spacing: 10
-        Item {
-            id: miscIconWrapper
-            width: miscIcon.implicitWidth
-            height: miscIcon.implicitHeight
-            Text {
-                id: miscIcon
-                text: ""
-                font.family: Fonts.monoFont
-                font.pointSize: root.iconSize
-                font.bold: true
-                color: Colors.text
-                anchors.verticalCenter: parent.verticalCenter
-            }
-        }
 
         Item {
             width: clipHistIcon.implicitWidth
@@ -49,9 +36,7 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    root.launchClipse()
-                }
+                onClicked: root.launchClipse()
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
             }
@@ -71,11 +56,24 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: {
-                    root.launchEyeDropper()
-                }
+                onClicked: root.launchEyeDropper()
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
+            }
+        }
+
+        Item {
+            id: miscIconWrapper
+            width: miscIcon.implicitWidth
+            height: miscIcon.implicitHeight
+            Text {
+                id: miscIcon
+                text: ""
+                font.family: Fonts.monoFont
+                font.pointSize: root.iconSize
+                font.bold: true
+                color: Colors.text
+                anchors.verticalCenter: parent.verticalCenter
             }
         }
     }
@@ -89,7 +87,7 @@ Rectangle {
         z: -1
     }
 
-    Behavior on width {
+    Behavior on Layout.preferredWidth {
         NumberAnimation {
             duration: Globals.anim.durations.small
             easing.type: Easing.InOutQuad

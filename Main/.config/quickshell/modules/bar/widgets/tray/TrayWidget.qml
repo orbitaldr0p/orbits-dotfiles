@@ -10,7 +10,7 @@ Rectangle {
 	id: root
 	property bool hovered: false
 	color: "transparent"
-	width: hovered ? sysTrayWrapper.width: trayIconWrapper.width
+	Layout.preferredWidth: hovered ? sysTrayWrapper.width: trayIconWrapper.width
 	height: trayIconWrapper.height
 	clip: true
 
@@ -75,7 +75,7 @@ Rectangle {
 		z: -1
 	}
 
-	Behavior on width {
+	Behavior on Layout.preferredWidth {
 		NumberAnimation {
 			duration: Globals.anim.durations.normal
 			easing.bezierCurve: Globals.anim.curves.slideout
