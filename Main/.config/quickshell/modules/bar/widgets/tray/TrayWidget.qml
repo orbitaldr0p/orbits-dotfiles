@@ -11,12 +11,12 @@ Rectangle {
 	property bool hovered: false
 	color: "transparent"
 	implicitWidth: trayIcon.implicitWidth
-	implicitHeight: trayIcon.implicitWidth
+	implicitHeight: trayIcon.implicitHeight
 
 	Rectangle {
 		id: trayWrapper
 		width: hovered ? sysTrayRowL.implicitWidth : trayIcon.implicitWidth
-		height: parent.height
+		height: trayIcon.implicitHeight
 		color: "transparent"
 		clip: true
 
