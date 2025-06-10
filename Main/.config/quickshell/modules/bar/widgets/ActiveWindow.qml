@@ -8,7 +8,7 @@ import "root:"
 Item {
 	id : root
 	
-	width: 500
+	width: textContainer.width
 	height: textContainer.height
 
 	clip: true
@@ -51,7 +51,7 @@ Item {
 
     Rectangle {
         id: textContainer
-        width: parent.width
+        width: 500
         height: windowName.implicitHeight
         anchors.centerIn: parent
         color: "transparent"
