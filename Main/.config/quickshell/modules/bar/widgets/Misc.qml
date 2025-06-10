@@ -36,7 +36,7 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: root.launchClipse()
+                onClicked: launchProcess(clipse)
                 cursorShape: Qt.PointingHandCursor
             }
         }
@@ -55,7 +55,7 @@ Rectangle {
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked: root.launchEyeDropper()
+                onClicked: launchProcess(eyeDropper)
                 cursorShape: Qt.PointingHandCursor
             }
         }
@@ -93,23 +93,17 @@ Rectangle {
     }
 
     //==================================================================
-
-    function launchClipse() {
-		clipse.running = true
-	}
+    function launchProcess(proc) {
+        proc.running = true
+    }
 
     Process {
 		id: clipse
 		command: ["sh", "-c", "foot -T 'ftui-Clipboard History' -e clipse"]
 	}
 
-    function launchEyeDropper() {
-		eyeDropper.running = true
-	}
-
     Process {
 		id: eyeDropper
 		command: ["sh", "-c", "~/.scripts/eyedropper.sh"]
 	}
-
 }
