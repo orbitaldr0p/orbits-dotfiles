@@ -22,8 +22,8 @@ MouseArea {
 
 		Text {
 			text: Brightness.brightnessIcon
-			font.family: Fonts.monoFont
-			font.pointSize: 14
+			font.family: Fonts.normalFont
+			font.pointSize: 12
 			font.bold: true
 			color: Colors.text
 			anchors.verticalCenter: parent.verticalCenter
@@ -31,7 +31,7 @@ MouseArea {
 
 		Text {
 			text: Math.round(Brightness.brightnessPercent * 100) + "%";
-			font.family: Fonts.monoFont
+			font.family: Fonts.normalFont
 			font.pointSize: 11
 			font.bold: true
 			color: Colors.text

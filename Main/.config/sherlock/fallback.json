@@ -1,19 +1,5 @@
 [
     {
-        "name": "Weather",
-        "type": "weather",
-        "args": {
-            "location": "manchester",
-            "update_interval": 60
-        },
-        "priority": 1,
-        "home": true,
-        "only_home": true,
-        "async": true,
-        "shortcut": false,
-        "spawn_focus": false
-    },
-    {
         "name": "Calculator",
         "type": "calculation",
         "args": {},

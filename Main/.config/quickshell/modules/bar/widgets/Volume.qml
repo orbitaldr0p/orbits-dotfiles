@@ -38,8 +38,8 @@ MouseArea {
 
 		Text {
 			text : Audio.volIcon
-			font.family : Fonts.monoFont
-			font.pointSize : 14
+			font.family : Fonts.normalFont
+			font.pointSize : 12
 			font.bold : true
 			color : Colors.text
 			anchors.verticalCenter : parent.verticalCenter
@@ -47,7 +47,7 @@ MouseArea {
 
 		Text {
 			text : Math.round(Audio.volume * 100) + "%";
-			font.family : Fonts.monoFont
+			font.family : Fonts.normalFont
 			font.pointSize : 11
 			font.bold : true
 			color : Colors.text
@@ -59,6 +59,5 @@ MouseArea {
 			duration : Globals.anim.durations.small
 			easing.type : Easing.InOutQuad
 		}
-
 	}
 }
