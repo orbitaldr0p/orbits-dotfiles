@@ -37,7 +37,6 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.launchClipse()
-                hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
             }
         }
@@ -57,7 +56,6 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: root.launchEyeDropper()
-                hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
             }
         }
