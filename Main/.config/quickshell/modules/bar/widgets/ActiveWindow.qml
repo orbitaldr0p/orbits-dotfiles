@@ -34,7 +34,7 @@ Item {
 	// Fade-out animation
 	ParallelAnimation {
 		id: fadeOutAnim
-		PropertyAnimation { target: windowName; property: "opacity"; to: 0.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
+		PropertyAnimation { target: windowName; property: "opacity"; to: 0.0; duration: Globals.anim.durations.small/2; easing.type: Easing.Linear }
 		PropertyAnimation { target: horizontalScale; property: "xScale"; to: 0.8; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
 		// Removed the scale property animation here
 		onStopped: {
@@ -45,7 +45,7 @@ Item {
 	// Fade-in animation
 	ParallelAnimation {
 		id: fadeInAnim
-		PropertyAnimation { target: windowName; property: "opacity"; from: 0.0; to: 1.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
+		PropertyAnimation { target: windowName; property: "opacity"; from: 0.0; to: 1.0; duration: Globals.anim.durations.small/2; easing.type: Easing.Linear }
 		PropertyAnimation { target: horizontalScale; property: "xScale"; from: 0.8; to: 1.0; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
 	}
 
