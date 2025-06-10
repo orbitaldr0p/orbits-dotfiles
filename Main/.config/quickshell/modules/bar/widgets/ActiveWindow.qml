@@ -7,14 +7,13 @@ import "root:"
 
 Item {
 	id : root
-	
-	width: textContainer.width
-	height: textContainer.height
-
-	clip: true
 	readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
 	property string targetWinName: activeWindow ?. activated ? activeWindow ?. title : ""
 	property string displayedWinName
+
+	width: textContainer.width
+	height: textContainer.height
+	clip: true
 
 	Timer {
 		id: updateTimer
@@ -36,18 +35,15 @@ Item {
 		}
 	}
 
-	// Fade-out animation
 	ParallelAnimation {
 		id: fadeOutAnim
 		PropertyAnimation { target: windowName; property: "opacity"; to: 0.0; duration: Globals.anim.durations.small/2; easing.type: Easing.Linear }
 		PropertyAnimation { target: horizontalScale; property: "xScale"; to: 0.8; duration: Globals.anim.durations.small; easing.bezierCurve: Globals.anim.curves.slideout; easing.type: Easing.BezierSpline }
-		// Removed the scale property animation here
 		onStopped: {
 			updateTimer.start()
 		}
 	}
 
-	// Fade-in animation
 	ParallelAnimation {
 		id: fadeInAnim
 		PropertyAnimation { target: windowName; property: "opacity"; from: 0.0; to: 1.0; duration: Globals.anim.durations.small/2; easing.type: Easing.Linear }
@@ -76,7 +72,6 @@ Item {
 
 			transformOrigin: Item.Center
 			opacity: 1.0
-
 			transform: Scale {
 				id: horizontalScale
 				origin.x: windowName.width / 2
