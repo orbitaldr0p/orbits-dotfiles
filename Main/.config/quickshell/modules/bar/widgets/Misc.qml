@@ -7,15 +7,18 @@ import "root:/data/"
 import "root:"
 
 Rectangle {
-    id: miscRoot
+	id: root
+	property bool hovered: false
     property var iconSize: 17
-    Layout.preferredWidth: miscRow.width
-    Layout.preferredHeight: miscRow.height
     color: "transparent"
+    //width: hovered ? miscWrapper.width: miscIconWrapper.width
+    width: miscWrapper.width
+    height: miscWrapper.height
+    clip: true
 
-    Row {
-        id: miscRow
-        Layout.alignment: Qt.AlignVCenter
+    RowLayout {
+        id: miscWrapper
+        anchors.verticalCenter: parent.verticalCenter
         spacing: 10
 
         Item {
@@ -25,7 +28,7 @@ Rectangle {
                 id: clipHistIcon
                 text: ""
                 font.family: Fonts.monoFont
-                font.pointSize: miscRoot.iconSize
+                font.pointSize: root.iconSize
                 font.bold: true
                 color: Colors.text
                 anchors.verticalCenter: parent.verticalCenter
@@ -33,7 +36,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    miscRoot.launchClipse()
+                    root.launchClipse()
                 }
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
@@ -47,7 +50,7 @@ Rectangle {
                 id: eyeDropperIcon
                 text: ""
                 font.family: Fonts.monoFont
-                font.pointSize: miscRoot.iconSize
+                font.pointSize: root.iconSize
                 font.bold: true
                 color: Colors.text
                 anchors.verticalCenter: parent.verticalCenter
@@ -55,15 +58,39 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    miscRoot.launchEyeDropper()
+                    root.launchEyeDropper()
                 }
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
             }
         }
+
+        Item {
+            id: miscIconWrapper
+            width: miscIcon.implicitWidth
+            height: miscIcon.implicitHeight
+            Text {
+                id: miscIcon
+                text: ""
+                font.family: Fonts.monoFont
+                font.pointSize: root.iconSize
+                font.bold: true
+                color: Colors.text
+                anchors.verticalCenter: parent.verticalCenter
+            }
+        }
     }
 
-    Behavior on Layout.preferredWidth {
+    MouseArea {
+        id: hoverArea
+        anchors.fill: parent
+        hoverEnabled: true
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
+        z: -1
+    }
+
+    Behavior on width {
         NumberAnimation {
             duration: Globals.anim.durations.small
             easing.type: Easing.InOutQuad
