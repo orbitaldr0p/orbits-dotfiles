@@ -8,6 +8,8 @@ Singleton {
     property real cpuPercent
     property real cpuTemp
     property list<real> cpuCoresPercent
+    property int lastCpuIdle
+    property int lastCpuTotal
     property string memUsed
     property string memTotal
     property real memPercent: memTotal > 0 ? Math.round((memUsed / memTotal) * 100) : 0
@@ -20,7 +22,7 @@ Singleton {
 		: ""
 	}
 
-    Process {
+/*     Process {
         id: processCpuPercent
         running: true
         command: ["sh", "-c", "top -bn1 | awk 'NR==3'"]
@@ -30,7 +32,30 @@ Singleton {
                 cpuPercent = Math.round(100 - idle);
             }
         }
+    } */
+
+    FileView {
+        id: processCpuPercent
+
+        path: "/proc/stat"
+        onLoaded: {
+            const data = text().match(/^cpu\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)/);
+            if (data) {
+                const stats = data.slice(1).map(n => parseInt(n, 10));
+                const total = stats.reduce((a, b) => a + b, 0);
+                const idle = stats[3];
+
+                const totalDiff = total - lastCpuTotal;
+                const idleDiff = idle - lastCpuIdle;
+                const perc = totalDiff > 0 ? (1 - idleDiff / totalDiff) * 100 : 0;
+
+                cpuPercent = Math.round(perc)
+                lastCpuTotal = total;
+                lastCpuIdle = idle;
+            }
+        }
     }
+
 
     Process {
         id: processCpuTemp
@@ -98,7 +123,7 @@ Singleton {
         running: true
         repeat: true
         onTriggered: () => {
-            processCpuPercent.running = true;
+            processCpuPercent.reload();
             processCpuTemp.running = true;
             processCpuCoresPercent.running = true;
             processMemUsed.running = true;
