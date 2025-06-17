@@ -13,7 +13,7 @@ Rectangle {
     color: "transparent"
     Layout.preferredWidth: hovered ? miscWrapper.width : miscIconWrapper.width
     height: miscWrapper.height
-    anchors.right: parent.right
+    Layout.alignment: Qt.AlignRight
     clip: true
 
     Row {
