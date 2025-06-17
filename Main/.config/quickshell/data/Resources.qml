@@ -60,10 +60,12 @@ Singleton {
     Process {
         id: processCpuTemp
         running: true
-        command: ["sh", "-c", "sensors | awk 'NR==3 { match($0, /\+([0-9]+\.[0-9]+)°C/, arr); print arr[1] }'"]
+        command: ["fish", "-c", "cat /sys/class/thermal/thermal_zone*/temp | string join ' '"]
         stdout: SplitParser {
-            onRead: (data) => {
-                cpuTemp = data;
+            onRead: data => {
+                const temps = data.trim().split(" ");
+                const sum = temps.reduce((acc, d) => acc + parseInt(d, 10), 0);
+                cpuTemp = Math.round(sum / temps.length / 1000);
             }
         }
     }
