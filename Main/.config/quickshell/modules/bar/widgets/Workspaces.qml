@@ -6,34 +6,24 @@ import "root:/data/"
 import "root:"
 
 Rectangle {
-    // clip: true
-
     id: workspaces
 
     property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
 
     Layout.preferredWidth: workspaceRow.width
+    Layout.preferredHeight : workspaceRow.height
     color: "transparent"
-    height: bar.height
 
     RowLayout {
         id: workspaceRow
-
         height: 35
         layoutDirection: Qt.LeftToRight
-
-        anchors {
-            right: parent.right
-            rightMargin: 10
-            centerIn: parent
-        }
 
         Repeater {
             model: Math.max(HyprlandUtils.maxWorkspace, 5)
 
             MouseArea {
                 id: workspaceButton
-
                 required property int index
                 property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
                     return e.id == index + 1;
@@ -57,21 +47,22 @@ Rectangle {
                     return Hyprland.dispatch(`workspace ${index+1}`);
                 }
 
-                Rectangle {
+                Text {
                     id: workspaceIndicator
-
                     property bool hovered: false
-
                     anchors.centerIn: parent
-                    anchors.fill: parent
-                    radius: height / 2
+                    text: {
+                        const symbols = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
+                        return symbols[index] || (index + 1).toString();
+                    }
+                    font.pointSize: 14
+                    font.family: Fonts.chineseFont
+                    font.bold: true
                     color: {
                         if (focused)
                             return Colors.text;
-
                         if (hovered)
                             return Colors.text;
-
                         return Colors.withAlpha(Colors.text, 0.5);
                     }
 
@@ -80,9 +71,7 @@ Rectangle {
                             duration: Globals.anim.durations.small
                             easing.type: Easing.InOutQuad
                         }
-
                     }
-
                 }
 
                 Behavior on Layout.preferredWidth {
@@ -90,13 +79,9 @@ Rectangle {
                         duration: Globals.anim.durations.small
                         easing.type: Easing.InOutQuad
                     }
-
                 }
-
             }
-
         }
-
     }
 
     Behavior on Layout.preferredWidth {
@@ -104,7 +89,5 @@ Rectangle {
             duration: Globals.anim.durations.workspace
             easing.type: Easing.InOutQuad
         }
-
     }
-
 }
