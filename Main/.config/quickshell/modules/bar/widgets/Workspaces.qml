@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -32,10 +34,7 @@ Rectangle {
                 property bool focused: Hyprland.focusedMonitor !== null && Hyprland.focusedMonitor.activeWorkspace !== null && index + 1 === Hyprland.focusedMonitor.activeWorkspace.id
                 property bool hovered: false
 
-                Layout.preferredWidth: {
-                    return focused ? parent.height * 0.4 : parent.height * 0.4;
-                }
-                Layout.preferredHeight: parent.height * 0.4
+                Layout.preferredWidth: parent.height * 0.5
                 hoverEnabled: true
                 onEntered: (event) => {
                     return workspaceIndicator.hovered = true;
@@ -80,7 +79,8 @@ Rectangle {
     Behavior on Layout.preferredWidth {
         NumberAnimation {
             duration: Globals.anim.durations.small
-            easing.type: Easing.InOutQuad
+			easing.bezierCurve: Globals.anim.curves.slideout
+			easing.type: Easing.BezierSpline
         }
     }
 }
