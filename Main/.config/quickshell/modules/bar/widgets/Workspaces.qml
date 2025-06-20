@@ -73,20 +73,13 @@ Rectangle {
                         }
                     }
                 }
-
-                Behavior on Layout.preferredWidth {
-                    NumberAnimation {
-                        duration: Globals.anim.durations.small
-                        easing.type: Easing.InOutQuad
-                    }
-                }
             }
         }
     }
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: Globals.anim.durations.workspace
+            duration: Globals.anim.durations.small
             easing.type: Easing.InOutQuad
         }
     }
