@@ -1,2 +1,9 @@
+#!/bin/bash
+
 colour=$(hyprpicker -a)
-notify-send "Selected Colour: $colour" -t 1000 -r 91100
+
+if [ -n "$colour" ]; then
+    icon_path="/tmp/colour_preview.png"
+    MAGICK_OCL_DEVICE=OFF convert -size 64x64 xc:"$colour" "$icon_path"
+    notify-send -i "$icon_path" "Selected Colour: $colour" -t 2000 -r 91100
+fi
