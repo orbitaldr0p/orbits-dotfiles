@@ -3,9 +3,9 @@
 - WM: Hyprland
 - Terminal: [Foot](https://codeberg.org/dnkl/foot)
 - Shell: [Fish](https://github.com/fish-shell/fish-shell)
-- Bar: [Waybar](https://github.com/Alexays/Waybar)
+- Bar: [Quickshell](https://quickshell.outfoxxed.me)
 - Logout: [Wlogout](https://github.com/ArtsyMacaw/wlogout)
-- Notification Daemon: [swaync](https://github.com/ErikReider/SwayNotificationCenter)
+- Notification Daemon: [Dunst](https://github.com/dunst-project/dunst)
 - Launcher: [Sherlock](https://github.com/Skxxtz/sherlock)
 
 ![Image](/Stuff/Catppuccin-Frappe-Main.png)
