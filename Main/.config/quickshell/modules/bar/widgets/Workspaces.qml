@@ -35,6 +35,8 @@ Rectangle {
                 property bool hovered: false
 
                 Layout.preferredWidth: parent.height * 0.5
+                height: parent.height
+
                 hoverEnabled: true
                 onEntered: (event) => {
                     return workspaceIndicator.hovered = true;

@@ -9,8 +9,11 @@ import "root:"
 Rectangle {
 	id: root
 	property bool hovered: false
+	property bool menuVisible: false
+	property bool expand: hovered || menuVisible
+
 	color: "transparent"
-	Layout.preferredWidth: hovered ? sysTrayWrapper.width: trayIconWrapper.width
+	Layout.preferredWidth: expand ? sysTrayWrapper.width: trayIconWrapper.width
 	height: trayIconWrapper.height
 	clip: true
 
@@ -26,7 +29,7 @@ Rectangle {
 			Label {
 				id: trayIcon
 				anchors.centerIn: parent
-				opacity: hovered ? 0: 1
+				opacity: expand ? 0: 1
 				text: "󱊖"
 				color: Colors.text
 				font.family: Fonts.normalFont
@@ -58,10 +61,14 @@ Rectangle {
 		Repeater {
 			id: sysTrayRow
 			model: SystemTray.items
-			visible: hovered
+			visible: expand
 			TrayItem {
 				required property SystemTrayItem modelData
 				item: modelData
+				Component.onCompleted: {
+					menuOpened.connect(() => root.menuVisible = true);
+					menuClosed.connect(() => root.menuVisible = false);
+				}
 			}
 		}
 	}

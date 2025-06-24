@@ -11,6 +11,8 @@ MouseArea {
 	id: trayItem
 
 	required property SystemTrayItem item
+	signal menuOpened()
+	signal menuClosed()
 	Layout.preferredWidth: trayIcon.width
 	Layout.preferredHeight: trayIcon.height
 
@@ -28,6 +30,7 @@ MouseArea {
 					const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
 					menuAnchor.anchor.rect = widgetRect;
 					menuAnchor.open();
+					trayItem.menuOpened();
 				}
 				break;
 		}
@@ -46,5 +49,6 @@ MouseArea {
 		menu: item.menu
 		anchor.window: QsWindow.window ?? null
 		anchor.adjustment: PopupAdjustment.Flip
+		onClosed: trayItem.menuClosed()
 	}
 }
