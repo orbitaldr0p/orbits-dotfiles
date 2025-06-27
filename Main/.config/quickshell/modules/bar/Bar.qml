@@ -45,6 +45,8 @@ Scope {
 					Seperator {}
 					Workspaces {}
 					Seperator {}
+					Media {}
+					Seperator {}
 					TrayWidget {}
 				}
 

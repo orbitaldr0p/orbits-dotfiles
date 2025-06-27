@@ -7,14 +7,13 @@ import Quickshell.Hyprland
 import "root:/data/"
 import "root:"
 
-Rectangle {
+Item {
     id: workspaces
 
     property HyprlandMonitor monitor: Hyprland.monitorFor(bar.screen)
 
     Layout.preferredWidth: workspaceRow.width
     Layout.preferredHeight : workspaceRow.height
-    color: "transparent"
 
     RowLayout {
         id: workspaceRow
