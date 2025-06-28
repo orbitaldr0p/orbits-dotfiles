@@ -7,26 +7,35 @@ import "root:/common/"
 import "root:"
 
 Item {
-	id : root
-	readonly property MprisPlayer activePlayer : MprisController.activePlayer
-	readonly property string title : activePlayer.trackTitle || qsTr("No media")
-	readonly property string artist : activePlayer.trackArtist
+	id: root
+	readonly property MprisPlayer activePlayer: MprisController.activePlayer
+	readonly property string title: activePlayer.trackTitle || qsTr("No media")
+	readonly property string artist: activePlayer.trackArtist
+    property bool hovered: false
 
-	Layout.preferredWidth : mediaRow.width
-	Layout.preferredHeight : mediaRow.height
+	Layout.preferredWidth: hovered ? mediaRow.width : mediaIcon.width
+	Layout.preferredHeight: mediaRow.height
     clip: true
 
 	Timer {
-		running : activePlayer ?. playbackState == MprisPlaybackState.Playing
-		interval : 1000
-		repeat : true
-		onTriggered : activePlayer.positionChanged()
+		running: activePlayer ?. playbackState == MprisPlaybackState.Playing
+		interval: 1000
+		repeat: true
+		onTriggered: activePlayer.positionChanged()
 	}
+
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
+    }
 
     Row {
         id: mediaRow
 		spacing: parent.parent.height/4
-		Layout.alignment : Qt.AlignVCenter
+		Layout.alignment: Qt.AlignVCenter
 
         CircularProgress {
             id: mediaIcon
@@ -36,7 +45,7 @@ Item {
             MaterialSymbol {
                 anchors.centerIn: parent
                 fill: 1
-                text: activePlayer?.isPlaying ? "pause" : "music_note"
+                text: activePlayer?.isPlaying ? "pause": "music_note"
                 iconSize: 14
                 color: Colors.text
             }
@@ -51,7 +60,7 @@ Item {
             color: "transparent"
             Text {
                 id: mediaText
-                text: `${root.title}${artist ? ' - ' + artist : ''}`
+                text: `${root.title}${artist ? ' - ' + artist: ''}`
                 font.family: Fonts.monoFont
                 font.pointSize: 11
                 font.bold: false
@@ -67,9 +76,10 @@ Item {
     }
 
 	Behavior on Layout.preferredWidth {
-		NumberAnimation {
-			duration : Globals.anim.durations.small
-			easing.type : Easing.InOutQuad
-		}
+        NumberAnimation {
+            duration: Globals.anim.durations.normal
+            easing.bezierCurve: Globals.anim.curves.bg
+            easing.type: Easing.BezierSpline
+        }
 	}
 }
