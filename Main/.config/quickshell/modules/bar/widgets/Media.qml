@@ -9,7 +9,7 @@ import "root:"
 Item {
 	id: root
 	readonly property MprisPlayer activePlayer: MprisController.activePlayer
-	readonly property string title: activePlayer.trackTitle || qsTr("No media")
+	readonly property string title: activePlayer.trackTitle || "No media"
 	readonly property string artist: activePlayer.trackArtist
     property bool hovered: false
 
@@ -54,11 +54,11 @@ Item {
             id: mediaIcon
             lineWidth: 2
             value: activePlayer?.position / activePlayer?.length
-            size: 24
+            size: 26
             Text {
-				text: activePlayer?.isPlaying ? "  ": "  "
+				text: activePlayer?.isPlaying ? "  ": "  "
 				font.family: Fonts.monoFont
-				font.pointSize: 16
+				font.pointSize: 18
 				font.bold: true
 				color: Colors.text
 				anchors.centerIn: parent
@@ -74,7 +74,7 @@ Item {
             color: "transparent"
             Text {
                 id: mediaText
-                text: `${root.title}${artist ? ' - ' + artist: ''}`
+                text: `${title}${artist ? ' - ' + artist: ''}`
                 font.family: Fonts.monoFont
                 font.pointSize: 11
                 font.bold: false
