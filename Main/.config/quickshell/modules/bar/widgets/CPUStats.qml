@@ -1,8 +1,8 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell
+import Quickshell.Io
 import "root:/data/"
+import "root:/common/"
 import "root:"
 
 MouseArea {
@@ -37,13 +37,18 @@ MouseArea {
 			id : cpuPercentRow
 			anchors.verticalCenter : parent.verticalCenter
 			spacing : 5
-			Text {
-				text : ""
-				font.family : Fonts.normalFont
-				font.pointSize : 11
-				font.bold : true
-				color : Colors.text
-				anchors.verticalCenter : parent.verticalCenter
+			CircularProgress {
+				id: mediaIcon
+				lineWidth: 2
+				value: Resources.cpuPercent / 100
+				size: 24
+				MaterialSymbol {
+					anchors.centerIn: parent
+					fill: 1
+					text: "memory"
+					iconSize: 14
+					color: Colors.text
+				}
 			}
 			Text {
 				text : Resources.cpuPercent.toString() + "%"

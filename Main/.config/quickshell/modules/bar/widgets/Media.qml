@@ -1,56 +1,75 @@
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import Quickshell.Services.Mpris
 import "root:/data/"
+import "root:/common/"
 import "root:"
 
-MouseArea {
-    id: root
-    readonly property MprisPlayer activePlayer: MprisController.activePlayer
-    readonly property string title: activePlayer.trackTitle || qsTr("No media")
-    readonly property string artist: activePlayer.trackArtist 
+Item {
+	id : root
+	readonly property MprisPlayer activePlayer : MprisController.activePlayer
+	readonly property string title : activePlayer.trackTitle || qsTr("No media")
+	readonly property string artist : activePlayer.trackArtist
 
-    Layout.preferredWidth: mediaRow.width
-    height: parent.height
+	Layout.preferredWidth : mediaRow.width
+	Layout.preferredHeight : mediaRow.height
+    clip: true
 
-    Timer {
-        running: activePlayer?.playbackState == MprisPlaybackState.Playing
-        interval: 1000
-        repeat: true
-        onTriggered: activePlayer.positionChanged()
-    }
-
-    acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
-    cursorShape: Qt.PointingHandCursor
+	Timer {
+		running : activePlayer ?. playbackState == MprisPlaybackState.Playing
+		interval : 1000
+		repeat : true
+		onTriggered : activePlayer.positionChanged()
+	}
 
     Row {
         id: mediaRow
-        Layout.alignment: Qt.AlignVCenter
-        width: Math.min(200, mediaText.implicitWidth)
-        height: parent.height
-        spacing: 5
+		spacing: parent.parent.height/4
+		Layout.alignment : Qt.AlignVCenter
 
-        Text {
-            id: mediaText
-            text: `${root.title}${artist ? ' - ' + artist : ''}`
-            font.family: Fonts.monoFont
-            font.pointSize: 11
-            font.bold: false
-            color: Colors.text
-            elide: Text.ElideRight
-            anchors.verticalCenter: parent.verticalCenter
-            horizontalAlignment: Text.AlignLeft
-            clip: true
-            width: parent.width
+        CircularProgress {
+            id: mediaIcon
+            lineWidth: 2
+            value: activePlayer?.position / activePlayer?.length
+            size: 24
+            MaterialSymbol {
+                anchors.centerIn: parent
+                fill: 1
+                text: activePlayer?.isPlaying ? "pause" : "music_note"
+                iconSize: 14
+                color: Colors.text
+            }
+        }
+
+        Rectangle {
+            id: mediaTextContainer
+            Layout.fillHeight: true
+            Layout.alignment: Qt.AlignVCenter
+            implicitWidth: Math.min(200, mediaText.implicitWidth)
+            height: parent.height
+            color: "transparent"
+            Text {
+                id: mediaText
+                text: `${root.title}${artist ? ' - ' + artist : ''}`
+                font.family: Fonts.monoFont
+                font.pointSize: 11
+                font.bold: false
+                color: Colors.text
+                elide: Text.ElideRight
+                width: parent.width
+                height: parent.height
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+                clip: true
+            }
         }
     }
 
-    Behavior on Layout.preferredWidth {
-        NumberAnimation {
-            duration: Globals.anim.durations.small
-            easing.type: Easing.InOutQuad
-        }
-    }
+	Behavior on Layout.preferredWidth {
+		NumberAnimation {
+			duration : Globals.anim.durations.small
+			easing.type : Easing.InOutQuad
+		}
+	}
 }
