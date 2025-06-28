@@ -11,7 +11,7 @@ MouseArea {
 	Layout.preferredWidth : hovered ? cpuRow.width : cpuPercentRow.width
 	Layout.preferredHeight : cpuRow.height
 	clip: true
-	
+
 	acceptedButtons : Qt.LeftButton | Qt.RightButton
 	cursorShape : Qt.PointingHandCursor
 	hoverEnabled: true
@@ -36,17 +36,17 @@ MouseArea {
 		Row {
 			id : cpuPercentRow
 			anchors.verticalCenter : parent.verticalCenter
-			spacing : 5
+			spacing : 4
 			CircularProgress {
 				id: mediaIcon
 				lineWidth: 2
 				value: Resources.cpuPercent / 100
-				size: 24
+				size: 26
 				MaterialSymbol {
 					anchors.centerIn: parent
 					fill: 1
 					text: "memory"
-					iconSize: 14
+					iconSize: 18
 					color: Colors.text
 				}
 			}
