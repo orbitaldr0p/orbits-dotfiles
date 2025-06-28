@@ -9,8 +9,8 @@ import "root:"
 Item {
 	id: root
 	readonly property MprisPlayer activePlayer: MprisController.activePlayer
-	readonly property string title: activePlayer.trackTitle || "No media"
-	readonly property string artist: activePlayer.trackArtist
+	readonly property string title: activePlayer ? activePlayer.trackTitle || "No media" : "No media"
+    readonly property string artist: activePlayer ? activePlayer.trackArtist || "" : ""
     property bool hovered: false
 
 	Layout.preferredWidth: hovered ? mediaRow.width : mediaIcon.width
