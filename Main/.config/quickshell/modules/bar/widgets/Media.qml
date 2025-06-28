@@ -26,7 +26,20 @@ Item {
 
     MouseArea {
         anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
+
+        onClicked: mouse => {
+            switch (mouse.button) {
+                case Qt.LeftButton:
+                    console.log("TODO: open now playing")
+                    break;
+                case Qt.MiddleButton:
+                    activePlayer.togglePlaying();
+                    break;
+            }
+        }
+
         hoverEnabled: true
         onEntered: root.hovered = true
         onExited: root.hovered = false
