@@ -28,16 +28,22 @@ MouseArea {
     Row {
         id: mediaRow
         Layout.alignment: Qt.AlignVCenter
+        width: Math.min(200, mediaText.implicitWidth)
         height: parent.height
         spacing: 5
 
         Text {
+            id: mediaText
             text: `${root.title}${artist ? ' - ' + artist : ''}`
             font.family: Fonts.monoFont
             font.pointSize: 11
             font.bold: false
             color: Colors.text
+            elide: Text.ElideRight
             anchors.verticalCenter: parent.verticalCenter
+            horizontalAlignment: Text.AlignLeft
+            clip: true
+            width: parent.width
         }
     }
 
