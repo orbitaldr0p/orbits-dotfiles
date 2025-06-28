@@ -42,12 +42,13 @@ MouseArea {
 				lineWidth: 2
 				value: Resources.cpuPercent / 100
 				size: 26
-				MaterialSymbol {
-					anchors.centerIn: parent
-					fill: 1
-					text: "memory"
-					iconSize: 18
+				Text {
+					text: "  "
+					font.family: Fonts.monoFont
+					font.pointSize: 16
+					font.bold: true
 					color: Colors.text
+					anchors.centerIn: parent
 				}
 			}
 			Text {

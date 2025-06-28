@@ -39,7 +39,7 @@ MouseArea {
 		Text {
 			text: Audio.volIcon
 			font.family: Fonts.normalFont
-			font.pointSize: 12
+			font.pointSize: 14
 			font.bold: true
 			color: Colors.text
 			anchors.verticalCenter: parent.verticalCenter

@@ -55,13 +55,14 @@ Item {
             lineWidth: 2
             value: activePlayer?.position / activePlayer?.length
             size: 24
-            MaterialSymbol {
-                anchors.centerIn: parent
-                fill: 1
-                text: activePlayer?.isPlaying ? "pause": "music_note"
-                iconSize: 14
-                color: Colors.text
-            }
+            Text {
+				text: activePlayer?.isPlaying ? "  ": "  "
+				font.family: Fonts.monoFont
+				font.pointSize: 16
+				font.bold: true
+				color: Colors.text
+				anchors.centerIn: parent
+			}
         }
 
         Rectangle {
