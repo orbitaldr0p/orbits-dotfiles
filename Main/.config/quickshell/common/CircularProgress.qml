@@ -2,7 +2,9 @@
 
 import QtQuick
 import "root:/data/"
-import "root:"
+import "root:/common/"
+import "root:/config/"
+
 
 Item {
     id: root

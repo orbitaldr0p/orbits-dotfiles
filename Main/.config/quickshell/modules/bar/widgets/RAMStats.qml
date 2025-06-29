@@ -1,9 +1,12 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import "root:/data/"
 import "root:/common/"
-import "root:"
+import "root:/config/"
+
 
 Rectangle {
 	Layout.preferredWidth: ramRow.width

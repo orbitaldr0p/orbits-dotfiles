@@ -2,6 +2,10 @@
 
 import QtQuick
 import QtQuick.Layouts
+import "root:/data/"
+import "root:/common/"
+import "root:/config/"
+
 
 Text {
     id: root

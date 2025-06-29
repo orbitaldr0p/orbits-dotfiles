@@ -1,7 +1,12 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import Quickshell
+import QtQuick.Layouts
 import Quickshell.Io
 import "root:/data/"
+import "root:/common/"
+import "root:/config/"
+
 
 Text {
     text: "|"

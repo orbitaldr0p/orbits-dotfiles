@@ -1,8 +1,12 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
-import "root:/data/"
+import "root:/config/"
+
+
 import "widgets"
 import "widgets/tray"
 

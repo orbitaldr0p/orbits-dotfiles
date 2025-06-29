@@ -3,7 +3,8 @@ import Quickshell
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import "root:/data/"
-import "root:"
+import "root:/common/"
+import "root:/config/"
 
 Rectangle {
 	property int monitorWidth: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.width: 0

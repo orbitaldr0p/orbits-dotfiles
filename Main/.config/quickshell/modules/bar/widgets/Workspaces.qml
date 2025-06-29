@@ -2,10 +2,12 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
+import Quickshell.Io
 import Quickshell.Hyprland
 import "root:/data/"
-import "root:"
+import "root:/common/"
+import "root:/config/"
+
 
 Item {
     id: workspaces

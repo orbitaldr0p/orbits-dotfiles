@@ -1,9 +1,12 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
-import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Io
 import "root:/data/"
-import "root:"
+import "root:/common/"
+import "root:/config/"
+
 
 MouseArea {
     id:root

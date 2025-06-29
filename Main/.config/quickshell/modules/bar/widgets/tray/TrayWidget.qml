@@ -1,10 +1,14 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
 import "root:/data/"
-import "root:"
+import "root:/common/"
+import "root:/config/"
+
 
 Rectangle {
 	id: root

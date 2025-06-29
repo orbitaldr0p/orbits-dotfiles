@@ -35,5 +35,4 @@ Singleton {
         let color = Qt.color(c);
         return Qt.rgba(color.r, color.g, color.b, a);
     }
-
 }

@@ -6,6 +6,9 @@ import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 import "root:/data/"
+import "root:/common/"
+import "root:/config/"
+
 
 MouseArea {
 	id: trayItem
