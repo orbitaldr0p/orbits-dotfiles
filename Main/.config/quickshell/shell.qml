@@ -1,23 +1,12 @@
 //@ pragma UseQApplication
 import Quickshell
-import Quickshell.Wayland
-import "modules"
 import "modules/bar"
+import "modules/background"
 
 ShellRoot {
-    Bar {}
+	property bool enableBar: true
+	property bool enableBG: true
 
-	PanelWindow {
-		id: background
-		exclusionMode: ExclusionMode.Ignore
-		WlrLayershell.layer: WlrLayer.Background
-		color: "transparent"
-		anchors {
-			top: true
-			left: true
-			right: true
-			bottom: true
-		}
-		BackgroundImage {}
-	}
+    LazyLoader { active: enableBar; component: Bar {} }
+	LazyLoader { active: enableBG; component: BackgroundImageLoader {} }
 }
