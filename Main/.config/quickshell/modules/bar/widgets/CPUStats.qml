@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
+import Quickshell.Hyprland
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
@@ -18,8 +19,14 @@ MouseArea {
 	acceptedButtons : Qt.LeftButton | Qt.RightButton
 	cursorShape : Qt.PointingHandCursor
 	hoverEnabled: true
-    onEntered: root.hovered = true
-    onExited: root.hovered = false
+    onEntered: {
+		root.hovered = true 
+		Hyprland.dispatch("global quickshell:cpuPopupToggle")
+	}
+    onExited: {
+		root.hovered = false 
+		Hyprland.dispatch("global quickshell:cpuPopupToggle")
+	}
 
 	onClicked : mouse => {
 		switch (mouse.button) {
