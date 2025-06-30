@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
 import Quickshell.Services.Mpris
+import Quickshell.Hyprland
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
@@ -35,7 +36,7 @@ Item {
         onClicked: mouse => {
             switch (mouse.button) {
                 case Qt.LeftButton:
-                    console.log("TODO: open now playing")
+                    Hyprland.dispatch("global quickshell:mediaControlsToggle")
                     break;
                 case Qt.MiddleButton:
                     activePlayer.togglePlaying();
