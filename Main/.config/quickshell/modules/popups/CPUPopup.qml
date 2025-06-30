@@ -3,10 +3,8 @@ pragma ComponentBehavior: Bound
 import Qt5Compat.GraphicalEffects
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
-import Quickshell.Services.Mpris
 import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
@@ -20,8 +18,8 @@ Scope {
 	Loader {
 		id: cpuPopupLoader
 		active: false
-		sourceComponent: PanelWindow { // WlrLayershell.namespace: "quickshell:cpuPopup"
-
+		sourceComponent: PanelWindow { 
+			// WlrLayershell.namespace: "quickshell:cpuPopup"
 			visible: true
 			exclusiveZone: 0
 
