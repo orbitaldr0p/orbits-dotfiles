@@ -49,21 +49,21 @@ Scope {
 						topMargin: 5
 						bottomMargin: 5
 					}
-					spacing: 0
+					spacing: 10
 					Repeater {
 						model: cpuCoresPercent
 						Item {
-							id: cpuCoreStat
 							required property int index;
 							required property string modelData;
 
-							width: 140
-							height: 25
+							implicitWidth: coreStat.implicitWidth
+							implicitHeight: coreStat.implicitHeight
 							Text {
-								text: " Core "+String(index).padStart(2, "0")+": "+Math.round(parseFloat(modelData))+"%"
+								id: coreStat
+								text: " Core "+String(index).padStart(2, "0")+": "+String(Math.round(parseFloat(modelData))).padStart(2, "0")+"% "
 								color: Colors.text
-								font.family: Fonts.normalFont
-								font.pointSize: 12
+								font.family: Fonts.monoFont
+								font.pointSize: 10
 							}
 						}
 					}
