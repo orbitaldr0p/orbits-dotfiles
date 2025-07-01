@@ -1,8 +1,9 @@
+pragma Singleton
+pragma ComponentBehavior: Bound
+
+import QtQuick
 import Quickshell
 import Quickshell.Io
-import QtQuick
-
-pragma Singleton
 
 Singleton {
     id: root
@@ -79,7 +80,7 @@ Singleton {
     }
 
     function launchBTMenu() {
-        btMenu.running = true
+        btMenu.running = true;
     }
 
     Process {

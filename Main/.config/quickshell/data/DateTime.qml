@@ -1,8 +1,10 @@
+pragma Singleton
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Io
-pragma Singleton
-pragma ComponentBehavior: Bound
+
 Singleton {
     // Date components
     property string weekday
@@ -22,7 +24,7 @@ Singleton {
         running: true
 
         stdout: SplitParser {
-            onRead: (data) => {
+            onRead: data => {
                 // Example output: "Tue May 28 12:34:56 BST 2025"
                 let parts = data.trim().split(/\s+/);
                 if (parts.length >= 6) {
@@ -40,7 +42,6 @@ Singleton {
                 }
             }
         }
-
     }
 
     Timer {
@@ -49,5 +50,4 @@ Singleton {
         repeat: true
         onTriggered: dateProc.running = true
     }
-
 }

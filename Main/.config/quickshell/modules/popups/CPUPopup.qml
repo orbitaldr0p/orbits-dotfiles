@@ -1,12 +1,9 @@
 pragma ComponentBehavior: Bound
 
-import Qt5Compat.GraphicalEffects
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
-import Quickshell.Widgets
-import Quickshell.Wayland
 import Quickshell.Hyprland
 import "root:/data/"
 import "root:/common/"
@@ -19,7 +16,6 @@ Scope {
         id: cpuPopupLoader
         active: false
         sourceComponent: PanelWindow {
-            // WlrLayershell.namespace: "quickshell:cpuPopup"
             visible: true
             exclusiveZone: 0
 
@@ -51,7 +47,7 @@ Scope {
                     }
                     spacing: 10
                     Repeater {
-                        model: cpuCoresPercent
+                        model: root.cpuCoresPercent
                         Item {
                             required property int index
                             required property string modelData

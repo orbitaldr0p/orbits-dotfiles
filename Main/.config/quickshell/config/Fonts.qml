@@ -1,6 +1,6 @@
+pragma Singleton
 import QtQuick
 import Quickshell
-pragma Singleton
 
 QtObject {
     property string normalFont: "JetBrainsMono Nerd Font"

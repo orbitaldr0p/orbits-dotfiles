@@ -2,11 +2,9 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
-
 
 MouseArea {
     Layout.preferredWidth: batteryRow.width
@@ -16,12 +14,12 @@ MouseArea {
 
     onClicked: mouse => {
         switch (mouse.button) {
-            case Qt.LeftButton:
-                Power.batteryMonitor()
-                break;
-            case Qt.RightButton:
-                Power.changePowerProfile()
-                break;
+        case Qt.LeftButton:
+            Power.batteryMonitor();
+            break;
+        case Qt.RightButton:
+            Power.changePowerProfile();
+            break;
         }
     }
 

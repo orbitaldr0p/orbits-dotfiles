@@ -9,49 +9,48 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-
 MouseArea {
-	id: trayItem
+    id: trayItem
 
-	required property SystemTrayItem item
-	signal menuOpened()
-	signal menuClosed()
-	Layout.preferredWidth: trayIcon.width
-	Layout.preferredHeight: trayIcon.height
+    required property SystemTrayItem item
+    signal menuOpened
+    signal menuClosed
+    Layout.preferredWidth: trayIcon.width
+    Layout.preferredHeight: trayIcon.height
 
-	acceptedButtons: Qt.LeftButton | Qt.RightButton
-	cursorShape: Qt.PointingHandCursor
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    cursorShape: Qt.PointingHandCursor
 
-	onClicked: mouse => {
-		switch (mouse.button) {
-			case Qt.LeftButton:
-				item.activate();
-				break;
-			case Qt.RightButton:
-				if (item.hasMenu) {
-					const window = QsWindow.window;
-					const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
-					menuAnchor.anchor.rect = widgetRect;
-					menuAnchor.open();
-					trayItem.menuOpened();
-				}
-				break;
-		}
-	}
+    onClicked: mouse => {
+        switch (mouse.button) {
+        case Qt.LeftButton:
+            item.activate();
+            break;
+        case Qt.RightButton:
+            if (item.hasMenu) {
+                const window = QsWindow.window;
+                const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
+                menuAnchor.anchor.rect = widgetRect;
+                menuAnchor.open();
+                trayItem.menuOpened();
+            }
+            break;
+        }
+    }
 
-	IconImage {
-		id: trayIcon
-		required property SystemTrayItem item
-		item: trayItem.item
-		source: item.icon
-		implicitSize: 17
-	}
+    IconImage {
+        id: trayIcon
+        required property SystemTrayItem item
+        item: trayItem.item
+        source: item.icon
+        implicitSize: 17
+    }
 
-	QsMenuAnchor {
-		id: menuAnchor
-		menu: item.menu
-		anchor.window: QsWindow.window ?? null
-		anchor.adjustment: PopupAdjustment.Flip
-		onClosed: trayItem.menuClosed()
-	}
+    QsMenuAnchor {
+        id: menuAnchor
+        menu: item.menu
+        anchor.window: QsWindow.window ?? null
+        anchor.adjustment: PopupAdjustment.Flip
+        onClosed: trayItem.menuClosed()
+    }
 }

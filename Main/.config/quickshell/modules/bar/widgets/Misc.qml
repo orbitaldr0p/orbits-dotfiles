@@ -7,10 +7,9 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-
 Rectangle {
-	id: root
-	property bool hovered: false
+    id: root
+    property bool hovered: false
     property var iconSize: 17
     color: "transparent"
     Layout.preferredWidth: hovered ? miscWrapper.width : miscIconWrapper.width
@@ -96,16 +95,16 @@ Rectangle {
 
     //==================================================================
     function launchProcess(proc) {
-        proc.running = true
+        proc.running = true;
     }
 
     Process {
-		id: clipse
-		command: ["sh", "-c", "foot -T 'ftui-Clipboard History' -e clipse"]
-	}
+        id: clipse
+        command: ["sh", "-c", "foot -T 'ftui-Clipboard History' -e clipse"]
+    }
 
     Process {
-		id: eyeDropper
-		command: ["sh", "-c", "~/.scripts/eyedropper.sh"]
-	}
+        id: eyeDropper
+        command: ["sh", "-c", "~/.scripts/eyedropper.sh"]
+    }
 }

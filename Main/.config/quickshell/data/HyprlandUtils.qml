@@ -1,8 +1,9 @@
+pragma Singleton
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-pragma Singleton
-pragma ComponentBehavior: Bound
 
 Singleton {
     id: hyprland
@@ -12,7 +13,7 @@ Singleton {
     property int maxWorkspace: findMaxId()
 
     function sortWorkspaces(ws) {
-        return Array.from(ws).sort(function(a, b) {
+        return Array.from(ws).sort(function (a, b) {
             return a.id - b.id;
         });
     }
@@ -37,16 +38,17 @@ Singleton {
                 {
                     hyprland.workspaces = hyprland.sortWorkspaces(Hyprland.workspaces.values);
                     hyprland.maxWorkspace = findMaxId();
-                };
+                }
+                ;
             case "destroyworkspacev2":
                 {
                     hyprland.workspaces = hyprland.sortWorkspaces(Hyprland.workspaces.values);
                     hyprland.maxWorkspace = findMaxId();
-                };
+                }
+                ;
             }
         }
 
         target: Hyprland
     }
-
 }

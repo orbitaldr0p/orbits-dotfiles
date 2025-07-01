@@ -5,7 +5,6 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-
 Item {
     id: root
 

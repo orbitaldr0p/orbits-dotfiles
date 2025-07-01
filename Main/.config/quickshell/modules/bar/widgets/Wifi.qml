@@ -2,14 +2,12 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-
 MouseArea {
-    id:root
+    id: root
     property bool hovered: false
     Layout.preferredWidth: hovered ? wifiRow.width : wifiIcon.width
     Layout.preferredHeight: wifiRow.height

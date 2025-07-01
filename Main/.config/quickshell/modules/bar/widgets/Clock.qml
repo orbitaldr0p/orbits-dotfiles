@@ -1,12 +1,9 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import QtQuick.Layouts
-import Quickshell.Io
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
-
 
 Text {
     text: {
@@ -17,7 +14,6 @@ Text {
             period = "PM";
             if (h > 12)
                 h -= 12;
-
         } else if (h === 0) {
             h = 12;
         }

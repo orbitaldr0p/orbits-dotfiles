@@ -2,11 +2,9 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
-
 
 MouseArea {
     Layout.preferredWidth: bluetoothRow.width
@@ -32,7 +30,8 @@ MouseArea {
 
         Text {
             text: {
-                if (!Bluetooth.powered) return "";
+                if (!Bluetooth.powered)
+                    return "";
                 const connectedDevices = Bluetooth.devices.filter(d => d.connected);
                 return connectedDevices.length > 0 ? connectedDevices.length.toString() : "On";
             }

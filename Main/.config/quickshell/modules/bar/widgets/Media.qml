@@ -2,31 +2,29 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 import Quickshell.Services.Mpris
 import Quickshell.Hyprland
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-
 Item {
-	id: root
-	readonly property MprisPlayer activePlayer: MprisController.activePlayer
-	readonly property string title: activePlayer ? activePlayer.trackTitle || "No media" : "No media"
+    id: root
+    readonly property MprisPlayer activePlayer: MprisController.activePlayer
+    readonly property string title: activePlayer ? activePlayer.trackTitle || "No media" : "No media"
     readonly property string artist: activePlayer ? activePlayer.trackArtist || "" : ""
     property bool hovered: false
 
-	Layout.preferredWidth: hovered ? mediaRow.width : mediaIcon.width
-	Layout.preferredHeight: mediaRow.height
+    Layout.preferredWidth: hovered ? mediaRow.width : mediaIcon.width
+    Layout.preferredHeight: mediaRow.height
     clip: true
 
-	Timer {
-		running: activePlayer ?. playbackState == MprisPlaybackState.Playing
-		interval: 1000
-		repeat: true
-		onTriggered: activePlayer.positionChanged()
-	}
+    Timer {
+        running: activePlayer?.playbackState == MprisPlaybackState.Playing
+        interval: 1000
+        repeat: true
+        onTriggered: activePlayer.positionChanged()
+    }
 
     MouseArea {
         anchors.fill: parent
@@ -35,12 +33,12 @@ Item {
 
         onClicked: mouse => {
             switch (mouse.button) {
-                case Qt.LeftButton:
-                    Hyprland.dispatch("global quickshell:mediaControlsToggle")
-                    break;
-                case Qt.MiddleButton:
-                    activePlayer.togglePlaying();
-                    break;
+            case Qt.LeftButton:
+                Hyprland.dispatch("global quickshell:mediaControlsToggle");
+                break;
+            case Qt.MiddleButton:
+                activePlayer.togglePlaying();
+                break;
             }
         }
 
@@ -51,8 +49,8 @@ Item {
 
     Row {
         id: mediaRow
-		spacing: parent.parent.height/4
-		Layout.alignment: Qt.AlignVCenter
+        spacing: parent.parent.height / 4
+        Layout.alignment: Qt.AlignVCenter
 
         CircularProgress {
             id: mediaIcon
@@ -60,13 +58,13 @@ Item {
             value: activePlayer?.position / activePlayer?.length
             size: 26
             Text {
-				text: activePlayer?.isPlaying ? "  ": "  "
-				font.family: Fonts.monoFont
-				font.pointSize: 18
-				font.bold: true
-				color: Colors.text
-				anchors.centerIn: parent
-			}
+                text: activePlayer?.isPlaying ? "  " : "  "
+                font.family: Fonts.monoFont
+                font.pointSize: 18
+                font.bold: true
+                color: Colors.text
+                anchors.centerIn: parent
+            }
         }
 
         Rectangle {
@@ -78,7 +76,7 @@ Item {
             color: "transparent"
             Text {
                 id: mediaText
-                text: `${title}${artist ? ' - ' + artist: ''}`
+                text: `${title}${artist ? ' - ' + artist : ''}`
                 font.family: Fonts.monoFont
                 font.pointSize: 11
                 font.bold: false
@@ -93,11 +91,11 @@ Item {
         }
     }
 
-	Behavior on Layout.preferredWidth {
+    Behavior on Layout.preferredWidth {
         NumberAnimation {
             duration: Globals.anim.durations.normal
             easing.bezierCurve: Globals.anim.curves.bg
             easing.type: Easing.BezierSpline
         }
-	}
+    }
 }

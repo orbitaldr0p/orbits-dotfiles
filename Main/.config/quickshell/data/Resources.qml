@@ -1,8 +1,9 @@
+pragma Singleton
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Io
-pragma Singleton
-pragma ComponentBehavior: Bound
 
 Singleton {
     property real cpuPercent
@@ -22,18 +23,6 @@ Singleton {
 		: ""
 	}
 
-/*     Process {
-        id: processCpuPercent
-        running: true
-        command: ["sh", "-c", "top -bn1 | awk 'NR==3'"]
-        stdout: SplitParser {
-            onRead: (data) => {
-                const idle = data.split(',')[3].trim().split(' ')[0];
-                cpuPercent = Math.round(100 - idle);
-            }
-        }
-    } */
-
     FileView {
         id: processCpuPercent
 
@@ -49,13 +38,12 @@ Singleton {
                 const idleDiff = idle - lastCpuIdle;
                 const perc = totalDiff > 0 ? (1 - idleDiff / totalDiff) * 100 : 0;
 
-                cpuPercent = Math.round(perc)
+                cpuPercent = Math.round(perc);
                 lastCpuTotal = total;
                 lastCpuIdle = idle;
             }
         }
     }
-
 
     Process {
         id: processCpuTemp
@@ -75,7 +63,7 @@ Singleton {
         running: true
         command: ["sh", "-c", "mpstat -P ALL 1 1 | awk '/Average/ && $2 ~ /^[0-9]+$/ {print 100 - $12}' | paste -sd ','"]
         stdout: SplitParser {
-            onRead: (data) => {
+            onRead: data => {
                 return cpuCoresPercent = data.trim().split(",");
             }
         }
@@ -86,7 +74,7 @@ Singleton {
         running: true
         command: ["sh", "-c", "free -m | awk 'NR==2{print $3}'"]
         stdout: SplitParser {
-            onRead: (data) => {
+            onRead: data => {
                 return memUsed = data;
             }
         }
@@ -97,28 +85,28 @@ Singleton {
         running: true
         command: ["sh", "-c", "free -m | awk 'NR==2{print $2}'"]
         stdout: SplitParser {
-            onRead: (data) => {
+            onRead: data => {
                 return memTotal = data;
             }
         }
     }
 
     function systemMonitor() {
-		sysMon.running = true
-	}
-	function gpuMonitor() {
-		gpuMon.running = true
-	}
+        sysMon.running = true;
+    }
+    function gpuMonitor() {
+        gpuMon.running = true;
+    }
 
     Process {
-		id: sysMon
-		command: ["sh", "-c", "foot -T 'ftui-System Monitor' -e btop"]
-	}
+        id: sysMon
+        command: ["sh", "-c", "foot -T 'ftui-System Monitor' -e btop"]
+    }
 
     Process {
-		id: gpuMon
-		command: ["sh", "-c", "foot -T 'ftui-GPU Status' -e nvtop"]
-	}
+        id: gpuMon
+        command: ["sh", "-c", "foot -T 'ftui-GPU Status' -e nvtop"]
+    }
 
     Timer {
         interval: 3000
@@ -132,5 +120,4 @@ Singleton {
             processMemTotal.running = true;
         }
     }
-
 }

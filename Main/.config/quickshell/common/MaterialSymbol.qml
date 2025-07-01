@@ -1,11 +1,9 @@
 // Stolen from end-4
 
 import QtQuick
-import QtQuick.Layouts
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
-
 
 Text {
     id: root
@@ -18,11 +16,11 @@ Text {
         family: "Material Symbols Rounded"
         pixelSize: iconSize
         weight: Font.Normal + (Font.DemiBold - Font.Normal) * fill
-        variableAxes: { 
+        variableAxes: {
             "FILL": truncatedFill,
             // "wght": font.weight,
             // "GRAD": 0,
-            "opsz": iconSize,
+            "opsz": iconSize
         }
     }
     verticalAlignment: Text.AlignVCenter
