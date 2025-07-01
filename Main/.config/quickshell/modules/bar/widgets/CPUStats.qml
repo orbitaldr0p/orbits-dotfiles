@@ -82,7 +82,7 @@ MouseArea {
 				font.family : Fonts.normalFont
 				font.pointSize : 11
 				font.bold : true
-				color : Colors.text
+				color : Resources.cpuTemp >= 80 ? Colors.red : Colors.text
 				anchors.verticalCenter : parent.verticalCenter
 			}
 			Text {
@@ -90,7 +90,7 @@ MouseArea {
 				font.family : Fonts.normalFont
 				font.pointSize : 11
 				font.bold : true
-				color : Colors.text
+				color : Resources.cpuTemp >= 80 ? Colors.red : Colors.text
 				anchors.verticalCenter : parent.verticalCenter
 			}
 		}
