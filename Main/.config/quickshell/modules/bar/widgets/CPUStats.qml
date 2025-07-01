@@ -51,13 +51,15 @@ MouseArea {
 				id: mediaIcon
 				lineWidth: 2
 				value: Resources.cpuPercent / 100
+				primaryColor: Resources.cpuPercent >= 80 ? Colors.red : Colors.text
+				secondaryColor: Resources.cpuPercent >= 80 ? Colors.withAlpha(Colors.red, 0.5) : Colors.withAlpha(Colors.text, 0.5)
 				size: 26
 				Text {
 					text: "  "
 					font.family: Fonts.monoFont
 					font.pointSize: 16
 					font.bold: true
-					color: Colors.text
+					color: Resources.cpuPercent >= 80 ? Colors.red : Colors.text
 					anchors.centerIn: parent
 				}
 			}
@@ -66,7 +68,7 @@ MouseArea {
 				font.family : Fonts.normalFont
 				font.pointSize : 11
 				font.bold : true
-				color : Colors.text
+				color : Resources.cpuPercent >= 80 ? Colors.red : Colors.text
 				anchors.verticalCenter : parent.verticalCenter
 			}
 		}

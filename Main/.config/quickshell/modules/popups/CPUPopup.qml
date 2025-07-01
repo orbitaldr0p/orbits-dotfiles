@@ -30,8 +30,8 @@ Scope {
 			margins {
 				top: 5
 				bottom: 0
-				left: 5
-				right: 5
+				left: 10
+				right: 0
 			}
 			color: "transparent"
 			implicitWidth: cpuColumnLayout.implicitWidth
@@ -61,7 +61,7 @@ Scope {
 							Text {
 								id: coreStat
 								text: " Core "+String(index).padStart(2, "0")+": "+String(Math.round(parseFloat(modelData))).padStart(2, "0")+"% "
-								color: Colors.text
+								color: modelData < 1 ? Colors.withAlpha(Colors.text, 0.5) : modelData >= 80 ? Colors.red : Colors.text
 								font.family: Fonts.monoFont
 								font.pointSize: 10
 							}
