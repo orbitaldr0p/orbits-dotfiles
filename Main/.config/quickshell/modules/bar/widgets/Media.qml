@@ -67,27 +67,12 @@ Item {
             }
         }
 
-        Rectangle {
-            id: mediaTextContainer
-            Layout.fillHeight: true
-            Layout.alignment: Qt.AlignVCenter
-            implicitWidth: Math.min(200, mediaText.implicitWidth)
+        Marquee {
+            text: `${title}${artist ? ' - ' + artist : ''}`
+            width: 200
             height: parent.height
-            color: "transparent"
-            Text {
-                id: mediaText
-                text: `${title}${artist ? ' - ' + artist : ''}`
-                font.family: Fonts.monoFont
-                font.pointSize: 11
-                font.bold: false
-                color: Colors.text
-                elide: Text.ElideRight
-                width: parent.width
-                height: parent.height
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-                clip: true
-            }
+            scrollDuration: Globals.anim.durations.extraLarge * 3
+            pauseDuration: Globals.anim.durations.extraLarge
         }
     }
 
