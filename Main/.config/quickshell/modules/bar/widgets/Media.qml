@@ -71,8 +71,8 @@ Item {
             text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
             width: 200
             height: mediaRow.height
-            scrollDuration: Globals.anim.durations.extraLarge * 3
-            pauseDuration: Globals.anim.durations.extraLarge
+            scrollRate: 7
+            pauseDuration: Globals.anim.durations.extraLarge * 1.5
         }
     }
 

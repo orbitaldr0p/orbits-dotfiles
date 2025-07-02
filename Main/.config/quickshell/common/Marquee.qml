@@ -10,7 +10,7 @@ Item {
     property var font: Fonts.monoFont
     property var size: 11
     property var color: Colors.text
-    property var scrollDuration: Globals.anim.durations.normal
+    property var scrollRate: 5
     property var pauseDuration: Globals.anim.durations.normal
 
     function originX() {
@@ -63,7 +63,7 @@ Item {
             id: animation2
             target: animatedText
             property: "x"
-            duration: root.scrollDuration
+            duration: animatedText.width * root.scrollRate
             easing.type: Easing.Linear
         }
         NumberAnimation {
