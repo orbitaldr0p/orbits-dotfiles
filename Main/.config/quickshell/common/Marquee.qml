@@ -47,6 +47,7 @@ Item {
         font.family: root.font
         color: root.color
         font.pointSize: root.size
+        anchors.verticalCenter: parent.verticalCenter
     }
 
     SequentialAnimation {

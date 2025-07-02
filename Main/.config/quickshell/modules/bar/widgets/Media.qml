@@ -37,7 +37,7 @@ Item {
                 Hyprland.dispatch("global quickshell:mediaControlsToggle");
                 break;
             case Qt.MiddleButton:
-                activePlayer.togglePlaying();
+                root.activePlayer.togglePlaying();
                 break;
             }
         }
@@ -55,10 +55,10 @@ Item {
         CircularProgress {
             id: mediaIcon
             lineWidth: 2
-            value: activePlayer?.position / activePlayer?.length
+            value: root.activePlayer?.position / root.activePlayer?.length
             size: 26
             Text {
-                text: activePlayer?.isPlaying ? "  " : "  "
+                text: root.activePlayer?.isPlaying ? "  " : "  "
                 font.family: Fonts.monoFont
                 font.pointSize: 18
                 font.bold: true
@@ -68,9 +68,9 @@ Item {
         }
 
         Marquee {
-            text: `${title}${artist ? ' - ' + artist : ''}`
+            text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
             width: 200
-            height: parent.height
+            height: mediaRow.height
             scrollDuration: Globals.anim.durations.extraLarge * 3
             pauseDuration: Globals.anim.durations.extraLarge
         }
