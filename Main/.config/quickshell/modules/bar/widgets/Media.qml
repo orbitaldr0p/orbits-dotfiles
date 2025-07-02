@@ -69,7 +69,7 @@ Item {
 
         Marquee {
             text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
-            width: 200
+            maxWidth: 200
             height: mediaRow.height
             scrollRate: 7
             pauseDuration: Globals.anim.durations.extraLarge * 1.5

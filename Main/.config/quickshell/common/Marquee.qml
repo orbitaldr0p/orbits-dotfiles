@@ -5,13 +5,17 @@ import "root:/config/"
 
 Item {
     id: root
-    clip: true
+
     property var text: ""
     property var font: Fonts.monoFont
     property var size: 11
     property var color: Colors.text
     property var scrollRate: 5
     property var pauseDuration: Globals.anim.durations.normal
+    property var maxWidth: 100
+
+    clip: true
+    width: Math.min(maxWidth, animatedText.width)
 
     function originX() {
         var ret = root.width - animatedText.width;
