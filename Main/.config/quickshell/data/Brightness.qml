@@ -4,7 +4,6 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import Quickshell.Hyprland
 
 Singleton {
     id: root
@@ -29,7 +28,7 @@ Singleton {
 
     Process {
         id: getBrightness
-        command: ["brightnessctl", "-d", "intel_backlight", "get"]
+        command: ["brightnessctl", "-d", root.deviceName, "get"]
         stdout: SplitParser {
             onRead: data => {
                 root.brightness = data;
@@ -39,7 +38,7 @@ Singleton {
 
     Process {
         id: getBrightnessMax
-        command: ["brightnessctl", "-d", "intel_backlight", "max"]
+        command: ["brightnessctl", "-d", root.deviceName, "max"]
         stdout: SplitParser {
             onRead: data => {
                 root.brightnessMax = data;

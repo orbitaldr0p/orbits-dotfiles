@@ -6,13 +6,13 @@ import "root:/config/"
 Item {
     id: root
 
-    property var text: ""
+    property string text: ""
     property var font: Fonts.monoFont
-    property var size: 11
+    property int size: 11
     property var color: Colors.text
-    property var scrollRate: 5
-    property var pauseDuration: Globals.anim.durations.normal
-    property var maxWidth: 100
+    property int scrollRate: 5
+    property int pauseDuration: Globals.anim.durations.normal
+    property int maxWidth: 100
 
     clip: true
     width: Math.min(maxWidth, animatedText.width)
