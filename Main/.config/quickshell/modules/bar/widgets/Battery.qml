@@ -115,8 +115,9 @@ Item {
 
     Behavior on Layout.preferredWidth {
         NumberAnimation {
-            duration: Globals.anim.durations.small
-            easing.type: Easing.InOutQuad
+            duration: Globals.anim.durations.normal
+            easing.bezierCurve: Globals.anim.curves.bg
+            easing.type: Easing.BezierSpline
         }
     }
 }
