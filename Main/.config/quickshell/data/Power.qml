@@ -34,11 +34,11 @@ Singleton {
     function changePowerProfile() {
         pwrProf.running = true;
     }
+
     Process {
         id: batMon
         command: ["sh", "-c", "foot -T 'ftui-Battery Status' -e battop"]
     }
-
     Process {
         id: pwrProf
         command: ["sh", "-c", "~/.scripts/System/powerProfile.sh"]
