@@ -8,13 +8,12 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-Rectangle {
+Item {
     id: root
     property bool hovered: false
     property bool menuVisible: false
     property bool expand: hovered || menuVisible
 
-    color: "transparent"
     Layout.preferredWidth: expand ? sysTrayWrapper.width : trayIconWrapper.width
     height: trayIconWrapper.height
     clip: true

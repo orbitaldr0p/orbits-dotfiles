@@ -7,33 +7,36 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-MouseArea {
+Item {
     id: root
     property bool hovered: false
     Layout.preferredWidth: hovered ? cpuRow.width : cpuPercentRow.width
     Layout.preferredHeight: cpuRow.height
     clip: true
 
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    cursorShape: Qt.PointingHandCursor
-    hoverEnabled: true
-    onEntered: {
-        root.hovered = true;
-        Hyprland.dispatch("global quickshell:cpuPopupToggle");
-    }
-    onExited: {
-        root.hovered = false;
-        Hyprland.dispatch("global quickshell:cpuPopupToggle");
-    }
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
+        onEntered: {
+            root.hovered = true;
+            Hyprland.dispatch("global quickshell:cpuPopupToggle");
+        }
+        onExited: {
+            root.hovered = false;
+            Hyprland.dispatch("global quickshell:cpuPopupToggle");
+        }
 
-    onClicked: mouse => {
-        switch (mouse.button) {
-        case Qt.LeftButton:
-            Resources.systemMonitor();
-            break;
-        case Qt.RightButton:
-            Resources.gpuMonitor();
-            break;
+        onClicked: mouse => {
+            switch (mouse.button) {
+            case Qt.LeftButton:
+                Resources.systemMonitor();
+                break;
+            case Qt.RightButton:
+                Resources.gpuMonitor();
+                break;
+            }
         }
     }
 

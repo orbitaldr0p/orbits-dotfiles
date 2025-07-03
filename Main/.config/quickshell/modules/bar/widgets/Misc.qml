@@ -7,11 +7,10 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-Rectangle {
+Item {
     id: root
     property bool hovered: false
     property var iconSize: 17
-    color: "transparent"
     Layout.preferredWidth: hovered ? miscWrapper.width : miscIconWrapper.width
     height: miscWrapper.height
     Layout.alignment: Qt.AlignRight

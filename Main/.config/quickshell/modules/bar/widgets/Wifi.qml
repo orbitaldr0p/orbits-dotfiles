@@ -6,18 +6,21 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-MouseArea {
+Item {
     id: root
     property bool hovered: false
     Layout.preferredWidth: hovered ? wifiRow.width : wifiIcon.width
     Layout.preferredHeight: wifiRow.height
-    cursorShape: Qt.PointingHandCursor
     clip: true
 
-    hoverEnabled: true
-    onClicked: Network.launchWifiMenu()
-    onEntered: root.hovered = true
-    onExited: root.hovered = false
+    MouseArea {
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
+        onClicked: Network.launchWifiMenu()
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
+    }
 
     Row {
         id: wifiRow
