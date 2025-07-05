@@ -17,7 +17,6 @@ Item {
     clip: true
     width: Math.min(maxWidth, text1.paintedWidth)
 
-    // Helper to measure width of space
     Text {
         id: spaceMeasure
         text: " "
