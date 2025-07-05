@@ -8,13 +8,26 @@ import "modules/popups"
 import "modules/popups/media"
 
 ShellRoot {
-	property bool enableBar: true
-	property bool enableBG: true
-	property bool enableMedia: false
-	property bool enablePopups: true
+    id: root
+    property bool enableBar: true
+    property bool enableBG: true
+    property bool enableMedia: false
+    property bool enablePopups: true
 
-    LazyLoader { active: enableBar; component: Bar {} }
-	LazyLoader { active: enableBG; component: BackgroundImageLoader {} }
-	LazyLoader { active: enableMedia; component: MediaControls {} }
-	LazyLoader { active: enablePopups; component: CPUPopup {} }
+    LazyLoader {
+        active: root.enableBar
+        component: Bar {}
+    }
+    LazyLoader {
+        active: root.enableBG
+        component: BackgroundImageLoader {}
+    }
+    LazyLoader {
+        active: root.enableMedia
+        component: MediaControls {}
+    }
+    LazyLoader {
+        active: root.enablePopups
+        component: CPUPopup {}
+    }
 }
