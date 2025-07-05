@@ -18,7 +18,7 @@ Rectangle {
 
     Image {
         id: wallpaper
-        source: Globals.wallpaper
+        source: Globals.wallDirectory + Globals.wallpaper
         fillMode: Image.PreserveAspectFit
         asynchronous: true
         cache: true
