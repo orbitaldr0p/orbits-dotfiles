@@ -17,22 +17,33 @@ Item {
     clip: true
     width: Math.min(maxWidth, text1.paintedWidth)
 
+    // Helper to measure width of space
+    Text {
+        id: spaceMeasure
+        text: " "
+        font.family: root.font
+        font.pointSize: root.size
+        visible: false
+    }
+
     Text {
         id: text1
-        text: " " + root.text
+        text: root.text
         font.family: root.font
         font.pointSize: root.size
         color: root.color
         anchors.verticalCenter: parent.verticalCenter
+        visible: true
     }
 
     Text {
         id: text2
-        text: " " + root.text
+        text: root.text
         font.family: root.font
         font.pointSize: root.size
         color: root.color
         anchors.verticalCenter: parent.verticalCenter
+        visible: false
     }
 
     SequentialAnimation {
@@ -47,15 +58,15 @@ Item {
             target: text1
             property: "x"
             from: 0
-            to: -text1.paintedWidth
-            duration: text1.paintedWidth * root.scrollRate
+            to: -text1.paintedWidth - spaceMeasure.width
+            duration: (text1.paintedWidth + spaceMeasure.width) * root.scrollRate
             easing.type: Easing.Linear
         }
 
         ScriptAction {
             script: {
                 text1.x = 0;
-                text2.x = text1.paintedWidth;
+                text2.x = text1.paintedWidth + spaceMeasure.width;
             }
         }
     }
@@ -63,15 +74,23 @@ Item {
     Connections {
         target: text1
         onXChanged: {
-            text2.x = text1.x + text1.paintedWidth;
+            if (scrollAnim.running)
+                text2.x = text1.x + text1.paintedWidth + spaceMeasure.width;
         }
     }
 
     function restartAnimation() {
         scrollAnim.stop();
-        text1.x = 0;
-        text2.x = text1.paintedWidth;
-        scrollAnim.start();
+
+        if (text1.paintedWidth > root.maxWidth) {
+            text1.x = 0;
+            text2.x = text1.paintedWidth + spaceMeasure.width;
+            text2.visible = true;
+            scrollAnim.start();
+        } else {
+            text1.x = 0;
+            text2.visible = false;
+        }
     }
 
     Component.onCompleted: restartAnimation()
