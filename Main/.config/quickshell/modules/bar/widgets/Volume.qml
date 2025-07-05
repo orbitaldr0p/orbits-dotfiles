@@ -47,6 +47,7 @@ MouseArea {
         }
 
         Text {
+            visible: !Audio.muted
             text: Math.round(Audio.volume * 100) + "%"
             font.family: Fonts.normalFont
             font.pointSize: 11

@@ -10,7 +10,7 @@ Singleton {
     property PwNode sink: Pipewire.defaultAudioSink
     property PwNode source: Pipewire.defaultAudioSource
     property var volume: sink?.audio.volume
-    property var muted: sink?.audio.muted
+    property bool muted: sink?.audio.muted
 
     property var micMuted: source?.audio.muted
     property var micVolume: source?.audio.volume

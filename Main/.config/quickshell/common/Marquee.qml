@@ -11,69 +11,70 @@ Item {
     property int size: 11
     property var color: Colors.text
     property int scrollRate: 5
-    property int pauseDuration: Globals.anim.durations.normal
     property int maxWidth: 100
+    property int pauseDuration: Globals.anim.durations.normal
 
     clip: true
-    width: Math.min(maxWidth, animatedText.width)
+    width: Math.min(maxWidth, text1.paintedWidth)
 
-    function originX() {
-        var ret = root.width - animatedText.width;
-        if (ret > 0)
-            return ret / 2;
-        else
-            return 0;
-    }
-
-    function destinationX() {
-        var ret = root.width - animatedText.width;
-        if (ret < 0)
-            return ret;
-        else
-            return originX();
-    }
-
-    function restartAnimation() {
-        animation.stop();
-        animation1.from = originX();
-        animation1.to = originX();
-        animation2.to = destinationX();
-        animation.start();
-    }
-
-    onWidthChanged: restartAnimation()
     Text {
-        id: animatedText
-        width: contentWidth
-        onWidthChanged: root.restartAnimation()
-        elide: Text.ElideNone
-        text: root.text
+        id: text1
+        text: " " + root.text
         font.family: root.font
-        color: root.color
         font.pointSize: root.size
+        color: root.color
+        anchors.verticalCenter: parent.verticalCenter
+    }
+
+    Text {
+        id: text2
+        text: " " + root.text
+        font.family: root.font
+        font.pointSize: root.size
+        color: root.color
         anchors.verticalCenter: parent.verticalCenter
     }
 
     SequentialAnimation {
-        id: animation
+        id: scrollAnim
         loops: Animation.Infinite
-        NumberAnimation {
-            id: animation1
-            target: animatedText
-            property: "x"
+
+        PauseAnimation {
             duration: root.pauseDuration
         }
+
         NumberAnimation {
-            id: animation2
-            target: animatedText
+            target: text1
             property: "x"
-            duration: animatedText.width * root.scrollRate
+            from: 0
+            to: -text1.paintedWidth
+            duration: text1.paintedWidth * root.scrollRate
             easing.type: Easing.Linear
         }
-        NumberAnimation {
-            target: animatedText
-            property: "x"
-            duration: root.pauseDuration
+
+        ScriptAction {
+            script: {
+                text1.x = 0;
+                text2.x = text1.paintedWidth;
+            }
         }
     }
+
+    Connections {
+        target: text1
+        onXChanged: {
+            text2.x = text1.x + text1.paintedWidth;
+        }
+    }
+
+    function restartAnimation() {
+        scrollAnim.stop();
+        text1.x = 0;
+        text2.x = text1.paintedWidth;
+        scrollAnim.start();
+    }
+
+    Component.onCompleted: restartAnimation()
+    onTextChanged: restartAnimation()
+    onWidthChanged: restartAnimation()
 }

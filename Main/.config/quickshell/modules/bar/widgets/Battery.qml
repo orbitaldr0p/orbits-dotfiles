@@ -103,6 +103,7 @@ Item {
             spacing: 4
 
             Text {
+                visible: !(Power.battery.timeToEmpty === 0 && Power.battery.timeToFull === 0)
                 text: root.timeConverter(Power.battery.timeToEmpty === 0 ? Power.battery.timeToFull : Power.battery.timeToEmpty) + " " + (Power.battery.timeToEmpty === 0 ? "till full" : "till empty")
                 font.family: Fonts.monoFont
                 font.pointSize: 11

@@ -71,7 +71,7 @@ Item {
             text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
             maxWidth: 200
             height: mediaRow.height
-            scrollRate: 7
+            scrollRate: 15
             pauseDuration: Globals.anim.durations.extraLarge * 1.5
         }
     }
