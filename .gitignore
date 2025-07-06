@@ -1,9 +1,10 @@
 .vscode/
 .venv/
+.ropeproject/
+**/__pycache__/
 
 Main/.config/ncmpcpp/error.log
 Main/.config/hypr/cards/
 Main/.config/clipse/clipboard_history.json
 Main/.config/clipse/tmp_files/
 Main/.config/clipse/clipse.log
-**/__pycache__/
