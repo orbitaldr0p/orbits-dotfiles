@@ -11,7 +11,7 @@ import "root:/config/"
 Item {
     id: root
     readonly property MprisPlayer activePlayer: MprisController.activePlayer
-    readonly property string title: activePlayer ? activePlayer.trackTitle || "No media" : "No media"
+    readonly property string title: activePlayer ? StringUtils.cleanMusicTitle(activePlayer?.trackTitle) || "No media" : "No media"
     readonly property string artist: activePlayer ? activePlayer.trackArtist || "" : ""
     property bool hovered: false
 

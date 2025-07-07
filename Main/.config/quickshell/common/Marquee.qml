@@ -19,7 +19,7 @@ Item {
 
     Text {
         id: spaceMeasure
-        text: " "
+        text: "     "
         font.family: root.font
         font.pointSize: root.size
         visible: false

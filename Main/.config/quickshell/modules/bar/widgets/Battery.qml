@@ -14,20 +14,6 @@ Item {
     Layout.preferredHeight: batteryRow.height
     clip: true
 
-    function timeConverter(seconds) {
-        if (isNaN(seconds) || seconds < 0)
-            return "0:00";
-        seconds = Math.floor(seconds);
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        const s = seconds % 60;
-        if (h > 0) {
-            return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        } else {
-            return `${m}:${s.toString().padStart(2, '0')}`;
-        }
-    }
-
     MouseArea {
         anchors.fill: parent
         acceptedButtons: Qt.LeftButton | Qt.MiddleButton | Qt.RightButton
@@ -104,7 +90,7 @@ Item {
 
             Text {
                 visible: !(Power.battery.timeToEmpty === 0 && Power.battery.timeToFull === 0)
-                text: root.timeConverter(Power.battery.timeToEmpty === 0 ? Power.battery.timeToFull : Power.battery.timeToEmpty) + " " + (Power.battery.timeToEmpty === 0 ? "till full" : "till empty")
+                text: StringUtils.timeConverter(Power.battery.timeToEmpty === 0 ? Power.battery.timeToFull : Power.battery.timeToEmpty) + " " + (Power.battery.timeToEmpty === 0 ? "till full" : "till empty")
                 font.family: Fonts.monoFont
                 font.pointSize: 11
                 font.bold: true
