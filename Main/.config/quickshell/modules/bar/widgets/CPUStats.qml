@@ -42,7 +42,7 @@ Item {
 
     Row {
         id: cpuRow
-        spacing: parent.parent.height / 4
+        spacing: 10
         Layout.alignment: Qt.AlignVCenter
         Row {
             id: cpuPercentRow

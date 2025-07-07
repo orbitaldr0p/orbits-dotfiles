@@ -29,8 +29,8 @@ Singleton {
                 let parts = data.trim().split(/\s+/);
                 if (parts.length >= 6) {
                     weekday = parts[0];
-                    month = parts[1];
-                    day = parts[2];
+                    day = parts[1];
+                    month = parts[2];
                     timezone = parts[4];
                     year = parts[5];
                     let timeParts = parts[3].split(":");
