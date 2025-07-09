@@ -5,7 +5,7 @@ import Quickshell
 Singleton {
     readonly property Anim anim: Anim {}
     readonly property url wallDirectory: "root:/assets/wallpapers/"
-    readonly property string wallpaper: "Stellar-colorized.png"
+    readonly property string wallpaper: "Stellar-colorized.jpg"
 
     component AnimCurves: QtObject {
         readonly property list<real> bg: [0.23, 1, 0.61, 1, 1, 1]
