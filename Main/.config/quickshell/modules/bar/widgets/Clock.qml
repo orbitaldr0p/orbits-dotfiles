@@ -74,7 +74,7 @@ Item {
     Behavior on Layout.preferredWidth {
         NumberAnimation {
             duration: Globals.anim.durations.normal
-            easing.bezierCurve: Globals.anim.curves.bg
+            easing.bezierCurve: Globals.anim.curves.slideout
             easing.type: Easing.BezierSpline
         }
     }
