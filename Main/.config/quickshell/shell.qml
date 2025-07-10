@@ -11,8 +11,8 @@ ShellRoot {
     id: root
     property bool enableBar: true
     property bool enableBG: true
-    property bool enableMedia: false
     property bool enablePopups: true
+    property bool enableReload: true
 
     LazyLoader {
         active: root.enableBar
@@ -23,11 +23,15 @@ ShellRoot {
         component: BackgroundImageLoader {}
     }
     LazyLoader {
-        active: root.enableMedia
+        active: root.enablePopups
         component: MediaControls {}
     }
     LazyLoader {
         active: root.enablePopups
         component: CPUPopup {}
+    }
+    LazyLoader {
+        active: root.enableReload
+        component: ReloadPopup {}
     }
 }
