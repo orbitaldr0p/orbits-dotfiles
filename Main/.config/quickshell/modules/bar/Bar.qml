@@ -59,7 +59,7 @@ Scope {
                         horizontalCenter: parent.horizontalCenter
                         verticalCenter: parent.verticalCenter
                     }
-                    ActiveWindow {}
+                    //ActiveWindow {}
                 }
 
                 RowLayout {
