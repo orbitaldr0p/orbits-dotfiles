@@ -118,7 +118,7 @@ Scope {
 						property: "width"
 						from: rect.width
 						to: 0
-						duration: failed ? 10000 : 800
+						duration: failed ? 10000 : 1000
 						onFinished: popupLoader.active = false
 
 						// Pause the animation when the mouse is hovering over the popup,

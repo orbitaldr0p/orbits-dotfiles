@@ -62,7 +62,7 @@ Item {
             id: dateRow
             Text {
                 id: dateText
-                text: ` ${DateTime.day}-${DateTime.month}-${DateTime.year}  GMT${DateTime.timezone}`
+                text: ` ${DateTime.day}-${DateTime.month}-${DateTime.year}  ${DateTime.timezone}`
                 color: Colors.text
                 font.family: Fonts.normalFont
                 font.pointSize: 11

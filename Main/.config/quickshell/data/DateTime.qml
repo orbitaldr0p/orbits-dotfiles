@@ -25,13 +25,15 @@ Singleton {
 
         stdout: SplitParser {
             onRead: data => {
-                // Example output: "Tue May 28 12:34:56 BST 2025"
                 let parts = data.trim().split(/\s+/);
                 if (parts.length >= 6) {
                     weekday = parts[0];
                     day = parts[1];
                     month = parts[2];
                     timezone = parts[4];
+                    if (timezone.startsWith("+")) {
+                        timezone = "UTC " + timezone;
+                    }
                     year = parts[5];
                     let timeParts = parts[3].split(":");
                     if (timeParts.length === 3) {
