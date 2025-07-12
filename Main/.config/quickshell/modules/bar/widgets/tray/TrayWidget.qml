@@ -18,6 +18,15 @@ Item {
     height: trayIconWrapper.height
     clip: true
 
+    MouseArea {
+        id: hoverArea
+        anchors.fill: parent
+        hoverEnabled: true
+        onEntered: root.hovered = true
+        onExited: root.hovered = false
+        z: -1
+    }
+
     RowLayout {
         id: sysTrayWrapper
         anchors.verticalCenter: parent.verticalCenter
@@ -72,15 +81,6 @@ Item {
                 }
             }
         }
-    }
-
-    MouseArea {
-        id: hoverArea
-        anchors.fill: parent
-        hoverEnabled: true
-        onEntered: root.hovered = true
-        onExited: root.hovered = false
-        z: -1
     }
 
     Behavior on Layout.preferredWidth {
