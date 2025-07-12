@@ -25,8 +25,8 @@ Item {
 
         Item {
             id: trayIconWrapper
-            width: trayIcon.width
-            height: trayIcon.height
+            implicitWidth: trayIcon.implicitWidth
+            implicitHeight: trayIcon.implicitHeight
             Label {
                 id: trayIcon
                 anchors.centerIn: parent
@@ -62,7 +62,7 @@ Item {
         Repeater {
             id: sysTrayRow
             model: SystemTray.items
-            visible: expand
+            visible: root.expand
             TrayItem {
                 required property SystemTrayItem modelData
                 item: modelData

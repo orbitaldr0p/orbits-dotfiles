@@ -10,7 +10,7 @@ import "root:/common/"
 import "root:/config/"
 
 Item {
-    id: trayItem
+    id: root
 
     required property SystemTrayItem item
     signal menuOpened
@@ -27,15 +27,15 @@ Item {
         onClicked: mouse => {
             switch (mouse.button) {
             case Qt.LeftButton:
-                trayItem.item.activate();
+                root.item.activate();
                 break;
             case Qt.RightButton:
-                if (trayItem.item.hasMenu) {
+                if (root.item.hasMenu) {
                     const window = QsWindow.window;
                     const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
                     menuAnchor.anchor.rect = widgetRect;
                     menuAnchor.open();
-                    trayItem.menuOpened();
+                    root.menuOpened();
                 }
                 break;
             }
@@ -45,16 +45,16 @@ Item {
     IconImage {
         id: trayIcon
         required property SystemTrayItem item
-        item: trayItem.item
+        item: root.item
         source: item.icon
         implicitSize: 17
     }
 
     QsMenuAnchor {
         id: menuAnchor
-        menu: trayItem.item.menu
+        menu: root.item.menu
         anchor.window: QsWindow.window ?? null
         anchor.adjustment: PopupAdjustment.Flip
-        onClosed: trayItem.menuClosed()
+        onClosed: root.menuClosed()
     }
 }
