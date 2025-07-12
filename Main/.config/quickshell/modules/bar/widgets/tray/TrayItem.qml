@@ -9,7 +9,7 @@ import "root:/data/"
 import "root:/common/"
 import "root:/config/"
 
-MouseArea {
+Item {
     id: trayItem
 
     required property SystemTrayItem item
@@ -18,23 +18,27 @@ MouseArea {
     Layout.preferredWidth: trayIcon.width
     Layout.preferredHeight: trayIcon.height
 
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    cursorShape: Qt.PointingHandCursor
+    MouseArea {
+        anchors.fill: parent
 
-    onClicked: mouse => {
-        switch (mouse.button) {
-        case Qt.LeftButton:
-            item.activate();
-            break;
-        case Qt.RightButton:
-            if (item.hasMenu) {
-                const window = QsWindow.window;
-                const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
-                menuAnchor.anchor.rect = widgetRect;
-                menuAnchor.open();
-                trayItem.menuOpened();
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        cursorShape: Qt.PointingHandCursor
+
+        onClicked: mouse => {
+            switch (mouse.button) {
+            case Qt.LeftButton:
+                item.activate();
+                break;
+            case Qt.RightButton:
+                if (item.hasMenu) {
+                    const window = QsWindow.window;
+                    const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
+                    menuAnchor.anchor.rect = widgetRect;
+                    menuAnchor.open();
+                    trayItem.menuOpened();
+                }
+                break;
             }
-            break;
         }
     }
 
