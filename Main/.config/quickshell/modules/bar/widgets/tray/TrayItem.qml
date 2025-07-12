@@ -27,10 +27,10 @@ Item {
         onClicked: mouse => {
             switch (mouse.button) {
             case Qt.LeftButton:
-                item.activate();
+                trayItem.item.activate();
                 break;
             case Qt.RightButton:
-                if (item.hasMenu) {
+                if (trayItem.item.hasMenu) {
                     const window = QsWindow.window;
                     const widgetRect = window.contentItem.mapFromItem(trayIcon, 0, trayIcon.height + 5, trayIcon.width, trayIcon.height);
                     menuAnchor.anchor.rect = widgetRect;
@@ -52,7 +52,7 @@ Item {
 
     QsMenuAnchor {
         id: menuAnchor
-        menu: item.menu
+        menu: trayItem.item.menu
         anchor.window: QsWindow.window ?? null
         anchor.adjustment: PopupAdjustment.Flip
         onClosed: trayItem.menuClosed()
