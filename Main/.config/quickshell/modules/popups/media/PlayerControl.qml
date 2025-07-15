@@ -18,20 +18,6 @@ Item {
     implicitWidth: 400
     implicitHeight: 130
 
-    function timeConverter(seconds) {
-        if (isNaN(seconds) || seconds < 0)
-            return "0:00";
-        seconds = Math.floor(seconds);
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        const s = seconds % 60;
-        if (h > 0) {
-            return `${h}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
-        } else {
-            return `${m}:${s.toString().padStart(2, '0')}`;
-        }
-    }
-
     Timer {
         running: playerController.player?.playbackState == MprisPlaybackState.Playing
         interval: 1000
@@ -40,7 +26,7 @@ Item {
             playerController.player.positionChanged();
         }
     }
-    
+
 
     Rectangle {
         anchors.fill: parent
@@ -78,7 +64,7 @@ Item {
             RowLayout {
                 Text {
                     id: trackTime
-                    text: playerController.timeConverter(playerController.player?.position) + "/" + playerController.timeConverter(playerController.player?.length)
+                    text: StringUtils.timeConverter(playerController.player?.position) + "/" + StringUtils.timeConverter(playerController.player?.length)
                     color: Colors.text
                     font.family: Fonts.normalFont
                     font.pointSize: 13

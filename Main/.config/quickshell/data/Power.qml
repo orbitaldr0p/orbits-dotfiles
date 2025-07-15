@@ -8,12 +8,12 @@ import Quickshell.Io
 
 Singleton {
     id: root
-    property var battery: UPower.displayDevice
-    property var chargeState: battery.state
-    property bool isCharging: chargeState == UPowerDeviceState.Charging
-    property bool isPluggedIn: isCharging || chargeState == UPowerDeviceState.PendingCharge
-    property var batPercent: battery.percentage
-	property string batIcon: {
+    readonly property var battery: UPower.displayDevice
+    readonly property var chargeState: battery.state
+    readonly property bool isCharging: chargeState == UPowerDeviceState.Charging
+    readonly property bool isPluggedIn: isCharging || chargeState == UPowerDeviceState.PendingCharge
+    readonly property var batPercent: battery.percentage
+	readonly property string batIcon: {
 		(isCharging) ? "󰂄"
 		: (batPercent == 1) ? "󰁹"
 		: (batPercent >= 0.9) ? "󰂂"

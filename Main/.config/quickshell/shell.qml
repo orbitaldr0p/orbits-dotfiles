@@ -31,6 +31,10 @@ ShellRoot {
         component: CPUPopup {}
     }
     LazyLoader {
+        active: root.enablePopups
+        component: BatteryPopup {}
+    }
+    LazyLoader {
         active: root.enableReload
         component: ReloadPopup {}
     }

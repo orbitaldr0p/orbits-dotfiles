@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Hyprland
 import "root:/data/"
 import "root:/common/"
 import "root:/config/"
@@ -22,9 +23,11 @@ Item {
         hoverEnabled: true
         onEntered: {
             root.hovered = true;
+            Hyprland.dispatch("global quickshell:batteryPopupToggle");
         }
         onExited: {
             root.hovered = false;
+            Hyprland.dispatch("global quickshell:batteryPopupToggle");
         }
 
         onClicked: mouse => {
