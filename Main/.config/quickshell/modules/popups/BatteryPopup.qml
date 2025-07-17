@@ -47,7 +47,7 @@ Scope {
                         font.pointSize: 10
                     }
                     Text {
-                        id: trackArtist
+                        id: batteryWatts
                         text: `${Power.isCharging ? 'Charge Rate' : 'Drain Rate'}: ${root.currentBattery.changeRate}W`
                         color: Colors.text
                         font.family: Fonts.normalFont
