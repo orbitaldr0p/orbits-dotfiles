@@ -6,7 +6,7 @@ target_timezone="Asia/Shanghai"
 if [ "$current_timezone" == "$target_timezone" ]; then
     echo "Launching Clash"
     sleep 4
-    cfw --force-device-scale-factor=1.5
+    clash-verge
 else
     echo "Launching Mullvad"
     mullvad
