@@ -16,6 +16,7 @@ Item {
 
     clip: true
     width: Math.min(maxWidth, text1.paintedWidth)
+    implicitHeight: text1.implicitHeight
 
     Text {
         id: spaceMeasure

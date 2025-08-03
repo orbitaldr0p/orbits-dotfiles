@@ -81,28 +81,31 @@ Item {
 
             ColumnLayout {
                 spacing: 2
-                Text {
+
+                Marquee {
                     id: trackTitle
                     text: playerController.player?.trackTitle || "Untitled"
-                    color: Colors.text
-                    font.family: Fonts.normalFont
-                    font.pointSize: 13
-                    font.bold: true
+                    size: 13
+                    maxWidth: 250
+                    scrollRate: 15
+                    pauseDuration: Globals.anim.durations.extraLarge * 1.5
                 }
 
-                Text {
+                Marquee {
                     id: trackArtist
                     text: playerController.player?.trackArtist
-                    color: Colors.text
-                    font.family: Fonts.normalFont
-                    font.pointSize: 10
+                    size: 10
+                    maxWidth: 250
+                    scrollRate: 15
+                    color: Colors.withAlpha(Colors.text, 0.7)
+                    pauseDuration: Globals.anim.durations.extraLarge * 1.5
                 }
 
                 Text {
                     // Track Time
                     id: trackTime
                     text: StringUtils.timeConverter(playerController.player?.position) + " / " + StringUtils.timeConverter(playerController.player?.length)
-                    color: Colors.text
+                    color: Colors.withAlpha(Colors.text, 0.7)
                     font.family: Fonts.normalFont
                     font.pointSize: 10
                 }
@@ -144,58 +147,109 @@ Item {
                     spacing: 5
                     Layout.alignment: Qt.AlignHCenter
 
-                    Button {
+                    Rectangle {
                         id: skipPrevious
+                        property bool hovered: false
+
                         height: 40
                         width: 40
-                        background: Rectangle {
-                            color: "transparent"
-                        }
+                        color: "transparent"
                         MaterialSymbol {
-                            id: skipPreviousIcon
                             anchors.centerIn: parent
                             anchors.fill: parent
                             text: "skip_previous"
+                            color: skipPrevious.hovered ? Colors.text : Colors.withAlpha(Colors.text, 0.5)
                             iconSize: 40
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: Globals.anim.durations.small
+                                    easing.type: Easing.InOutQuad
+                                }
+                            }
                         }
-                        onClicked: () => {
-                            playerController.player.previous()
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+                            onEntered: (event) => {
+                                return skipPrevious.hovered = true;
+                            }
+                            onExited: (event) => {
+                                return skipPrevious.hovered = false;
+                            }
+                            onClicked: () => {
+                                playerController.player.previous()
+                            }
                         }
                     }
-                    Button {
+                    Rectangle {
+                        id: playPause
+                        property bool hovered: false
+
                         height: 40
                         width: 40
-                        id: playPause
-                        background: Rectangle {
-                            color: "transparent"
-                        }
+                        color: "transparent"
                         MaterialSymbol {
-                            id: playPauseIcon
                             anchors.centerIn: parent
                             anchors.fill: parent
                             text: playerController.player?.isPlaying ? "pause" : "play_arrow"
+                            color: playPause.hovered ? Colors.text : Colors.withAlpha(Colors.text, 0.5)
                             iconSize: 40
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: Globals.anim.durations.small
+                                    easing.type: Easing.InOutQuad
+                                }
+                            }
                         }
-                        onClicked: {
-                            playerController.player.togglePlaying()
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+                            onEntered: (event) => {
+                                return playPause.hovered = true;
+                            }
+                            onExited: (event) => {
+                                return playPause.hovered = false;
+                            }
+                            onClicked: {
+                                playerController.player.togglePlaying()
+                            }
                         }
                     }
-                    Button {
+                    Rectangle {
                         id: skipNext
+                        property bool hovered: false
+
                         height: 40
                         width: 40
-                        background: Rectangle {
-                            color: "transparent"
-                        }
+                        color: "transparent"
                         MaterialSymbol {
-                            id: skipNextIcon
                             anchors.centerIn: parent
                             anchors.fill: parent
                             text: "skip_next"
+                            color: skipNext.hovered ? Colors.text : Colors.withAlpha(Colors.text, 0.5)
                             iconSize: 40
+                            Behavior on color {
+                                ColorAnimation {
+                                    duration: Globals.anim.durations.small
+                                    easing.type: Easing.InOutQuad
+                                }
+                            }
                         }
-                        onClicked: () => {
-                            playerController.player.next()
+                        MouseArea {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+                            onEntered: (event) => {
+                                return skipNext.hovered = true;
+                            }
+                            onExited: (event) => {
+                                return skipNext.hovered = false;
+                            }
+                            onClicked: () => {
+                                playerController.player.next()
+                            }
                         }
                     }
                 }
