@@ -17,21 +17,9 @@ Item {
     id: playerController
     required property MprisPlayer player
     property var artUrl: player?.trackArtUrl
-    property string albumArt
 
     implicitWidth: 400
     implicitHeight: 130
-
-    Process {
-        id: albumArtProc
-        command: ["/bin/sh", "-c", "playerctl metadata --format '{{mpris:artUrl}}'"]
-        running: true
-        stdout: SplitParser {
-            onRead: data => {
-                playerController.albumArt = data;
-            }
-        }
-    }
 
     Timer {
         running: playerController.player?.playbackState == MprisPlaybackState.Playing
@@ -74,7 +62,7 @@ Item {
                 Image {
                     property int size: parent.height
                     anchors.fill: parent
-                    source: albumArt
+                    source: artUrl
                     fillMode: Image.PreserveAspectCrop
                 }
             }
@@ -214,6 +202,7 @@ Item {
                             }
                             onClicked: {
                                 playerController.player.togglePlaying()
+                                console.log(playerController.albumArt)
                             }
                         }
                     }
