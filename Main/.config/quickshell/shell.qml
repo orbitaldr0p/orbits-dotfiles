@@ -2,10 +2,10 @@
 pragma ComponentBehavior: Bound
 
 import Quickshell
-import "modules/bar"
-import "modules/background"
-import "modules/popups"
-import "modules/popups/media"
+import qs.modules.bar
+import qs.modules.background
+import qs.modules.popups
+import qs.modules.popups.media
 
 ShellRoot {
     id: root
