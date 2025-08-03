@@ -202,7 +202,6 @@ Item {
                             }
                             onClicked: {
                                 playerController.player.togglePlaying()
-                                console.log(playerController.albumArt)
                             }
                         }
                     }
