@@ -20,7 +20,7 @@ MouseArea {
         spacing: 5
 
         Text {
-            text: Bluetooth.powered ? "" : "󰂲"
+            text: Bluetooth.adapterState === "1" || Bluetooth.adapterState === "2" ? "" : "󰂲"
             font.family: Fonts.monoFont
             font.pointSize: 11
             font.bold: true
@@ -29,7 +29,7 @@ MouseArea {
         }
 
         Text {
-            visible: Bluetooth.powered
+            visible: Bluetooth.adapterState === "1" || Bluetooth.adapterState === "2"
             text: {
                 const connectedDevices = Bluetooth.devices.filter(d => d.connected);
                 return connectedDevices.length > 0 ? connectedDevices.length.toString() : "On";
