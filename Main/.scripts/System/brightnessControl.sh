@@ -8,6 +8,7 @@ increase() {
         return
     fi
     brightnessctl -d "$displayDevice" s +10%
+    hyprctl dispatch "global quickshell:getBrightnessActivator"
     brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
     icon=$(getIcon "$brightness")
     notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: ${brightness}%" -t 2000 -r 91170 -i "$icon"
@@ -19,6 +20,7 @@ decrease() {
         return
     fi
     brightnessctl -d "$displayDevice" s 10%-
+    hyprctl dispatch "global quickshell:getBrightnessActivator"
     brightness=$(brightnessctl -d "$displayDevice" -m | cut -d, -f4 | sed 's/%//')
     icon=$(getIcon "$brightness")
     notify-send -h int:value:"$brightness" -h string:synchronous:brightness "Brightness: ${brightness}%" -t 2000 -r 91170 -i "$icon"

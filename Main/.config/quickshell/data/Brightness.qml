@@ -4,6 +4,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Io
+import Quickshell.Hyprland
 
 Singleton {
     id: root
@@ -63,6 +64,21 @@ Singleton {
             if (!running) {
                 getBrightness.running = true;
             }
+        }
+    }
+
+    IpcHandler {
+        target: "getBrightness"
+        function invoke(): void {
+            getBrightness.running = true;
+        }
+    }
+
+    GlobalShortcut {
+        name: "getBrightnessActivator"
+        description: qsTr("runs getBrightness process")
+        onPressed: {
+            getBrightness.running = true;
         }
     }
 }
