@@ -72,7 +72,7 @@ Item {
 
     Connections {
         target: text1
-        onXChanged: {
+        function onXChanged() {
             if (scrollAnim.running)
                 text2.x = text1.x + text1.paintedWidth + spaceMeasure.width;
         }

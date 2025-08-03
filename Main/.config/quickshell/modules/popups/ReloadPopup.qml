@@ -3,12 +3,11 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Io
-import Quickshell.Hyprland
 import qs.data
 import qs.common
 import qs.config
 
+// modified reload popup example from docs
 
 Scope {
 	id: root
@@ -55,8 +54,8 @@ Scope {
 			}
 
 			exclusiveZone: 0
-			width: rect.width
-			height: rect.height
+			implicitWidth: rect.width
+			implicitHeight: rect.height
 
 			// color blending is a bit odd as detailed in the type reference.
 			color: "transparent"

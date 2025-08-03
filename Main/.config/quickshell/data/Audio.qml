@@ -9,11 +9,11 @@ Singleton {
     id: root
     property PwNode sink: Pipewire.defaultAudioSink
     property PwNode source: Pipewire.defaultAudioSource
-    property var volume: sink?.audio.volume
-    property bool muted: sink?.audio.muted
+    property var volume: sink?.audio.volume ?? 0
+    property bool muted: sink?.audio.muted ?? false
 
-    property var micMuted: source?.audio.muted
-    property var micVolume: source?.audio.volume
+    property var micMuted: source?.audio.muted ?? false
+    property var micVolume: source?.audio.volume ?? 0
     property string volIcon: {
         (muted) ? "󰝟" : (volume > 0.66) ? "󰕾" : (volume > 0.01) ? "󰖀" : "󰕿";
     }
