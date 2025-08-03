@@ -2,9 +2,9 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import "root:/data/"
-import "root:/common/"
-import "root:/config/"
+import qs.data
+import qs.common
+import qs.config
 
 MouseArea {
     Layout.preferredWidth: volumeRow.width

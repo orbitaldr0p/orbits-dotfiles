@@ -2,9 +2,9 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell.Hyprland
-import "root:/data/"
-import "root:/common/"
-import "root:/config/"
+import qs.data
+import qs.common
+import qs.config
 
 Rectangle {
     property int monitorWidth: Hyprland.focusedMonitor ? Hyprland.focusedMonitor.width : 0

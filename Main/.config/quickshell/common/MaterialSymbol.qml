@@ -1,9 +1,9 @@
 // Stolen from end-4
 
 import QtQuick
-import "root:/data/"
-import "root:/common/"
-import "root:/config/"
+import qs.data
+import qs.common
+import qs.config
 
 Text {
     id: root

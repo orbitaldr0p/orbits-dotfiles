@@ -6,9 +6,9 @@ import Quickshell
 import Quickshell.Io
 import Quickshell.Services.Mpris
 import Quickshell.Hyprland
-import "root:/data/"
-import "root:/common/"
-import "root:/config/"
+import qs.data
+import qs.common
+import qs.config
 
 Item {
     id: playerController

@@ -3,9 +3,9 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
-import "root:/data/"
-import "root:/common/"
-import "root:/config/"
+import qs.data
+import qs.common
+import qs.config
 
 Item {
     id: root
