@@ -74,7 +74,7 @@ Item {
             if (root.fill) {
                 ctx.fillStyle = root.secondaryColor;
                 ctx.beginPath();
-                ctx.arc(x, y, radius + fillOverflow, startAngle, fullAngle);
+                ctx.arc(x, y, radius + root.fillOverflow, startAngle, fullAngle);
                 ctx.fill();
             }
             ctx.lineCap = 'round';
@@ -82,12 +82,12 @@ Item {
 
             // Secondary
             ctx.beginPath();
-            ctx.arc(x, y, radius, progressAngle + gapAngle, fullAngle - gapAngle);
+            ctx.arc(x, y, radius, progressAngle + root.gapAngle, fullAngle - root.gapAngle);
             ctx.strokeStyle = root.secondaryColor;
             ctx.stroke();
 
             // Primary (value indication)
-            var endAngle = progressAngle + (value > 0 ? 0 : epsilon);
+            var endAngle = progressAngle + (root.value > 0 ? 0 : epsilon);
             ctx.beginPath();
             ctx.arc(x, y, radius, startAngle, endAngle);
             ctx.strokeStyle = root.primaryColor;
