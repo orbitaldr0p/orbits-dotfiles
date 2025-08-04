@@ -11,11 +11,12 @@ import qs.config
 Item {
     id: root
     readonly property MprisPlayer activePlayer: MprisController.activePlayer
-    readonly property string title: activePlayer ? StringUtils.cleanMusicTitle(activePlayer?.trackTitle) || "No media" : "No media"
+    readonly property string title: activePlayer ? StringUtils.cleanMusicTitle(activePlayer?.trackTitle) || (Globals.mediaHide ? "No media" : "") : (Globals.mediaHide ? "No media" : "")
     readonly property string artist: activePlayer ? activePlayer.trackArtist || "" : ""
     property bool hovered: false
+    property bool popupLoaded: false
 
-    Layout.preferredWidth: hovered ? mediaRow.width : mediaIcon.width
+    Layout.preferredWidth: hovered || popupLoaded || !Globals.mediaHide ? mediaRow.width : mediaIcon.width
     Layout.preferredHeight: mediaRow.height
     clip: true
 
@@ -35,6 +36,7 @@ Item {
             switch (mouse.button) {
             case Qt.LeftButton:
                 Hyprland.dispatch("global quickshell:mediaControlsToggle");
+                root.popupLoaded = !root.popupLoaded;
                 break;
             case Qt.MiddleButton:
                 root.activePlayer.togglePlaying();
@@ -68,8 +70,8 @@ Item {
         }
 
         Marquee {
-            text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
-            maxWidth: 200
+            text: `${root.title}${Globals.mediaHide && root.artist ? ' - ' + root.artist : ''}`
+            maxWidth: Globals.mediaHide ? 200 : 150
             anchors.verticalCenter: parent.verticalCenter
             scrollRate: 15
             pauseDuration: Globals.anim.durations.extraLarge * 1.5

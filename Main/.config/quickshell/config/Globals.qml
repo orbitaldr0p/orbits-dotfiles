@@ -4,8 +4,14 @@ import Quickshell
 
 Singleton {
     readonly property Anim anim: Anim {}
-    readonly property url wallDirectory: "root:/assets/wallpapers/"
-    readonly property string wallpaper: "Mirage-colorized.jpg"
+
+    // Wallpaper
+    property url wallDirectory: "root:/assets/wallpapers/"
+    property string wallpaper: "Mirage-colorized.jpg"
+
+    // Module Settings
+    // Media
+    property bool mediaHide: false
 
     component AnimCurves: QtObject {
         readonly property list<real> bg: [0.23, 1, 0.61, 1, 1, 1]
