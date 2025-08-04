@@ -1,17 +1,18 @@
 import QtQuick
-import qs.data
-import qs.common
+//import qs.data
+//import qs.common
 import qs.config
 
 Item {
     id: root
 
-    property string text: ""
+    required property string text
+    required property int maxWidth
+
     property var font: Fonts.monoFont
     property int size: 11
     property var color: Colors.text
     property int scrollRate: 5
-    property int maxWidth: 100
     property int pauseDuration: Globals.anim.durations.normal
 
     clip: true
@@ -32,7 +33,6 @@ Item {
         font.family: root.font
         font.pointSize: root.size
         color: root.color
-        anchors.verticalCenter: parent.verticalCenter
         visible: true
     }
 
@@ -42,7 +42,6 @@ Item {
         font.family: root.font
         font.pointSize: root.size
         color: root.color
-        anchors.verticalCenter: parent.verticalCenter
         visible: false
     }
 

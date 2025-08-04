@@ -20,10 +20,10 @@ Item {
     clip: true
 
     Timer {
-        running: activePlayer?.playbackState == MprisPlaybackState.Playing
+        running: root.activePlayer?.playbackState == MprisPlaybackState.Playing
         interval: 1000
         repeat: true
-        onTriggered: activePlayer.positionChanged()
+        onTriggered: root.activePlayer.positionChanged()
     }
 
     MouseArea {
@@ -70,7 +70,7 @@ Item {
         Marquee {
             text: `${root.title}${root.artist ? ' - ' + root.artist : ''}`
             maxWidth: 200
-            height: mediaRow.height
+            anchors.verticalCenter: parent.verticalCenter
             scrollRate: 15
             pauseDuration: Globals.anim.durations.extraLarge * 1.5
         }

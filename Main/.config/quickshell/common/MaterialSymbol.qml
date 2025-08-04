@@ -1,8 +1,8 @@
 // Stolen from end-4
 
 import QtQuick
-import qs.data
-import qs.common
+//import qs.data
+//import qs.common
 import qs.config
 
 Text {
