@@ -25,7 +25,7 @@ Item {
         Repeater {
             model: Math.max(HyprlandUtils.maxWorkspace, 5)
 
-            MouseArea {
+            Rectangle {
                 id: workspaceButton
                 required property int index
                 property HyprlandWorkspace currWorkspace: Hyprland.workspaces.values.find((e) => {
@@ -36,34 +36,38 @@ Item {
                 property bool hovered: false
 
                 Layout.preferredWidth: parent.height * 0.5
-                height: parent.height
+                Layout.preferredHeight: parent.height
+                color: "transparent"
 
-                hoverEnabled: true
-                onEntered: (event) => {
-                    return workspaceIndicator.hovered = true;
-                }
-                onExited: (event) => {
-                    return workspaceIndicator.hovered = false;
-                }
-                onClicked: (event) => {
-                    return Hyprland.dispatch(`workspace ${index+1}`);
+                MouseArea {
+                    anchors.fill: parent
+                    cursorShape: Qt.PointingHandCursor
+                    hoverEnabled: true
+                    onEntered: {
+                        workspaceButton.hovered = true;
+                    }
+                    onExited: {
+                        workspaceButton.hovered = false;
+                    }
+                    onClicked: {
+                        Hyprland.dispatch(`workspace ${workspaceButton.index+1}`);
+                    }
                 }
 
                 Text {
                     id: workspaceIndicator
-                    property bool hovered: false
                     anchors.centerIn: parent
                     text: {
                         const symbols = ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十"];
-                        return symbols[index] || (index + 1).toString();
+                        return symbols[workspaceButton.index] || (workspaceButton.index + 1).toString();
                     }
                     font.pointSize: 14
                     font.family: Fonts.chineseFont
                     font.bold: true
                     color: {
-                        if (focused)
+                        if (workspaceButton.focused)
                             return Colors.text;
-                        if (hovered)
+                        if (workspaceButton.hovered)
                             return Colors.text;
                         return Colors.withAlpha(Colors.text, 0.5);
                     }

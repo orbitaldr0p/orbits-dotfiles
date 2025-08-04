@@ -2,19 +2,14 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls
 import Qt5Compat.GraphicalEffects
-import Quickshell
-import Quickshell.Io
-import Quickshell.Widgets
 import Quickshell.Services.Mpris
-import Quickshell.Hyprland
 import qs.data
 import qs.common
 import qs.config
 
 Item {
-    id: playerController
+    id: root
     required property MprisPlayer player
     property var artUrl: player?.trackArtUrl
 
@@ -22,16 +17,16 @@ Item {
     implicitHeight: 130
 
     Timer {
-        running: playerController.player?.playbackState == MprisPlaybackState.Playing
+        running: root.player?.playbackState == MprisPlaybackState.Playing
         interval: 1000
         repeat: true
         onTriggered: {
-            playerController.player.positionChanged();
+            root.player.positionChanged();
         }
     }
 
     Rectangle {
-        id: playerControllerRect
+        id: rootRect
         anchors.fill: parent
         radius: 5
         color: Colors.withAlpha(Colors.base, 0.5)
@@ -62,7 +57,7 @@ Item {
                 Image {
                     property int size: parent.height
                     anchors.fill: parent
-                    source: artUrl
+                    source: root.artUrl
                     fillMode: Image.PreserveAspectCrop
                 }
             }
@@ -72,7 +67,7 @@ Item {
 
                 Marquee {
                     id: trackTitle
-                    text: playerController.player?.trackTitle || "Untitled"
+                    text: root.player?.trackTitle || "Untitled"
                     size: 13
                     maxWidth: 250
                     scrollRate: 15
@@ -81,7 +76,7 @@ Item {
 
                 Marquee {
                     id: trackArtist
-                    text: playerController.player?.trackArtist
+                    text: root.player?.trackArtist || ""
                     size: 10
                     maxWidth: 250
                     scrollRate: 15
@@ -92,7 +87,7 @@ Item {
                 Text {
                     // Track Time
                     id: trackTime
-                    text: StringUtils.timeConverter(playerController.player?.position) + " / " + StringUtils.timeConverter(playerController.player?.length)
+                    text: StringUtils.timeConverter(root.player?.position) + " / " + StringUtils.timeConverter(root.player?.length)
                     color: Colors.withAlpha(Colors.text, 0.7)
                     font.family: Fonts.normalFont
                     font.pointSize: 10
@@ -101,13 +96,13 @@ Item {
                 Rectangle {
                     //Progress Bar
                     id: progressBar
-                    width: 250
-                    height: 7
+                    Layout.preferredWidth: 250
+                    Layout.preferredHeight: 7
                     radius: 7
                     color: Colors.withAlpha(Colors.text, 0.2)
                     Rectangle {
                         id: progressRect
-                        width: parent.width * (playerController.player?.position / playerController.player?.length)
+                        width: parent.width * (root.player?.position / root.player?.length)
                         height: parent.height
                         radius: parent.radius
                         color: Colors.text
@@ -123,9 +118,10 @@ Item {
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
-                            const jump = (mouse.x - progressRect.width)/progressBar.width * playerController.player?.length
-                            //console.log(jump)
-                            playerController.player.seek(jump)
+                            const ratio = mouse.x / progressBar.width;
+                            const currentRatio = progressRect.width / progressBar.width;
+                            const jump = (ratio - currentRatio) * (root.player?.length || 0);
+                            root.player.seek(jump);
                         }
                     }
                 }
@@ -159,14 +155,14 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             hoverEnabled: true
-                            onEntered: (event) => {
-                                return skipPrevious.hovered = true;
+                            onEntered: {
+                                skipPrevious.hovered = true;
                             }
-                            onExited: (event) => {
-                                return skipPrevious.hovered = false;
+                            onExited: {
+                                skipPrevious.hovered = false;
                             }
                             onClicked: () => {
-                                playerController.player.previous()
+                                root.player.previous()
                             }
                         }
                     }
@@ -180,7 +176,7 @@ Item {
                         MaterialSymbol {
                             anchors.centerIn: parent
                             anchors.fill: parent
-                            text: playerController.player?.isPlaying ? "pause" : "play_arrow"
+                            text: root.player?.isPlaying ? "pause" : "play_arrow"
                             color: playPause.hovered ? Colors.text : Colors.withAlpha(Colors.text, 0.5)
                             iconSize: 40
                             Behavior on color {
@@ -194,14 +190,14 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             hoverEnabled: true
-                            onEntered: (event) => {
-                                return playPause.hovered = true;
+                            onEntered: {
+                                playPause.hovered = true;
                             }
-                            onExited: (event) => {
-                                return playPause.hovered = false;
+                            onExited: {
+                                playPause.hovered = false;
                             }
                             onClicked: {
-                                playerController.player.togglePlaying()
+                                root.player.togglePlaying()
                             }
                         }
                     }
@@ -229,14 +225,14 @@ Item {
                             anchors.fill: parent
                             cursorShape: Qt.PointingHandCursor
                             hoverEnabled: true
-                            onEntered: (event) => {
-                                return skipNext.hovered = true;
+                            onEntered: {
+                                skipNext.hovered = true;
                             }
-                            onExited: (event) => {
-                                return skipNext.hovered = false;
+                            onExited: {
+                                skipNext.hovered = false;
                             }
                             onClicked: () => {
-                                playerController.player.next()
+                                root.player.next()
                             }
                         }
                     }

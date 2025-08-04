@@ -7,8 +7,8 @@ import Quickshell.Io
 import Quickshell.Services.Mpris
 import Quickshell.Hyprland
 import qs.data
-import qs.common
-import qs.config
+//import qs.common
+//import qs.config
 
 Scope {
     id: root
@@ -95,7 +95,7 @@ Scope {
                         implicitHeight: playerControl.implicitHeight
                         PlayerControl {
                             id: playerControl
-                            player: modelData
+                            player: parent.modelData
                         }
                     }
                 }
