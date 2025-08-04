@@ -3,9 +3,9 @@ calendar_client = "thunderbird"
 terminal = "foot"
 
 [debug]
-try_suppress_errors     =   false                                   
-try_suppress_warnings   =   true                                    
-app_paths               =   ["~/.local/share/applications/"]        
+try_suppress_errors     =   false
+try_suppress_warnings   =   true
+app_paths               =   ["~/.local/share/applications/"]
 
 [units]
 lengths                 =   "meter"
@@ -14,29 +14,29 @@ volumes                 =   "l"
 temperatures            =   "C"
 
 [appearance]
-width                   =   900                                       
-height                  =   593                                       
-gsk_renderer            =   "cairo"                                   
-recolor_icons           =   false                                     
-icon_paths              =   [ "~/.config/sherlock/icons"]             
-icon_size               =   32                              
-search_icon             =   true                                        
+width                   =   900
+height                  =   593
+gsk_renderer            =   "cairo"
+recolor_icons           =   false
+icon_paths              =   [ "~/.config/sherlock/icons"]
+icon_size               =   32
+search_icon             =   true
 use_base_css            =   false
 status_bar              =   false
 opacity                 =   1.0
 
 [behavior]
-caching                 =   true                                    
-cache                   =   "~/.cache/sherlock_desktop_cache.json"  
-daemonize               =   false                                   
-animate                 =   true                                    
-global_prefix           =   ""                                   
-global_flags            =   ""                                 
+caching                 =   true
+cache                   =   "~/.cache/sherlock_desktop_cache.json"
+daemonize               =   false
+animate                 =   true
+global_prefix           =   ""
+global_flags            =   ""
 
 [binds]
-prev                    =   "None"                                  
-next                    =   "None"                                  
-modifier                =   "control"                               
+prev                    =   "None"
+next                    =   "None"
+modifier                =   "control"
 
 [files]
 fallback                =   "~/.config/sherlock/fallback.json"

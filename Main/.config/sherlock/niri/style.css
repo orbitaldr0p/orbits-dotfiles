@@ -9,7 +9,7 @@ overshoot.left undershoot.top,
 undershoot.right,
 undershoot.bottom,
 undershoot.left,
-.scroll-window>*,
+.scroll-window > *,
 overshoot:backdrop {
     background: none;
     border: none;
@@ -40,17 +40,15 @@ row:selected,
     background: transparent;
 }
 
-scrolledwindow>viewport,
-scrolledwindow>viewport>*,
+scrolledwindow > viewport,
+scrolledwindow > viewport > *,
 window {
     background: hsl(var(--background), 1);
 }
 
-
 label {
     color: hsl(var(--text));
 }
-
 
 window {
     color: hsl(var(--text));
@@ -77,7 +75,6 @@ window {
     animation: ease-opacity 0.3s ease forwards;
     animation: rotate 0.3s linear infinite;
 }
-
 
 /* SEARCH PAGE */
 #search-bar {
@@ -118,7 +115,6 @@ window {
     opacity: 1;
 }
 
-
 #search-icon {
     margin-left: 10px;
 }
@@ -157,7 +153,6 @@ scrollbar slider {
     background: hsla(var(--text), 0.2);
     border: none;
 }
-
 
 image {
     color: white;
@@ -287,7 +282,6 @@ row:selected .tile {
     border-radius: 50px;
 }
 
-
 /*SHORTCUT*/
 #shortcut-holder {
     margin-right: 25px;
@@ -317,7 +311,6 @@ row:selected .tile {
 #shortcut-modkey {
     font-size: 13px;
 }
-
 
 /*CALCULATOR*/
 .calc-tile {
@@ -353,15 +346,11 @@ row:selected .tile {
     color: gray;
 }
 
-
-
-
 /* BULK TEXT TILE */
 .bulk-text {
     padding-bottom: 10px;
     min-height: 50px;
 }
-
 
 #bulk-text-title {
     margin-left: 10px;
@@ -384,8 +373,6 @@ row:selected .tile {
     min-height: 20px;
 }
 
-
-
 /* MPRIS TILE*/
 #mpris-icon-holder {
     border-radius: 5px;
@@ -396,12 +383,6 @@ row:selected .tile {
     opacity: 1;
     animation: ease-opacity 0.5s forwards;
 }
-
-
-
-
-
-
 
 /* NEXT PAGE */
 .next_tile {
@@ -417,11 +398,10 @@ row:selected .tile {
 
 .raw_text,
 .next_tile #content-body {
-    font-family: 'Fira Code', monospace;
+    font-family: "Fira Code", monospace;
     font-feature-settings: "kern" off;
     font-kerning: None;
 }
-
 
 /*Error*/
 .error-tile #scroll-window {
@@ -472,7 +452,6 @@ row:selected .tile {
     color: gray;
 }
 
-
 /* STATUS BAR */
 .status-bar {
     background: hsla(var(--foreground), 0.2);
@@ -483,7 +462,6 @@ row:selected .tile {
 .status-bar label {
     color: hsl(var(--text), 0.3);
 }
-
 
 @keyframes slide {
     from {
@@ -529,11 +507,6 @@ row:selected .tile {
 .tile.weather-tile #content-holder {
     margin-bottom: 15px;
 }
-
-
-
-
-
 
 /*WEATHER CLASSES*/
 .tile.weather-tile label {
@@ -601,8 +574,6 @@ row:selected .tile {
     /* Neutral gray */
 }
 
-
-
 /*ANIMATIONS*/
 @keyframes vanish-rotate {
     from {
@@ -613,7 +584,6 @@ row:selected .tile {
         opacity: 0;
         transform: rotate(360deg);
     }
-
 }
 
 @keyframes rotate {
@@ -626,7 +596,6 @@ row:selected .tile {
         transform: rotate(360deg);
         --start-rotation: 360deg;
     }
-
 }
 
 @keyframes ease-opacity {
@@ -637,7 +606,6 @@ row:selected .tile {
     to {
         opacity: 1;
     }
-
 }
 
 @keyframes slide {

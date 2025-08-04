@@ -1,38 +1,38 @@
 [
-    {
-        "name": "Calculator",
-        "type": "calculation",
-        "args": {},
-        "priority": 3
+  {
+    "name": "Calculator",
+    "type": "calculation",
+    "args": {},
+    "priority": 3
+  },
+  {
+    "name": "App Launcher",
+    "alias": "app",
+    "type": "app_launcher",
+    "args": {},
+    "priority": 3,
+    "home": "Home"
+  },
+  {
+    "name": "Kill Process",
+    "alias": "kill",
+    "type": "process",
+    "args": {
+      "icon": "window-close"
     },
-    {
-        "name": "App Launcher",
-        "alias": "app",
-        "type": "app_launcher",
-        "args": {},
-        "priority": 4,
-        "home": true
+    "priority": 6,
+    "home": "Home"
+  },
+  {
+    "name": "Web Search",
+    "display_name": "Search Online",
+    "tag_start": "{keyword}",
+    "alias": "ks",
+    "type": "web_launcher",
+    "args": {
+      "search_engine": "https://kagi.com/search?q={keyword}",
+      "icon": "kagi"
     },
-    {
-        "name": "Kill Process",
-        "alias": "kill",
-        "type": "process",
-        "args": {
-            "icon": "window-close"
-        },
-        "priority": 6,
-        "home": false
-    },
-    {
-        "name": "Web Search",
-        "display_name": "Search Online",
-        "tag_start": "{keyword}",
-        "alias": "ks",
-        "type": "web_launcher",
-        "args": {
-            "search_engine": "https://kagi.com/search?q={keyword}",
-            "icon": "kagi"
-        },
-        "priority": 100
-    }
+    "priority": 100
+  }
 ]

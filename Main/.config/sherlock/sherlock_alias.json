@@ -1,17 +1,17 @@
 {
-    "Foot": {
-        "name": "Terminal",
-        "icon": "terminal"
-    },
-    "ncspot": {
-        "name": "Spotify",
-        "icon": "sherlock-spotify"
-    },
-    "VLC media player": {
-        "name": "VLC Player"
-    },
-    "Tweaks": {
-        "name": "GTK Settings",
-        "icon": "settings"
-    }
+  "Foot": {
+    "name": "Terminal",
+    "icon": "terminal"
+  },
+  "ncspot": {
+    "name": "Spotify",
+    "icon": "sherlock-spotify"
+  },
+  "VLC media player": {
+    "name": "VLC Player"
+  },
+  "Tweaks": {
+    "name": "GTK Settings",
+    "icon": "settings"
+  }
 }
