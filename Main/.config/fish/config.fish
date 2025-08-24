@@ -3,6 +3,7 @@ if status is-interactive
 end
 starship init fish | source
 pyenv init - | source
+avbroot completion -s fish | source
 set PATH "$HOME/.local/bin:$PATH"
 set PATH "/usr/local/texlive/2024/bin/x86_64-linux:$PATH"
 set MANPATH "/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH"

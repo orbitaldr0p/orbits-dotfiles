@@ -7,7 +7,7 @@ Singleton {
 
     // Wallpaper
     property url wallDirectory: "root:/assets/wallpapers/"
-    property string wallpaper: "Mirage-colorized.jpg"
+    property string wallpaper: "Tower-colorized.jpg"
 
     // Module Settings
     // Media

@@ -108,13 +108,25 @@ Scope {
         function toggle(): void {
             mediaControlsLoader.active = !mediaControlsLoader.active;
         }
+
+        function close(): void {
+            mediaControlsLoader.active = false
+        }
     }
 
     GlobalShortcut {
         name: "mediaControlsToggle"
-        description: qsTr("Toggles cpu popup on press")
+        description: qsTr("Toggles media popup")
         onPressed: {
             mediaControlsLoader.active = !mediaControlsLoader.active;
+        }
+    }
+
+    GlobalShortcut {
+        name: "mediaControlsClose"
+        description: qsTr("Closes media popup")
+        onPressed: {
+            mediaControlsLoader.active = false;
         }
     }
 }
